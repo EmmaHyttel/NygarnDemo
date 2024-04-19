@@ -6,4 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="MockData\" />
+    <Folder Include="Models\" />
+    <Folder Include="Pages\LogIn\" />
+    <Folder Include="Pages\Product\" />
+    <Folder Include="Pages\Order\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
