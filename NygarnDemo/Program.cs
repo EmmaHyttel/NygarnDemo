@@ -1,10 +1,11 @@
+using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Services.ProductServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<PatternService, PatternService>();
+builder.Services.AddSingleton<IPatternService, PatternService>();
 
 var app = builder.Build();
 

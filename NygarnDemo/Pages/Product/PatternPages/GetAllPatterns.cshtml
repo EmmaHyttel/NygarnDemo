@@ -2,18 +2,17 @@
 @model NygarnDemo.Pages.Product.PatternPages.GetAllPatternsModel
 @{
 }
-@* <h1>Opskrifter</h1>
-if (@Models.Patterns != null)
-{
-    foreach (var pattern in Models.Patterns)
+<h1>Opskrifter</h1>
+@if (Model.Patterns != null)
     {
-        <div class="card" style="width: 18rem;">
-            @* <img class="card-img-top" src="..." alt="Card image cap"> *@
+        foreach (var pattern in Model.Patterns)
+        {   <div class="card" style="width: 18rem;">
+                @* <img class="card-img-top" src="..." alt="Card image cap"> *@
             <div class="card-body">
                 <h5 class="card-title">@pattern.Name</h5>
                 <p class="card-text">@pattern.Description</p>
-                 <a href="#" class="btn btn-primary">Go somewhere</a>
-             </div>
-        </div>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            </div>
+        }
     }
-} *@

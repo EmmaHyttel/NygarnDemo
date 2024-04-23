@@ -22,6 +22,12 @@
 
         public Product()
         {
+            ProductId = 1234;
+            Price = 0;
+            Name = "testProdukt";
+            Description = "Beskrivelse";
+            Brand = "Brand";
+            Amount = 0;
         }
 
         public override string ToString()

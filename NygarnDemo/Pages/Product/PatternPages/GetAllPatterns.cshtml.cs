@@ -9,9 +9,9 @@ namespace NygarnDemo.Pages.Product.PatternPages
 {
     public class GetAllPatternsModel : PageModel
     {
-        private PatternService _patternService;
+        private IPatternService _patternService;
 
-        public GetAllPatternsModel(PatternService patternService)
+        public GetAllPatternsModel(IPatternService patternService)
         {
             _patternService = patternService;
         }
@@ -19,7 +19,7 @@ namespace NygarnDemo.Pages.Product.PatternPages
 
         public void OnGet()
         {
-            Patterns = MockPattern.GetAllPatterns();
+            Patterns = _patternService.GetPatterns();
         }
     }
 }
