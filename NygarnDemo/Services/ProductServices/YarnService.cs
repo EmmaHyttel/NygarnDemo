@@ -1,16 +1,22 @@
 ﻿using NygarnDemo.MockData;
 using NygarnDemo.Models;
+using NygarnDemo.Services.Interfaces;
 
 namespace NygarnDemo.Services.ProductServices
 {
-    public class YarnService
+    public class YarnService : IYarnService
     {
-        private List<Yarn> _yarnProducts;
+        public List<Yarn>? yarnProducts { get; set; }
 
-        public YarnService()
+        public YarnService(List<Yarn>? yarnProducts)
         {
-            _yarnProducts = MockYarn.GetMockYarn();
+            yarnProducts = MockYarn.GetMockYarn();
         }
 
+
+        public List<Yarn> GetYarnProducts()
+        {
+            return yarnProducts;
+        }
     }
 }
