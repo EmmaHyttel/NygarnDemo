@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using NygarnDemo.MockData;
 
 namespace NygarnDemo.Pages.Product.ToolPages
 {
@@ -7,6 +8,7 @@ namespace NygarnDemo.Pages.Product.ToolPages
     {
         public void OnGet()
         {
+            MockTool.GetMockTool();
         }
     }
 }
