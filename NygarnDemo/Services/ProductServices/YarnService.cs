@@ -6,17 +6,19 @@ namespace NygarnDemo.Services.ProductServices
 {
     public class YarnService : IYarnService
     {
-        public List<Yarn>? yarnProducts { get; set; }
+        public List<Yarn>? YarnProducts { get; set; }
 
-        public YarnService(List<Yarn>? yarnProducts)
+        public YarnService()
         {
-            yarnProducts = MockYarn.GetMockYarn();
+            YarnProducts = MockYarn.GetMockYarn();
         }
 
 
         public List<Yarn> GetYarnProducts()
         {
-            return yarnProducts;
+            return YarnProducts;
         }
+
+   
     }
 }
