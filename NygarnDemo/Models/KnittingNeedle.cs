@@ -7,7 +7,7 @@
         public double Size { get; set; }
 
 
-        public KnittingNeedle(double price, string name, string description, string brand, int amount, string materiale, string type, double size) : base(price, name, description, brand, amount)
+        public KnittingNeedle(string materiale, string type, double size, double price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
         {
             Materiale = materiale;
             Type = type; 
