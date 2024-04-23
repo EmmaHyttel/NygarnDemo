@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IPatternService, PatternService>();
 builder.Services.AddSingleton<ICrochetHookService, CrochetHookService>();
+builder.Services.AddSingleton<IYarnService, YarnService>();
+
 
 var app = builder.Build();
 
