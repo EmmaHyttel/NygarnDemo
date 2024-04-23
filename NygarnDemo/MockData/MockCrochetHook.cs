@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using NygarnDemo.Models;
+using System.Drawing;
 using System.Xml.Linq;
 
 namespace NygarnDemo.MockData
@@ -7,14 +8,15 @@ namespace NygarnDemo.MockData
     {
         private static List<Models.CrochetHook> _crochetHooks = new List<Models.CrochetHook>()
         {
-            new Models.CrochetHook("Anodiseret aluminium", 2.0, 49.99, "Waves", "Soft grib", "KnitPro", 1),
-            new Models.CrochetHook("Anodiseret aluminium", 2.0, 49.99, "Waves", "Soft grib", "KnitPro", 1),
-            new Models.CrochetHook("Anodiseret aluminium", 2.0, 49.99, "Waves", "Soft grib", "KnitPro", 1)
+            new CrochetHook("Anodiseret aluminium", 2.0, 49.99, "Waves", "Soft grib", "KnitPro", 1),
+            new CrochetHook("Anodiseret aluminium", 2.0, 49.99, "Waves", "Soft grib", "KnitPro", 1),
+            new CrochetHook("Anodiseret aluminium", 2.0, 49.99, "Waves", "Soft grib", "KnitPro", 1)
         };
 
-        public static List<Models.CrochetHook> GetAllCrocketHooks()
+        public static List<Models.CrochetHook> GetAllCrochetHooks()
         {
             return _crochetHooks;
         }
+
     }
 }

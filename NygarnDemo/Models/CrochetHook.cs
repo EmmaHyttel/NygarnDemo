@@ -13,8 +13,10 @@
             Size = size;
         }
 
-        public CrochetHook()
+        public CrochetHook(double price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
         {
+            Materiale = "default";
+            Size = 0;
         }
     }
 }
