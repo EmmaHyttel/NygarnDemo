@@ -4,7 +4,7 @@ namespace NygarnDemo.MockData
 {
     public class MockYarn
     {
-        private static List<Yarn> yarns = new List<Yarn>() 
+        private static List<Yarn> _yarnProducts = new List<Yarn>() 
         {
             new Yarn("Rød", "27-31 masker = 10 cm", "ca 175 m. pr 50 g.", "Mohair", 50, 79, "MyHair", 
                 "Vildt lækkert mohair garn til din næste sweater", "Sandes", 1),
@@ -16,7 +16,7 @@ namespace NygarnDemo.MockData
 
         public static List<Yarn> GetMockYarn()
         {
-            return yarns;
+            return _yarnProducts;
         }
     }
 }
