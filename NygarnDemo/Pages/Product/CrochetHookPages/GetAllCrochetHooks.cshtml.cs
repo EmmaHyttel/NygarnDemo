@@ -9,7 +9,7 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         public List<MockCrochetHook> mockCrochetHooks;
         public void OnGet()
         {
-            MockCrochetHook.GetAllCrocketHooks();
+            //MockCrochetHook.GetAllCrocketHooks();
         }
     }
 }
