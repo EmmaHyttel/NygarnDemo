@@ -44,7 +44,7 @@ public class Yarn : Product
         MachineWash = machineWash;
     }
 
-    public Yarn(double price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+    public Yarn(decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
     {
         Color = "";
         KnittingTension = "";
