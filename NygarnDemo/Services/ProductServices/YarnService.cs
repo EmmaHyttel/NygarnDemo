@@ -10,7 +10,7 @@ namespace NygarnDemo.Services.ProductServices
 
         public YarnService()
         {
-            YarnProducts = MockYarn.GetMockYarn();
+            YarnProducts = MockYarn.GetAllYarnProducts();
         }
 
 

@@ -14,7 +14,7 @@ public class MockYarn
             "Vildt lækkert silke garn til dit næste hårbånd", "PetitKnit", 1),    
     };
 
-    public static List<Yarn> GetMockYarn()
+    public static List<Yarn> GetAllYarnProducts()
     {
         return _yarnProducts;
     }

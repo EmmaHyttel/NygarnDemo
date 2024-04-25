@@ -17,7 +17,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
             _yarnService = yarnService;
         }
 
-        public List<Yarn> YarnProducts { get; private set; }
+        public List<Yarn>? YarnProducts { get; private set; }
 
         public void OnGet()
         {

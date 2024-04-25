@@ -18,8 +18,12 @@ public class Yarn : Product
         Weight = weight; 
     }
 
-    public Yarn()
+    public Yarn(double price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
     {
+        Color = "";
+        KnittingTension = "";
+        Yardage = "";
+        Material = "";
+        Weight = 1;
     }
-
 }

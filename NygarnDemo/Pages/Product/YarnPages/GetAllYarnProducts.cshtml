@@ -7,14 +7,47 @@
 
 @if(Model.YarnProducts != null)
 {
-    foreach(var yarnProducts in Model.YarnProducts)
+    foreach(var yarnProduct in Model.YarnProducts)
     {
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5gOk9johiqyLngH4hJNbyZCgPJ1Ib2mLWTiHsQ9Wvmg&s" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Garn</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
+        <div class="row">
+            <div class="col-sm-4 mb-3">
+                <div class="card" style="width: 25rem;">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5gOk9johiqyLngH4hJNbyZCgPJ1Ib2mLWTiHsQ9Wvmg&s" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@yarnProduct.Name</h5>
+                        <h5 class="card-title">@yarnProduct.Brand</h5>
+                        <p class="card-text">@yarnProduct.Description</p>
+                        <p class="card-text">@yarnProduct.Price</p>
+                        <p class="card-text">@yarnProduct.Material</p>
+                        <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 mb-3">
+                <div class="card" style="width: 25rem;">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5gOk9johiqyLngH4hJNbyZCgPJ1Ib2mLWTiHsQ9Wvmg&s" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@yarnProduct.Name</h5>
+                        <h5 class="card-title">@yarnProduct.Brand</h5>
+                        <p class="card-text">@yarnProduct.Description</p>
+                        <p class="card-text">@yarnProduct.Price</p>
+                        <p class="card-text">@yarnProduct.Material</p>
+                        <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 mb-3">
+                <div class="card" style="width: 25rem;">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5gOk9johiqyLngH4hJNbyZCgPJ1Ib2mLWTiHsQ9Wvmg&s" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@yarnProduct.Name</h5>
+                        <h5 class="card-title">@yarnProduct.Brand</h5>
+                        <p class="card-text">@yarnProduct.Description</p>
+                        <p class="card-text">@yarnProduct.Price</p>
+                        <p class="card-text">@yarnProduct.Material</p>
+                        <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
+                    </div>
+                </div>
             </div>
         </div>
     }
