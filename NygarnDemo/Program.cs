@@ -8,6 +8,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IPatternService, PatternService>();
 builder.Services.AddSingleton<ICrochetHookService, CrochetHookService>();
 builder.Services.AddSingleton<IYarnService, YarnService>();
+builder.Services.AddSingleton<IKnittingNeedleService, KnittingNeedleService>();
 
 
 var app = builder.Build();

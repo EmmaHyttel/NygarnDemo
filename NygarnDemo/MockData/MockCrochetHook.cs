@@ -4,14 +4,14 @@ namespace NygarnDemo.MockData;
 
 public class MockCrochetHook
 {
-    private static List<Models.CrochetHook> _crochetHooks = new List<Models.CrochetHook>()
+    private static List<CrochetHook> _crochetHooks = new List<CrochetHook>()
     {
-        new CrochetHook("Anodiseret aluminium", 2.0, 49, "Waves", "Soft grib", "KnitPro", 1),
-        new CrochetHook("Anodiseret aluminium", 2.0, 49, "Waves", "Soft grib", "KnitPro", 1),
-        new CrochetHook("Anodiseret aluminium", 2.0, 49, "Waves", "Soft grib", "KnitPro", 1)
+        new CrochetHook("Stål", 2.0, 49.99, "Waves", "Soft grib", "KnitPro", 1, false),
+        new CrochetHook("Aluminium", 2.0, 49.99, "Waves", "Soft grib", "KnitPro", 1, false),
+        new CrochetHook("Træ", 2.0, 499.99, "Hot", "Soft grib", "KnitPro", 6, true)
     };
 
-    public static List<Models.CrochetHook> GetAllCrochetHooks()
+    public static List<CrochetHook> GetAllCrochetHooks()
     {
         return _crochetHooks;
     }

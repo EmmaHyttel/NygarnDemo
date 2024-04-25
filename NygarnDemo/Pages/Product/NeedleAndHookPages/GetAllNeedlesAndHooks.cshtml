@@ -3,6 +3,37 @@
 @{
 }
 <h1>Strikkepinde og hæklenåle</h1>
+<div class="row">
+    <div class="col-7"><h5>Search</h5></div>
+    <div class="col-4"><h5>Filter Price</h5></div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <form method="post" class="form-inline">
+            <div class="input-group mb-3">
+                <input asp-for="SearchString" class="form-control mr-1" placeholder="Enter search term" />
+                <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-5">
+        <form method="post" class="form-inline">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Min</span>
+                </div>
+                <input asp-for="MinPrice" class="form-control me-2" />
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Max</span>
+                </div>
+                <input asp-for="MaxPrice" class="form-control me-2" />
+                <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
 @if (Model.CrochetHooks != null)
     {
         foreach (var crochetHook in Model.CrochetHooks)
@@ -21,4 +52,23 @@
             </div>
         }
     }
+@if (Model.KnittingNeedles != null)
+{
+    foreach (var knittingNeedle in Model.KnittingNeedles)
+    {
+        <div class="card" style="width: 18rem;">
+            @* <img class="card-img-top" src="..." alt="Card image cap"> *@
+            <div class="card-body">
+                <h5 class="card-title">@knittingNeedle.Name</h5>
+                <p class="card-text">Beskrivelse: @knittingNeedle.Description</p>
+                <p class="card-text">Pris: @knittingNeedle.Price</p>
+                <p class="card-text">Mærke: @knittingNeedle.Brand</p>
+                <p class="card-text">Materiale: @knittingNeedle.Materiale</p>
+                <p class="card-text">Størrelse: @knittingNeedle.Size</p>
+                <p class="card-text">Type: @knittingNeedle.Type</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    }
+}
 
