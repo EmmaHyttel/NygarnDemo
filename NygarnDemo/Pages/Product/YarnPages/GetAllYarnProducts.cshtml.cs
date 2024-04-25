@@ -19,6 +19,37 @@ namespace NygarnDemo.Pages.Product.YarnPages
 
         public List<Yarn>? YarnProducts { get; private set; }
 
+        [BindProperty]
+        public string SearchString { get; set; }
+
+        [BindProperty]
+        public int MinPrice { get; set; }
+
+        [BindProperty]
+        public int MaxPrice { get; set; }
+
+        [BindProperty]
+        public string Color { get; set; }
+
+        [BindProperty]
+        public string Material { get; set; }
+
+        [BindProperty]
+        public string Brand { get; set; }
+
+        [BindProperty]
+        public string KnittingTension { get; set; }
+
+        [BindProperty]
+        public string Yardage { get; set; }
+
+        [BindProperty]
+        public string Needles { get; set; }
+
+        [BindProperty]
+        public string MachineWash { get; set; }
+
+
         public void OnGet()
         {
             YarnProducts = _yarnService.GetYarnProducts();
