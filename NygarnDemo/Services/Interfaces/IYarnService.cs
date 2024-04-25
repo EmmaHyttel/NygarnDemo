@@ -6,8 +6,10 @@ namespace NygarnDemo.Services.Interfaces
     {
         List<Yarn> GetYarnProducts();
 
-       
-        
+        IEnumerable<Yarn> NameSearch(string str);
+
+        IEnumerable<Yarn> PriceFilter(int maxPrice, int minPrice = 0);
+
 
     }
 }

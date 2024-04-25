@@ -5,7 +5,7 @@
 
 <h1>Garn</h1>
 
-<div class="row">
+@* <div class="row">
     <div class="col-7"><h5>Search Name</h5></div>
     <div class="col-4"><h5>Filter Price</h5></div>
     <div class="col-1"></div>
@@ -47,10 +47,10 @@
                     <img class="card-img-top" src="https://cpad.ask.fm/407/185/197/-339996999-1snldta-1g842bsrlrahe95/original/file.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@yarnProduct.Name</h5>
-                        <h5 class="card-title">@yarnProduct.Brand</h5>
-                        <p class="card-text">@yarnProduct.Description</p>
-                        <p class="card-text">@yarnProduct.Price</p>
-                        <p class="card-text">@yarnProduct.Material</p>
+                        <h5 class="card-title"> Brand: @yarnProduct.Brand</h5>
+                        <p class="card-text"> Beskrivelse: @yarnProduct.Description</p>
+                        <p class="card-text"> Pris: @yarnProduct.Price</p>
+                        <p class="card-text"> Materiale: @yarnProduct.Material</p>
                         <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
                     </div>
                 </div>
@@ -60,10 +60,10 @@
                     <img class="card-img-top" src="https://4.bp.blogspot.com/--EgSzKPJ4_4/VQcziYSxOEI/AAAAAAAAB9w/W7i0VWurpno/s1600/1505615_1075199769163527_6281032703120892009_n.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@yarnProduct.Name</h5>
-                        <h5 class="card-title">@yarnProduct.Brand</h5>
-                        <p class="card-text">@yarnProduct.Description</p>
-                        <p class="card-text">@yarnProduct.Price</p>
-                        <p class="card-text">@yarnProduct.Material</p>
+                        <h5 class="card-title"> Brand: @yarnProduct.Brand</h5>
+                        <p class="card-text"> Beskrivelse: @yarnProduct.Description</p>
+                        <p class="card-text"> Pris: @yarnProduct.Price</p>
+                        <p class="card-text"> Materiale: @yarnProduct.Material</p>
                         <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
                     </div>
                 </div>
@@ -73,16 +73,122 @@
                     <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSejoq56i_jLIXZqhV2LLkSyEwQFdrGNQ-nKc5HPBYpIw&s" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@yarnProduct.Name</h5>
-                        <h5 class="card-title">@yarnProduct.Brand</h5>
-                        <p class="card-text">@yarnProduct.Description</p>
-                        <p class="card-text">@yarnProduct.Price</p>
-                        <p class="card-text">@yarnProduct.Material</p>
+                        <h5 class="card-title"> Brand: @yarnProduct.Brand</h5>
+                        <p class="card-text"> Beskrivelse: @yarnProduct.Description</p>
+                        <p class="card-text"> Pris: @yarnProduct.Price</p>
+                        <p class="card-text"> Materiale: @yarnProduct.Material</p>
                         <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
                     </div>
                 </div>
             </div>
         </div>
     }
-}
+} *@
+
+<div class="row">
+    <div class="col-lg-9">
+        <div class="row">
+            @if (Model.YarnProducts != null)
+            {
+                foreach (var yarnProduct in Model.YarnProducts)
+                {
+                    <div class="col-lg-4 mb-3">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" src="https://cpad.ask.fm/407/185/197/-339996999-1snldta-1g842bsrlrahe95/original/file.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@yarnProduct.Name</h5>
+                                <h5 class="card-title"> Brand: @yarnProduct.Brand</h5>
+                                <p class="card-text"> Beskrivelse: @yarnProduct.Description</p>
+                                <p class="card-text"> Pris: @yarnProduct.Price</p>
+                                <p class="card-text"> Materiale: @yarnProduct.Material</p>
+                                <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-3">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" src="https://4.bp.blogspot.com/--EgSzKPJ4_4/VQcziYSxOEI/AAAAAAAAB9w/W7i0VWurpno/s1600/1505615_1075199769163527_6281032703120892009_n.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@yarnProduct.Name</h5>
+                                <h5 class="card-title"> Brand: @yarnProduct.Brand</h5>
+                                <p class="card-text"> Beskrivelse: @yarnProduct.Description</p>
+                                <p class="card-text"> Pris: @yarnProduct.Price</p>
+                                <p class="card-text"> Materiale: @yarnProduct.Material</p>
+                                <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-3">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSejoq56i_jLIXZqhV2LLkSyEwQFdrGNQ-nKc5HPBYpIw&s" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@yarnProduct.Name</h5>
+                                <h5 class="card-title"> Brand: @yarnProduct.Brand</h5>
+                                <p class="card-text"> Beskrivelse: @yarnProduct.Description</p>
+                                <p class="card-text"> Pris: @yarnProduct.Price</p>
+                                <p class="card-text"> Materiale: @yarnProduct.Material</p>
+                                <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Search and Filter</h5>
+                <div class="form-group">
+                    <label for="SearchString">Search Name</label>
+                    <form method="post" class="form-inline mb-2">
+                        <div class="input-group">
+                            <input asp-for="SearchString" class="form-control mr-1" placeholder="Enter search term" />
+                            <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+                <div class="form-group">
+                    <label for="MinPrice">Filter Price</label>
+                    <form method="post" class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Min</span>
+                            </div>
+                            <input asp-for="MinPrice" class="form-control me-0" />
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Max</span>
+                            </div>
+                            <input asp-for="MaxPrice" class="form-control me-0" />
+                            <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* //Pagina den del, som gør at man kan bladre i siderne på en page// *@
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
 
 

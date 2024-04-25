@@ -55,5 +55,17 @@ namespace NygarnDemo.Pages.Product.YarnPages
             YarnProducts = _yarnService.GetYarnProducts();
         }
 
+        public IActionResult OnPostNameSearch()
+        {
+            YarnProducts = _yarnService.NameSearch(SearchString).ToList();
+            return Page();
+        }
+
+        public IActionResult OnPostPriceFilter()
+        {
+            YarnProducts = _yarnService.PriceFilter(MaxPrice, MinPrice).ToList();
+            return Page();
+        }
+
     }
 }

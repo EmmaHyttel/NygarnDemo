@@ -19,7 +19,34 @@ namespace NygarnDemo.Services.ProductServices
             return YarnProducts;
         }
 
-   
+        public IEnumerable<Yarn> NameSearch(string str)
+        {
+            List<Yarn> nameSearch = new List<Yarn>();
+            foreach (Yarn yarn
+                in YarnProducts)
+            {
+                if (string.IsNullOrEmpty(str) || yarn.Name.ToLower().Contains(str.ToLower()))
+                {
+                    nameSearch.Add(yarn);
+                }
+            }
+
+            return nameSearch;
+        }
+
+        public IEnumerable<Yarn> PriceFilter(int maxPrice, int minPrice = 0)
+        {
+            List<Yarn> filterList = new List<Yarn>();
+            foreach (Yarn yarn in YarnProducts)
+            {
+                if ((minPrice == 0 && yarn.Price <= maxPrice) || (maxPrice == 0 && yarn.Price >= minPrice) || (yarn.Price >= minPrice && yarn.Price <= maxPrice))
+                {
+                    filterList.Add(yarn);
+                }
+            }
+
+            return filterList;
+        }
 
     }
 }
