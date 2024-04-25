@@ -2,19 +2,23 @@
 @model NygarnDemo.Pages.Product.CrochetHookPages.GetAllCrochetHooksModel
 @{
 }
-<h1>Hækle nåle</h1>
+<h1>Strikkepinde og hæklenåle</h1>
 @if (Model.CrochetHooks != null)
-{
-    foreach( var crochetHook in Model.CrochetHooks)
     {
-        <div class="card" style="width: 18rem;">
-          @*   <img class="card-img-top" src="..." alt="Card image cap"> *@
+        foreach (var crochetHook in Model.CrochetHooks)
+        {
+            <div class="card" style="width: 18rem;">
+                @* <img class="card-img-top" src="..." alt="Card image cap"> *@
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">@crochetHook.Name</h5>
+                <p class="card-text">Beskrivelse: @crochetHook.Description</p>
+                <p class="card-text">Pris: @crochetHook.Price</p>
+                <p class="card-text">Mærke: @crochetHook.Brand</p>
+                <p class="card-text">Materiale: @crochetHook.Materiale</p>
+                <p class="card-text">Størrelse: @crochetHook.Size</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
-        </div>
+            </div>
+        }
     }
 
-}
