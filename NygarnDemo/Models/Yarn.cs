@@ -18,9 +18,9 @@
             Weight = weight; 
         }
 
-        public override string ToString()
+        public Yarn()
         {
-            return $"{{{nameof(Color)}={Color}, {nameof(KnittingTension)}={KnittingTension}, {nameof(Yardage)}={Yardage}, {nameof(Material)}={Material}, {nameof(Weight)}={Weight.ToString()}, {nameof(ProductId)}={ProductId.ToString()}, {nameof(Price)}={Price.ToString()}, {nameof(Name)}={Name}, {nameof(Description)}={Description}, {nameof(Brand)}={Brand}, {nameof(Amount)}={Amount.ToString()}}}";
         }
+
     }
 }
