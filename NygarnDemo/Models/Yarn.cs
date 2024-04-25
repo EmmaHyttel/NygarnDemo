@@ -9,7 +9,7 @@ public class Yarn : Product
     public string Material { get; set; }
     public int Weight { get; set; }
 
-    public Yarn(string color, string knittingTension, string yardage, string material, int weight, double price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+    public Yarn(string color, string knittingTension, string yardage, string material, int weight, decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
     {
         Color = color;
         KnittingTension = knittingTension;
@@ -18,7 +18,7 @@ public class Yarn : Product
         Weight = weight; 
     }
 
-    public Yarn(double price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+    public Yarn(decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
     {
         Color = "";
         KnittingTension = "";

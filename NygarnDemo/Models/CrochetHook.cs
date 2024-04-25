@@ -7,13 +7,13 @@ public class CrochetHook : Product
     public double Size { get; set; }
 
 
-    public CrochetHook(string materiale, double size, double price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+    public CrochetHook(string materiale, double size, decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
     {
         Materiale = materiale; 
         Size = size;
     }
 
-    public CrochetHook(double price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+    public CrochetHook(decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
     {
         Materiale = "default";
         Size = 0;

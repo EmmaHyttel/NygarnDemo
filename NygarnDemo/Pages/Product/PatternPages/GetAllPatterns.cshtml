@@ -3,6 +3,40 @@
 @{
 }
 <h1>Opskrifter</h1>
+
+<div class="row">
+	<div class="col-7"><h5>Search Name</h5></div>
+	<div class="col-4"><h5>Filter Price</h5></div>
+	<div class="col-1"></div>
+</div>
+
+<div class="row">
+	<div class="col-4">
+		<form method="post" class="form-inline">
+			<div class="input-group mb-3">
+				<input asp-for="SearchString" class="form-control mr-1" placeholder="Enter search term" />
+				<input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+	<div class="col-3"></div>
+	<div class="col-5">
+		@* <form method="post" class="form-inline">
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Min</span>
+				</div>
+				<input asp-for="MinPrice" class="form-control me-2" />
+				<div class="input-group-prepend">
+					<span class="input-group-text">Max</span>
+				</div>
+				<input asp-for="MaxPrice" class="form-control me-2" />
+				<input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
+			</div>
+		</form> *@
+	</div>
+
+
 @if (Model.Patterns != null)
 {
     foreach (var pattern in Model.Patterns)
@@ -16,7 +50,7 @@
                 <p class="card-text">Mærke: @pattern.Brand</p>
                 <p class="card-text">Designer: @pattern.Designer</p>
                 <p class="card-text">Sværhedsgrad: @pattern.DifficultyLevel</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">Kom i kurv</a>
             </div>
         </div>
     }

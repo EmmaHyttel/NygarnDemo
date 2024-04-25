@@ -1,16 +1,33 @@
-﻿namespace NygarnDemo.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace NygarnDemo.Models;
 
 public class Product
 {
     private static int _nextId = 0;
     public int ProductId { get; set; }
-    public double Price { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public string Brand { get; set; }
-    public int Amount { get; set; }
 
-    public Product(double price, string name, string description, string brand, int amount)
+    [Display(Name = "Pris")]
+    [Required(ErrorMessage = "Der skal angives en pris")]
+    public decimal Price { get; set; }
+
+    [Display(Name = "Produkt Navn")]
+    [Required(ErrorMessage = "Produkt skal have et navn")]
+    [StringLength(100)]
+    public string Name { get; set; }
+
+    [Display(Name = "Produkt Beskrivelse")]
+    [Required(ErrorMessage = "Produkt skal have et navn")]
+    [StringLength(500)]
+    public string Description { get; set; }
+
+    [Display(Name = "Brand")]
+    [Required(ErrorMessage = "Produkt Brand skal anføres")]
+    [StringLength(100)]
+    public string Brand { get; set; }
+    public int? Amount { get; set; }
+
+    public Product(decimal price, string name, string description, string brand, int amount)
     {
         ProductId = _nextId++;
         Price = price;

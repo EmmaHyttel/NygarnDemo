@@ -7,14 +7,17 @@ public class KnittingNeedle : Product
     public double Size { get; set; }
 
 
-    public KnittingNeedle(string materiale, string type, double size, double price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+    public KnittingNeedle(string materiale, string type, double size, decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
     {
         Materiale = materiale;
         Type = type; 
         Size = size;
     }
 
-    public KnittingNeedle() 
-    { 
+    public KnittingNeedle(decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+    {
+        Materiale = "default";
+        Type = "default";
+        Size = 0;
     }
 }
