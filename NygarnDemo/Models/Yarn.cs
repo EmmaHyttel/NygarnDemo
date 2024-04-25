@@ -33,7 +33,7 @@ public class Yarn : Product
     [Required(ErrorMessage = "Der skal angives en anbefalet maskinevask til garn")]
     public string MachineWash { get; set; }
 
-    public Yarn(string color, string knittingTension, string yardage, string material, int weight, string needles, string machineWash, double price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+    public Yarn(string color, string knittingTension, string yardage, string material, int weight, string needles, string machineWash, decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
     {
         Color = color;
         KnittingTension = knittingTension;
