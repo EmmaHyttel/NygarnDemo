@@ -13,10 +13,11 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
             _crochetHookService = crochetHookService;
            
         }
-        public List<MockCrochetHook>? CrochetHooks { get; private set; }
+        public List<Models.CrochetHook>? CrochetHooks { get; private set; } // her manglede Models.CrochetHooks og ikke listen af CrochetHookService liste
 
         public void OnGet()
         {
+            CrochetHooks = _crochetHookService.GetCrochetHooks(); //ændret
         }
     }
 }
