@@ -4,10 +4,11 @@
 }
 <h1>Opskrifter</h1>
 @if (Model.Patterns != null)
+{
+    foreach (var pattern in Model.Patterns)
     {
-        foreach (var pattern in Model.Patterns)
-        {   <div class="card" style="width: 18rem;">
-                @* <img class="card-img-top" src="..." alt="Card image cap"> *@
+        <div class="card" style="width: 18rem;">
+            @* <img class="card-img-top" src="..." alt="Card image cap"> *@
             <div class="card-body">
                 <h5 class="card-title">@pattern.Name</h5>
                 <p class="card-text">Beskrivelse: @pattern.Description</p>
@@ -17,6 +18,6 @@
                 <p class="card-text">Sværhedsgrad: @pattern.DifficultyLevel</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
-            </div>
-        }
+        </div>
     }
+}
