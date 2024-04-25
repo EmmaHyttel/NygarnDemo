@@ -20,10 +20,11 @@ public class KnittingNeedle : Product
     public bool Set { get; set; }
 
 
-    public KnittingNeedle(string materiale, string type, double size, decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+    public KnittingNeedle(string materiale, string type, double size, decimal price, string name, string description, string brand, int amount, bool set) : base(price, name, description, brand, amount)
     {
         Materiale = materiale;
         Type = type; 
+        Size = size;
         Set = set;
     }
 
@@ -32,5 +33,6 @@ public class KnittingNeedle : Product
         Materiale = "default";
         Type = "default";
         Size = 0;
+        Set = false;
     }
 }
