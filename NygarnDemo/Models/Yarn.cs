@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using NygarnDemo.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace NygarnDemo.Models;
 
@@ -7,7 +8,7 @@ public class Yarn : Product
 
     [Display(Name = "Garnets farve")]
     [Required(ErrorMessage = "Der skal angives en farve til garn")]
-    public string Color { get; set; }
+    public Color Color { get; set; }
 
     [Display(Name = "Garnets strikkefasthed")]
     [Required(ErrorMessage = "Der skal angives en strikkefasthed til garn")]
@@ -33,7 +34,7 @@ public class Yarn : Product
     [Required(ErrorMessage = "Der skal angives en anbefalet maskinevask til garn")]
     public string MachineWash { get; set; }
 
-    public Yarn(string color, string knittingTension, string yardage, string material, int weight, string needles, string machineWash, decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+    public Yarn(Color color, string knittingTension, string yardage, string material, int weight, string needles, string machineWash, decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
     {
         Color = color;
         KnittingTension = knittingTension;
@@ -46,7 +47,7 @@ public class Yarn : Product
 
     public Yarn(decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
     {
-        Color = "";
+        Color = 0;
         KnittingTension = "";
         Yardage = "";
         Material = "";

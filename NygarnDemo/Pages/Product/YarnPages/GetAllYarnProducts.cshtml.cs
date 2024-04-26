@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using NygarnDemo.MockData;
+using NygarnDemo.Enums;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
-using NygarnDemo.Services.ProductServices;
 
 namespace NygarnDemo.Pages.Product.YarnPages
 {
@@ -29,7 +28,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public int MaxPrice { get; set; }
 
         [BindProperty]
-        public string Color { get; set; }
+        public Color Color { get; set; }
 
         [BindProperty]
         public string Material { get; set; }
@@ -49,6 +48,9 @@ namespace NygarnDemo.Pages.Product.YarnPages
         [BindProperty]
         public string MachineWash { get; set; }
 
+        [BindProperty]
+        public Color ColorFilter { get; set; }
+
 
         public void OnGet()
         {
@@ -64,6 +66,12 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public IActionResult OnPostPriceFilter()
         {
             YarnProducts = _yarnService.PriceFilter(MaxPrice, MinPrice).ToList();
+            return Page();
+        }
+
+        public IActionResult OnPostColorFilter()
+        {
+            YarnProducts = _yarnService.ColorFilter(Color).ToList();
             return Page();
         }
 

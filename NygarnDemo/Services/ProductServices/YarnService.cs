@@ -1,6 +1,8 @@
-﻿using NygarnDemo.MockData;
+﻿using NygarnDemo.Enums;
+using NygarnDemo.MockData;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
+using System.Drawing;
 
 namespace NygarnDemo.Services.ProductServices
 {
@@ -22,8 +24,7 @@ namespace NygarnDemo.Services.ProductServices
         public IEnumerable<Yarn> NameSearch(string str)
         {
             List<Yarn> nameSearch = new List<Yarn>();
-            foreach (Yarn yarn
-                in YarnProducts)
+            foreach (Yarn yarn in YarnProducts)
             {
                 if (string.IsNullOrEmpty(str) || yarn.Name.ToLower().Contains(str.ToLower()))
                 {
@@ -47,6 +48,24 @@ namespace NygarnDemo.Services.ProductServices
 
             return filterList;
         }
+
+        public IEnumerable<Yarn> ColorFilter(Enums.Color color)
+        {
+            List<Yarn> filterColor = new List<Yarn>();
+            foreach(Yarn yarn in YarnProducts)
+            {
+                if (color == yarn.Color)
+                {
+                    filterColor.Add(yarn);
+                }
+            }
+
+            return filterColor;
+        }
+
+
+
+
 
     }
 }

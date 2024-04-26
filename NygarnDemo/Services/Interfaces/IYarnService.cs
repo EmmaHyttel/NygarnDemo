@@ -1,4 +1,5 @@
 ﻿using NygarnDemo.Models;
+using System.Drawing;
 
 namespace NygarnDemo.Services.Interfaces
 {
@@ -10,6 +11,7 @@ namespace NygarnDemo.Services.Interfaces
 
         IEnumerable<Yarn> PriceFilter(int maxPrice, int minPrice = 0);
 
+        IEnumerable<Yarn> ColorFilter(Enums.Color color);
 
     }
 }
