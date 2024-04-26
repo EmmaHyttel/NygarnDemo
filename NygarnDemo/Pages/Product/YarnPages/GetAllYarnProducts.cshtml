@@ -35,6 +35,17 @@
             </div>
         </form>
     </div>
+    <div>
+        <form method="post">
+            <select asp-for="ColorFilter">
+                <option value="">All</option>
+                <option value="Color.Rød">Rød</option>
+                <option value="Color.Blå">Blå</option>
+                <option value="Color.Grøn">Grøn</option>
+            </select>
+            <button type="submit" asp-page-handler="ColorFilter">Filter</button>
+        </form>
+    </div>
 </div>
 
 @if(Model.YarnProducts != null)
@@ -51,6 +62,7 @@
                         <p class="card-text"> Beskrivelse: @yarnProduct.Description</p>
                         <p class="card-text"> Pris: @yarnProduct.Price</p>
                         <p class="card-text"> Materiale: @yarnProduct.Material</p>
+                        <p class="card-text"> Farve: @yarnProduct.Color</p>
                         <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
                     </div>
                 </div>
