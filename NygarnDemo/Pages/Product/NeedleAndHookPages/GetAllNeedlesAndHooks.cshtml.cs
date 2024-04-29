@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using NygarnDemo.Enums;
 using NygarnDemo.MockData;
+using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
+using NygarnDemo.Services.ProductServices;
 
 namespace NygarnDemo.Pages.Product.CrochetHookPages
 {
@@ -19,6 +22,11 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         public int MaxPrice { get; set; }
         [BindProperty]
         public int MinPrice { get; set; }
+        [BindProperty]
+        public int MaxSize { get; set; }
+        [BindProperty]
+        public int MinSize { get; set; }
+
 
 
         public GetAllCrochetHooksModel(ICrochetHookService crochetHookService, IKnittingNeedleService knittingNeedleService)
@@ -34,5 +42,18 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
             CrochetHooks = _crochetHookService.GetCrochetHooks();
             KnittingNeedles = _knittingNeedleService.GetKnittingNeedles();
         }
+        public IActionResult OnPostCrochetHookPriceFilter()
+        {
+            CrochetHooks = _crochetHookService.CrochetHooksPriceFilter(MaxPrice, MinPrice).ToList();
+            return Page();
+        }
+
+        public IActionResult OnPostCrochetHooksSizeFilter()
+        {
+            CrochetHooks = _crochetHookService.CrochetHooksSizeFilter(MaxSize, MinSize).ToList();
+            return Page();
+        }
+
+
     }
 }
