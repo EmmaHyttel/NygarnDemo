@@ -1,10 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using NygarnDemo.Enums;
-using NygarnDemo.MockData;
-using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
-using NygarnDemo.Services.ProductServices;
 
 namespace NygarnDemo.Pages.Product.CrochetHookPages
 {
@@ -13,6 +9,10 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         
         private ICrochetHookService _crochetHookService;
         private IKnittingNeedleService _knittingNeedleService;
+
+        public List<Models.CrochetHook>? CrochetHooks { get; private set; }
+        public List<Models.KnittingNeedle>? KnittingNeedles { get; set; }
+
         [BindProperty]
         public string SearchString { get; set; }
        
@@ -34,17 +34,22 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
             _crochetHookService = crochetHookService;
             _knittingNeedleService = knittingNeedleService;
         }
-        public List<Models.CrochetHook>? CrochetHooks { get; private set; }
-        public List<Models.KnittingNeedle>? KnittingNeedles { get; set; }
+
 
         public void OnGet()
         {
             CrochetHooks = _crochetHookService.GetCrochetHooks();
             KnittingNeedles = _knittingNeedleService.GetKnittingNeedles();
         }
-        public IActionResult OnPostCrochetHookPriceFilter()
+
+        public IActionResult OnPostNameSearch()
         {
-            CrochetHooks = _crochetHookService.CrochetHooksPriceFilter(MaxPrice, MinPrice).ToList();
+            CrochetHooks = _crochetHookService.NameSearch(SearchString).ToList();
+            return Page();
+        }
+        public IActionResult OnPostPriceFilter()
+        {
+            CrochetHooks = _crochetHookService.PriceFilter(MaxPrice, MinPrice).ToList();
             return Page();
         }
 

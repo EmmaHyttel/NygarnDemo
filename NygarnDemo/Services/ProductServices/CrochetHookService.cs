@@ -19,17 +19,17 @@ namespace NygarnDemo.Services.ProductServices
             return CrochetHooks;
         }
 
-        public IEnumerable<CrochetHook> CrochetHooksPriceFilter(int maxPrice, int minPrice = 0)
+        public IEnumerable<CrochetHook> PriceFilter(int maxPrice, int minPrice = 0)
         {
-            List<CrochetHook> CrochetPriceFilter = new List<CrochetHook>();
+            List<CrochetHook> filterList = new List<CrochetHook>();
             foreach (CrochetHook crochetHook in CrochetHooks)
             {
                 if ((minPrice == 0 && crochetHook.Price <= maxPrice) || (maxPrice == 0 && crochetHook.Price >= minPrice) || (crochetHook.Price >= minPrice && crochetHook.Price <= maxPrice))
                 {
-                    CrochetHooks.Add(crochetHook);
+                    filterList.Add(crochetHook);
                 }
             }
-            return CrochetHooks;
+            return filterList;
         }
 
         public IEnumerable<CrochetHook> NameSearch(string str)
@@ -39,7 +39,7 @@ namespace NygarnDemo.Services.ProductServices
             {
                 if (string.IsNullOrEmpty(str) || crochet.Name.ToLower().Contains(str.ToLower()))
                 {
-                    CrochetHooks.Add(crochet);
+                    nameSearch.Add(crochet);
                 }
             }
             return nameSearch;
@@ -52,7 +52,7 @@ namespace NygarnDemo.Services.ProductServices
             {
                 if (hooks.Size >= minSize && hooks.Size <= maxSize)
                 {
-                    CrochetHooks.Add(hooks);
+                    crochetSize.Add(hooks);
                 }
             }
             return crochetSize;
