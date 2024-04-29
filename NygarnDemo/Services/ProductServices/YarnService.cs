@@ -90,5 +90,33 @@ namespace NygarnDemo.Services.ProductServices
 
             return BrandList;
         }
+
+        public IEnumerable<Yarn> KnittingTensionFilter(KnittigTension knittigTension)
+        {
+            List<Yarn> KNList = new List<Yarn>();
+            foreach (Yarn yarn in YarnProducts)
+            {
+                if (yarn.KnittingTension == knittigTension)
+                {
+                    KNList.Add(yarn);
+                }
+            }
+
+            return KNList;
+        }
+
+        public IEnumerable<Yarn> YardageFilter(Yardage yardage)
+        {
+            List<Yarn> YardageList = new List<Yarn>();
+            foreach (Yarn yarn in YarnProducts)
+            {
+                if (yarn.Yardage == yardage)
+                {
+                    YardageList.Add(yarn);
+                }
+            }
+
+            return YardageList;
+        }
     }
 }

@@ -16,6 +16,9 @@ namespace NygarnDemo.Services.Interfaces
 
         IEnumerable<Yarn> MaterialFilter(Material material);
         IEnumerable<Yarn> BrandFilter(Brand brand);
+        IEnumerable<Yarn> KnittingTensionFilter(KnittigTension knittigTension);
+        IEnumerable<Yarn> YardageFilter(Yardage yardage
+            );
 
     }
 }

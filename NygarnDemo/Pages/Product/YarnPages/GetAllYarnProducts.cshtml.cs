@@ -37,10 +37,10 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public Brand Brand { get; set; }
 
         [BindProperty]
-        public string KnittingTension { get; set; }
+        public KnittigTension KnittingTension { get; set; }
 
         [BindProperty]
-        public string Yardage { get; set; }
+        public Yardage Yardage { get; set; }
 
         [BindProperty]
         public string Needles { get; set; }
@@ -56,6 +56,12 @@ namespace NygarnDemo.Pages.Product.YarnPages
 
         [BindProperty]
         public Brand BrandFilter { get; set; }
+
+        [BindProperty]
+        public KnittigTension KnittingTensionFilter { get; set; }
+
+        [BindProperty]
+        public Yardage YardageFilter { get; set; }
 
 
         public void OnGet()
@@ -92,5 +98,18 @@ namespace NygarnDemo.Pages.Product.YarnPages
             YarnProducts = _yarnService.BrandFilter(Brand).ToList();
             return Page();
         }
+
+        public IActionResult OnPostKnittingTensionFilter()
+        {
+            YarnProducts = _yarnService.KnittingTensionFilter(KnittingTension).ToList();
+            return Page();
+        }
+
+        public IActionResult OnPostYardageFilter()
+        {
+            YarnProducts = _yarnService.YardageFilter(Yardage).ToList();
+            return Page();
+        }
+
     }
 }
