@@ -38,5 +38,19 @@ namespace NygarnDemo.Services.ProductServices
 
             return filterCategory;
         }
-    }
+
+		public IEnumerable<Pattern> FitsFilter(Fits fits)
+		{
+			List<Pattern> filterFits = new List<Pattern>();
+			foreach (var pattern in Patterns)
+			{
+				if (pattern.Fits == fits)
+				{
+					filterFits.Add(pattern);
+				}
+			}
+
+			return filterFits;
+		}
+	}
 }

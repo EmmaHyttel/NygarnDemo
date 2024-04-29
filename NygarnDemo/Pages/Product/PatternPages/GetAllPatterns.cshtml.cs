@@ -44,5 +44,10 @@ namespace NygarnDemo.Pages.Product.PatternPages
             Patterns = _patternService.CategoryFilter(Category).ToList();
             return Page();
         }
-    }
+		public IActionResult OnPostFitsFilter()
+		{
+			Patterns = _patternService.FitsFilter(Fits).ToList();
+			return Page();
+		}
+	}
 }
