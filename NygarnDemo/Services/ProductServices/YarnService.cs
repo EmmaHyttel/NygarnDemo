@@ -104,5 +104,19 @@ namespace NygarnDemo.Services.ProductServices
 
             return KNList;
         }
+
+        public IEnumerable<Yarn> YardageFilter(Yardage yardage)
+        {
+            List<Yarn> YardageList = new List<Yarn>();
+            foreach (Yarn yarn in YarnProducts)
+            {
+                if (yarn.Yardage == yardage)
+                {
+                    YardageList.Add(yarn);
+                }
+            }
+
+            return YardageList;
+        }
     }
 }

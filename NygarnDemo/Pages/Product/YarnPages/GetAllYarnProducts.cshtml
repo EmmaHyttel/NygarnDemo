@@ -37,61 +37,43 @@
         </form>
     </div>
     <div>
-        <form method="Post">
-            <select asp-for="Color" name="Color">
-                <option value="">All</option>
-                <option value="0">Rød</option>
-                <option value="1">Grøn</option>
-                <option value="2">Sort</option>
-                <option value="3">Hvid</option>
-                <option value="4">Gul</option>
-                <option value="5">Blå</option>
-                <option value="6">Lilla</option>
-                <option value="7">Lyserød</option>
-                <option value="8">Orange</option>
-                <option value="9">Beige</option>
-                <option value="10">Brun</option>
-                <option value="11">Grå</option>
-                
+        <form method="post">
+            <select asp-for="Color" asp-items="Html.GetEnumSelectList<Color>()">
+                <option value="">Pick one</option>
             </select>
-            <button type="submit" asp-page-handler="ColorFilter">Filter</button>
+            <button type="submit" asp-page-handler="ColorFilter">Se garn</button>
         </form>
     </div>
     <div>
-        <form method="Post">
-            <select asp-for="Material" name="Material">
-                <option value="">All</option>
-                <option value="0">Alpakke</option>
-                <option value="1">Silke</option>
-                <option value="2">Mohair</option>
-                <option value="3">Bomuld</option>
-                <option value="4">Kashmir</option>
-                <option value="5">Akryl</option>
+        <form method="post">
+            <select asp-for="Material" asp-items="Html.GetEnumSelectList<Material>()">
+                <option value="">Pick one</option>
             </select>
-            <button type="submit" asp-page-handler="MaterialFilter">Filter</button>
+            <button type="submit" asp-page-handler="MaterialFilter">Se garn</button>
         </form>
     </div>
     <div>
-        <form method="Post">
-            <select asp-for="Brand" name="Brand">
-                <option value="">All</option>
-                <option value="0">Sandnes</option>
-                <option value="1">PetitKnit</option>
-                <option value="2">Hobbii</option>
+        <form method="post">
+            <select asp-for="Brand" asp-items="Html.GetEnumSelectList<Brand>()">
+                <option value="">Pick one</option>
             </select>
-            <button type="submit" asp-page-handler="BrandFilter">Filter</button>
+            <button type="submit" asp-page-handler="BrandFilter">Se garn</button>
         </form>
     </div>
     <div>
-        <form method="Post">
-            <select asp-for="KnittingTension" name="KnittingTension">
-                <option value="">All</option>
-                <option value="1">KnittingTension10x10cm</option>
-                <option value="2">KnittingTension21x10cm</option>
-                <option value="3">KnittingTension25x10cm</option>
-                <option value="4">KnittingTension30x10cm</option>
+        <form method="post">
+            <select asp-for="KnittingTension" asp-items="Html.GetEnumSelectList<KnittigTension>()">
+                <option value="">Pick one</option>
             </select>
-            <button type="submit" asp-page-handler="KnittingTensionFilter">Filter</button>
+            <button type="submit" asp-page-handler="KnittingTensionFilter">Se garn</button>
+        </form>
+    </div>
+    <div>
+        <form method="post">
+            <select asp-for="Yardage" asp-items="Html.GetEnumSelectList<Yardage>()">
+                <option value="">Pick one</option>
+            </select>
+            <button type="submit" asp-page-handler="YardageFilter">Se garn</button>
         </form>
     </div>
 </div>
@@ -112,6 +94,7 @@
                         <p class="card-text"> Materiale: @yarnProduct.Material</p>
                         <p class="card-text"> Farve: @yarnProduct.Color</p>
                         <p class="card-text"> Strikkefasthed: @yarnProduct.KnittingTension</p>
+                        <p class="card-text"> Løbelængde: @yarnProduct.Yardage</p>
                         <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
                     </div>
                 </div>
