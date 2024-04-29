@@ -57,5 +57,19 @@ namespace NygarnDemo.Services.ProductServices
             }
             return crochetSize;
         }
+
+        public IEnumerable<CrochetHook> MaterialSearch(string material)
+        {
+             List<CrochetHook> materialSearch = new List<CrochetHook>();
+             foreach (CrochetHook crochet in CrochetHooks)
+             {
+                  if (string.IsNullOrEmpty(material) || material.ToLower() == material.ToLower())
+                  {
+                     materialSearch.Add(crochet);
+                  }
+             }
+            return materialSearch;
+        }
+
     }
 }
