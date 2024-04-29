@@ -5,7 +5,7 @@ namespace NygarnDemo.Enums
     public enum KnittigTension
     {
         [Description("10x10cm")]
-        KnittingTnesion10mX10cm = 0,
+        KnittingTension10mX10cm = 0,
 
         [Description("21x10cm")]
         knittingTension21mX10cm = 1,

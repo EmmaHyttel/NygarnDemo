@@ -8,5 +8,6 @@ namespace NygarnDemo.Services.Interfaces
         List<Pattern> GetPatterns();
         IEnumerable<Pattern> CategoryFilter(Category category);
 		IEnumerable<Pattern> FitsFilter(Fits fits);
+		IEnumerable<Pattern> DiffLevelFilter(DifficultyLevel difficultyLevel);
 	}
 }

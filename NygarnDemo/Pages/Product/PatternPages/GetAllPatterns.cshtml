@@ -1,5 +1,6 @@
 ﻿@page
 @using NygarnDemo.Enums
+@using NygarnDemo.Helpers
 @model NygarnDemo.Pages.Product.PatternPages.GetAllPatternsModel
 @{
 }
@@ -36,6 +37,15 @@
 			<button type="submit" asp-page-handler="FitsFilter">Se opskrifter</button>
 		</form>
 	</div>
+	<div>
+		<form method="post">
+		
+			<select asp-for="DifficultyLevel" asp-items="Html.GetEnumSelectList<DifficultyLevel>()">
+				<option value="">Pick one</option>
+			</select>
+			<button type="submit" asp-page-handler="DiffLevelFilter">Se opskrifter</button>
+		</form>
+	</div>
 	<div class="col-3"></div>
 	<div class="col-5">
 		@* <form method="post" class="form-inline">
@@ -64,10 +74,9 @@
                 <h5 class="card-title">@pattern.Name</h5>
                 <p class="card-text">Beskrivelse: @pattern.Description</p>
                 <p class="card-text">Pris: @pattern.Price</p>
-                <p class="card-text">Mærke: @pattern.Brand</p>
                 <p class="card-text">Designer: @pattern.Designer</p>
-					<p class="card-text">Kategori: @pattern.Category</p>
-                <p class="card-text">Sværhedsgrad: @pattern.DifficultyLevel</p>
+				<p class="card-text">Kategori: @pattern.Category</p>
+                <p class="card-text">Sværhedsgrad: @pattern.DifficultyLevel.GetDisplayName()</p>
                 <a href="#" class="btn btn-primary">Kom i kurv</a>
             </div>
         </div>

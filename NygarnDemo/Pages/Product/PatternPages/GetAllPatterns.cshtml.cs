@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Enums;
-using NygarnDemo.Services.ProductServices;
 
 namespace NygarnDemo.Pages.Product.PatternPages
 {
@@ -23,7 +22,7 @@ namespace NygarnDemo.Pages.Product.PatternPages
         public string Designer { get; set; }
 
         [BindProperty]
-        public string DifficultyLevel { get; set; }
+        public DifficultyLevel DifficultyLevel { get; set; }
 
         [BindProperty]
         public Fits Fits { get; set; }
@@ -32,9 +31,10 @@ namespace NygarnDemo.Pages.Product.PatternPages
         public Category Category { get; set; }
 
         [BindProperty]
-        public bool FreePattern { get; set; }   
+        public bool FreePattern { get; set; }
+		public string[] DifficultyDescriptions { get; private set; }
 
-        public void OnGet()
+		public void OnGet()
         {
             Patterns = _patternService.GetPatterns();
         }
@@ -49,5 +49,11 @@ namespace NygarnDemo.Pages.Product.PatternPages
 			Patterns = _patternService.FitsFilter(Fits).ToList();
 			return Page();
 		}
+
+		public IActionResult OnPostDiffLevelFilter()
+		{
+            Patterns = _patternService.DiffLevelFilter(DifficultyLevel).ToList();
+            return Page();
+        }
 	}
 }
