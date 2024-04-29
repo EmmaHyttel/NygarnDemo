@@ -3,6 +3,7 @@ using NygarnDemo.MockData;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
 using System.Drawing;
+using Size = NygarnDemo.Enums.Size;
 
 namespace NygarnDemo.Services.ProductServices
 {
@@ -117,6 +118,34 @@ namespace NygarnDemo.Services.ProductServices
             }
 
             return YardageList;
+        }
+
+        public IEnumerable<Yarn> SizeFilter(Size size)
+        {
+            List<Yarn> SizeList = new List<Yarn>();
+            foreach (Yarn yarn in YarnProducts)
+            {
+                if (yarn.Size == size)
+                {
+                    SizeList.Add(yarn);
+                }
+            }
+
+            return SizeList;
+        }
+
+        public IEnumerable<Yarn> MachinewashFilter(Machinewash machinewash)
+        {
+            List<Yarn> MachinewashList = new List<Yarn>();
+            foreach (Yarn yarn in YarnProducts)
+            {
+                if (yarn.MachineWash == machinewash)
+                {
+                    MachinewashList.Add(yarn);
+                }
+            }
+
+            return MachinewashList;
         }
     }
 }

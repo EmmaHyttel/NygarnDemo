@@ -76,6 +76,22 @@
             <button type="submit" asp-page-handler="YardageFilter">Se garn</button>
         </form>
     </div>
+    <div>
+        <form method="post">
+            <select asp-for="Size" asp-items="Html.GetEnumSelectList<Size>()">
+                <option value="">Pick one</option>
+            </select>
+            <button type="submit" asp-page-handler="SizeFilter">Se garn</button>
+        </form>
+    </div>
+    <div>
+        <form method="post">
+            <select asp-for="MachineWash" asp-items="Html.GetEnumSelectList<Machinewash>()">
+                <option value="">Pick one</option>
+            </select>
+            <button type="submit" asp-page-handler="MachinewashFilter">Se garn</button>
+        </form>
+    </div>
 </div>
 
 @if(Model.YarnProducts != null)
@@ -95,6 +111,8 @@
                         <p class="card-text"> Farve: @yarnProduct.Color</p>
                         <p class="card-text"> Strikkefasthed: @yarnProduct.KnittingTension</p>
                         <p class="card-text"> Løbelængde: @yarnProduct.Yardage</p>
+                        <p class="card-text"> Anbefalede Pinde: @yarnProduct.Size</p>
+                        <p class="card-text"> Maskinevask: @yarnProduct.MachineWash</p>
                         <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
                     </div>
                 </div>

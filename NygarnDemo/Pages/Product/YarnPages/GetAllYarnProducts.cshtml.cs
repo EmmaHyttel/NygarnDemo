@@ -43,10 +43,10 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public Yardage Yardage { get; set; }
 
         [BindProperty]
-        public string Needles { get; set; }
+        public Size Size { get; set; }
 
         [BindProperty]
-        public string MachineWash { get; set; }
+        public Machinewash MachineWash { get; set; }
 
         [BindProperty]
         public Color ColorFilter { get; set; }
@@ -63,6 +63,11 @@ namespace NygarnDemo.Pages.Product.YarnPages
         [BindProperty]
         public Yardage YardageFilter { get; set; }
 
+        [BindProperty]
+        public Yardage SizeFilter { get; set; }
+
+        [BindProperty]
+        public Machinewash MachinewashFilter { get; set; }
 
         public void OnGet()
         {
@@ -108,6 +113,18 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public IActionResult OnPostYardageFilter()
         {
             YarnProducts = _yarnService.YardageFilter(Yardage).ToList();
+            return Page();
+        }
+
+        public IActionResult OnPostSizeFilter()
+        {
+            YarnProducts = _yarnService.SizeFilter(Size).ToList();
+            return Page();
+        }
+
+        public IActionResult OnPostMachinewashFilter()
+        {
+            YarnProducts = _yarnService.MachinewashFilter(MachineWash).ToList();
             return Page();
         }
 
