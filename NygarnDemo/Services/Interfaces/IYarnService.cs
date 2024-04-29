@@ -1,6 +1,7 @@
 ﻿using NygarnDemo.Enums;
 using NygarnDemo.Models;
 using System.Drawing;
+using Size = NygarnDemo.Enums.Size;
 
 namespace NygarnDemo.Services.Interfaces
 {
@@ -17,8 +18,9 @@ namespace NygarnDemo.Services.Interfaces
         IEnumerable<Yarn> MaterialFilter(Material material);
         IEnumerable<Yarn> BrandFilter(Brand brand);
         IEnumerable<Yarn> KnittingTensionFilter(KnittigTension knittigTension);
-        IEnumerable<Yarn> YardageFilter(Yardage yardage
-            );
+        IEnumerable<Yarn> YardageFilter(Yardage yardage);
+        IEnumerable<Yarn> SizeFilter(Size size);
+        IEnumerable<Yarn> MachinewashFilter(Machinewash machinewash);
 
     }
 }

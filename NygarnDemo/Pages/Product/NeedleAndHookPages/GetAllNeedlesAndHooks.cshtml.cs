@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
 
 namespace NygarnDemo.Pages.Product.CrochetHookPages
@@ -59,6 +60,10 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
             return Page();
         }
 
-
+        public IActionResult OnPostMaterialSearch(string materiale)
+        {
+            KnittingNeedles = _knittingNeedleService.MaterialeSearch(materiale).ToList();
+            return Page();
+        }
     }
 }
