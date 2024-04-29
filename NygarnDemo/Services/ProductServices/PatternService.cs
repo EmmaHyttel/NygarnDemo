@@ -1,6 +1,8 @@
-﻿using NygarnDemo.MockData;
+﻿using NygarnDemo.Enums;
+using NygarnDemo.MockData;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
+using System.Drawing;
 
 namespace NygarnDemo.Services.ProductServices
 {
@@ -21,6 +23,20 @@ namespace NygarnDemo.Services.ProductServices
         public List<Pattern> GetPatterns()
         {
             return Patterns;
+        }
+
+        public IEnumerable<Pattern> CategoryFilter(Category category)
+        {
+            List<Pattern> filterCategory = new List<Pattern>();
+            foreach (var pattern in Patterns)
+            {
+                if (pattern.Category == category)
+                {
+                    filterCategory.Add(pattern);
+                }
+            }
+
+            return filterCategory;
         }
     }
 }
