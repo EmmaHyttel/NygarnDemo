@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Enums;
+using NygarnDemo.Services.ProductServices;
 
 namespace NygarnDemo.Pages.Product.PatternPages
 {
@@ -37,5 +38,16 @@ namespace NygarnDemo.Pages.Product.PatternPages
         {
             Patterns = _patternService.GetPatterns();
         }
-    }
+
+        public IActionResult OnPostCategoryFilter()
+        {
+            Patterns = _patternService.CategoryFilter(Category).ToList();
+            return Page();
+        }
+		public IActionResult OnPostFitsFilter()
+		{
+			Patterns = _patternService.FitsFilter(Fits).ToList();
+			return Page();
+		}
+	}
 }
