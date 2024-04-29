@@ -3,7 +3,7 @@
 namespace NygarnDemo.Models;
 public class Pattern : Product
 {
-    public Pattern(string designer, string difficultyLevel, Category category, Fits fits, bool freePattern, decimal price, 
+    public Pattern(string designer, DifficultyLevel difficultyLevel, Category category, Fits fits, decimal price, 
         string name, string description, Brand brand, int amount) : base(price, name, description, brand, amount)
     {
         Designer = designer;
@@ -14,7 +14,7 @@ public class Pattern : Product
     }
 
     public string? Designer { get; set; }
-    public string? DifficultyLevel { get; set; }
+    public DifficultyLevel DifficultyLevel { get; set; }
     public Category Category { get; set; }
     public Fits Fits { get; set; }
     public bool FreePattern { get; set; }
@@ -22,7 +22,7 @@ public class Pattern : Product
     public Pattern(decimal price, string name, string description, Brand brand, int amount) : base(price, name, description, brand, amount)
     {
         Designer = "";
-        DifficultyLevel = "";
+        DifficultyLevel = 0;
         Category = 0;
         Fits = 0;
         FreePattern = false;
