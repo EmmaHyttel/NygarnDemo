@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using NygarnDemo.MockData;
 using NygarnDemo.Services.Interfaces;
 
 namespace NygarnDemo.Pages.Product.CrochetHookPages
@@ -10,6 +9,10 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         
         private ICrochetHookService _crochetHookService;
         private IKnittingNeedleService _knittingNeedleService;
+
+        public List<Models.CrochetHook>? CrochetHooks { get; private set; }
+        public List<Models.KnittingNeedle>? KnittingNeedles { get; set; }
+
         [BindProperty]
         public string SearchString { get; set; }
        
@@ -19,6 +22,11 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         public int MaxPrice { get; set; }
         [BindProperty]
         public int MinPrice { get; set; }
+        [BindProperty]
+        public int MaxSize { get; set; }
+        [BindProperty]
+        public int MinSize { get; set; }
+
 
 
         public GetAllCrochetHooksModel(ICrochetHookService crochetHookService, IKnittingNeedleService knittingNeedleService)
@@ -26,13 +34,31 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
             _crochetHookService = crochetHookService;
             _knittingNeedleService = knittingNeedleService;
         }
-        public List<Models.CrochetHook>? CrochetHooks { get; private set; }
-        public List<Models.KnittingNeedle>? KnittingNeedles { get; set; }
+
 
         public void OnGet()
         {
             CrochetHooks = _crochetHookService.GetCrochetHooks();
             KnittingNeedles = _knittingNeedleService.GetKnittingNeedles();
         }
+
+        public IActionResult OnPostNameSearch()
+        {
+            CrochetHooks = _crochetHookService.NameSearch(SearchString).ToList();
+            return Page();
+        }
+        public IActionResult OnPostPriceFilter()
+        {
+            CrochetHooks = _crochetHookService.PriceFilter(MaxPrice, MinPrice).ToList();
+            return Page();
+        }
+
+        public IActionResult OnPostCrochetHooksSizeFilter()
+        {
+            CrochetHooks = _crochetHookService.CrochetHooksSizeFilter(MaxSize, MinSize).ToList();
+            return Page();
+        }
+
+
     }
 }

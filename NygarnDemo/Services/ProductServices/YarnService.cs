@@ -54,7 +54,7 @@ namespace NygarnDemo.Services.ProductServices
             List<Yarn> filterColor = new List<Yarn>();
             foreach(Yarn yarn in YarnProducts)
             {
-                if (color == yarn.Color)
+                if (yarn.Color == color)
                 {
                     filterColor.Add(yarn);
                 }
@@ -63,9 +63,32 @@ namespace NygarnDemo.Services.ProductServices
             return filterColor;
         }
 
+        public IEnumerable<Yarn> MaterialFilter(Material material)
+        {
+            List<Yarn> MaterialList = new List<Yarn>();
+            foreach (Yarn yarn in YarnProducts)
+            {
+                if (yarn.Material == material)
+                {
+                    MaterialList.Add(yarn);
+                }
+            }
 
+            return MaterialList;
+        }
 
+        public IEnumerable<Yarn> BrandFilter(Brand brand)
+        {
+            List<Yarn> BrandList = new List<Yarn>();
+            foreach (Yarn yarn in YarnProducts)
+            {
+                if (yarn.Brand == brand)
+                {
+                    BrandList.Add(yarn);
+                }
+            }
 
-
+            return BrandList;
+        }
     }
 }

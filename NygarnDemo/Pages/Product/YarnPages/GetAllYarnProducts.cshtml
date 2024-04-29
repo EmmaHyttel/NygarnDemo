@@ -37,14 +37,49 @@
         </form>
     </div>
     <div>
-        <form method="post">
-            <select asp-for="ColorFilter">
+        <form method="Post">
+            <select asp-for="Color" name="Color">
                 <option value="">All</option>
-                <option value="Color.Rød">Rød</option>
-                <option value="Color.Blå">Blå</option>
-                <option value="Color.Grøn">Grøn</option>
+                <option value="0">Rød</option>
+                <option value="1">Grøn</option>
+                <option value="2">Sort</option>
+                <option value="3">Hvid</option>
+                <option value="4">Gul</option>
+                <option value="5">Blå</option>
+                <option value="6">Lilla</option>
+                <option value="7">Lyserød</option>
+                <option value="8">Orange</option>
+                <option value="9">Beige</option>
+                <option value="10">Brun</option>
+                <option value="11">Grå</option>
+                
             </select>
             <button type="submit" asp-page-handler="ColorFilter">Filter</button>
+        </form>
+    </div>
+    <div>
+        <form method="Post">
+            <select asp-for="Material" name="Material">
+                <option value="">All</option>
+                <option value="0">Alpakke</option>
+                <option value="1">Silke</option>
+                <option value="2">Mohair</option>
+                <option value="3">Bomuld</option>
+                <option value="4">Kashmir</option>
+                <option value="5">Akryl</option>
+            </select>
+            <button type="submit" asp-page-handler="MaterialFilter">Filter</button>
+        </form>
+    </div>
+    <div>
+        <form method="Post">
+            <select asp-for="Brand" name="Brand">
+                <option value="">All</option>
+                <option value="0">Sandnes</option>
+                <option value="1">PetitKnit</option>
+                <option value="2">Hobbii</option>
+            </select>
+            <button type="submit" asp-page-handler="BrandFilter">Filter</button>
         </form>
     </div>
 </div>
@@ -56,7 +91,7 @@
         <div class="row">
             <div class="col-sm-4 mb-3">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://cpad.ask.fm/407/185/197/-339996999-1snldta-1g842bsrlrahe95/original/file.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5gOk9johiqyLngH4hJNbyZCgPJ1Ib2mLWTiHsQ9Wvmg&s" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@yarnProduct.Name</h5>
                         <h5 class="card-title"> Brand: @yarnProduct.Brand</h5>
@@ -64,32 +99,6 @@
                         <p class="card-text"> Pris: @yarnProduct.Price</p>
                         <p class="card-text"> Materiale: @yarnProduct.Material</p>
                         <p class="card-text"> Farve: @yarnProduct.Color</p>
-                        <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 mb-3">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://4.bp.blogspot.com/--EgSzKPJ4_4/VQcziYSxOEI/AAAAAAAAB9w/W7i0VWurpno/s1600/1505615_1075199769163527_6281032703120892009_n.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@yarnProduct.Name</h5>
-                        <h5 class="card-title"> Brand: @yarnProduct.Brand</h5>
-                        <p class="card-text"> Beskrivelse: @yarnProduct.Description</p>
-                        <p class="card-text"> Pris: @yarnProduct.Price</p>
-                        <p class="card-text"> Materiale: @yarnProduct.Material</p>
-                        <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 mb-3">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSejoq56i_jLIXZqhV2LLkSyEwQFdrGNQ-nKc5HPBYpIw&s" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@yarnProduct.Name</h5>
-                        <h5 class="card-title"> Brand: @yarnProduct.Brand</h5>
-                        <p class="card-text"> Beskrivelse: @yarnProduct.Description</p>
-                        <p class="card-text"> Pris: @yarnProduct.Price</p>
-                        <p class="card-text"> Materiale: @yarnProduct.Material</p>
                         <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
                     </div>
                 </div>

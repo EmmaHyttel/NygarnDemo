@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NygarnDemo.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace NygarnDemo.Models;
@@ -14,14 +15,14 @@ public class CrochetHook : Product
     public bool Set { get; set; }
 
 
-    public CrochetHook(string materiale, double size, decimal price, string name, string description, string brand, int amount, bool set) : base(price, name, description, brand, amount)
+    public CrochetHook(string materiale, double size, decimal price, string name, string description, Brand brand, int amount, bool set) : base(price, name, description, brand, amount)
     {
         Materiale = materiale; 
         Size = size;
         Set = set;
     }
 
-    public CrochetHook(decimal price, string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+    public CrochetHook(decimal price, string name, string description, Brand brand, int amount) : base(price, name, description, brand, amount)
     {
         Materiale = "default";
         Size = 0;
