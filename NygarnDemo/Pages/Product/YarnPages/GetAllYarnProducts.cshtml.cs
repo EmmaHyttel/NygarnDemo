@@ -31,10 +31,10 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public Color Color { get; set; }
 
         [BindProperty]
-        public string Material { get; set; }
+        public Material Material { get; set; }
 
         [BindProperty]
-        public string Brand { get; set; }
+        public Brand Brand { get; set; }
 
         [BindProperty]
         public string KnittingTension { get; set; }
@@ -50,6 +50,12 @@ namespace NygarnDemo.Pages.Product.YarnPages
 
         [BindProperty]
         public Color ColorFilter { get; set; }
+
+        [BindProperty]
+        public Material MaterialFilter { get; set; }
+
+        [BindProperty]
+        public Brand BrandFilter { get; set; }
 
 
         public void OnGet()
@@ -75,5 +81,16 @@ namespace NygarnDemo.Pages.Product.YarnPages
             return Page();
         }
 
+        public IActionResult OnPostMaterialFilter()
+        {
+            YarnProducts = _yarnService.MaterialFilter(Material).ToList();
+            return Page();
+        }
+
+        public IActionResult OnPostBrandFilter()
+        {
+            YarnProducts = _yarnService.BrandFilter(Brand).ToList();
+            return Page();
+        }
     }
 }

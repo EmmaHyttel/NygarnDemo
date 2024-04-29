@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using NygarnDemo.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace NygarnDemo.Models;
 
@@ -24,10 +25,10 @@ public class Product
     [Display(Name = "Brand")]
     [Required(ErrorMessage = "Produkt Brand skal anføres")]
     [StringLength(100)]
-    public string Brand { get; set; }
+    public Brand Brand { get; set; }
     public int? Amount { get; set; }
 
-    public Product(decimal price, string name, string description, string brand, int amount)
+    public Product(decimal price, string name, string description, Brand brand, int amount)
     {
         ProductId = _nextId++;
         Price = price;
@@ -43,7 +44,7 @@ public class Product
         Price = 0;
         Name = "testProdukt";
         Description = "Beskrivelse";
-        Brand = "Brand";
+        Brand = 0;
         Amount = 0;
     }
 
