@@ -82,6 +82,18 @@
             <button type="submit" asp-page-handler="BrandFilter">Filter</button>
         </form>
     </div>
+    <div>
+        <form method="Post">
+            <select asp-for="KnittingTension" name="KnittingTension">
+                <option value="">All</option>
+                <option value="1">KnittingTension10x10cm</option>
+                <option value="2">KnittingTension21x10cm</option>
+                <option value="3">KnittingTension25x10cm</option>
+                <option value="4">KnittingTension30x10cm</option>
+            </select>
+            <button type="submit" asp-page-handler="KnittingTensionFilter">Filter</button>
+        </form>
+    </div>
 </div>
 
 @if(Model.YarnProducts != null)
@@ -99,6 +111,7 @@
                         <p class="card-text"> Pris: @yarnProduct.Price</p>
                         <p class="card-text"> Materiale: @yarnProduct.Material</p>
                         <p class="card-text"> Farve: @yarnProduct.Color</p>
+                        <p class="card-text"> Strikkefasthed: @yarnProduct.KnittingTension</p>
                         <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
                     </div>
                 </div>
