@@ -1,12 +1,14 @@
 ﻿using NygarnDemo.Enums;
+using NygarnDemo.Helpers;
 using System.ComponentModel.DataAnnotations;
 
 namespace NygarnDemo.Models;
 
 public class Product
 {
-    private static int _nextId = 0;
-    public int ProductId { get; set; }
+	private static ProductIdGenerator _idGenerator = new ProductIdGenerator();
+
+	public string ProductId { get; set; }
 
     [Display(Name = "Pris")]
     [Required(ErrorMessage = "Der skal angives en pris")]
@@ -30,7 +32,7 @@ public class Product
 
     public Product(decimal price, string name, string description, Brand brand, int amount)
     {
-        ProductId = _nextId++;
+        ProductId = GenerateProductId();
         Price = price;
         Name = name;
         Description = description;
@@ -40,12 +42,17 @@ public class Product
 
     public Product()
     {
-        ProductId = 1234;
+        ProductId = GenerateProductId();
         Price = 0;
         Name = "testProdukt";
         Description = "Beskrivelse";
         Brand = 0;
         Amount = 0;
+    }
+
+    private string GenerateProductId()
+    {
+        return _idGenerator.GenerateProductId();
     }
 
 }
