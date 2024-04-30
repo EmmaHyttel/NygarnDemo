@@ -46,20 +46,7 @@ namespace NygarnDemo.Services.ProductServices
             return nameSearch;
         }
 
-        //public IEnumerable<CrochetHook> CrochetHooksSizeFilter(int minSize = 0, int maxSize = int.MaxValue)
-        //{
-        //    List<CrochetHook> crochetSize = new List<CrochetHook>();
-        //    foreach (CrochetHook hooks in CrochetHooks)
-        //    {
-        //        if (hooks.Size >= minSize && hooks.Size <= maxSize)
-        //        {
-        //            crochetSize.Add(hooks);
-        //        }
-        //    }
-        //    return crochetSize;
-        //}
-
-        public IEnumerable<CrochetHook> CrochetHooksSizeFilter(Enums.Size size)
+        public IEnumerable<CrochetHook> CrochetHooksSizeFilter(Size size)
         {
             List<CrochetHook> hooksSize = new List<CrochetHook>();
             foreach (CrochetHook crochetHook in CrochetHooks)
@@ -77,7 +64,7 @@ namespace NygarnDemo.Services.ProductServices
             List<CrochetHook> HooksMaterialFilter = new List<CrochetHook>();
             foreach (CrochetHook hooks in CrochetHooks)
             {
-                if (hooks.Materiale == material)
+                if (hooks.Material == material)
                 {
                     HooksMaterialFilter.Add(hooks);
                 }

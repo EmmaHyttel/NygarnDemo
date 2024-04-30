@@ -20,7 +20,7 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         public string SearchString { get; set; }
        
         [BindProperty]
-        public int Set { get; set; }
+        public bool Set { get; set; }
         
         [BindProperty]
         public int MaxPrice { get; set; }
@@ -45,7 +45,6 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
             _knittingNeedleService = knittingNeedleService;
         }
 
-
         public void OnGet()
         {
             CrochetHooks = _crochetHookService.GetCrochetHooks();
@@ -58,7 +57,7 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
             KnittingNeedles = _knittingNeedleService.NameSearch(SearchString).ToList();
             return Page();
         }
-        public IActionResult OnPostMaterialSearch()
+        public IActionResult OnPostMaterialFilter()
         {
             CrochetHooks = _crochetHookService.HooksMaterialFilter(Material).ToList();
             KnittingNeedles = _knittingNeedleService.MaterialFilter(Material).ToList();
