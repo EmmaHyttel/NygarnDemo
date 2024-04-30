@@ -46,7 +46,7 @@
     </div>
     <div>
         <form method="post">
-            <select asp-for="Material" asp-items="Html.GetEnumSelectList<Material>()">
+            <select asp-for="Material" asp-items="Html.GetEnumSelectList<Materiale>()">
                 <option value="">Pick one</option>
             </select>
             <button type="submit" asp-page-handler="MaterialFilter">Se garn</button>

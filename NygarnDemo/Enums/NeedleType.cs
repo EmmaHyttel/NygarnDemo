@@ -1,6 +1,6 @@
 ﻿namespace NygarnDemo.Enums
 {
-    public enum NeedleAndHookType
+    public enum NeedleType
     {
         strømpepinde,
         rundpinde, 

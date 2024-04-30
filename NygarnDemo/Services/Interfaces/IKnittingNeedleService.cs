@@ -1,16 +1,23 @@
-﻿using NygarnDemo.Models;
+﻿using NygarnDemo.Enums;
+using NygarnDemo.Models;
+using System.Drawing;
+using Size = NygarnDemo.Enums.Size;
+
 
 namespace NygarnDemo.Services.Interfaces
 {
     public interface IKnittingNeedleService
     {
         List<KnittingNeedle> GetKnittingNeedles();
-        IEnumerable<KnittingNeedle> NameSearch(string str);
+      
         IEnumerable<KnittingNeedle> PriceFilter(int maxPrice, int minPrice = 0);
-        IEnumerable<KnittingNeedle> KnittingNeedleSizeFilter(int maxSize, int minSize = 0); 
+      
+        IEnumerable<KnittingNeedle> NameSearch(string str);
+      
+        IEnumerable<KnittingNeedle> NeedleSizeFilter(Size size);
 
-        IEnumerable<KnittingNeedle> TypeSearch(string str);
-
-        IEnumerable<KnittingNeedle> MaterialeSearch(string str);
+        IEnumerable<KnittingNeedle> MaterialFilter(NeedleAndHookMateriale material);
+      
+        IEnumerable<KnittingNeedle> NeedleTypeFilter(NeedleType type);
     }
 }

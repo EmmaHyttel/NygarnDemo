@@ -1,4 +1,5 @@
-﻿using NygarnDemo.MockData;
+﻿using NygarnDemo.Enums;
+using NygarnDemo.MockData;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
 
@@ -6,7 +7,7 @@ namespace NygarnDemo.Services.ProductServices
 {
     public class KnittingNeedleService : IKnittingNeedleService
     {
-     
+
 
         public List<KnittingNeedle> _knittingNeedle { get; set; }
 
@@ -45,43 +46,46 @@ namespace NygarnDemo.Services.ProductServices
             }
             return nameSearch;
         }
-        public IEnumerable<KnittingNeedle> KnittingNeedleSizeFilter(int minSize = 0, int maxSize = int.MaxValue)
+        public IEnumerable<KnittingNeedle> NeedleSizeFilter(Size size)
         {
             List<KnittingNeedle> needleSize = new List<KnittingNeedle>();
             foreach (KnittingNeedle needle in _knittingNeedle)
             {
-                if (needle.Size >= minSize && needle.Size <= maxSize)
+                if (needle.Size == size)
                 {
                     needleSize.Add(needle);
                 }
             }
             return needleSize;
         }
-        public IEnumerable<KnittingNeedle> TypeSearch(string type)
-        {
-            List<KnittingNeedle> typeSearch = new List<KnittingNeedle>();
-            foreach (KnittingNeedle needleType in _knittingNeedle)
-            {
-                if (string.IsNullOrEmpty(type) || type.ToLower() == type.ToLower())
-                {
-                    typeSearch.Add(needleType);
-                }
-            }
-            return typeSearch;
-        }
 
-        public IEnumerable<KnittingNeedle> MaterialeSearch(string material)
+        public IEnumerable<KnittingNeedle> NeedleTypeFilter(NeedleType type)
         {
-            List<KnittingNeedle> materialSearch = new List<KnittingNeedle>();
+            List<KnittingNeedle> NeedleTypeFilter = new List<KnittingNeedle>();
             foreach (KnittingNeedle needle in _knittingNeedle)
             {
-                if (!string.IsNullOrEmpty(material) && needle.Materiale.ToLower() == material.ToLower())
+                if (needle.Type == type)
                 {
-                    materialSearch.Add(needle);
+                    NeedleTypeFilter.Add(needle);
                 }
             }
-            return materialSearch;
+            return NeedleTypeFilter;
         }
 
+
+        public IEnumerable<KnittingNeedle> MaterialFilter(NeedleAndHookMateriale material)
+        {
+            List<KnittingNeedle> NeedlesMateriale = new List<KnittingNeedle>();
+            foreach (KnittingNeedle needle in _knittingNeedle)
+            {
+                if (needle.Materiale == material)
+                {
+                    NeedlesMateriale.Add(needle);
+                }
+            }
+
+            return NeedlesMateriale;
+
+        }
     }
 }

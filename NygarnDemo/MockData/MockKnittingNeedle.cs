@@ -1,4 +1,5 @@
-﻿using NygarnDemo.Models;
+﻿using NygarnDemo.Enums;
+using NygarnDemo.Models;
 
 namespace NygarnDemo.MockData;
 
@@ -6,9 +7,9 @@ public class MockKnittingNeedle
 {
     private static List<KnittingNeedle> _knittingNeedles = new List<KnittingNeedle>()
     {
-        new KnittingNeedle("Birketræ", "Strikkepinde", 3.50, 149, "Rundepinde", "Flottefarve", Enums.Brand.PetitKnit, 2, false),
-        new KnittingNeedle("Stål", "Strikkepinde", 3.50, 100, "Strømpepinde", "Strømpepinde perfekt til at strikke strømper med", Enums.Brand.PetitKnit, 2, false),
-        new KnittingNeedle("Birketræ", "Strikkepinde", 6, 149, "Rundepinde", "Sort", Enums.Brand.Sandnes, 2, true)
+        new KnittingNeedle(NeedleAndHookMateriale.plastik, Size.Size30mm, NeedleType.rundpinde, "Knit", "Gode til alt", Brand.Hobbii, 2, 149, true), 
+        new KnittingNeedle(NeedleAndHookMateriale.aluminium, Size.Size40mm, NeedleType.jumperpinde, "Hot", "Dejlig store", Brand.PetitKnit, 2, 499, true),
+        new KnittingNeedle(NeedleAndHookMateriale.aluminium, Size.Size40mm, NeedleType.strømpepinde, "Hot", "gode til strømper", Brand.PetitKnit, 2, 499, true)
 
     };
 

@@ -1,7 +1,8 @@
-﻿using NygarnDemo.MockData;
+﻿using NygarnDemo.Enums;
+using NygarnDemo.MockData;
 using NygarnDemo.Models;
-using NygarnDemo.Pages.Product.CrochetHookPages;
 using NygarnDemo.Services.Interfaces;
+
 
 namespace NygarnDemo.Services.ProductServices
 {
@@ -19,7 +20,7 @@ namespace NygarnDemo.Services.ProductServices
             return CrochetHooks;
         }
 
-        public IEnumerable<CrochetHook> PriceFilter(int maxPrice, int minPrice = 0)
+        public IEnumerable<CrochetHook> HooksPriceFilter(int maxPrice, int minPrice = 0)
         {
             List<CrochetHook> filterList = new List<CrochetHook>();
             foreach (CrochetHook crochetHook in CrochetHooks)
@@ -45,31 +46,45 @@ namespace NygarnDemo.Services.ProductServices
             return nameSearch;
         }
 
-        public IEnumerable<CrochetHook> CrochetHooksSizeFilter(int minSize = 0, int maxSize = int.MaxValue)
+        //public IEnumerable<CrochetHook> CrochetHooksSizeFilter(int minSize = 0, int maxSize = int.MaxValue)
+        //{
+        //    List<CrochetHook> crochetSize = new List<CrochetHook>();
+        //    foreach (CrochetHook hooks in CrochetHooks)
+        //    {
+        //        if (hooks.Size >= minSize && hooks.Size <= maxSize)
+        //        {
+        //            crochetSize.Add(hooks);
+        //        }
+        //    }
+        //    return crochetSize;
+        //}
+
+        public IEnumerable<CrochetHook> CrochetHooksSizeFilter(Enums.Size size)
         {
-            List<CrochetHook> crochetSize = new List<CrochetHook>();
-            foreach (CrochetHook hooks in CrochetHooks)
+            List<CrochetHook> hooksSize = new List<CrochetHook>();
+            foreach (CrochetHook crochetHook in CrochetHooks)
             {
-                if (hooks.Size >= minSize && hooks.Size <= maxSize)
+                if (crochetHook.Size == size)
                 {
-                    crochetSize.Add(hooks);
+                    hooksSize.Add(crochetHook);
                 }
             }
-            return crochetSize;
+            return hooksSize;
         }
 
-        public IEnumerable<CrochetHook> MaterialSearch(string material)
+        public IEnumerable<CrochetHook> HooksMaterialFilter(NeedleAndHookMateriale material)
         {
-             List<CrochetHook> materialSearch = new List<CrochetHook>();
-             foreach (CrochetHook crochet in CrochetHooks)
-             {
-                  if (string.IsNullOrEmpty(material) || material.ToLower() == material.ToLower())
-                  {
-                     materialSearch.Add(crochet);
-                  }
-             }
-            return materialSearch;
-        }
+            List<CrochetHook> HooksMaterialFilter = new List<CrochetHook>();
+            foreach (CrochetHook hooks in CrochetHooks)
+            {
+                if (hooks.Materiale == material)
+                {
+                    HooksMaterialFilter.Add(hooks);
+                }
+            }
+            return HooksMaterialFilter;
 
+
+        }
     }
 }

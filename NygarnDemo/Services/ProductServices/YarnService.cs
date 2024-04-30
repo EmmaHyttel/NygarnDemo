@@ -64,7 +64,7 @@ namespace NygarnDemo.Services.ProductServices
             return filterColor;
         }
 
-        public IEnumerable<Yarn> MaterialFilter(Material material)
+        public IEnumerable<Yarn> MaterialFilter(Materiale material)
         {
             List<Yarn> MaterialList = new List<Yarn>();
             foreach (Yarn yarn in YarnProducts)

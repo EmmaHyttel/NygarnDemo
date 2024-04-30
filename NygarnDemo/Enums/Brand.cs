@@ -4,7 +4,6 @@
     {
         Sandnes,
         PetitKnit,
-        Hobbii,
-
+        Hobbii
     }
 }

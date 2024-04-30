@@ -1,6 +1,6 @@
 ﻿namespace NygarnDemo.Enums
 {
-    public enum Material
+    public enum Materiale
     {
         Alpakka, 
         Silke,

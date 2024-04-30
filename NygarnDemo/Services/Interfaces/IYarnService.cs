@@ -15,7 +15,7 @@ namespace NygarnDemo.Services.Interfaces
 
         IEnumerable<Yarn> ColorFilter(Enums.Color color);
 
-        IEnumerable<Yarn> MaterialFilter(Material material);
+        IEnumerable<Yarn> MaterialFilter(Materiale material);
         IEnumerable<Yarn> BrandFilter(Brand brand);
         IEnumerable<Yarn> KnittingTensionFilter(KnittigTension knittigTension);
         IEnumerable<Yarn> YardageFilter(Yardage yardage);

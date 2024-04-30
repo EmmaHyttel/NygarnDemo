@@ -1,4 +1,5 @@
-﻿using NygarnDemo.Models;
+﻿using NygarnDemo.Enums;
+using NygarnDemo.Models;
 
 namespace NygarnDemo.MockData;
 
@@ -6,11 +7,10 @@ public class MockCrochetHook
 {
     private static List<CrochetHook> _crochetHooks = new List<CrochetHook>()
     {
-        new CrochetHook("Stål", 2.0, 49, "Waves", "Soft grib", Enums.Brand.Sandnes, 1, false),
-        new CrochetHook("Aluminium", 2.0, 400, "Waves", "Soft grib", Enums.Brand.PetitKnit, 1, false),
-        new CrochetHook("Træ", 2.0, 499, "Hot", "Soft grib", Enums.Brand.Hobbii, 6, true)
+        new CrochetHook(NeedleAndHookMateriale.aluminium, Size.Size35mm, "Waves", "Soft grib", Brand.Sandnes, 1, 49, false),
+        new CrochetHook(NeedleAndHookMateriale.bambus, Size.Size20mm, "Hot", "Soft grib", Brand.Hobbii, 1, 199, false),
+        new CrochetHook (NeedleAndHookMateriale.metal, Size.Size30mm, "Waves", "Hard grib", Brand.PetitKnit, 1, 99, false)
     };
-
     public static List<CrochetHook> GetAllCrochetHooks()
     {
         return _crochetHooks;

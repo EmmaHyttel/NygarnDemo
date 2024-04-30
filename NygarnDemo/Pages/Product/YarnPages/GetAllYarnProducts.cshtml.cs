@@ -31,7 +31,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public Color Color { get; set; }
 
         [BindProperty]
-        public Material Material { get; set; }
+        public Materiale Material { get; set; }
 
         [BindProperty]
         public Brand Brand { get; set; }
@@ -52,7 +52,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public Color ColorFilter { get; set; }
 
         [BindProperty]
-        public Material MaterialFilter { get; set; }
+        public Materiale MaterialFilter { get; set; }
 
         [BindProperty]
         public Brand BrandFilter { get; set; }
