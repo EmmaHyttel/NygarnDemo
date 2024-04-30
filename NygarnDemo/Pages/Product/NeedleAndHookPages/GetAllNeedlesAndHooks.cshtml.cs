@@ -13,8 +13,8 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         private ICrochetHookService _crochetHookService;
         private IKnittingNeedleService _knittingNeedleService;
 
-        public List<Models.CrochetHook>? CrochetHooks { get; private set; }
-        public List<Models.KnittingNeedle>? KnittingNeedles { get; set; }
+        public List<CrochetHook>? CrochetHooks { get; private set; }
+        public List<KnittingNeedle>? KnittingNeedles { get; set; }
 
         [BindProperty]
         public string SearchString { get; set; }
@@ -31,7 +31,7 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         [BindProperty]
         public Size Size { get; set; }
         [BindProperty]
-        public NeedleAndHookMateriale Material { get; set; }
+        public NeedleAndHookMaterial Material { get; set; }
         [BindProperty]
         public NeedleType Type { get; set; }
 

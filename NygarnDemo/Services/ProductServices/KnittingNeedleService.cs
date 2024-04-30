@@ -73,12 +73,12 @@ namespace NygarnDemo.Services.ProductServices
         }
 
 
-        public IEnumerable<KnittingNeedle> MaterialFilter(NeedleAndHookMateriale material)
+        public IEnumerable<KnittingNeedle> MaterialFilter(NeedleAndHookMaterial material)
         {
             List<KnittingNeedle> NeedlesMateriale = new List<KnittingNeedle>();
             foreach (KnittingNeedle needle in _knittingNeedle)
             {
-                if (needle.Materiale == material)
+                if (needle.Material == material)
                 {
                     NeedlesMateriale.Add(needle);
                 }

@@ -12,7 +12,7 @@ namespace NygarnDemo.Services.Interfaces
         IEnumerable<CrochetHook> HooksPriceFilter (int maxPrice, int minPrice = 0);
         IEnumerable<CrochetHook> NameSearch(string str);
         IEnumerable<CrochetHook> CrochetHooksSizeFilter(Size size);
-        IEnumerable<CrochetHook> HooksMaterialFilter(NeedleAndHookMateriale material);
+        IEnumerable<CrochetHook> HooksMaterialFilter(NeedleAndHookMaterial material);
        
     }
 }

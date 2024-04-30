@@ -72,7 +72,7 @@ namespace NygarnDemo.Services.ProductServices
             return hooksSize;
         }
 
-        public IEnumerable<CrochetHook> HooksMaterialFilter(NeedleAndHookMateriale material)
+        public IEnumerable<CrochetHook> HooksMaterialFilter(NeedleAndHookMaterial material)
         {
             List<CrochetHook> HooksMaterialFilter = new List<CrochetHook>();
             foreach (CrochetHook hooks in CrochetHooks)
