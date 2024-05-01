@@ -33,8 +33,6 @@ public class CrochetHook : Product
         Set = set;
 
     }
-
-
     public CrochetHook(decimal price, string name, string description, Brand brand, int amount) : base(price, name, description, brand, amount)
     {
         Material = 0;

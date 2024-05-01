@@ -18,7 +18,6 @@ public class KnittingNeedle : Product
     [Required(ErrorMessage = "Vælg en størrelse")]
     public Size Size { get; set; }
 
-    [BindProperty]
     public bool Set { get; set; }
 
 

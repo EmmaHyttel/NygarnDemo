@@ -1,26 +1,43 @@
 ﻿using NygarnDemo.Enums;
+using System.ComponentModel.DataAnnotations;
+using Color = NygarnDemo.Enums.Color;
 
 namespace NygarnDemo.Models;
 
 public class Tool : Product
 {
+    [Display(Name = "Vælg mærke")]
+    [Required(ErrorMessage = "Der skal vælges et mærke")]
+    public Brand brand { get; set; }
 
-    public string Color { get; set; }
-    public string Type { get; set; }
+    [Display(Name = "Type")]
+    [Required(ErrorMessage = "Vælg en type")]
+    public ToolType Type { get; set; }
+
+
+    [Display(Name = "Størrelse")]
+    [Required(ErrorMessage = "Vælg størrelse")]
     public string Size { get; set; }
 
-    public Tool(string color, string type, string size, decimal price, string name, string description, Brand brand, int amount) : base(price, name, description, brand, amount)
+    public Tool( string color, ToolType type, string size, decimal price, string name, string description, Brand brand, int amount) : base(price, name, description, brand, amount)
     {
-        Color = color;
+        Price = price;
+        Description = description;
+        Brand = brand; 
         Type = type;
         Size = size;
+        Name = name; 
+        
     }
 
     public Tool(decimal price, string name, string description, Brand brand, int amount) : base(price, name, description, brand, amount)
     {
-        Color = "Farve";
-        Type = "default";
-        Size = "default";
+        Price = 0;
+        Brand = 0;
+        Type = 0;
+        Size = "";
+      
+
     }
 }
 
