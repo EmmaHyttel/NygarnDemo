@@ -6,7 +6,7 @@ namespace NygarnDemo.Models
     public class Admin : Person
     {
 
-        public Admin(int personId, string name, string lastName, string password, string address, string phone) : base(personId, name, lastName, password, address, phone)
+        public Admin(int personId, string userName, string name, string lastName, string password, string address, string phone) : base(personId, userName, name, lastName, password, address, phone)
         {
         }
     }
