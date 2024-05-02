@@ -1,8 +1,8 @@
 ﻿namespace NygarnDemo.Helpers;
 
-public class UserIdGenerator
+public class PersonIdGenerator
 {
-    public string GenerateUserId()
+    public string GeneratePersonId()
     {
         return Guid.NewGuid().ToString();
     }
