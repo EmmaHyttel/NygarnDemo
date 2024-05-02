@@ -37,8 +37,6 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
 
     
 
-
-
         public GetAllCrochetHooksModel(ICrochetHookService crochetHookService, IKnittingNeedleService knittingNeedleService)
         {
             _crochetHookService = crochetHookService;
