@@ -9,6 +9,7 @@ builder.Services.AddSingleton<IPatternService, PatternService>();
 builder.Services.AddSingleton<ICrochetHookService, CrochetHookService>();
 builder.Services.AddSingleton<IYarnService, YarnService>();
 builder.Services.AddSingleton<IKnittingNeedleService, KnittingNeedleService>();
+builder.Services.AddSingleton<IToolService, ToolService>();
 
 
 var app = builder.Build();

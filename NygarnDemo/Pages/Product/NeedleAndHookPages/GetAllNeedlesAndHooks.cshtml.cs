@@ -13,14 +13,14 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         private ICrochetHookService _crochetHookService;
         private IKnittingNeedleService _knittingNeedleService;
 
-        public List<Models.CrochetHook>? CrochetHooks { get; private set; }
-        public List<Models.KnittingNeedle>? KnittingNeedles { get; set; }
+        public List<CrochetHook>? CrochetHooks { get; private set; }
+        public List<KnittingNeedle>? KnittingNeedles { get; set; }
 
         [BindProperty]
         public string SearchString { get; set; }
        
         [BindProperty]
-        public int Set { get; set; }
+        public bool Set { get; set; }
         
         [BindProperty]
         public int MaxPrice { get; set; }
@@ -31,7 +31,7 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         [BindProperty]
         public Size Size { get; set; }
         [BindProperty]
-        public NeedleAndHookMateriale Material { get; set; }
+        public NeedleAndHookMaterial Material { get; set; }
         [BindProperty]
         public NeedleType Type { get; set; }
 
@@ -45,7 +45,6 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
             _knittingNeedleService = knittingNeedleService;
         }
 
-
         public void OnGet()
         {
             CrochetHooks = _crochetHookService.GetCrochetHooks();
@@ -58,7 +57,7 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
             KnittingNeedles = _knittingNeedleService.NameSearch(SearchString).ToList();
             return Page();
         }
-        public IActionResult OnPostMaterialSearch()
+        public IActionResult OnPostMaterialFilter()
         {
             CrochetHooks = _crochetHookService.HooksMaterialFilter(Material).ToList();
             KnittingNeedles = _knittingNeedleService.MaterialFilter(Material).ToList();

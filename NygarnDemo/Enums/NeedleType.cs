@@ -2,10 +2,10 @@
 {
     public enum NeedleType
     {
-        strømpepinde,
-        rundpinde, 
-        hjælpepinde,
-        jumperpinde, 
-        udskifteligpinde
+        Strømpepinde,
+        Rundpinde, 
+        Hjælpepinde,
+        Jumperpinde, 
+        Udskifteligpinde
     }
 }

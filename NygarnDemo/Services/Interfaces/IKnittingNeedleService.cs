@@ -16,7 +16,7 @@ namespace NygarnDemo.Services.Interfaces
       
         IEnumerable<KnittingNeedle> NeedleSizeFilter(Size size);
 
-        IEnumerable<KnittingNeedle> MaterialFilter(NeedleAndHookMateriale material);
+        IEnumerable<KnittingNeedle> MaterialFilter(NeedleAndHookMaterial material);
       
         IEnumerable<KnittingNeedle> NeedleTypeFilter(NeedleType type);
     }

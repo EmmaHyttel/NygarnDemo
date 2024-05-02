@@ -1,6 +1,6 @@
 ﻿namespace NygarnDemo.Enums
 {
-    public enum NeedleAndHookMateriale
+    public enum NeedleAndHookMaterial
     {
         plastik,
         aluminium, 

@@ -1,17 +1,19 @@
 ﻿namespace NygarnDemo.MockData;
+using NygarnDemo.Enums;
+using NygarnDemo.Models;
+using System;
 
 public class MockTool
 {
-    private static List<Models.Tool> _tools = new List<Models.Tool>() 
+    private static List<Tool> _tools = new List<Tool>() 
     {
-      new Models.Tool("Blå", "Knapper", "1x1 cm", 35, "KnappeLappe", "Fine små knapper der holder jakken lukket", Enums.Brand.PetitKnit, 20),
-      new Models.Tool("Hvid", "Lynlås", "17x3 cm", 15, "LynhurtigLynild", "Super holdbar lynlås, der lynes op med lynets hastighed", Enums.Brand.Sandnes, 1),
-      new Models.Tool("Pink", "Saks", "Voksen", 40, "SakseLakse", "Super god højrehåndssaks i voksenstørrelse, " +
-          "der gør dine projekter meget nemmere at klippe igennem", Enums.Brand.Hobbii, 2)
+      new Tool("Gul", ToolType.Knapper, "1x1 cm", 35, "KnappeLappe", "Fine små knapper der holder jakken lukket", Brand.PetitKnit, 20),
+      new Tool("Brun", ToolType.Lynlås, "17x3 cm", 15, "LynhurtigLynild", "Super holdbar lynlås, der lynes op med lynets hastighed", Brand.Sandnes, 1),
+      new Tool("Lilla", ToolType.Saks, "Voksen", 40, "SakseLakse", "Super god højrehåndssaks i voksenstørrelse, " +
+          "der gør dine projekter meget nemmere at klippe igennem", Brand.Hobbii, 2)
     };
-
-    public static List<Models.Tool> GetMockTool()
+    internal static List<Tool> GetAllToolProducts()
     {
-        return _tools;
+        return _tools; 
     }
 }

@@ -1,5 +1,74 @@
 ﻿@page
+@using NygarnDemo.Enums
 @model NygarnDemo.Pages.Product.ToolPages.GetAllToolsModel
 @{
 }
 
+<h1>Tilbehør</h1>
+    <div class="row">
+        <div class="col-7"><h5>Søg</h5></div>
+        <div class="col-4"><h5>Filter Pris</h5></div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row">
+    <div class="col-4">
+        <form method="post" class="form-inline">
+            <div class="input-group mb-3">
+                <input asp-for="SearchString" class="form-control mr-1" placeholder="Søgeord" />
+                <input type="submit" asp-page-handler="NameSearch" value="Søg" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+<div class="col-3"></div>
+    <div class="col-5">
+        <form method="post" class="form-inline">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Min</span>
+                </div>
+                <input asp-for="MinPrice" class="form-control me-2" />
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Max</span>
+                </div>
+                <input asp-for="MaxPrice" class="form-control me-2" />
+                <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <form method="post">
+        <select asp-for="Brand" asp-items="Html.GetEnumSelectList<Brand>()">
+            <option value="">Vælg farve </option>
+        </select>
+        <button type="submit" asp-page-handler="BrandFilter">Filtrer</button>
+    </form>
+</div>
+<div>
+    <form method="post">
+        <select asp-for="Type" asp-items="Html.GetEnumSelectList<ToolType>()">
+            <option value="">Vælg tilbehør </option>
+        </select>
+        <button type="submit" asp-page-handler="TypeFilter">Filtrer</button>
+    </form>
+</div>
+
+@if (Model.Tools != null)
+{
+    foreach (var tool in Model.Tools)
+    {
+        <div class="card" style="width: 18rem;">
+            @* <img class="card-img-top" src="..." alt="Card image cap"> *@
+            <div class="card-body">
+                <h5 class="card-title">@tool.Name</h5>
+                <p class="card-text">Beskrivelse: @tool.Description</p>
+                <p class="card-text">Pris: @tool.Price</p>
+                <p class="card-text">Mærke: @tool.Brand</p>
+@*                 <p class="card-text">Materiale: @tool.Material</p>
+ *@             <p class="card-text">Størrelse: @tool.Size</p>
+                <p class="card-text">Type: @tool.Type</p>
+                <a href="#" class="btn btn-primary">Tryk for at se mere</a>
+            </div>
+        </div>
+    }
+}
