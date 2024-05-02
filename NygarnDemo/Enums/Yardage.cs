@@ -12,8 +12,5 @@ namespace NygarnDemo.Enums
 
         [Description("ca 400m pr 50g")]
         Yardage400mPr50g = 2,
-
-
-
     }
 }
