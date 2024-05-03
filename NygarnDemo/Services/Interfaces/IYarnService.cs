@@ -9,6 +9,8 @@ namespace NygarnDemo.Services.Interfaces
     {
         List<Yarn> GetYarnProducts();
 
+        void AddYarn(Yarn yarn);
+
         IEnumerable<Yarn> NameSearch(string str);
 
         IEnumerable<Yarn> PriceFilter(int maxPrice, int minPrice = 0);

@@ -25,6 +25,12 @@ namespace NygarnDemo.Services.ProductServices
             return YarnProducts;
         }
 
+        public void AddYarn(Yarn yarn)
+        {
+            YarnProducts.Add(yarn);
+            _dbService.SaveYarnProducts(YarnProducts);
+        }
+
         public IEnumerable<Yarn> NameSearch(string str)
         {
             List<Yarn> nameSearch = new List<Yarn>();
