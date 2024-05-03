@@ -5,6 +5,7 @@ using NygarnDemo.EFDbContext;
 using NygarnDemo.Services;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Services.ProductServices;
+using NygarnDemo.Services.User;
 using static NygarnDemo.EFDbContext.YarnDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Services.AddSingleton<IKnittingNeedleService, KnittingNeedleService>();
 builder.Services.AddSingleton<IToolService, ToolService>();
 builder.Services.AddDbContext<YarnDbContext>();
 builder.Services.AddSingleton<DbService, DbService>();
+builder.Services.AddSingleton<UserService, UserService>();
 builder.Services.Configure<CookiePolicyOptions>(options => {
     // This lambda determines whether user consent for non-essential cookies is needed for a given request. options.CheckConsentNeeded = context => true; 
     options.MinimumSameSitePolicy = SameSiteMode.None;
