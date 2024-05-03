@@ -40,7 +40,13 @@ namespace NygarnDemo.Models
         [StringLength(8)]
         public string Phone { get; set; }
 
-        public Person(int personId, string userName, string name, string lastName, string password, string address, string phone)
+
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "Mangler mail")]
+        [StringLength(100)]
+        public string Email { get; set; }
+
+        public Person(int personId, string userName, string name, string lastName, string password, string address, string phone, string email)
         {
             UserName = userName;
             Name = name;
@@ -48,6 +54,7 @@ namespace NygarnDemo.Models
             Password = password;
             Address = address;
             Phone = phone;
+            Email = email;
         }
 
         public Person()
@@ -58,6 +65,7 @@ namespace NygarnDemo.Models
             Password = "";
             Address = "";
             Phone = "";
+            Email = "";
         }
     }
 }
