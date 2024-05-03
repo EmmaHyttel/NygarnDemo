@@ -13,7 +13,7 @@ namespace NygarnDemo.MockData
 
         };
 
-        public static List<User> GetAllAdmins()
+        public static List<User> GetAllUsers()
         {
             return _users;
         }
