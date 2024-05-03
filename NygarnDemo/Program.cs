@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NygarnDemo.EFDbContext;
+using NygarnDemo.MockData;
+using NygarnDemo.Models;
 using NygarnDemo.Services;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Services.ProductServices;
@@ -20,6 +22,8 @@ builder.Services.AddSingleton<IToolService, ToolService>();
 builder.Services.AddDbContext<YarnDbContext>();
 builder.Services.AddSingleton<DbService, DbService>();
 builder.Services.AddSingleton<UserService, UserService>();
+//builder.Services.AddTransient<UserService<User>>(); // hvad skal der være her? 
+
 builder.Services.Configure<CookiePolicyOptions>(options => {
     // This lambda determines whether user consent for non-essential cookies is needed for a given request. options.CheckConsentNeeded = context => true; 
     options.MinimumSameSitePolicy = SameSiteMode.None;

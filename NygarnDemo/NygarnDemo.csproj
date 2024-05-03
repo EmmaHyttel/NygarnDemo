@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Pages\Person\" />
-    <Folder Include="Pages\User\" />
     <Folder Include="Pages\Order\" />
   </ItemGroup>
 

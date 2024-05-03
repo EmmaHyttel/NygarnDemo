@@ -27,5 +27,6 @@ namespace NygarnDemo.Services.User
             //return DbService.GetObjectByIdAsync(username).Result;
             return Users.Find(user => user.UserName == username);
         }
+
     }
 }

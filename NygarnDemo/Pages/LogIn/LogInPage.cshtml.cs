@@ -8,12 +8,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 
 namespace NygarnDemo.Pages.LogInPage
 {
     public class LogInPageModel : PageModel
     {
-        public static User LoggedInUser { get; set; } = null;
+        public static Models.User LoggedInUser { get; set; } = null;
 
         private UserService _userService;
 
@@ -35,29 +36,22 @@ namespace NygarnDemo.Pages.LogInPage
 
         public async Task<IActionResult> OnPost()
         {
+              List<Models.User> users = _userService.Users; // ser ikke korrekt ud
+              foreach (Models.User user in users)
+              {
+                  if (UserName == user.UserName && Password == user.Password)
+                  {
+                        LoggedInUser = user;
 
-            List<User> users = _userService.Users;
-            foreach (User user in users)
-            {
+                        var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
 
-                if (UserName == user.UserName && Password == user.Password)
-                {
-
-                    LoggedInUser = user;
-
-                    var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
-
-                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-                    return RedirectToPage("/Index");
-
-                }
-
-            }
-            Message = "Invalid attempt";
-            return Page();
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+                        return RedirectToPage("/Index");
+                  }
+              }
+              Message = "Invalid attempt";
+              return Page();
         }
-
     }
-
 }
