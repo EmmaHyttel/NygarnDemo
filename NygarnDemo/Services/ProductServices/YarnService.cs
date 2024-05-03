@@ -2,12 +2,11 @@
 using NygarnDemo.MockData;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
-using System.Drawing;
 using Size = NygarnDemo.Enums.Size;
 
-namespace NygarnDemo.Services.ProductServices
-{
-    public class YarnService : IYarnService
+namespace NygarnDemo.Services.ProductServices;
+
+public class YarnService : IYarnService
     {
         private DbService _dbService;
         public List<Yarn>? YarnProducts { get; set; }
@@ -16,11 +15,16 @@ namespace NygarnDemo.Services.ProductServices
         {
             YarnProducts = MockYarn.GetAllYarnProducts();
             _dbService = dbService;
-            _dbService.SaveYarnProducts(YarnProducts);
+            //_dbService.GetYarnProducts();
+            //_dbService.SaveYarnProducts(YarnProducts);
         }
 
+	//public YarnService()
+	//{
+	//	YarnProducts = MockYarn.GetAllYarnProducts();
+	//}
 
-        public List<Yarn> GetYarnProducts()
+	public List<Yarn> GetYarnProducts()
         {
             return YarnProducts;
         }
@@ -157,4 +161,3 @@ namespace NygarnDemo.Services.ProductServices
             return MachinewashList;
         }
     }
-}
