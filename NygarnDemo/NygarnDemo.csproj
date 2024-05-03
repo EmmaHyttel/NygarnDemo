@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <Folder Include="Pages\LogIn\" />
+    <Folder Include="Pages\Person\" />
     <Folder Include="Pages\User\" />
     <Folder Include="Pages\Order\" />
+    <Folder Include="Services\User\" />
   </ItemGroup>
 
   <ItemGroup>
