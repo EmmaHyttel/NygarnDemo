@@ -17,5 +17,15 @@ namespace NygarnDemo.Services.User
         {
             return Users;
         }
+
+        public void AddUser(Models.User user)
+        {
+            Users = MockUser.GetMockUsers();
+        }
+        public Models.User GetUserByUserName(string username)
+        {
+            //return DbService.GetObjectByIdAsync(username).Result;
+            return Users.Find(user => user.UserName == username);
+        }
     }
 }

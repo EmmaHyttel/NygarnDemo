@@ -6,7 +6,9 @@ namespace NygarnDemo.Services.User
     {
         List<Models.User> GetAllUsers();
 
+        void AddUser(Models.User user);
 
+        Models.User GetUserByUserName(string str);
 
     }
 }

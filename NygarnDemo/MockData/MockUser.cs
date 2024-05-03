@@ -17,5 +17,10 @@ namespace NygarnDemo.MockData
         {
             return _users;
         }
+
+        internal static List<User> GetMockUsers()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
