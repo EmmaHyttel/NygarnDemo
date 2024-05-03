@@ -20,7 +20,7 @@ namespace NygarnDemo.Services.User
 
         public void AddUser(Models.User user)
         {
-            Users = MockUser.GetMockUsers();
+            Users = MockUser.GetAllUsers();
         }
         public Models.User GetUserByUserName(string username)
         {
