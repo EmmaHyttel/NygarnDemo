@@ -28,7 +28,7 @@ public class Product
     [Required(ErrorMessage = "Produkt Brand skal anføres")]
     [StringLength(100)]
     public Brand Brand { get; set; }
-    public int? Amount { get; set; }
+    public int Amount { get; set; }
 
     public Product(decimal price, string name, string description, Brand brand, int amount)
     {

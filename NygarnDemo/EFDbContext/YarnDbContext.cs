@@ -3,16 +3,13 @@ using NygarnDemo.Models;
 
 namespace NygarnDemo.EFDbContext;
 
-public class YarnDbContext
+public class YarnDbContext : DbContext
 {
-    public class ItemDbContext : DbContext
-    {
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ItemDB; Integrated Security=True; Connect Timeout=30; Encrypt=False");
+            options.UseSqlServer(@"Data Source=mssql11.unoeuro.com;Initial Catalog=nygarndemo_dk_db_the_database; Integrated Security=True; Connect Timeout=30; Encrypt=False");
         }
 
-        public DbSet<Yarn> YarnProducts { get; set; }
-        //public DbSet<User> Users { get; set; }
-    }
+    public DbSet<Yarn> YarnProducts { get; set; }
+    public DbSet<User> Users { get; set; }
 }

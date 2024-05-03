@@ -1,5 +1,8 @@
+using NygarnDemo.EFDbContext;
+using NygarnDemo.Services;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Services.ProductServices;
+using static NygarnDemo.EFDbContext.YarnDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +13,8 @@ builder.Services.AddSingleton<ICrochetHookService, CrochetHookService>();
 builder.Services.AddSingleton<IYarnService, YarnService>();
 builder.Services.AddSingleton<IKnittingNeedleService, KnittingNeedleService>();
 builder.Services.AddSingleton<IToolService, ToolService>();
+builder.Services.AddDbContext<YarnDbContext>();
+builder.Services.AddSingleton<DbService, DbService>();
 
 
 var app = builder.Build();

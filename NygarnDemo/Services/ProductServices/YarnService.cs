@@ -9,11 +9,14 @@ namespace NygarnDemo.Services.ProductServices
 {
     public class YarnService : IYarnService
     {
+        private DbService _dbService;
         public List<Yarn>? YarnProducts { get; set; }
 
-        public YarnService()
+        public YarnService(DbService dbService)
         {
             YarnProducts = MockYarn.GetAllYarnProducts();
+            _dbService = dbService;
+            _dbService.SaveYarnProducts(YarnProducts);
         }
 
 
