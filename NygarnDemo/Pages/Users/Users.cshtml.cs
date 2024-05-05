@@ -5,13 +5,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.Services.User;
 using System.ComponentModel.DataAnnotations;
 
-
-namespace NygarnDemo.Pages.User
+namespace NygarnDemo.Pages.Users
 {
     [Authorize(Roles = "admin")]
-    public class AdminModel : PageModel
+    public class UsersModel : PageModel
     {
-      
+
         [BindProperty]
         public string UserName { get; set; }
 
@@ -22,10 +21,10 @@ namespace NygarnDemo.Pages.User
 
         private UserService _userService;
 
-        public AdminModel(string userName, string password, PasswordHasher<string> passwordHasher, UserService userService)
+        public UsersModel(string userName, string password, PasswordHasher<string> passwordHasher, UserService userService)
         {
-            UserName = userName;
-            Password = password;
+            //UserName = userName;
+            //Password = password;
             this.passwordHasher = passwordHasher;
             _userService = userService;
         }
@@ -40,8 +39,8 @@ namespace NygarnDemo.Pages.User
         //    {
         //        return Page();
         //    }
-        //    await _userService.AddUser(new User(UserName, passwordHasher.HashPassword(null, Password)));
-        //    return RedirectToPage("/index");
+            //await _userService.AddUser(new User(UserName, passwordHasher.HashPassword(null, Password)));
+        //    //return RedirectToPage("/index");
         //}
     }
 }
