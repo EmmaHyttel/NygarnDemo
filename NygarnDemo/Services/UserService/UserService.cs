@@ -18,7 +18,7 @@ namespace NygarnDemo.Services.User
             return Users;
         }
 
-        public void AddUser(Models.User user)
+        public async Task AddUser(Models.User user)
         {
             Users = MockUser.GetAllUsers();
         }
