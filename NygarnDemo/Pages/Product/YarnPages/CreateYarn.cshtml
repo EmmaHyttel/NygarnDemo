@@ -1,4 +1,5 @@
 ﻿@page
+@using NygarnDemo.Enums
 @model NygarnDemo.Pages.Product.YarnPages.CreateYarnModel
 @{
 }
@@ -21,8 +22,10 @@
 		<span asp-validation-for="@Model.Yarn.Description" class="text-danger"></span>
 	</div>
 	<div class="form-group">
-		<label asp-for="@Model.Yarn.Brand" class="control-label"></label>
-		<input asp-for="@Model.Yarn.Brand" class="form-control" />
+		<label asp-for="@Model.Yarn.Brand" class="control-label">Brand</label>
+		<select asp-for="@Model.Yarn.Brand" asp-items="Html.GetEnumSelectList<Brand>()">
+			<option value=""></option>
+		</select>
 		<span asp-validation-for="@Model.Yarn.Brand" class="text-danger"></span>
 	</div>
 	<div class="form-group">
@@ -31,23 +34,31 @@
 		<span asp-validation-for="@Model.Yarn.Amount" class="text-danger"></span>
 	</div>
 	<div class="form-group">
-		<label asp-for="@Model.Yarn.Color" class="control-label"></label>
-		<input asp-for="@Model.Yarn.Color" class="form-control" />
+		<label asp-for="@Model.Yarn.Color" class="control-label">Farve</label>
+		 <select asp-for="@Model.Yarn.Color" asp-items="Html.GetEnumSelectList<Color>()">
+			<option value=""></option>
+		</select>
 		<span asp-validation-for="@Model.Yarn.Color" class="text-danger"></span>
 	</div>
 	<div class="form-group">
-		<label asp-for="@Model.Yarn.KnittingTension" class="control-label"></label>
-		<input asp-for="@Model.Yarn.KnittingTension" class="form-control" />
+		<label asp-for="@Model.Yarn.KnittingTension" class="control-label">Strikkefasthed</label>
+		<select asp-for="@Model.Yarn.KnittingTension" asp-items="Html.GetEnumSelectList<KnittingTension>()">
+			<option value=""></option>
+		</select>
 		<span asp-validation-for="@Model.Yarn.KnittingTension" class="text-danger"></span>
 	</div>
 	<div class="form-group">
-		<label asp-for="@Model.Yarn.Yardage" class="control-label"></label>
-		<input asp-for="@Model.Yarn.Yardage" class="form-control" />
+		<label asp-for="@Model.Yarn.Yardage" class="control-label">Løbelængde</label>
+		<select asp-for="@Model.Yarn.Yardage" asp-items="Html.GetEnumSelectList<Yardage>()">
+			<option value=""></option>
+		</select>
 		<span asp-validation-for="@Model.Yarn.Yardage" class="text-danger"></span>
 	</div>
 	<div class="form-group">
 		<label asp-for="@Model.Yarn.Material" class="control-label"></label>
-		<input asp-for="@Model.Yarn.Material" class="form-control" />
+		<select asp-for="@Model.Yarn.Material" asp-items="Html.GetEnumSelectList<Material>()">
+			<option value=""></option>
+		</select>
 		<span asp-validation-for="@Model.Yarn.Material" class="text-danger"></span>
 	</div>
 	<div class="form-group">
@@ -56,8 +67,10 @@
 		<span asp-validation-for="@Model.Yarn.Weight" class="text-danger"></span>
 	</div>
 	<div class="form-group">
-		<label asp-for="@Model.Yarn.Size" class="control-label"></label>
-		<input asp-for="@Model.Yarn.Size" class="form-control" />
+		<label asp-for="@Model.Yarn.Size" class="control-label">Anbefalede pinde</label>
+		<select asp-for="@Model.Yarn.Size" asp-items="Html.GetEnumSelectList<Size>()">
+			<option value=""></option>
+		</select>
 		<span asp-validation-for="@Model.Yarn.Size" class="text-danger"></span>
 	</div>
 	@* 	<div class="form-group">

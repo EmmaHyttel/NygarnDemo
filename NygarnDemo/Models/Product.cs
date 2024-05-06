@@ -42,12 +42,12 @@ public class Product
 
     public Product()
     {
-        ProductId = GenerateProductId();
-        Price = 0;
-        Name = "testProdukt";
-        Description = "Beskrivelse";
-        Brand = 0;
-        Amount = 0;
+    //    ProductId = GenerateProductId();
+    //    Price = 0;
+    //    Name = "testProdukt";
+    //    Description = "Beskrivelse";
+    //    Brand = 0;
+    //    Amount = 0;
     }
 
     private string GenerateProductId()

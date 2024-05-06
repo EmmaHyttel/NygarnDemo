@@ -15,16 +15,16 @@ public class YarnService : IYarnService
         {
             YarnProducts = MockYarn.GetAllYarnProducts();
             _dbService = dbService;
-            //_dbService.GetYarnProducts();
-            //_dbService.SaveYarnProducts(YarnProducts);
+            //YarnProducts = _dbService.GetYarnProducts().Result.ToList();
+            _dbService.SaveYarnProducts(YarnProducts);
         }
 
-	//public YarnService()
-	//{
-	//	YarnProducts = MockYarn.GetAllYarnProducts();
-	//}
+	    //public YarnService()
+	    //{
+	    //	YarnProducts = MockYarn.GetAllYarnProducts();
+	    //}
 
-	public List<Yarn> GetYarnProducts()
+	    public List<Yarn> GetYarnProducts()
         {
             return YarnProducts;
         }
@@ -105,7 +105,7 @@ public class YarnService : IYarnService
             return BrandList;
         }
 
-        public IEnumerable<Yarn> KnittingTensionFilter(KnittigTension knittigTension)
+        public IEnumerable<Yarn> KnittingTensionFilter(KnittingTension knittigTension)
         {
             List<Yarn> KNList = new List<Yarn>();
             foreach (Yarn yarn in YarnProducts)

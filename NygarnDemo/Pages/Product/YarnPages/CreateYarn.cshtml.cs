@@ -1,18 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.Models;
+using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Services.ProductServices;
 
 namespace NygarnDemo.Pages.Product.YarnPages
 {
 	public class CreateYarnModel : PageModel
 	{
-		private YarnService _yarnService;
+		private IYarnService _yarnService;
 
 		[BindProperty]
 		public Yarn Yarn { get; set; }
 
-		public CreateYarnModel(YarnService yarnService)
+		public CreateYarnModel(IYarnService yarnService)
 		{
 			_yarnService = yarnService;
 		}
