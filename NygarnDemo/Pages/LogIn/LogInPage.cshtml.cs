@@ -44,7 +44,7 @@ namespace NygarnDemo.Pages.LogInPage
 
                     if (passwordHasher.VerifyHashedPassword(null, user.Password, Password) == PasswordVerificationResult.Success)
                     {
-                        // LoggedInUser = user;
+                        LoggedInUser = user;
 
                         var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
 

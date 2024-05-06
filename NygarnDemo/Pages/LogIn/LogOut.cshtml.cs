@@ -9,9 +9,9 @@ namespace NygarnDemo.Pages.LogInPage
     {
           public async Task<IActionResult> OnGet()
           {
-                //LogInPageModel.LoggedInUser = null;
+            LogInPageModel.LoggedInUser = null;
 
-                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
                 return RedirectToPage("/index");
           }
     }
