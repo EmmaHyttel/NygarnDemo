@@ -16,7 +16,7 @@ public class Tool : Product
     public string Size { get; set; }
 
     public Tool(ToolType type, string size, decimal price, string name, string description, Brand brand,
-        int amount, int productId) : base(price, name, description, brand, amount, productId)
+        int amount) : base(price, name, description, brand, amount)
     {
         Type = type;
         Size = size;  

@@ -32,14 +32,14 @@ public class Product
     public Brand Brand { get; set; }
     public int Amount { get; set; }
 
-    public Product(decimal price, string name, string description, Brand brand, int amount, int productId)
+    public Product(decimal price, string name, string description, Brand brand, int amount)
     {
         Price = price;
         Name = name;
         Description = description;
         Brand = brand;
         Amount = amount;
-        ProductId = productId;
+        ProductId = 0;
     }
 
     public Product()
