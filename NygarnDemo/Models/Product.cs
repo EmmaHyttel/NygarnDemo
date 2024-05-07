@@ -6,9 +6,9 @@ namespace NygarnDemo.Models;
 
 public class Product
 {
-	private static ProductIdGenerator _idGenerator = new ProductIdGenerator();
-
-	public string ProductId { get; set; }
+	//private static ProductIdGenerator _idGenerator = new ProductIdGenerator();
+    [Key]
+	public int ProductId { get; set; }
 
     [Display(Name = "Pris")]
     [Required(ErrorMessage = "Der skal angives en pris")]
@@ -17,10 +17,10 @@ public class Product
     [Display(Name = "Produkt Navn")]
     [Required(ErrorMessage = "Produkt skal have et navn")]
     [StringLength(100)]
-    public string Name { get; set; }
+    public string Name { get; set; } 
 
     [Display(Name = "Produkt Beskrivelse")]
-    [Required(ErrorMessage = "Produkt skal have et navn")]
+    [Required(ErrorMessage = "Produkt skal have en beskrivelse")]
     [StringLength(500)]
     public string Description { get; set; }
 
@@ -32,7 +32,6 @@ public class Product
 
     public Product(decimal price, string name, string description, Brand brand, int amount)
     {
-        ProductId = GenerateProductId();
         Price = price;
         Name = name;
         Description = description;
@@ -42,17 +41,11 @@ public class Product
 
     public Product()
     {
-    //    ProductId = GenerateProductId();
-    //    Price = 0;
-    //    Name = "testProdukt";
-    //    Description = "Beskrivelse";
-    //    Brand = 0;
-    //    Amount = 0;
     }
 
-    private string GenerateProductId()
-    {
-        return _idGenerator.GenerateProductId();
-    }
+    //private string GenerateProductId()
+    //{
+    //    return _idGenerator.GenerateProductId();
+    //}
 
 }

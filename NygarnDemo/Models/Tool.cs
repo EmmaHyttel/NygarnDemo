@@ -19,25 +19,22 @@ public class Tool : Product
     [Required(ErrorMessage = "Vælg størrelse")]
     public string Size { get; set; }
 
-    public Tool( string color, ToolType type, string size, decimal price, string name, string description, Brand brand, int amount) : base(price, name, description, brand, amount)
+    public Tool( string color, ToolType type, string size, decimal price, string name, string description, Brand brand, 
+        int amount) : base(price, name, description, brand, amount)
     {
-        Price = price;
-        Description = description;
         Brand = brand; 
         Type = type;
         Size = size;
-        Name = name; 
+        Color = color;
         
     }
 
-    public Tool(decimal price, string name, string description, Brand brand, int amount) : base(price, name, description, brand, amount)
+    public Tool(decimal price, string name, string description, Brand brand, int amount) : 
+        base(price, name, description, brand, amount)
     {
-        Price = 0;
-        Brand = 0;
-        Type = 0;
-        Size = "";
-      
-
+        //Brand = 0;
+        //Type = 0;
+        //Size = "";
     }
 }
 

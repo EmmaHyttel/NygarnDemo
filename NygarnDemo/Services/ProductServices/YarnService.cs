@@ -15,9 +15,9 @@ public class YarnService : IYarnService
         {
             YarnProducts = MockYarn.GetAllYarnProducts();
             _dbService = dbService;
-            //YarnProducts = _dbService.GetYarnProducts().Result.ToList();
-            _dbService.SaveYarnProducts(YarnProducts);
-        }
+        //YarnProducts = _dbService.GetYarnProducts().Result.ToList();
+        _dbService.SaveYarnProducts(YarnProducts);
+    }
 
 	    //public YarnService()
 	    //{

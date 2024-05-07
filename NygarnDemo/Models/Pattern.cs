@@ -19,12 +19,13 @@ public class Pattern : Product
     public Fits Fits { get; set; }
     public bool FreePattern { get; set; }
 
-    public Pattern(decimal price, string name, string description, Brand brand, int amount) : base(price, name, description, brand, amount)
+    public Pattern(decimal price, string name, string description, Brand brand, int amount) : 
+        base(price, name, description, brand, amount)
     {
-        Designer = "";
-        DifficultyLevel = 0;
-        Category = 0;
-        Fits = 0;
-        FreePattern = false;
+        //Designer = "";
+        //DifficultyLevel = 0;
+        //Category = 0;
+        //Fits = 0;
+        //FreePattern = false;
     }
 }
