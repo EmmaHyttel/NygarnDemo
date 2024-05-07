@@ -23,19 +23,17 @@ public class CrochetHook : Product
 
 
     public CrochetHook(NeedleAndHookMaterial material, Size size, string name, string description, Brand brand, 
-        int amount, decimal price, bool set) : base(price, name, description, brand, amount)
+        int amount, decimal price, bool set, int productId) : base(price, name, description, brand, amount, productId)
     {
-        Brand = brand;
         Material = material;
         Set = set;
         Size = size;
     }
-    public CrochetHook(decimal price, string name, string description, Brand brand, int amount, 
-        int productId) : base(price, name, description, brand, amount, productId)
+    public CrochetHook() : base()
     {
-        //Material = 0;
-        //Brand = 0;
-        //Set = false;
+        Material = 0;
+        Brand = 0;
+        Set = false;
     }
 
 }

@@ -35,8 +35,8 @@ public class Yarn : Product
     public bool MachineWash { get; set; }
 
     public Yarn(Color color, KnittingTension knittingTension, Yardage yardage, Material material, int weight, Size size, 
-        bool machineWash, decimal price, string name, string description, Brand brand, int amount) : 
-        base(price, name, description, brand, amount)
+        bool machineWash, decimal price, string name, string description, Brand brand, int amount, int productId) : 
+        base(price, name, description, brand, amount, productId)
     {
         Color = color;
         KnittingTension = knittingTension;
@@ -47,15 +47,14 @@ public class Yarn : Product
         MachineWash = machineWash;
     }
 
-    public Yarn(decimal price, string name, string description, Brand brand, int amount) : 
-        base(price, name, description, brand, amount)
+    public Yarn() : base()
     {
-        //Color = 0;
-        //KnittingTension = 0;
-        //Yardage = 0;
-        //Material = 0;
-        //Weight = 1;
-        //Size = 0;
-        //MachineWash = 0;
+        Color = 0;
+        KnittingTension = 0;
+        Yardage = 0;
+        Material = 0;
+        Weight = 1;
+        Size = 0;
+        MachineWash = false;
     }
 }

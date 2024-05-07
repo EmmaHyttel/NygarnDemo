@@ -6,10 +6,6 @@ namespace NygarnDemo.Models;
 
 public class Tool : Product
 {
-    [Display(Name = "Vælg mærke")]
-    [Required(ErrorMessage = "Der skal vælges et mærke")]
-    public Brand brand { get; set; }
-
     [Display(Name = "Type")]
     [Required(ErrorMessage = "Vælg en type")]
     public ToolType Type { get; set; }
@@ -19,22 +15,17 @@ public class Tool : Product
     [Required(ErrorMessage = "Vælg størrelse")]
     public string Size { get; set; }
 
-    public Tool( string color, ToolType type, string size, decimal price, string name, string description, Brand brand, 
-        int amount) : base(price, name, description, brand, amount)
+    public Tool(ToolType type, string size, decimal price, string name, string description, Brand brand,
+        int amount, int productId) : base(price, name, description, brand, amount, productId)
     {
-        Brand = brand; 
         Type = type;
-        Size = size;
-        Color = color;
-        
+        Size = size;  
     }
 
-    public Tool(decimal price, string name, string description, Brand brand, int amount) : 
-        base(price, name, description, brand, amount)
+    public Tool() : base()
     {
-        //Brand = 0;
-        //Type = 0;
-        //Size = "";
+        Type = 0;
+        Size = "";
     }
 }
 
