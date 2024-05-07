@@ -1,8 +1,8 @@
 ﻿namespace NygarnDemo.Enums
 {
-    public enum Machinewash
-    {
-        Maskinevask, 
-        Håndvask
-    }
+    //public enum Machinewash
+    //{
+    //    Maskinevask, 
+    //    Håndvask
+    //}
 }

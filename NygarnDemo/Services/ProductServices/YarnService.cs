@@ -147,17 +147,17 @@ public class YarnService : IYarnService
             return SizeList;
         }
 
-        public IEnumerable<Yarn> MachinewashFilter(Machinewash machinewash)
-        {
-            List<Yarn> MachinewashList = new List<Yarn>();
-            foreach (Yarn yarn in YarnProducts)
-            {
-                if (yarn.MachineWash == machinewash)
-                {
-                    MachinewashList.Add(yarn);
-                }
-            }
+    //public IEnumerable<Yarn> MachinewashFilter()
+    //{
+    //    List<Yarn> MachinewashList = new List<Yarn>();
+    //    foreach (Yarn yarn in YarnProducts)
+    //    {
+    //        if (yarn.MachineWash == )
+    //        {
+    //            MachinewashList.Add(yarn);
+    //        }
+    //    }
 
-            return MachinewashList;
-        }
-    }
+    //    return MachinewashList;
+    //}
+}
