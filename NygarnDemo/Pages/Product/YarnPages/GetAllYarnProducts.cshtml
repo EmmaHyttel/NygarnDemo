@@ -4,6 +4,7 @@
 @{
 }
 
+
 <h1>Garn</h1>
 
 <div class="row">
@@ -84,13 +85,14 @@
             <button type="submit" asp-page-handler="SizeFilter">Se garn</button>
         </form>
     </div>
-    <div>
+   @*  <div>
         <form method="post">
             <select asp-for="MachineWash" asp-items="Html.GetEnumSelectList<Machinewash>()">
                 <option value="">Pick one</option>
             </select>
             <button type="submit" asp-page-handler="MachinewashFilter">Se garn</button>
         </form>
+    </div> *@
     </div>
 </div>
 

@@ -22,7 +22,7 @@ namespace NygarnDemo.Services.Interfaces
         IEnumerable<Yarn> KnittingTensionFilter(KnittingTension knittigTension);
         IEnumerable<Yarn> YardageFilter(Yardage yardage);
         IEnumerable<Yarn> SizeFilter(Size size);
-        IEnumerable<Yarn> MachinewashFilter(Machinewash machinewash);
+        //IEnumerable<Yarn> MachinewashFilter(Machinewash machinewash);
 
     }
 }

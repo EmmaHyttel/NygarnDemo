@@ -46,7 +46,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public Size Size { get; set; }
 
         [BindProperty]
-        public Machinewash MachineWash { get; set; }
+        public bool MachineWash { get; set; }
 
         [BindProperty]
         public Color ColorFilter { get; set; }
@@ -67,7 +67,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public Yardage SizeFilter { get; set; }
 
         [BindProperty]
-        public Machinewash MachinewashFilter { get; set; }
+        public bool MachinewashFilter { get; set; }
 
         public void OnGet()
         {
@@ -122,11 +122,11 @@ namespace NygarnDemo.Pages.Product.YarnPages
             return Page();
         }
 
-        public IActionResult OnPostMachinewashFilter()
-        {
-            YarnProducts = _yarnService.MachinewashFilter(MachineWash).ToList();
-            return Page();
-        }
+        //public IActionResult OnPostMachinewashFilter()
+        //{
+        //    YarnProducts = _yarnService.MachinewashFilter(MachineWash).ToList();
+        //    return Page();
+        //}
 
     }
 }

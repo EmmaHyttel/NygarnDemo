@@ -9,13 +9,15 @@ namespace NygarnDemo.Pages.Product.YarnPages
 	public class CreateYarnModel : PageModel
 	{
 		private IYarnService _yarnService;
+        
 
-		[BindProperty]
+        [BindProperty]
 		public Yarn Yarn { get; set; }
 
 		public CreateYarnModel(IYarnService yarnService)
 		{
 			_yarnService = yarnService;
+			
 		}
 
 		public IActionResult OnGet()
