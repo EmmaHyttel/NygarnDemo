@@ -13,11 +13,11 @@ public class YarnService : IYarnService
 
         public YarnService(DbService dbService)
         {
-            YarnProducts = MockYarn.GetAllYarnProducts();
+            //YarnProducts = MockYarn.GetAllYarnProducts();
             _dbService = dbService;
-            //YarnProducts = _dbService.GetYarnProducts().Result.ToList();
-            //_dbService.SaveYarnProducts(YarnProducts);
-        }
+        YarnProducts = _dbService.GetYarnProducts().Result.ToList();
+        //_dbService.SaveYarnProducts(YarnProducts);
+    }
 
 	    //public YarnService()
 	    //{
@@ -31,8 +31,7 @@ public class YarnService : IYarnService
 
 	    public async Task AddYarnAsync(Yarn yarn)
 	    {
-		    YarnProducts.Add(yarn);
-		    await _dbService.SaveYarnProducts(YarnProducts);
+            await _dbService.AddYarn(yarn);
 	    }
 
         public IEnumerable<Yarn> NameSearch(string str)

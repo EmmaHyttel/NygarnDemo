@@ -9,8 +9,8 @@ public class Product
 {
 	//private static ProductIdGenerator _idGenerator = new ProductIdGenerator();
     [Key]
-	[DatabaseGenerated(DatabaseGeneratedOption.None)]
-	public int ProductId { get; set; }
+	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+	public int Id { get; set; }
 
     [Display(Name = "Pris")]
     [Required(ErrorMessage = "Der skal angives en pris")]
@@ -28,7 +28,7 @@ public class Product
 
     [Display(Name = "Brand")]
     [Required(ErrorMessage = "Produkt Brand skal anføres")]
-    [StringLength(100)]
+    //[StringLength(100)]
     public Brand Brand { get; set; }
     public int Amount { get; set; }
 
@@ -39,7 +39,7 @@ public class Product
         Description = description;
         Brand = brand;
         Amount = amount;
-        ProductId = 0;
+        Id = 0;
     }
 
     public Product()
@@ -49,7 +49,7 @@ public class Product
         Description = "";
         Brand = 0;
         Amount = 1;
-        ProductId = 0;
+        Id = 0;
     }
 
     //private string GenerateProductId()

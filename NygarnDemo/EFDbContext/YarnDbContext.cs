@@ -1,24 +1,114 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NygarnDemo.Enums;
 using NygarnDemo.Models;
 
 namespace NygarnDemo.EFDbContext;
 
 public class YarnDbContext : DbContext
-{ 
+{
 	protected override void OnConfiguring(DbContextOptionsBuilder options)
-    {
-        //options.UseSqlServer(@"Data Source=mssql11.unoeuro.com;Initial Catalog=nygarndemo_dk_db_the_database; Integrated Security=True; Connect Timeout=30; Encrypt=False");
-        //options.UseSqlServer(@"Data Source=mssql11.unoeuro.com;User ID=nygarndemo_dk;Password=drHmxBw4p6nkFcha2Abt;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False Connect Timeout=30; Encrypt=False");
-        options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LocalNygarn;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
-    }
-    //protected override void OnModelCreating(ModelBuilder modelBuilder)
-    //{
-    //    modelBuilder.Entity<Yarn>().ToTable("Yarn")
-    //        .HasKey(e => e.ProductId);
-    //}
+	{
+		options.UseSqlServer(@"Data Source=mssql17.unoeuro.com;
+							Initial Catalog=nygarndemo_dk_db_projekt;
+							User ID=nygarndemo_dk;
+							Password=drHmxBw4p6nkFcha2Abt;
+							Connect Timeout=30;Encrypt=True;
+							Trust Server Certificate=True;
+							Application Intent=ReadWrite;
+							Multi Subnet Failover=False;
+							Connect Timeout=30; 
+							Encrypt=False"
+		);
+	}
+	protected override void OnModelCreating(ModelBuilder modelBuilder)
+	{
+		modelBuilder.Entity<Yarn>().ToTable("YarnProducts")
+			.HasData(
+				new Yarn()
+				{
+					Id = 1,
+					Price = 99,
+					Name = "Luksus garn",
+					Description = "Meget luksus garn, ikke egnet til påklædning.",
+					Brand = Brand.Sandnes,
+					Amount = 10,
+					Color = Color.Rød,
+					KnittingTension = KnittingTension.KnittingTension10mX10cm,
+					Yardage = Yardage.Yardage400mPr50g,
+					Material = Material.Alpakka,
+					Weight = 100,
+					Size = Size.Size25mm,
+					MachineWash = false
+				},
+				new Yarn()
+				{
+					Id = 2,
+					Price = 49,
+					Name = "Saga",
+					Description = "Meget luksus garn, ikke egnet til påklædning.",
+					Brand = Brand.Sandnes,
+					Amount = 10,
+					Color = Color.Rød,
+					KnittingTension = KnittingTension.KnittingTension10mX10cm,
+					Yardage = Yardage.Yardage400mPr50g,
+					Material = Material.Alpakka,
+					Weight = 100,
+					Size = Size.Size25mm,
+					MachineWash = false
+				},
+				new Yarn()
+				 {
+					 Id = 3,
+					 Color = Color.Beige,
+					 KnittingTension = KnittingTension.knittingTension21mX10cm,
+					 Yardage = Yardage.Yardage215mPr50g,
+					 Material = Material.Mohair,
+					 Weight = 50,
+					 Size = Size.Size20mm,
+					 MachineWash = true,
+					 Price = 79,
+					 Name = "MyHair",
+					 Description = "Vildt lækkert mohair garn til din næste sweater",
+					 Brand = Brand.Sandnes,
+					 Amount = 1
+				},
+				new Yarn()
+				{
+					Id = 4,
+					Color = Color.Beige,
+					KnittingTension = KnittingTension.knittingTension25mX10cm,
+					Yardage = Yardage.Yardage300mPr50g,
+					Material = Material.Alpakka,
+					Weight = 50,
+					Size = Size.Size30mm,
+					MachineWash = true,
+					Price = 69,
+					Name = "MaLamaa",
+					Description = "Vildt lækkert alpakka garn til dit næste tørklæde",
+					Brand = Brand.PetitKnit,
+					Amount = 1
+				},
+				new Yarn()
+				{
+					Id = 5,
+					Color = Color.Rød,
+					KnittingTension = KnittingTension.knittingTension30mX10cm,
+					Yardage = Yardage.Yardage400mPr50g,
+					Material = Material.Silke,
+					Weight = 50,
+					Size = Size.Size40mm,
+					MachineWash = false,
+					Price = 75,
+					Name = "SlikkeSilke",
+					Description = "Vildt lækkert silke garn til dit næste hårbånd",
+					Brand = Brand.PetitKnit,
+					Amount = 1
+				}
+				);
+	}
 
 
-    public DbSet<Yarn> YarnProducts { get; set; }
-    //public DbSet<User> Users { get; set; }
+	public DbSet<Yarn> YarnProducts { get; set; }
+	//public DbSet<User> Users { get; set; }
 
 }

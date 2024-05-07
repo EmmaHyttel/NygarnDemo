@@ -12,7 +12,7 @@ public class MockYarn
         new Yarn(Color.Grøn, KnittingTension.knittingTension25mX10cm, Yardage.Yardage300mPr50g, Material.Alpakka, 50, Size.Size30mm, true, 69, "MaLamaa", 
             "Vildt lækkert alpakka garn til dit næste tørklæde", Brand.PetitKnit, 1),
         new Yarn(Color.Rød, KnittingTension.knittingTension30mX10cm, Yardage.Yardage400mPr50g, Material.Silke, 50, Size.Size40mm, false, 75, "SlikkeSilke", 
-            "Vildt lækkert silke garn til dit næste hårbånd", Brand.PetitKnit, 1),
+            "Vildt lækkert silke garn til dit næste hårbånd", Brand.PetitKnit, 1)
     };
 
     public static List<Yarn> GetAllYarnProducts()
