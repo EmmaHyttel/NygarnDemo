@@ -9,28 +9,29 @@ namespace NygarnDemo.Pages.Product.YarnPages
 	public class CreateYarnModel : PageModel
 	{
 		private IYarnService _yarnService;
+		private IWebHostEnvironment _webHostEnvironment;
         
 
         [BindProperty]
 		public Yarn Yarn { get; set; }
 
-		public CreateYarnModel(IYarnService yarnService)
+		public CreateYarnModel(IYarnService yarnService, IWebHostEnvironment webHost)
 		{
 			_yarnService = yarnService;
-			
+			_webHostEnvironment = webHost;
 		}
 
 		public IActionResult OnGet()
 		{
 			return Page();
 		}
-		public IActionResult OnPost()
+		public async Task<IActionResult> OnPostAsync()
 		{
 			if (!ModelState.IsValid)
 			{
 				return Page();
 			}
-			_yarnService.AddYarn(Yarn);
+			await _yarnService.AddYarnAsync(Yarn);
 			return RedirectToPage("GetAllYarnProducts");
 		}
 	}

@@ -9,7 +9,7 @@ namespace NygarnDemo.Services.Interfaces
     {
         List<Yarn> GetYarnProducts();
 
-        void AddYarn(Yarn yarn);
+        Task AddYarnAsync(Yarn yarn);
 
         IEnumerable<Yarn> NameSearch(string str);
 

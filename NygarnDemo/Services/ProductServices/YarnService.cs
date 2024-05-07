@@ -15,9 +15,9 @@ public class YarnService : IYarnService
         {
             YarnProducts = MockYarn.GetAllYarnProducts();
             _dbService = dbService;
-        //YarnProducts = _dbService.GetYarnProducts().Result.ToList();
-        _dbService.SaveYarnProducts(YarnProducts);
-    }
+            //YarnProducts = _dbService.GetYarnProducts().Result.ToList();
+            //_dbService.SaveYarnProducts(YarnProducts);
+        }
 
 	    //public YarnService()
 	    //{
@@ -29,11 +29,11 @@ public class YarnService : IYarnService
             return YarnProducts;
         }
 
-        public void AddYarn(Yarn yarn)
-        {
-            YarnProducts.Add(yarn);
-            _dbService.SaveYarnProducts(YarnProducts);
-        }
+	    public async Task AddYarnAsync(Yarn yarn)
+	    {
+		    YarnProducts.Add(yarn);
+		    await _dbService.SaveYarnProducts(YarnProducts);
+	    }
 
         public IEnumerable<Yarn> NameSearch(string str)
         {
@@ -147,17 +147,18 @@ public class YarnService : IYarnService
             return SizeList;
         }
 
-    //public IEnumerable<Yarn> MachinewashFilter()
-    //{
-    //    List<Yarn> MachinewashList = new List<Yarn>();
-    //    foreach (Yarn yarn in YarnProducts)
-    //    {
-    //        if (yarn.MachineWash == )
-    //        {
-    //            MachinewashList.Add(yarn);
-    //        }
-    //    }
 
-    //    return MachinewashList;
-    //}
+	//public IEnumerable<Yarn> MachinewashFilter()
+	//{
+	//    List<Yarn> MachinewashList = new List<Yarn>();
+	//    foreach (Yarn yarn in YarnProducts)
+	//    {
+	//        if (yarn.MachineWash == )
+	//        {
+	//            MachinewashList.Add(yarn);
+	//        }
+	//    }
+
+	//    return MachinewashList;
+	//}
 }
