@@ -59,7 +59,7 @@
             <button type="submit" asp-page-handler="TypeFilter">Filtrer</button>
         </form>
     </div>
-
+<div class="grid-container">
 @if (Model.CrochetHooks != null)
 {
     foreach (var crochetHook in Model.CrochetHooks)
@@ -84,6 +84,8 @@
         </div>
     }   
 }
+¨</div>
+<div class="grid-container">
 @if (Model.KnittingNeedles != null)
 {
     foreach (var knittingNeedle in Model.KnittingNeedles)
@@ -103,3 +105,4 @@
         </div>
     }
 }
+</div>
