@@ -9,9 +9,9 @@ public class MockPattern
     private static List<Pattern> _patterns = new List<Pattern>()
     {
         new Pattern("Mette Wendelboe Okkels", DifficultyLevel.DiffLevel5of5, Category.Cardigan, Fits.Kvinde, 50, "ESTHER JACKET", 
-            "Esther Jacket strikkes oppefra og ned med strukturstrik.", Brand.PetitKnit, 1),
+            "Esther Jacket strikkes oppefra og ned med strukturstrik.", "PetitKnit", 1),
         new Pattern("Mette Wendelboe Okkels", DifficultyLevel.DiffLevel3of5, Category.Sweater, Fits.Barn, 45, "CLOUD SWEATER JUNIOR", 
-            "Cloud Sweater Junior strikkes oppefra og ned.", Brand.PetitKnit, 1),
+            "Cloud Sweater Junior strikkes oppefra og ned.", "PetitKnit", 1),
         new Pattern("Knitting for Olive", DifficultyLevel.Nybegynder, Category.Hue, Fits.Baby, 50, "LILLERILLEBJØRNHUE", 
             "Lillerillebjørnhuen er en begyndervenlig lille hue i kysefacon med små bjørneører.", "Petitknit", 1)
     };
