@@ -11,7 +11,7 @@ namespace NygarnDemo.Services.Interfaces
 
         IEnumerable<Tool> SizeFilter(string str);
 
-        IEnumerable<Tool> BrandFilter(Brand brand);
+        IEnumerable<Tool> BrandFilter(string brand);
 
         IEnumerable<Tool>  NameSearch(string str);
 

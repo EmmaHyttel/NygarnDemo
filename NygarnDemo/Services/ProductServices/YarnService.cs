@@ -90,21 +90,20 @@ public class YarnService : IYarnService
             return MaterialList;
         }
 
-        public IEnumerable<Yarn> BrandFilter(Brand brand)
+    public IEnumerable<Yarn> BrandFilter(string str)
+    {
+        List<Yarn> brandFilter = new List<Yarn>();
+        foreach (Yarn yarn in YarnProducts)
         {
-            List<Yarn> BrandList = new List<Yarn>();
-            foreach (Yarn yarn in YarnProducts)
+            if (string.IsNullOrEmpty(str) || yarn.Name.ToLower().Contains(str.ToLower()))
             {
-                if (yarn.Brand == brand)
-                {
-                    BrandList.Add(yarn);
-                }
+                brandFilter.Add(yarn);
             }
-
-            return BrandList;
         }
+        return brandFilter;
+    }
 
-        public IEnumerable<Yarn> KnittingTensionFilter(KnittingTension knittigTension)
+    public IEnumerable<Yarn> KnittingTensionFilter(KnittingTension knittigTension)
         {
             List<Yarn> KNList = new List<Yarn>();
             foreach (Yarn yarn in YarnProducts)

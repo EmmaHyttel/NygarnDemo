@@ -35,7 +35,7 @@ public class Yarn : Product
     public bool MachineWash { get; set; }
 
     public Yarn(Color color, KnittingTension knittingTension, Yardage yardage, Material material, int weight, Size size, 
-        bool machineWash, decimal price, string name, string description, Brand brand, int amount) : 
+        bool machineWash, decimal price, string name, string description, string brand, int amount) : 
         base(price, name, description, brand, amount)
     {
         Color = color;

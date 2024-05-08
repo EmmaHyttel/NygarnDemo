@@ -29,10 +29,10 @@ public class Product
     [Display(Name = "Brand")]
     [Required(ErrorMessage = "Produkt Brand skal anføres")]
     //[StringLength(100)]
-    public Brand Brand { get; set; }
+    public string Brand { get; set; }
     public int Amount { get; set; }
 
-    public Product(decimal price, string name, string description, Brand brand, int amount)
+    public Product(decimal price, string name, string description, string brand, int amount)
     {
         Price = price;
         Name = name;
@@ -47,7 +47,7 @@ public class Product
         Price = 0;
         Name = "";
         Description = "";
-        Brand = 0;
+        Brand = "";
         Amount = 1;
         Id = 0;
     }

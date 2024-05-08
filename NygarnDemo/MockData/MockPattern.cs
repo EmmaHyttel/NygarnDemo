@@ -13,7 +13,7 @@ public class MockPattern
         new Pattern("Mette Wendelboe Okkels", DifficultyLevel.DiffLevel3of5, Category.Sweater, Fits.Barn, 45, "CLOUD SWEATER JUNIOR", 
             "Cloud Sweater Junior strikkes oppefra og ned.", Brand.PetitKnit, 1),
         new Pattern("Knitting for Olive", DifficultyLevel.Nybegynder, Category.Hue, Fits.Baby, 50, "LILLERILLEBJØRNHUE", 
-            "Lillerillebjørnhuen er en begyndervenlig lille hue i kysefacon med små bjørneører.", Brand.Sandnes, 1)
+            "Lillerillebjørnhuen er en begyndervenlig lille hue i kysefacon med små bjørneører.", "Petitknit", 1)
     };
 
     public static List<Pattern> GetAllPatterns()

@@ -22,7 +22,7 @@ public class CrochetHook : Product
     public bool Set { get; set; }
 
 
-    public CrochetHook(NeedleAndHookMaterial material, Size size, string name, string description, Brand brand, 
+    public CrochetHook(NeedleAndHookMaterial material, Size size, string name, string description, string brand, 
         int amount, decimal price, bool set) : base(price, name, description, brand, amount)
     {
         Material = material;
@@ -32,7 +32,7 @@ public class CrochetHook : Product
     public CrochetHook() : base()
     {
         Material = 0;
-        Brand = 0;
+        Brand = "";
         Set = false;
     }
 

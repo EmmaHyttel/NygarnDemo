@@ -44,18 +44,17 @@ namespace NygarnDemo.Services.ProductServices
             return sizeFilter;
         }
 
-        public IEnumerable<Tool> BrandFilter(Brand brand)
+        public IEnumerable<Tool> BrandFilter(string str)
         {
-            List<Tool> brandList = new List<Tool>();
+            List<Tool> brandFilter = new List<Tool>();
             foreach (Tool tool in ToolProducts)
             {
-                if (tool.Brand == brand)
+                if (string.IsNullOrEmpty(str) || tool.Name.ToLower().Contains(str.ToLower()))
                 {
-                    brandList.Add(tool);
+                    brandFilter.Add(tool);
                 }
             }
-
-            return brandList;
+            return brandFilter;
         }
 
         public IEnumerable<Tool> NameSearch(string str)

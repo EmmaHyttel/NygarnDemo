@@ -15,7 +15,7 @@ public class Tool : Product
     [Required(ErrorMessage = "Vælg størrelse")]
     public string Size { get; set; }
 
-    public Tool(ToolType type, string size, decimal price, string name, string description, Brand brand,
+    public Tool(ToolType type, string size, decimal price, string name, string description, string brand,
         int amount) : base(price, name, description, brand, amount)
     {
         Type = type;

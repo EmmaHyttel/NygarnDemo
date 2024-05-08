@@ -22,7 +22,7 @@ public class KnittingNeedle : Product
 
 
     public KnittingNeedle(NeedleAndHookMaterial material, Size size, NeedleType type,  string name, string description, 
-        Brand brand, int amount, decimal price, bool set) : base(price, name, description, brand, amount)
+        string brand, int amount, decimal price, bool set) : base(price, name, description, brand, amount)
     {
         Material = material;
         Set = set;

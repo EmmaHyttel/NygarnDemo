@@ -26,7 +26,7 @@ namespace NygarnDemo.Pages.Product.ToolPages
         public int MinPrice { get; set; }
 
         [BindProperty]
-        public Brand Brand { get; set; }
+        public string Brand { get; set; }
 
         [BindProperty]
         public ToolType Type { get; set; }

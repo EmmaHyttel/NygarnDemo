@@ -30,7 +30,7 @@ public class YarnDbContext : DbContext
 					Price = 99,
 					Name = "Luksus garn",
 					Description = "Meget luksus garn, ikke egnet til påklædning.",
-					Brand = Brand.Sandnes,
+					Brand = "Sandnes",
 					Amount = 10,
 					Color = Color.Rød,
 					KnittingTension = KnittingTension.KnittingTension10mX10cm,
@@ -46,7 +46,7 @@ public class YarnDbContext : DbContext
 					Price = 49,
 					Name = "Saga",
 					Description = "Meget luksus garn, ikke egnet til påklædning.",
-					Brand = Brand.Sandnes,
+					Brand = "Sandne",
 					Amount = 10,
 					Color = Color.Rød,
 					KnittingTension = KnittingTension.KnittingTension10mX10cm,
@@ -69,7 +69,7 @@ public class YarnDbContext : DbContext
 					 Price = 79,
 					 Name = "MyHair",
 					 Description = "Vildt lækkert mohair garn til din næste sweater",
-					 Brand = Brand.Sandnes,
+					 Brand = "Sandnes",
 					 Amount = 1
 				},
 				new Yarn()
@@ -85,7 +85,7 @@ public class YarnDbContext : DbContext
 					Price = 69,
 					Name = "MaLamaa",
 					Description = "Vildt lækkert alpakka garn til dit næste tørklæde",
-					Brand = Brand.PetitKnit,
+					Brand = "Petitknit",
 					Amount = 1
 				},
 				new Yarn()
@@ -101,7 +101,7 @@ public class YarnDbContext : DbContext
 					Price = 75,
 					Name = "SlikkeSilke",
 					Description = "Vildt lækkert silke garn til dit næste hårbånd",
-					Brand = Brand.PetitKnit,
+					Brand = "Petitknit",
 					Amount = 1
 				}
 				);
