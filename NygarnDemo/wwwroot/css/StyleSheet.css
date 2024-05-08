@@ -2,7 +2,20 @@
 }
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tre kolonner */
+    grid-template-columns: repeat(4, 1fr); /* Fire kolonner */
     gap: 20px; /* Afstand mellem kortene */
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rosybrown;
+    padding: 3px;
+}
+
+main {
+    margin-bottom: 60px;
 }
 
