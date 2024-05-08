@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace NygarnDemo.Pages.LogInPage
 {
-    public class LogOutModel : PageModel
+    public class LogOutPageModel : PageModel
     {
           public async Task<IActionResult> OnGet()
           {
