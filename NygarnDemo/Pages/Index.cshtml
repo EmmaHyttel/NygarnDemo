@@ -4,11 +4,74 @@
     ViewData["Title"] = "Home page";
 }
 
+<style>
+    .btn-with-backgroundYarn {
+        background-image: url('pngFiles/GarnTilKnap.png');
+        background-size: cover; /* Tilpas størrelsen af ​​baggrundsbilledet */
+        background-position: center; /* Centrer baggrundsbilledet */
+        background-repeat: no-repeat; /* Forhindrer gentagelse af baggrundsbilledet */
+        border: none; /* Fjern knappens standardramme */
+        color: white; /* Ændrer teksts farve til hvid */
+        padding: 40px 65px; /* Tilpas polstring efter behov */
+        cursor: pointer; /* Gør cursor til en pegefinger for at indikere at knappen er klikbar */
+        /* Tilføj andre styling-egenskaber efter behov */
+    }
+
+    .btn-with-backgroundNeedle {
+        background-image: url('pngFiles/PindeTilKnap.png');
+        background-size: cover; /* Tilpas størrelsen af ​​baggrundsbilledet */
+        background-position: center; /* Centrer baggrundsbilledet */
+        background-repeat: no-repeat; /* Forhindrer gentagelse af baggrundsbilledet */
+        border: none; /* Fjern knappens standardramme */
+        color: white; /* Ændrer teksts farve til hvid */
+        padding: 40px 65px; /* Tilpas polstring efter behov */
+        cursor: pointer; /* Gør cursor til en pegefinger for at indikere at knappen er klikbar */
+        /* Tilføj andre styling-egenskaber efter behov */
+    }
+
+    .btn-with-backgroundPattern {
+        background-image: url('pngFiles/OpskriftTilKnap.png');
+        background-size: cover; /* Tilpas størrelsen af ​​baggrundsbilledet */
+        background-position: center; /* Centrer baggrundsbilledet */
+        background-repeat: no-repeat; /* Forhindrer gentagelse af baggrundsbilledet */
+        border: none; /* Fjern knappens standardramme */
+        color: white; /* Ændrer teksts farve til hvid */
+        padding: 40px 50px; /* Tilpas polstring efter behov */
+        cursor: pointer; /* Gør cursor til en pegefinger for at indikere at knappen er klikbar */
+        /* Tilføj andre styling-egenskaber efter behov */
+    }
+
+    .btn-with-backgroundTools {
+        background-image: url('pngFiles/TilbehørTilKnap.png');
+        background-size: cover; /* Tilpas størrelsen af ​​baggrundsbilledet */
+        background-position: center; /* Centrer baggrundsbilledet */
+        background-repeat: no-repeat; /* Forhindrer gentagelse af baggrundsbilledet */
+        border: none; /* Fjern knappens standardramme */
+        color: white; /* Ændrer teksts farve til hvid */
+        padding: 40px 55px; /* Tilpas polstring efter behov */
+        cursor: pointer; /* Gør cursor til en pegefinger for at indikere at knappen er klikbar */
+        /* Tilføj andre styling-egenskaber efter behov */
+    }
+</style>
+
 
 <div class="text-center">
     <h1 class="display-4">Nygarn</h1>
     <h3>
         Strik dine drømme sammen med vores kvalitetsgarn
     </h3>
+
+    <section style="background-color: #f8d7da; height: 200px; display: flex; justify-content: center; align-items: center;">
+        <div style="display: flex; gap: 40px;">
+            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn btn-with-backgroundYarn"> Garn </a>
+            <a href="/Product/NeedleAndHookPages/GetAllNeedlesAndHooks" class="btn btn-with-backgroundNeedle"> Pinde </a>
+            <a href="/Product/PatternPages/GetAllPatterns" class="btn btn-with-backgroundPattern">Opskrifter </a>
+            <a href="/Product/ToolPages/GetAllToolss" class="btn btn-with-backgroundTools">Tilbehør </a>
+        </div>
+        </section>
+
+        <section>
+       
+        </section>
    
 </div>
