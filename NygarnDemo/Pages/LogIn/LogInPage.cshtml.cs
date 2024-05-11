@@ -24,10 +24,12 @@ namespace NygarnDemo.Pages.LogInPage
 
         public string Message { get; set; }
 
+
         public LogInPageModel(UserService userService)
         {
             _userService = userService;
         }
+
         public void OnGet()
         {
         }
@@ -56,7 +58,7 @@ namespace NygarnDemo.Pages.LogInPage
                     }
                 }
             }
-            Message = "Invalid attempt";
+            Message = "Brugernavn eller adgangskode er desværre forkert";
             return Page();
         }
     }
