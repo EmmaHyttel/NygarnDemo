@@ -58,7 +58,7 @@ namespace NygarnDemo.Pages.LogInPage
                     }
                 }
             }
-            Message = "Brugernavn eller adgangskode er desværre forkert";
+            Message = "Brugernavn eller adgangskode er ikke korrekt";
             return Page();
         }
     }
