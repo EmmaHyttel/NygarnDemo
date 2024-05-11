@@ -1,5 +1,21 @@
 ﻿body {
 }
+
+.rosybrown-input {
+    border-color: rosybrown !important;
+}
+
+.rosybrown-bg {
+    background-color: rosybrown;
+    border-color: rosybrown;
+    color: initial;
+}
+.custom-button {
+    font-size: 18px; 
+    padding: 10px 20px; 
+}
+
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);  Fire kolonner 

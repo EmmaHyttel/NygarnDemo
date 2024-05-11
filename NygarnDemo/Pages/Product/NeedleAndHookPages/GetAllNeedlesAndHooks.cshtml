@@ -7,7 +7,7 @@
 <h1>Strikkepinde og hæklenåle</h1>
 
 
-<div class="row">
+@* <div class="row">
     <div class="col-7"><h5>Search Name</h5></div>
     <div class="col-4"><h5>Filter Price</h5></div>
     <div class="col-1"></div>
@@ -60,8 +60,72 @@
             </select>
             <button type="submit" asp-page-handler="TypeFilter">Filtrer</button>
         </form>
-    </div>
+    </div> *@
 
+
+<div class="container">
+    <div class="row">
+        <div class="col-7"><h5>Search Name</h5></div>
+        <div class="col-5"><h5>Filter Price</h5></div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <form method="post" class="form-inline">
+                <div class="input-group mb-5">
+                    <input asp-for="SearchString" class="form-control mr-2" placeholder="Søgeord" />
+                    <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary btn-sm rosybrown-b" />
+                </div>
+            </form>
+        </div>
+        <div class="col-8">
+            <form method="post" class="form-inline">
+                <div class="input-group mb-5">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Min</span>
+                    </div>
+                    <input asp-for="MinPrice" class="form-control me-2 rosybrown-input" />
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Max</span>
+                    </div>
+                    <input asp-for="MaxPrice" class="form-control me-2 rosybrown-input" />
+                    <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary btn-sm rosybrown-bg" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form method="post" class="form-inline">
+                <div class="input-group mb-5">
+                <select asp-for="Size" asp-items="Html.GetEnumSelectList<Size>()" class="form-control mr-2 rosybrown-input">
+                    <option value="">Vælg størrelse</option>
+                </select>
+                <button type="submit" asp-page-handler="SizeFilter" class="btn btn-primary btn-sm rosybrown-bg">Filter Size</button>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <form method="post" class="form-inline">
+                <div class="input-group mb-5">
+                <select asp-for="Material" asp-items="Html.GetEnumSelectList<NeedleAndHookMaterial>()" class="form-control mr-2 rosybrown-input">
+                    <option value="">Material</option>
+                </select>
+                <button type="submit" asp-page-handler="MaterialFilter" class="btn btn-primary btn-sm rosybrown-bg">Filter Material</button>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <form method="post" class="form-inline">
+                <div class="input-group mb-5">
+                <select asp-for="Type" asp-items="Html.GetEnumSelectList<NeedleType>()" class="form-control mr-2 rosybrown-input">
+                    <option value="">Type</option>
+                </select>
+                <button type="submit" asp-page-handler="TypeFilter" class="btn btn-primary btn-sm rosybrown-bg">Filter Type</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 <div class="grid-container">
