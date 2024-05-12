@@ -37,7 +37,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public string Brand { get; set; }
 
         [BindProperty]
-        public KnittingTension KnittingTension { get; set; }
+        public string KnittingTension { get; set; }
 
         [BindProperty]
         public Yardage Yardage { get; set; }
@@ -56,9 +56,6 @@ namespace NygarnDemo.Pages.Product.YarnPages
 
         [BindProperty]
         public string BrandFilter { get; set; }
-
-        [BindProperty]
-        public KnittingTension KnittingTensionFilter { get; set; }
 
         [BindProperty]
         public Yardage YardageFilter { get; set; }

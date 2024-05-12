@@ -19,7 +19,7 @@ namespace NygarnDemo.Services.Interfaces
 
         IEnumerable<Yarn> MaterialFilter(Material material);
         IEnumerable<Yarn> BrandFilter(string brand);
-        IEnumerable<Yarn> KnittingTensionFilter(KnittingTension knittigTension);
+        IEnumerable<Yarn> KnittingTensionFilter(string knittigTension);
         IEnumerable<Yarn> YardageFilter(Yardage yardage);
         IEnumerable<Yarn> SizeFilter(Size size);
         //IEnumerable<Yarn> MachinewashFilter(Machinewash machinewash);

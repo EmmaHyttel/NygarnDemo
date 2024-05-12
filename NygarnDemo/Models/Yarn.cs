@@ -12,7 +12,7 @@ public class Yarn : Product
 
     [Display(Name = "Garnets strikkefasthed")]
     [Required(ErrorMessage = "Der skal angives en strikkefasthed til garn")]
-    public KnittingTension KnittingTension { get; set; }
+    public string KnittingTension { get; set; }
 
     [Display(Name = "Garnets løbelængde")]
     [Required(ErrorMessage = "Der skal angives en løbelængde til garn")]
@@ -34,7 +34,7 @@ public class Yarn : Product
     [Required(ErrorMessage = "Der skal angives en anbefalet maskinevask til garn")]
     public bool MachineWash { get; set; }
 
-    public Yarn(Color color, KnittingTension knittingTension, Yardage yardage, Material material, int weight, Size size, 
+    public Yarn(Color color, string knittingTension, Yardage yardage, Material material, int weight, Size size, 
         bool machineWash, decimal price, string name, string description, string brand, int amount) : 
         base(price, name, description, brand, amount)
     {
@@ -50,7 +50,7 @@ public class Yarn : Product
     public Yarn() : base()
     {
         Color = 0;
-        KnittingTension = 0;
+        KnittingTension = "";
         Yardage = 0;
         Material = 0;
         Weight = 1;

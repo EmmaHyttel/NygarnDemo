@@ -103,20 +103,18 @@ public class YarnService : IYarnService
         return brandFilter;
     }
 
-    public IEnumerable<Yarn> KnittingTensionFilter(KnittingTension knittigTension)
+    public IEnumerable<Yarn> KnittingTensionFilter(string knittingTension)
+    {
+        List<Yarn> KNTension = new List<Yarn>();
+        foreach (Yarn yarn in YarnProducts)
         {
-            List<Yarn> KNList = new List<Yarn>();
-            foreach (Yarn yarn in YarnProducts)
+            if (string.IsNullOrEmpty(knittingTension) || yarn.Name.ToLower().Contains(knittingTension.ToLower()))
             {
-                if (yarn.KnittingTension == knittigTension)
-                {
-                    KNList.Add(yarn);
-                }
+                KNTension.Add(yarn);
             }
-
-            return KNList;
         }
-
+        return KNTension;
+    }
         public IEnumerable<Yarn> YardageFilter(Yardage yardage)
         {
             List<Yarn> YardageList = new List<Yarn>();

@@ -53,7 +53,7 @@ namespace NygarnDemo.Services.ProductServices
 			return filterFits;
 		}
 
-		public IEnumerable<Pattern> DiffLevelFilter(DifficultyLevel difficultyLevel)
+		public IEnumerable<Pattern> DiffLevelFilter(string difficultyLevel)
 		{
 			List<Pattern> filterDiffLevel = new List<Pattern>();
 			foreach (var pattern in Patterns)

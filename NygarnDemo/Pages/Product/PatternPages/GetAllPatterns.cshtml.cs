@@ -22,7 +22,7 @@ namespace NygarnDemo.Pages.Product.PatternPages
         public string Designer { get; set; }
 
         [BindProperty]
-        public DifficultyLevel DifficultyLevel { get; set; }
+        public string DifficultyLevel { get; set; }
 
         [BindProperty]
         public Fits Fits { get; set; }

@@ -40,13 +40,13 @@
 		</select>
 		<span asp-validation-for="@Model.Yarn.Color" class="text-danger"></span>
 	</div>
-	<div class="form-group">
+@* 	<div class="form-group">
 		<label asp-for="@Model.Yarn.KnittingTension" class="control-label">Strikkefasthed</label>
 		<select asp-for="@Model.Yarn.KnittingTension" asp-items="Html.GetEnumSelectList<KnittingTension>()">
 			<option value=""></option>
 		</select>
 		<span asp-validation-for="@Model.Yarn.KnittingTension" class="text-danger"></span>
-	</div>
+	</div> *@
 	<div class="form-group">
 		<label asp-for="@Model.Yarn.Yardage" class="control-label">Løbelængde</label>
 		<select asp-for="@Model.Yarn.Yardage" asp-items="Html.GetEnumSelectList<Yardage>()">
