@@ -29,7 +29,7 @@ namespace NygarnDemo.Pages.Product.ToolPages
         public string Brand { get; set; }
 
         [BindProperty]
-        public ToolType Type { get; set; }
+        public string Type { get; set; }
 
         public GetAllToolsModel(IToolService toolService)
         {
@@ -63,7 +63,7 @@ namespace NygarnDemo.Pages.Product.ToolPages
         }
         public IActionResult OnPostTypeFilter()
         {
-            Tools = _toolService.TypeFilter(Type).ToList();
+            Tools = _toolService.TypeSearch(Type).ToList();
             return Page();
 
         }

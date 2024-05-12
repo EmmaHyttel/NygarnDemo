@@ -8,14 +8,14 @@ public class Tool : Product
 {
     [Display(Name = "Type")]
     [Required(ErrorMessage = "Vælg en type")]
-    public ToolType Type { get; set; }
+    public string Type { get; set; }
 
 
     [Display(Name = "Størrelse")]
     [Required(ErrorMessage = "Vælg størrelse")]
     public string Size { get; set; }
 
-    public Tool(ToolType type, string size, decimal price, string name, string description, string brand,
+    public Tool(string type, string size, decimal price, string name, string description, string brand,
         int amount) : base(price, name, description, brand, amount)
     {
         Type = type;
@@ -24,7 +24,7 @@ public class Tool : Product
 
     public Tool() : base()
     {
-        Type = 0;
+        Type = "";
         Size = "";
     }
 }

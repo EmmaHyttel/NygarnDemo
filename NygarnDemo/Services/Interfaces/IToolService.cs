@@ -15,6 +15,6 @@ namespace NygarnDemo.Services.Interfaces
 
         IEnumerable<Tool>  NameSearch(string str);
 
-        IEnumerable<Tool> TypeFilter(ToolType type);
+        IEnumerable<Tool> TypeSearch(string type);
     }
 }

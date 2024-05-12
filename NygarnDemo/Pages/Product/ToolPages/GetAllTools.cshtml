@@ -36,42 +36,49 @@
         </form>
     </div>
 </div>
-<div>
-   @*  <form method="post">
+@* <div>
+    <form method="post">
         <select asp-for="Brand" asp-items="Html.GetEnumSelectList<Brand>()">
             <option value="">Vælg farve </option>
         </select>
         <button type="submit" asp-page-handler="BrandFilter">Filtrer</button>
-    </form> *@
-</div>
-<div>
+    </form> 
+</div> *@
+@* <div>
+<form method="post" class="form-inline">
+            <div class="input-group mb-3">
+                <input asp-for="SearchString" class="form-control mr-1" placeholder="Søg tilbehør" />
+                <input type="submit" asp-page-handler="TypeSearch" value="Søg" class="btn btn-primary" />
+            </div>
+</form> *@
+@* </div> *@
+
+<@* div>
     <form method="post">
         <select asp-for="Type" asp-items="Html.GetEnumSelectList<ToolType>()">
             <option value="">Vælg tilbehør </option>
         </select>
-        <button type="submit" asp-page-handler="TypeFilter">Filtrer</button>
+        <button type="submit" asp-page-handler="TypeSearch">Filtrer</button>
     </form>
-</div>
+</div> *@ 
+
 <div class="grid-container">
-@if (Model.Tools != null)
-{
-    foreach (var tool in Model.Tools)
-    {
-        <div class="card" style="width: 18rem;">
-            @* <img class="card-img-top" src="..." alt="Card image cap"> *@
-            <div class="card-body">
-                <h5 class="card-title">@tool.Name</h5>
-                <p class="card-text">Beskrivelse: @tool.Description</p>
-                <p class="card-text">Pris: @tool.Price</p>
-                <p class="card-text">Mærke: @tool.Brand</p>
-@*                 <p class="card-text">Materiale: @tool.Material</p>
- *@             <p class="card-text">Størrelse: @tool.Size</p>
-                <p class="card-text">Type: @tool.Type</p>
-                <a href="#" class="btn btn-primary">Tryk for at se mere</a>
-            </div>
-        </div>
-    }
-}
+   @if (Model.Tools != null)
+      {
+          foreach (var tool in Model.Tools)
+          {
+              <div class="card" style="width: 18rem;">
+                 @* <img class="card-img-top" src="..." alt="Card image cap"> *@
+                    <div class="card-body">
+                       <h5 class="card-title">@tool.Name</h5>
+                       <p class="card-text">Beskrivelse: @tool.Description</p>
+                       <p class="card-text">Pris: @tool.Price</p>
+                       <p class="card-text">Designer: @tool.Brand</p>
+                       <p class="card-text">Størrelse: @tool.Size</p>
+                       <p class="card-text">Type: @tool.Type</p>
+                       <a href="#" class="btn btn-primary">Kom i kurv</a>
+                    </div>
+              </div>
+          }
+       }
 </div>
-
-

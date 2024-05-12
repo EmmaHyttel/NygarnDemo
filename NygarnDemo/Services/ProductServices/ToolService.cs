@@ -69,17 +69,18 @@ namespace NygarnDemo.Services.ProductServices
             }
             return nameSearch;
         }
-        public IEnumerable<Tool> TypeFilter(ToolType type)
+
+        public IEnumerable<Tool> TypeSearch(string type)
         {
-            List<Tool> brandList = new List<Tool>();
-            foreach (Tool t in ToolProducts)
+            List<Tool> typeFilter = new List<Tool>();
+            foreach (Tool tool in ToolProducts)
             {
-                if (t.Type == type)
+                if (string.IsNullOrEmpty(type) || tool.Name.ToLower().Contains(type.ToLower()))
                 {
-                    brandList.Add(t);
+                    typeFilter.Add(tool);
                 }
             }
-            return brandList;
+            return typeFilter;
         }
     }
 }
