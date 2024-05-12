@@ -40,7 +40,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public string KnittingTension { get; set; }
 
         [BindProperty]
-        public Yardage Yardage { get; set; }
+        public string Yardage { get; set; }
 
         [BindProperty]
         public Size Size { get; set; }
@@ -58,10 +58,10 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public string BrandFilter { get; set; }
 
         [BindProperty]
-        public Yardage YardageFilter { get; set; }
+        public string YardageFilter { get; set; }
 
         [BindProperty]
-        public Yardage SizeFilter { get; set; }
+        public string SizeFilter { get; set; }
 
         [BindProperty]
         public bool MachinewashFilter { get; set; }

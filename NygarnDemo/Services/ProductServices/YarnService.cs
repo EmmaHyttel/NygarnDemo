@@ -13,9 +13,9 @@ public class YarnService : IYarnService
 
         public YarnService(DbService dbService)
         {
-            //YarnProducts = MockYarn.GetAllYarnProducts();
-            _dbService = dbService;
-        YarnProducts = _dbService.GetYarnProducts().Result.ToList();
+        YarnProducts = MockYarn.GetAllYarnProducts();
+        //_dbService = dbService;
+        //YarnProducts = _dbService.GetYarnProducts().Result.ToList();
         //_dbService.SaveYarnProducts(YarnProducts);
     }
 
@@ -115,8 +115,9 @@ public class YarnService : IYarnService
         }
         return KNTension;
     }
-        public IEnumerable<Yarn> YardageFilter(Yardage yardage)
-        {
+
+     public IEnumerable<Yarn> YardageFilter(string yardage)
+     {
             List<Yarn> YardageList = new List<Yarn>();
             foreach (Yarn yarn in YarnProducts)
             {
@@ -127,21 +128,21 @@ public class YarnService : IYarnService
             }
 
             return YardageList;
-        }
+     }
 
-        public IEnumerable<Yarn> SizeFilter(Size size)
-        {
-            List<Yarn> SizeList = new List<Yarn>();
-            foreach (Yarn yarn in YarnProducts)
-            {
-                if (yarn.Size == size)
-                {
+     public IEnumerable<Yarn> SizeFilter(Size size)
+     {
+         List<Yarn> SizeList = new List<Yarn>();
+         foreach (Yarn yarn in YarnProducts)
+         {
+             if (yarn.Size == size)
+             {
                     SizeList.Add(yarn);
-                }
-            }
+             }
+         }
 
             return SizeList;
-        }
+     }
 
 
 	//public IEnumerable<Yarn> MachinewashFilter()
