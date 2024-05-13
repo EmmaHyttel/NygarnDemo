@@ -11,8 +11,8 @@ using NygarnDemo.EFDbContext;
 namespace NygarnDemo.Migrations
 {
     [DbContext(typeof(YarnDbContext))]
-    [Migration("20240513074940_NygarnDemo")]
-    partial class NygarnDemo
+    [Migration("20240513084723_AddNewTables")]
+    partial class AddNewTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

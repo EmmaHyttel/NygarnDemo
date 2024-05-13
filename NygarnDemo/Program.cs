@@ -20,6 +20,7 @@ builder.Services.AddSingleton<IYarnService, YarnService>();
 builder.Services.AddSingleton<IKnittingNeedleService, KnittingNeedleService>();
 builder.Services.AddSingleton<IToolService, ToolService>();
 builder.Services.AddDbContext<YarnDbContext>();
+builder.Services.AddDbContext<ToolDbContext>();
 builder.Services.AddSingleton<DbService, DbService>();
 builder.Services.AddSingleton<UserService, UserService>();
 

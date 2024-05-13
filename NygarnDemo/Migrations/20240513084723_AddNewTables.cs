@@ -7,7 +7,7 @@
 namespace NygarnDemo.Migrations
 {
     /// <inheritdoc />
-    public partial class NygarnDemo : Migration
+    public partial class AddNewTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

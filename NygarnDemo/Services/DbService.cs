@@ -36,5 +36,36 @@ namespace NygarnDemo.Services
                 context.SaveChanges();
             }
         }
+
+        public async Task<List<Tool>> GetToolss()
+        {
+            using (var context = new ToolDbContext())
+            {
+                return await context.Tools.ToListAsync();
+            }
+        }
+
+        public async Task AddTools(Tool tool)
+        {
+            using (var context = new ToolDbContext())
+            {
+                context.Tools.Add(tool);
+                context.SaveChanges();
+            }
+        }
+
+        public async Task SaveTools(List<Tool> tools)
+        {
+            using (var context = new ToolDbContext())
+            {
+                foreach (Tool tool in tools)
+                {
+                    context.Tools.Add(tool);
+                    context.SaveChanges();
+                }
+
+                context.SaveChanges();
+            }
+        }
     }
 }
