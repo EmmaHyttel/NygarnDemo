@@ -1,4 +1,5 @@
-﻿using NygarnDemo.MockData;
+﻿using Microsoft.Identity.Client;
+using NygarnDemo.MockData;
 using NygarnDemo.Models;
 
 namespace NygarnDemo.Services.User
@@ -11,16 +12,15 @@ namespace NygarnDemo.Services.User
         public UserService()
         {
             Users = MockUser.GetAllUsers();
-
         }
-        public List<Models.User> GetAllUsers()
+        public List<Models.User> GetUsers()
         {
             return Users;
         }
 
-        public async Task AddUser(Models.User user)
+        public void AddUser(Models.User user)
         {
-            Users = MockUser.GetAllUsers();
+            Users.Add(user);
         }
         public Models.User GetUserByUserName(string username)
         {
@@ -28,5 +28,14 @@ namespace NygarnDemo.Services.User
             return Users.Find(user => user.UserName == username);
         }
 
+        //public async Task AddUserAsync(Models.User user)
+        //{
+        //    await Users.AddAsync(user);
+        //}
+
+        //public void AddUser(Models.User user)
+        //{
+        //    Users.Add(user);
+        //}
     }
 }

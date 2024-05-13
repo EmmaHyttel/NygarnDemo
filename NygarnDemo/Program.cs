@@ -22,7 +22,7 @@ builder.Services.AddSingleton<IToolService, ToolService>();
 builder.Services.AddDbContext<YarnDbContext>();
 builder.Services.AddDbContext<ToolDbContext>();
 builder.Services.AddSingleton<DbService, DbService>();
-builder.Services.AddSingleton<UserService, UserService>();
+builder.Services.AddSingleton<IUserService, UserService>();
 
 builder.Services.Configure<CookiePolicyOptions>(options => {
     // This lambda determines whether user consent for non-essential cookies is needed for a given request. options.CheckConsentNeeded = context => true; 

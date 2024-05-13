@@ -2,7 +2,8 @@
 @model NygarnDemo.Pages.LogInPage.LogInPageModel
 @{
 }
-@* <div class="container">
+@* 
+    <div class="container">
     <div>
         @Model.Message
     </div>
@@ -30,7 +31,7 @@
    <section class="vh-20 gradient-custom">
        <div class="container py-5 h-50">
             <div class="row d-flex justify-content-center align-items-center h-50">
-                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                 <div class="col-10 col-md-8 col-lg-6 col-xl-5">
                       <div class="card current-color text-current" style="border-radius: 1rem;">
                             <div class="card-body p-1 text-center">
                                   <form method="post">
@@ -54,13 +55,20 @@
                                             <p class="small mb-5 pb-lg-2"><a class="text-current-50" href="#!">Glemt adgangskode? Tryk her</a></p>
                                             <button type="submit" class="btn btn-outline-black btn-lg px-5">Login</button>
                                         </div>
-                                        
+                                             <div>
+                                             <p class="mb-0">
+                                                Ikke medlem? <a href="/User/CreateUser" class="text-current-50 fw-bold">Opret dig her!</a>
+                                               < class="small mb-5 pb-lg-2"><a class="text-current-50" href="/User/CreateUser">Ikke medlem? </a>
+                                          
+                                             </p>
+                                        </div>
+                                           @*  <div class="small mb-5 pb-lg-2">
+                                              <p>
+                                                 <a class="text-current-50" href="/User/CreateUser">Ikke medlem?</a>
+                                                 <button type="submit" class="btn btn-outline-black btn-lg px-5">Opret dig her</button>
+                                              </p>
+                                            </div> *@
                                   </form>
-                            <div>
-                                 <p class="mb-0">
-                                      Ikke medlem? <a href="#!" class="text-current-50 fw-bold">Tilmeld her</a>
-                                 </p>
-                            </div>
                             </div>
                          </div>
                      </div>

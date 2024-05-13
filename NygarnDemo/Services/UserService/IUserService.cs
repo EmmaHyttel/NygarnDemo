@@ -4,9 +4,9 @@ namespace NygarnDemo.Services.User
 {
     public interface IUserService
     {
-        List<Models.User> GetAllUsers();
+        List<Models.User> GetUsers();
 
-        Task AddUser(Models.User user);
+        void AddUser(Models.User user);
 
         Models.User GetUserByUserName(string str);
 
