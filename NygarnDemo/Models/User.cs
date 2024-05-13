@@ -11,7 +11,7 @@ namespace NygarnDemo.Models
         public User(string userName, string name, string lastName, string password, string address,
             string phone, string email) : base(userName, name, lastName, password, address, phone, email)
         {
-            YarnWishList = new List<Yarn>();
+            //YarnWishList = new List<Yarn>();
             //UserName = userName;
             //Password = password;
         }

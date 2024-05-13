@@ -20,6 +20,10 @@
                 <input asp-for="@Model.LastName" class="form-control" />
             </div>
             <div class="form-group">
+                <label asp-for="@Model.Password" class="control-lable">Indtast ønsket kodeord</label>
+                <input asp-for="@Model.Password" class="form-control" />
+            </div>
+            <div class="form-group">
                 <label asp-for="@Model.Address" class="control-lable">Indtast adresse</label>
                 <input asp-for="@Model.Address" class="form-control" />
             </div>
@@ -31,10 +35,7 @@
                 <label asp-for="@Model.Email" class="control-lable">Indtast email</label>
                 <input asp-for="@Model.Email" class="form-control" />
             </div>
-            <div class="form-group">
-                <label asp-for="@Model.Password" class="control-lable">Indtast ønsket kodeord</label>
-                <input asp-for="@Model.Password" class="form-control" />
-            </div>
+          
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -42,6 +43,6 @@
         </form>
     </div>
 </div>
-<div>
-    <a asp-page="/Item/GetUsers">Back to List</a>
-</div>
+@* <div>
+    <a asp-page="/Index">Tilbage til forsiden</a>
+</div> *@
