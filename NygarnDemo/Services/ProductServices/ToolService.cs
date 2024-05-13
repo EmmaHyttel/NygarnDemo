@@ -7,11 +7,15 @@ namespace NygarnDemo.Services.ProductServices
 {
     public class ToolService : IToolService
     {
+        private DbService _dbService;
         public List<Tool> ToolProducts { get; set; }
 
-        public ToolService()
+        public ToolService(DbService dbService)
         {
-            ToolProducts = MockTool.GetAllToolProducts();
+            //ToolProducts = MockTool.GetAllToolProducts();
+            _dbService = dbService;
+            ToolProducts = _dbService.GetTools().Result.ToList();
+            //_dbService.SaveTools(Tools);
         }
 
         public List<Tool> GetToolsProducts()
@@ -81,6 +85,42 @@ namespace NygarnDemo.Services.ProductServices
                 }
             }
             return typeFilter;
+        }
+
+        public async Task AddToolAsync(Tool tool)
+        {
+            await _dbService.AddTools(tool);
+        }
+
+        //public async Task<Tool> DeleteToolAsync(int? Id)
+        //{
+        //    Tool ToolToBeDeleted = null;
+        //    foreach (Tool tool in ToolProducts)
+        //    {
+        //        if (tool.Id == Id)
+        //        {
+        //            ToolToBeDeleted = tool;
+        //            break;
+        //        }
+        //    }
+        //    if (ToolToBeDeleted != null)
+        //    {
+        //        ToolProducts.Remove(ToolToBeDeleted);
+        //        //await _dbService.DeleteToolsAsync(ToolToBeDeleted);
+        //    }
+
+        //    return ToolToBeDeleted;
+        //}
+
+        public Tool GetTool(int id)
+        {
+            foreach (Tool tool in ToolProducts)
+            {
+                if (tool.Id == id)
+                    return tool;
+            }
+
+            return null;
         }
     }
 }

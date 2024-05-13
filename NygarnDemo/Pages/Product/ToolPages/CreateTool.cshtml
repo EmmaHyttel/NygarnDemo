@@ -1,0 +1,49 @@
+﻿@page
+@model NygarnDemo.Pages.Product.ToolPages.CreateToolModel
+@{
+}
+
+<h1>Udfyld felter om tilbehør!</h1>
+<form method="post">
+	<div class="form-group">
+		<label asp-for="@Model.Tool.Name" class="control-label"></label>
+		<input asp-for="@Model.Tool.Name" class="form-control" />
+		<span asp-validation-for="@Model.Tool.Name" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.Tool.Price" class="control-label"></label>
+		<input asp-for="@Model.Tool.Price" class="form-control" />
+		<span asp-validation-for="@Model.Tool.Price" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.Tool.Description" class="control-label"></label>
+		<input asp-for="@Model.Tool.Description" class="form-control" />
+		<span asp-validation-for="@Model.Tool.Description" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.Tool.Brand" class="control-label"></label>
+		<input asp-for="@Model.Tool.Brand" class="form-control" />
+		<span asp-validation-for="@Model.Tool.Brand" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.Tool.Amount" class="control-label"></label>
+		<input asp-for="@Model.Tool.Amount" class="form-control" />
+		<span asp-validation-for="@Model.Tool.Amount" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.Tool.Size" class="control-label"></label>
+		<input asp-for="@Model.Tool.Size" class="form-control" />
+		<span asp-validation-for="@Model.Tool.Size" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.Tool.Type" class="control-label"></label>
+		<input asp-for="@Model.Tool.Type" class="form-control" />
+		<span asp-validation-for="@Model.Tool.Type" class="text-danger"></span>
+	</div>
+
+	<p>
+		<div class="form-group">
+			<input type="submit" value="Tilføj" class="btn btn-primary" />
+		</div>
+	</p>
+</form>

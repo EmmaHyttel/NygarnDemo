@@ -11,6 +11,11 @@ namespace NygarnDemo.Pages.Product.ToolPages
     {
         private IToolService _toolService;
 
+        public GetAllToolsModel(IToolService toolService)
+        {
+            _toolService = toolService;
+        }
+
         public List<Tool>? Tools { get; private set; }
 
         [BindProperty]
@@ -30,11 +35,6 @@ namespace NygarnDemo.Pages.Product.ToolPages
 
         [BindProperty]
         public string Type { get; set; }
-
-        public GetAllToolsModel(IToolService toolService)
-        {
-            _toolService = toolService;
-        }
 
         public void OnGet()
         {
