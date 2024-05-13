@@ -69,13 +69,13 @@ namespace NygarnDemo.Services
             }
         }
 
-        //public async Task DeleteToolsAsync(Tool tool)
-        //{
-        //    using (var context = new ToolDbContext())
-        //    {
-        //        context.ToolProducts.Remove(tool);
-        //        await context.SaveChangesAsync();
-        //    }
-        //}
+        public async Task DeleteToolsAsync(Tool tool)
+        {
+            using (var context = new ToolDbContext())
+            {
+                context.ToolProducts.Remove(tool);
+                await context.SaveChangesAsync();
+            }
+        }
     }
 }
