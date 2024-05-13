@@ -12,7 +12,7 @@ namespace NygarnDemo.Pages.LogInPage
             //Context. = null;
 
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-                return RedirectToPage("/index");
+                return RedirectToPage("/Index");
           }
     }
 }
