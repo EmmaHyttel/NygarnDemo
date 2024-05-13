@@ -2,43 +2,43 @@
 @model NygarnDemo.Pages.Users.CreateUserModel
 @{
 }
-<h1>Opret dig som bruger</h1>
+<h1>Opret dig som </h1>
 
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div class="form-group">
-                <label asp-for="@Model.UserName" class="control-lable">Indtast brugernavn</label>
+                <label asp-for="@Model.UserName" class="control-lable">Brugernavn</label>
                 <input asp-for="@Model.UserName" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Name" class="control-lable">Indtast fornavn</label>
+                <label asp-for="@Model.Name" class="control-lable">Fornavn</label>
                 <input asp-for="@Model.Name" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="@Model.LastName" class="control-lable">Indtast efternavn</label>
+                <label asp-for="@Model.LastName" class="control-lable">Efternavn</label>
                 <input asp-for="@Model.LastName" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Password" class="control-lable">Indtast ønsket kodeord</label>
+                <label asp-for="@Model.Password" class="control-lable">Kodeord</label>
                 <input asp-for="@Model.Password" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Address" class="control-lable">Indtast adresse</label>
+                <label asp-for="@Model.Address" class="control-lable">Adresse</label>
                 <input asp-for="@Model.Address" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Phone" class="control-lable">Indtast telefonnummer</label>
+                <label asp-for="@Model.Phone" class="control-lable">Telefonnummer</label>
                 <input asp-for="@Model.Phone" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Email" class="control-lable">Indtast email</label>
+                <label asp-for="@Model.Email" class="control-lable">Email</label>
                 <input asp-for="@Model.Email" class="form-control" />
             </div>
           
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Opret" class="btn btn-primary" />
             </div>
         </form>
     </div>

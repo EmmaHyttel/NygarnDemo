@@ -77,5 +77,36 @@ namespace NygarnDemo.Services
                 await context.SaveChangesAsync();
             }
         }
+        #region User
+        public async Task<List<Models.User>> GetUsers()
+        {
+            using (var context = new UserDbContext())
+            {
+                return await context.Users.ToListAsync();
+            }
+        }
+        public async Task AddUser(Models.User user)
+        {
+            using (var context = new UserDbContext())
+            {
+                context.Users.Add(user);
+                context.SaveChanges();
+            }
+        }
+
+        public async Task SaveUsers(List<Models.User> users)
+        {
+            using (var context = new UserDbContext())
+            {
+                foreach (Models.User user in users)
+                {
+                    context.Users.Add(user);
+                    context.SaveChanges();
+                }
+
+                context.SaveChanges();
+            }
+        }
+        #endregion
     }
 }

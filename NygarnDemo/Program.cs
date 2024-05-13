@@ -21,6 +21,7 @@ builder.Services.AddSingleton<IKnittingNeedleService, KnittingNeedleService>();
 builder.Services.AddSingleton<IToolService, ToolService>();
 builder.Services.AddDbContext<YarnDbContext>();
 builder.Services.AddDbContext<ToolDbContext>();
+builder.Services.AddDbContext<UserDbContext>();
 builder.Services.AddSingleton<DbService, DbService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 
@@ -34,8 +35,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     cookieOptions.LoginPath = "/Login/LogInPage";
 
 });
+
 builder.Services.AddMvc().AddRazorPagesOptions(options => {
-    options.Conventions.AuthorizeFolder("/User");
+    //options.Conventions.AuthorizeFolder("/User");
 
 }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 

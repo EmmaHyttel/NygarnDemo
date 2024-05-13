@@ -42,7 +42,7 @@ namespace NygarnDemo.Pages.Users
         }
 
 
-        public IActionResult OnGet()
+        public IActionResult onget()
         {
             return Page();
         }
@@ -53,7 +53,8 @@ namespace NygarnDemo.Pages.Users
             {
                 return Page();
             }
-            _userService.AddUser(new Models.User(UserName, Name, LastName, Password, Address, Phone, Email));
+
+            _userService.AddUserAsync(new Models.User(UserName, Name, LastName, Password, Address, Phone, Email));
             return RedirectToPage("/LogIn/LogInPage");
         }
 

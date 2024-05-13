@@ -8,10 +8,10 @@ namespace NygarnDemo.Models
 {
     public class Person
     {
-		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int PersonId { get; set; }
+		public int Id { get; set; }
 
+        [Key]
         [Display(Name = "Skriv et ønskede brugernavn")]
         [Required(ErrorMessage = "Brugernavn må max indeholde 50 tegn")]   //brugernavn taget - throw exception. 
         [StringLength(30)]

@@ -6,7 +6,7 @@ namespace NygarnDemo.Services.User
     {
         List<Models.User> GetUsers();
 
-        void AddUser(Models.User user);
+        Task AddUserAsync(Models.User user);
 
         Models.User GetUserByUserName(string str);
 
