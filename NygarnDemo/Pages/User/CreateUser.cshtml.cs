@@ -54,7 +54,7 @@ namespace NygarnDemo.Pages.Users
                 return Page();
             }
             _userService.AddUser(new Models.User(UserName, Name, LastName, Password, Address, Phone, Email));
-            return RedirectToPage("/index");
+            return RedirectToPage("/Index");
         }
     }
 }
