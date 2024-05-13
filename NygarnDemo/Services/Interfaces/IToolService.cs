@@ -16,5 +16,10 @@ namespace NygarnDemo.Services.Interfaces
         IEnumerable<Tool>  NameSearch(string str);
 
         IEnumerable<Tool> TypeSearch(string type);
+
+        Task AddToolAsync(Tool tool);
+        //Task DeleteToolAsync(int? Id);
+        Tool GetTool(int id);
+
     }
 }

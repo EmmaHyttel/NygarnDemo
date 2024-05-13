@@ -63,6 +63,6 @@ namespace NygarnDemo.EFDbContext
                     );
         }
 
-        public DbSet<Tool> Tools { get; set; }
+        public DbSet<Tool> ToolProducts { get; set; }
     }
 }

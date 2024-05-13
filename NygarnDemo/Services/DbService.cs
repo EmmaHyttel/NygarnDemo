@@ -37,11 +37,11 @@ namespace NygarnDemo.Services
             }
         }
 
-        public async Task<List<Tool>> GetToolss()
+        public async Task<List<Tool>> GetTools()
         {
             using (var context = new ToolDbContext())
             {
-                return await context.Tools.ToListAsync();
+                return await context.ToolProducts.ToListAsync();
             }
         }
 
@@ -49,10 +49,11 @@ namespace NygarnDemo.Services
         {
             using (var context = new ToolDbContext())
             {
-                context.Tools.Add(tool);
+                context.ToolProducts.Add(tool);
                 context.SaveChanges();
             }
         }
+
 
         public async Task SaveTools(List<Tool> tools)
         {
@@ -60,12 +61,21 @@ namespace NygarnDemo.Services
             {
                 foreach (Tool tool in tools)
                 {
-                    context.Tools.Add(tool);
+                    context.ToolProducts.Add(tool);
                     context.SaveChanges();
                 }
 
                 context.SaveChanges();
             }
         }
+
+        //public async Task DeleteToolsAsync(Tool tool)
+        //{
+        //    using (var context = new ToolDbContext())
+        //    {
+        //        context.ToolProducts.Remove(tool);
+        //        await context.SaveChangesAsync();
+        //    }
+        //}
     }
 }
