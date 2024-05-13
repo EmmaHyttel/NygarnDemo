@@ -27,13 +27,13 @@ namespace NygarnDemo.Pages.Product.ToolPages
             return Page();
         }
 
-        //public async Task<IActionResult> OnPostAsync()
-        //{
-        //    Models.Tool deletedTool = await _toolService.DeleteToolAsync(id);
-        //    if (deletedTool == null)
-        //        return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
+        public async Task<IActionResult> OnPostAsync()
+        {
+            Models.Tool deletedTool = await _toolService.DeleteToolAsync(Tools.Id);
+            if (deletedTool == null)
+                return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
 
-        //    return RedirectToPage("GetAllTools");
-        //}
+            return RedirectToPage("GetAllTools");
+        }
     }
 }
