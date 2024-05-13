@@ -2,7 +2,8 @@
 @model NygarnDemo.Pages.LogInPage.LogInPageModel
 @{
 }
-@* <div class="container">
+@* 
+    <div class="container">
     <div>
         @Model.Message
     </div>
@@ -56,7 +57,7 @@
                                         </div>
                                         <div>
                                             <p class="mb-0">
-                                                Ikke medlem? <a href="/User/CreateUser" class="text-current-50 fw-bold">Opret dig her!</a>
+                                                Ikke medlem? <a href="@Url.Action("CreateUser", "User")" class="text-current-50 fw-bold">Opret dig her!</a>
                                             </p>
                                         </div>
                                   </form>

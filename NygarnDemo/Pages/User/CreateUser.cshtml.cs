@@ -31,9 +31,9 @@ namespace NygarnDemo.Pages.Users
 
         //private PasswordHasher<string> passwordHasher;
 
-        public CreateUserModel()
-        {
-        }
+        //public CreateUserModel()
+        //{
+        //}
 
         public CreateUserModel(IUserService userService)
         {
@@ -42,8 +42,9 @@ namespace NygarnDemo.Pages.Users
         }
 
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            return Page();
         }
 
         public IActionResult OnPost()
