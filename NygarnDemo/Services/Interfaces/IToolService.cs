@@ -21,5 +21,7 @@ namespace NygarnDemo.Services.Interfaces
         Task AddToolAsync(Tool tool);
         Tool GetTool(int id);
 
+        Task UpdateToolAsync(Tool tool);
+
     }
 }

@@ -77,6 +77,12 @@
                        <p class="card-text">Størrelse: @tool.Size</p>
                        <p class="card-text">Type: @tool.Type</p>
                        <a href="#" class="btn btn-primary">Kom i kurv</a>
+                    <form asp-page="EditTool" asp-route-id="@tool.Id" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger" title="Rediger">
+                            Rediger
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </form>
                     <form asp-page="DeleteTool" asp-route-id="@tool.Id" method="post" class="d-inline">
                         <button type="submit" class="btn btn-danger btn-sm" title="Slet" onclick="return confirm('Er du sikker på, at du vil slette dette værktøj?')">Slet
                             <i class="fa fa-trash"></i>

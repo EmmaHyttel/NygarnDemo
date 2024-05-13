@@ -77,5 +77,14 @@ namespace NygarnDemo.Services
                 await context.SaveChangesAsync();
             }
         }
+
+        public async Task UpdateToolAsync(Tool tool)
+        {
+            using (var context = new ToolDbContext())
+            {
+                context.ToolProducts.Update(tool);
+                await context.SaveChangesAsync();
+            }
+        }
     }
 }

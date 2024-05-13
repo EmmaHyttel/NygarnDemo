@@ -122,5 +122,22 @@ namespace NygarnDemo.Services.ProductServices
 
             return ToolToBeDeleted;
         }
+
+        public async Task UpdateToolAsync(Tool tool)
+        {
+            if (tool != null)
+            {
+                foreach (Tool t in ToolProducts)
+                {
+                    if (t.Id == tool.Id)
+                    {
+                        t.Name = tool.Name;
+                        t.Price = tool.Price;
+                        t.Description = tool.Description;
+                    }
+                }
+                await _dbService.UpdateToolAsync(tool);
+            }
+        }
     }
 }
