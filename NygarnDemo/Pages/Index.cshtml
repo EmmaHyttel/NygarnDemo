@@ -52,7 +52,36 @@
         cursor: pointer; /* Gør cursor til en pegefinger for at indikere at knappen er klikbar */
         /* Tilføj andre styling-egenskaber efter behov */
     }
+
+/*     .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+        .carousel-inner a {
+            flex: 0 0 auto;
+            margin-right: 20px; /* Tilpas margen efter behov */
+        }
+
+            .carousel-inner a:last-child {
+                margin-right: 0;
+            }
+
+    .carousel:hover .carousel-inner {
+        transform: translateX(-100%);
+    }
+
+        .carousel:hover .carousel-inner a {
+            opacity: 0.5;
+        }
+
+            .carousel:hover .carousel-inner a:hover {
+                opacity: 1;
+            } */
+
 </style>
+
+
 
 
 <div class="text-center">
@@ -60,33 +89,6 @@
     <h3>
         Strik dine drømme sammen med vores kvalitetsgarn
     </h3>
-@* 
-    <section style="background-color: #F0DBDB; height: auto; display: flex; justify-content: center; align-items: center; margin-bottom: 40px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 80%;">
-            <div style="width: 50%;">
-                <p>
-                    I dag er en særlig dag for os hos Nygarn. 
-                    Vi kan næsten føle spændingen boble i luften, for i dag er dagen, hvor vores nye garnkollektion endelig er ankommet. 
-                    Med hver fiber og farve, der ankommer til vores lager, bliver vores passion for strikning og hækling genoplivet. 
-                    Det er som om, at hver garnnøgle bringer et løfte om uendelige muligheder og kreativitet. <br />
-
-                    Vi har omhyggeligt udvalgt hvert eneste garn, ikke kun med hensyn til kvalitet og holdbarhed, 
-                    men også med tanke på de smukke farver og teksturer, der vil inspirere vores kunder til at skabe deres næste mesterværk. 
-                    Fra de bløde pastelfarver til de dristige og levende nuancer er vores nye kollektion en hyldest til mangfoldigheden af udtryk, 
-                    som kunst af garn kan bringe. <br />
-
-                    Så lad os sammen dykke ned i denne verden af farver, teksturer og kreativitet. 
-                    Lad os omfavne det glædelige sus af at have fået helt nyt garn hjem til vores garn webshop og lad os sammen skabe noget smukt og unikt. <br />
-
-                    Velkommen til Nygarn - hvor inspiration og garn mødes for at skabe magi med hver eneste tråd.
-                </p>
-            </div>
-            <div style="width: 50%;">
-                <img src="pngFiles/GarnTilOpslag.png" style="max-width: 100%; height: 400px;">
-            </div>
-        </div>
-    </section> *@ @* bare for lige at hardcode et opslag på forsiden, så vi kan se stylingen af det *@
-
 
     <section style="background-color: #F0DBDB; height: 200px; display: flex; justify-content: center; align-items: center; margin-bottom: 40px;">
         <div style="display: flex; gap: 40px;">
@@ -105,6 +107,21 @@
             <a href="/Product/ToolPages/GetAllToolss" class="btn" style="font-size: 35px">Filcolana </a>
         </div>
     </section>
+
+@*     <section class="carousel" style="background-color: #F0DBDB; height: 200px; display: flex; justify-content: center; align-items: center; overflow: hidden; margin-bottom: 40px;">
+        <div class="carousel-inner">
+            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Sandnes Garn</a>
+            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">PetitKnit</a>
+            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Drops Design</a>
+            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Filcolana</a>
+            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">MadelineTosh</a>
+            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Nannas garn</a>
+            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Emmas Garn</a>
+            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Mais Garn</a>
+        </div>
+    </section> *@ en latterlig karousel som ikke virker heeeelt optimalt 
+
+
 
    
 </div>
