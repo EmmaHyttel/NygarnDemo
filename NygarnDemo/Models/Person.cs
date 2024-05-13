@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Net;
 using System.Numerics;
 using System.Xml.Linq;
@@ -7,8 +8,9 @@ namespace NygarnDemo.Models
 {
     public class Person
     {
-
-        public int PersonId { get; set; }
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		public int PersonId { get; set; }
 
         [Display(Name = "Skriv et ønskede brugernavn")]
         [Required(ErrorMessage = "Brugernavn må max indeholde 50 tegn")]   //brugernavn taget - throw exception. 
@@ -46,7 +48,7 @@ namespace NygarnDemo.Models
         [StringLength(100)]
         public string Email { get; set; }
 
-        public Person(int personId, string userName, string name, string lastName, string password, string address, string phone, string email)
+        public Person(string userName, string name, string lastName, string password, string address, string phone, string email)
         {
             UserName = userName;
             Name = name;
@@ -59,13 +61,13 @@ namespace NygarnDemo.Models
 
         public Person()
         {
-            UserName = ""; 
-            Name = "";
-            LastName = "";
-            Password = "";
-            Address = "";
-            Phone = "";
-            Email = "";
+            //UserName = ""; 
+            //Name = "";
+            //LastName = "";
+            //Password = "";
+            //Address = "";
+            //Phone = "";
+            //Email = "";
         }
     }
 }

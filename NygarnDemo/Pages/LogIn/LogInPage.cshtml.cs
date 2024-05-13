@@ -12,9 +12,9 @@ namespace NygarnDemo.Pages.LogInPage
 {
     public class LogInPageModel : PageModel
     {
-        public static User LoggedInUser { get; set; } = null;
+        //public static User LoggedInUser { get; set; } = null;
 
-        private UserService _userService;
+        private IUserService _userService;
 
         [BindProperty]
         public string UserName { get; set; }
@@ -25,7 +25,7 @@ namespace NygarnDemo.Pages.LogInPage
         public string Message { get; set; }
 
 
-        public LogInPageModel(UserService userService)
+        public LogInPageModel(IUserService userService)
         {
             _userService = userService;
         }
@@ -36,9 +36,8 @@ namespace NygarnDemo.Pages.LogInPage
 
         public async Task<IActionResult> OnPost()
         {
-
-            List<User> users = _userService.Users;
-            foreach (User user in users)
+            List<Models.User> users = _userService.GetUsers();
+            foreach (Models.User user in users)
             {
                 if (UserName == user.UserName)
                 {
@@ -46,7 +45,7 @@ namespace NygarnDemo.Pages.LogInPage
 
                     if (passwordHasher.VerifyHashedPassword(null, user.Password, Password) == PasswordVerificationResult.Success)
                     {
-                        LoggedInUser = user;
+                        //LoggedInUser = user;
 
                         var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
 
