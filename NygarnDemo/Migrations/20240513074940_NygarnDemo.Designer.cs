@@ -11,7 +11,7 @@ using NygarnDemo.EFDbContext;
 namespace NygarnDemo.Migrations
 {
     [DbContext(typeof(YarnDbContext))]
-    [Migration("20240507205714_NygarnDemo")]
+    [Migration("20240513074940_NygarnDemo")]
     partial class NygarnDemo
     {
         /// <inheritdoc />
@@ -35,8 +35,9 @@ namespace NygarnDemo.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<int>("Brand")
-                        .HasColumnType("int");
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Color")
                         .HasColumnType("int");
@@ -46,8 +47,9 @@ namespace NygarnDemo.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<int>("KnittingTension")
-                        .HasColumnType("int");
+                    b.Property<string>("KnittingTension")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("MachineWash")
                         .HasColumnType("bit");
@@ -69,8 +71,9 @@ namespace NygarnDemo.Migrations
                     b.Property<int>("Weight")
                         .HasColumnType("int");
 
-                    b.Property<int>("Yardage")
-                        .HasColumnType("int");
+                    b.Property<string>("Yardage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -81,81 +84,81 @@ namespace NygarnDemo.Migrations
                         {
                             Id = 1,
                             Amount = 10,
-                            Brand = 0,
+                            Brand = "Sandnes",
                             Color = 0,
                             Description = "Meget luksus garn, ikke egnet til påklædning.",
-                            KnittingTension = 0,
+                            KnittingTension = "KnittingTension10mX10cm",
                             MachineWash = false,
                             Material = 0,
                             Name = "Luksus garn",
                             Price = 99m,
                             Size = 2,
                             Weight = 100,
-                            Yardage = 2
+                            Yardage = "Yardage400mPr50g"
                         },
                         new
                         {
                             Id = 2,
                             Amount = 10,
-                            Brand = 0,
+                            Brand = "Sandne",
                             Color = 0,
                             Description = "Meget luksus garn, ikke egnet til påklædning.",
-                            KnittingTension = 0,
+                            KnittingTension = "KnittingTension10mX10cm",
                             MachineWash = false,
                             Material = 0,
                             Name = "Saga",
                             Price = 49m,
                             Size = 2,
                             Weight = 100,
-                            Yardage = 2
+                            Yardage = "Yardage400mPr50g"
                         },
                         new
                         {
                             Id = 3,
                             Amount = 1,
-                            Brand = 0,
+                            Brand = "Sandnes",
                             Color = 9,
                             Description = "Vildt lækkert mohair garn til din næste sweater",
-                            KnittingTension = 1,
+                            KnittingTension = "knittingTension21mX10cm",
                             MachineWash = true,
                             Material = 2,
                             Name = "MyHair",
                             Price = 79m,
                             Size = 1,
                             Weight = 50,
-                            Yardage = 0
+                            Yardage = "Yardage215mPr50g"
                         },
                         new
                         {
                             Id = 4,
                             Amount = 1,
-                            Brand = 1,
+                            Brand = "Petitknit",
                             Color = 9,
                             Description = "Vildt lækkert alpakka garn til dit næste tørklæde",
-                            KnittingTension = 2,
+                            KnittingTension = "knittingTension25mX10cm",
                             MachineWash = true,
                             Material = 0,
                             Name = "MaLamaa",
                             Price = 69m,
                             Size = 3,
                             Weight = 50,
-                            Yardage = 1
+                            Yardage = "Yardage300mPr50g"
                         },
                         new
                         {
                             Id = 5,
                             Amount = 1,
-                            Brand = 1,
+                            Brand = "Petitknit",
                             Color = 0,
                             Description = "Vildt lækkert silke garn til dit næste hårbånd",
-                            KnittingTension = 3,
+                            KnittingTension = "knittingTension30mX10cm",
                             MachineWash = false,
                             Material = 1,
                             Name = "SlikkeSilke",
                             Price = 75m,
                             Size = 5,
                             Weight = 50,
-                            Yardage = 2
+                            Yardage = "Yardage400mPr50g"
                         });
                 });
 #pragma warning restore 612, 618
