@@ -22,18 +22,16 @@
     gap: 20px;  Afstand mellem kortene 
 }
 
-
-
 .footer {
     position: relative;
     width: 100%;
-    max-width: 2500px; /* Juster denne værdi efter behov */
-    margin: 0 auto; /* Centrer footer-elementet */
+    max-width: 2500px; 
+    margin: 0 auto; 
     background-color: #F5EBE0;
     color: #000;
     text-align: center;
-    padding: 20px 0; /* Tilføj lidt luft omkring indholdet */
-    box-sizing: border-box; /* Sørg for at padding er inkluderet i den samlede bredde */
+    padding: 20px 0; 
+    box-sizing: border-box;
     z-index: 999;
 }
 
