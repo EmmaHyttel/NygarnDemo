@@ -55,8 +55,8 @@ namespace NygarnDemo.EFDbContext
 				{
 					Id = 3,
 					Price = 599,
-					Name = "NeedlePickled",
-					Description = "",
+					Name = "KnitPro",
+					Description = "Den bedste hækle nål",
 					Brand = "PetitKnit",
 					Amount = 1,
 					Material = NeedleAndHookMaterial.plastik,
