@@ -13,7 +13,6 @@ namespace NygarnDemo.Services.Interfaces
 
         Task AddKnittingNeedleAsync(KnittingNeedle knittingNeedle);
 
-
         IEnumerable<KnittingNeedle> PriceFilter(int maxPrice, int minPrice = 0);
       
         IEnumerable<KnittingNeedle> NameSearch(string str);

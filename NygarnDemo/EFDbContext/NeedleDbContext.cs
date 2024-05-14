@@ -53,7 +53,7 @@ namespace NygarnDemo.EFDbContext
                     },
                     new KnittingNeedle()
                     {
-                        Id = 1,
+                        Id = 3,
                         Price = 140,
                         Name = "KnitPro",
                         Description = "Gode til alt",
@@ -63,25 +63,9 @@ namespace NygarnDemo.EFDbContext
                         Material = NeedleAndHookMaterial.plastik,
                         Size = Size.Size30mm,
                         Set = true
-                    },
-                    new KnittingNeedle()
-                    {
-                        Id = 3,
-                        Price = 499,
-                        Name = "Hot",
-                        Description = "Gode til strømper",
-                        Brand = "PetitKnit",
-                        Amount = 2,
-                        Type = NeedleType.Strømpepinde,
-                        Material = NeedleAndHookMaterial.aluminium,
-                        Size = Size.Size40mm,
-                        Set = true
                     }
 
                     );
-
-
-
 
         }
 
