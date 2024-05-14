@@ -10,11 +10,6 @@ namespace NygarnDemo.Services.ProductServices
     {
         public List<Pattern>? Patterns { get; set; }
 
-       //public PatternService(IPatternService patternService)
-       // {
-       //     Patterns = MockPattern.GetAllPatterns();
-       // }
-
         public PatternService()
         {
             Patterns = MockPattern.GetAllPatterns();
