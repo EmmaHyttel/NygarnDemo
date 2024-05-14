@@ -81,7 +81,7 @@
                             {
                             <style>
                                 .nav-item.dropdown .dropdown-toggle::before {
-                                    content: none; /* Skjul punktsymbolet */
+                                    content: none;
                                 }
                                 .nav-item.dropdown .dropdown-toggle::after {
                                     content: none; 
@@ -105,8 +105,13 @@
                             }
                             else
                             {
+                            <style>
+                                .nav-item {
+                                    list-style-type: none; 
+                                }
+                            </style>
                                 <li class="nav-item nav-link text-dark me-3">
-                                    User: @Context.User.Identity.Name
+                                    @Context.User.Identity.Name
                                 </li>
 
                                 <li class="nav-item">
