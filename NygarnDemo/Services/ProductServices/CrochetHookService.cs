@@ -16,10 +16,10 @@ namespace NygarnDemo.Services.ProductServices
 		public CrochetHookService(DbService dbService)
 		{
             CrochetHooks = MockCrochetHook.GetAllCrochetHooks();
-            _dbService = dbService;
-			CrochetHooks = _dbService.GetCrochetHooks().Result.ToList();
-			_dbService.SaveCrochetHooks(CrochetHooks);
-		}
+            //_dbService = dbService;
+            //CrochetHooks = _dbService.GetCrochetHooks().Result.ToList();
+            //_dbService.SaveCrochetHooks(CrochetHooks);
+        }
 
 		public CrochetHookService()
         {

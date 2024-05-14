@@ -1,0 +1,55 @@
+﻿@page
+@model NygarnDemo.Pages.Product.NeedleAndHookPages.CreateCrochetHookModel
+@{
+}
+
+<h3>Udfyld felter om hæklenåle</h3>
+<form method="post">
+	<div class="form-group">
+		<label asp-for="@Model.crochetHook.Name" class="control-label"></label>
+		<input asp-for="@Model.crochetHook.Name" class="form-control" />
+		<span asp-validation-for="@Model.crochetHook.Name" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.crochetHook.Price" class="control-label"></label>
+		<input asp-for="@Model.crochetHook.Price" class="form-control" />
+		<span asp-validation-for="@Model.crochetHook.Price" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.crochetHook.Description" class="control-label"></label>
+		<input asp-for="@Model.crochetHook.Description" class="form-control" />
+		<span asp-validation-for="@Model.crochetHook.Description" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.crochetHook.Brand" class="control-label"></label>
+		<input asp-for="@Model.crochetHook.Brand" class="form-control" />
+		<span asp-validation-for="@Model.crochetHook.Brand" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.crochetHook.Amount" class="control-label"></label>
+		<input asp-for="@Model.crochetHook.Amount" class="form-control" />
+		<span asp-validation-for="@Model.crochetHook.Amount" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.crochetHook.Size" class="control-label"></label>
+		<input asp-for="@Model.crochetHook.Size" class="form-control" />
+		<span asp-validation-for="@Model.crochetHook.Size" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.crochetHook.Material" class="control-label"></label>
+		<input asp-for="@Model.crochetHook.Material" class="form-control" />
+		<span asp-validation-for="@Model.crochetHook.Material" class="text-danger"></span>
+	</div>
+@* 
+	<div class="form-group">
+		<label asp-for="@Model.knittingNeedle.Set" class="control-label"></label>
+		<input asp-for="@Model.knittingNeedle.Set" class="form-control" />
+		<span asp-validation-for="@Model.knittingNeedle.Type" class="text-danger"></span>
+	</div> *@
+	<div>
+	<p>
+		<div class="form-group">
+			<input type="submit" value="Tilføj" class="btn btn-primary" />
+		</div>
+	</p>
+</form>

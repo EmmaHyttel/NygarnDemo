@@ -23,7 +23,7 @@ namespace NygarnDemo.EFDbContext
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<HookDbContext>().ToTable("Hook")
+			modelBuilder.Entity<CrochetHook>().ToTable("Hook")
 				.HasData(
 				new CrochetHook()
 				{
@@ -62,7 +62,6 @@ namespace NygarnDemo.EFDbContext
 					Material = NeedleAndHookMaterial.plastik,
 					Size = Size.Size60mm,
 					Set = false
-
 				}
 
 				);
