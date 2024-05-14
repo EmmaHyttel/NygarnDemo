@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
 
 namespace NygarnDemo.Pages.Product.ToolPages
@@ -16,29 +17,26 @@ namespace NygarnDemo.Pages.Product.ToolPages
         }
 
         [BindProperty]
-        public Models.Tool? Tools { get; set; }
+        public Tool Tool { get; set; }
 
 
         public IActionResult OnGet(int id)
         {
-            Tools = _toolService.GetTool(id);
-            if (Tools == null)
+            Tool = _toolService.GetTool(id);
+            if (Tool == null)
                 return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
 
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            if (Tools != null) 
-            { 
-                await _toolService.UpdateToolAsync(Tools); 
-            }
 
+            _toolService.UpdateTool(Tool);
             return RedirectToPage("GetAllTools");
         }
 

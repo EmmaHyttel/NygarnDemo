@@ -103,12 +103,12 @@ namespace NygarnDemo.Services.ProductServices
             return null;
         }
 
-        public async Task<Tool> DeleteToolAsync(int? Id)
+        public async Task<Tool> DeleteToolAsync(int id)
         {
             Tool ToolToBeDeleted = null;
             foreach (Tool tool in ToolProducts)
             {
-                if (tool.Id == Id)
+                if (tool.Id == id)
                 {
                     ToolToBeDeleted = tool;
                     break;
@@ -123,7 +123,7 @@ namespace NygarnDemo.Services.ProductServices
             return ToolToBeDeleted;
         }
 
-        public async Task UpdateToolAsync(Tool tool)
+        public void UpdateTool(Tool tool)
         {
             if (tool != null)
             {
@@ -136,8 +136,8 @@ namespace NygarnDemo.Services.ProductServices
                         t.Description = tool.Description;
                     }
                 }
-                //await _dbService.UpdateToolAsync(tool);
             }
         }
+
     }
 }

@@ -36,7 +36,7 @@ namespace NygarnDemo.Services
                 context.SaveChanges();
             }
         }
-
+        #region Tool
         public async Task<List<Tool>> GetTools()
         {
             using (var context = new ToolDbContext())
@@ -77,6 +77,16 @@ namespace NygarnDemo.Services
                 await context.SaveChangesAsync();
             }
         }
+
+        public async Task UpdateTool(Tool tool)
+        {
+            using (var context = new ToolDbContext())
+            {
+                context.ToolProducts.Update(tool);
+                await context.SaveChangesAsync();
+            }
+        }
+        #endregion
         #region User
         public async Task<List<Models.User>> GetUsers()
         {
