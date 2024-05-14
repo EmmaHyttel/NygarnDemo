@@ -37,8 +37,9 @@ namespace NygarnDemo.Services
                 context.SaveChanges();
             }
         }
-        #endregion
-        public async Task<List<Tool>> GetTools()
+		#endregion
+		#region Tool
+		public async Task<List<Tool>> GetTools()
         {
             using (var context = new ToolDbContext())
             {
@@ -78,6 +79,16 @@ namespace NygarnDemo.Services
                 await context.SaveChangesAsync();
             }
         }
+
+        public async Task UpdateTool(Tool tool)
+        {
+            using (var context = new ToolDbContext())
+            {
+                context.ToolProducts.Update(tool);
+                await context.SaveChangesAsync();
+            }
+        }
+        #endregion
         #region User
         public async Task<List<Models.User>> GetUsers()
         {
@@ -108,8 +119,9 @@ namespace NygarnDemo.Services
                 context.SaveChanges();
             }
         }
-
-        public async Task<List<KnittingNeedle>> GetKnittingNeedles()
+		#endregion
+		#region KnittingNeedle
+		public async Task<List<KnittingNeedle>> GetKnittingNeedles()
         {
             using (var context = new NeedleDbContext())
             {

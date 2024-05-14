@@ -1,27 +1,27 @@
-﻿@page
+﻿@page "{id:int}"
 @model NygarnDemo.Pages.Product.ToolPages.EditToolModel
 @{
 }
 
 <form method="post" enctype="multipart/form-data">
 	<div class="form-group">
-		<label asp-for="Tools.Id" class="control-lable"></label>
-		<input asp-for="Tools.Id" class="form-control" readonly="@(true)" />
+		<label asp-for="Tool.Id" class="control-lable"></label>
+		<input asp-for="Tool.Id" class="form-control" readonly="@(true)" />
 	</div>
 	<div class="form-group">
-		<label asp-for="Tools.Name" class="control-lable"></label>
-		<input asp-for="Tools.Name" class="form-control" />
-		<span asp-validation-for="Tools.Name" class="text-danger"></span>
+		<label asp-for="Tool.Name" class="control-lable"></label>
+		<input asp-for="Tool.Name" class="form-control" />
+		<span asp-validation-for="Tool.Name" class="text-danger"></span>
 	</div>
 	<div class="form-group">
-		<label asp-for="@Model.Tools.Description" class="control-label"></label>
-		<input asp-for="@Model.Tools.Description" class="form-control" />
-		<span asp-validation-for="@Model.Tools.Name" class="text-danger"></span>
+		<label asp-for="@Model.Tool.Description" class="control-label"></label>
+		<input asp-for="@Model.Tool.Description" class="form-control" />
+		<span asp-validation-for="@Model.Tool.Name" class="text-danger"></span>
 	</div>
 	<div class="form-group">
-		<label asp-for="Tools.Price" class="control-lable"></label>
-		<input asp-for="Tools.Price" class="form-control" />
-		<span asp-validation-for="Tools.Price" class="text-danger"></span>
+		<label asp-for="Tool.Price" class="control-lable"></label>
+		<input asp-for="Tool.Price" class="form-control" />
+		<span asp-validation-for="Tool.Price" class="text-danger"></span>
 	</div>
 
 	<p>
@@ -32,5 +32,5 @@
 </form>
 
 <p>
-	<a asp-page="/ToolPages/GetAllTools">Back to List</a>
+	<a asp-page="/Product/ToolPages/GetAllTools">Back to List</a>
 </p>

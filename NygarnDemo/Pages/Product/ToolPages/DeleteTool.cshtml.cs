@@ -15,13 +15,13 @@ namespace NygarnDemo.Pages.Product.ToolPages
         }
 
         [BindProperty]
-        public Models.Tool Tools { get; set; }
+        public Models.Tool Tool { get; set; }
 
 
         public IActionResult OnGet(int id)
         {
-            Tools = _toolService.GetTool(id);
-            if (Tools == null)
+            Tool = _toolService.GetTool(id);
+            if (Tool == null)
                 return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
 
             return Page();
@@ -29,7 +29,7 @@ namespace NygarnDemo.Pages.Product.ToolPages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            Models.Tool deletedTool = await _toolService.DeleteToolAsync(Tools.Id);
+            Models.Tool deletedTool = await _toolService.DeleteToolAsync(Tool.Id);
             if (deletedTool == null)
                 return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
 
