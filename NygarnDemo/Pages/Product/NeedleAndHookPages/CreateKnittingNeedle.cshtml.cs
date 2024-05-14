@@ -31,7 +31,7 @@ namespace NygarnDemo.Pages.Product.NeedleAndHookPages
 				return Page();
 			}
 			await _knittingNeedleService.AddKnittingNeedleAsync(knittingNeedle);
-			return RedirectToPage("GetAllNeedlesAndHooks");
+			return RedirectToPage("GetKnittingNeedles");
 		}
 	}
 }

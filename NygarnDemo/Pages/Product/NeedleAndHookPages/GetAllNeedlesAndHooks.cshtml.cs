@@ -82,6 +82,5 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
 
             return Page();
         }
-
     }
 }

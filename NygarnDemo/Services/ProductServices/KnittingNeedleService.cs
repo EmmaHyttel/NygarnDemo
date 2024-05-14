@@ -12,10 +12,10 @@ namespace NygarnDemo.Services.ProductServices
         public List<KnittingNeedle> KnittingNeedle { get; set; }
         public KnittingNeedleService(DbService dbService)
         {
-            KnittingNeedle = MockKnittingNeedle.GetAllKnittingNeedles();
-            //_dbService = dbService;
-            //KnittingNeedle = _dbService.GetKnittingNeedles().Result.ToList();
-            //_dbService.SaveKnittingNeedles(KnittingNeedle);
+            //KnittingNeedle = MockKnittingNeedle.GetAllKnittingNeedles();
+            _dbService = dbService;
+            KnittingNeedle = _dbService.GetKnittingNeedles().Result.ToList();
+            _dbService.SaveKnittingNeedles(KnittingNeedle);
         }
 
 
