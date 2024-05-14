@@ -1,4 +1,6 @@
-﻿using NygarnDemo.Enums;
+﻿using Microsoft.EntityFrameworkCore;
+using NygarnDemo.EFDbContext;
+using NygarnDemo.Enums;
 using NygarnDemo.MockData;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;

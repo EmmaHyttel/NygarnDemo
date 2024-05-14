@@ -7,8 +7,17 @@ namespace NygarnDemo.Services.ProductServices
 {
     public class KnittingNeedleService : IKnittingNeedleService
     {
+        private DbService _dbService;
 
         public List<KnittingNeedle> KnittingNeedle { get; set; }
+        public KnittingNeedleService(DbService dbService)
+        {
+            KnittingNeedle = MockKnittingNeedle.GetAllKnittingNeedles();
+            //_dbService = dbService;
+            //KnittingNeedle = _dbService.GetKnittingNeedles().Result.ToList();
+            //_dbService.SaveKnittingNeedles(KnittingNeedle);
+        }
+
 
         public KnittingNeedleService()
         {
@@ -83,6 +92,10 @@ namespace NygarnDemo.Services.ProductServices
 
             return NeedlesMateriale;
 
+        }
+        public async Task AddKnittingNeedleAsync(KnittingNeedle knittingNeedle)
+        {
+            await _dbService.AddKnittingNeedle(knittingNeedle);
         }
     }
 }

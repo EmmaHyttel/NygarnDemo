@@ -12,8 +12,6 @@ namespace NygarnDemo.Pages.LogInPage
 {
     public class LogInPageModel : PageModel
     {
-        //public static User LoggedInUser { get; set; } = null;
-
         private IUserService _userService;
 
         [BindProperty]
@@ -45,8 +43,6 @@ namespace NygarnDemo.Pages.LogInPage
 
                     //if (passwordHasher.VerifyHashedPassword(null, user.Password, Password) == PasswordVerificationResult.Success)
                     //{
-                        //LoggedInUser = user;
-
                         var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
 
                         if (UserName == "admin") claims.Add(new Claim(ClaimTypes.Role, "admin"));

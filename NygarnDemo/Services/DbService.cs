@@ -6,6 +6,7 @@ namespace NygarnDemo.Services
 {
     public class DbService
     {
+        #region Yarn
         public async Task<List<Yarn>> GetYarnProducts()
         {
             using (var context = new YarnDbContext())
@@ -111,6 +112,36 @@ namespace NygarnDemo.Services
                 foreach (Models.User user in users)
                 {
                     context.Users.Add(user);
+                    context.SaveChanges();
+                }
+
+                context.SaveChanges();
+            }
+        }
+
+        public async Task<List<KnittingNeedle>> GetKnittingNeedles()
+        {
+            using (var context = new NeedleDbContext())
+            {
+                return await context.KnittingNeedles.ToListAsync();
+            }
+        }
+        public async Task AddKnittingNeedle(KnittingNeedle knittingNeedle)
+        {
+            using (var context = new NeedleDbContext())
+            {
+                context.KnittingNeedles.Add(knittingNeedle);
+                context.SaveChanges();
+            }
+        }
+        
+        public async Task SaveKnittingNeedles(List<KnittingNeedle> knittingNeedles)
+        {
+            using (var context = new NeedleDbContext())
+            {
+                foreach (KnittingNeedle knitting in knittingNeedles)
+                {
+                    context.KnittingNeedles.Add(knitting);
                     context.SaveChanges();
                 }
 

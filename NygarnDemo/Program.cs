@@ -24,7 +24,7 @@ builder.Services.AddDbContext<ToolDbContext>();
 builder.Services.AddDbContext<UserDbContext>();
 builder.Services.AddSingleton<DbService, DbService>();
 builder.Services.AddSingleton<IUserService, UserService>();
-
+builder.Services.AddSingleton<UserService, UserService>();
 builder.Services.Configure<CookiePolicyOptions>(options => {
     // This lambda determines whether user consent for non-essential cookies is needed for a given request. options.CheckConsentNeeded = context => true; 
     options.MinimumSameSitePolicy = SameSiteMode.None;
@@ -32,7 +32,7 @@ builder.Services.Configure<CookiePolicyOptions>(options => {
 });
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions => {
-    cookieOptions.LoginPath = "/Login/LogInPage";
+    cookieOptions.LoginPath = "/LogIn/LogInPage";
 
 });
 
