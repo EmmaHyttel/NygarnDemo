@@ -17,7 +17,7 @@ namespace NygarnDemo.Pages.Product.ToolPages
         }
 
         [BindProperty]
-        public Tool Tool { get; set; }
+        public Tool? Tool { get; set; }
 
 
         public IActionResult OnGet(int id)
@@ -29,15 +29,18 @@ namespace NygarnDemo.Pages.Product.ToolPages
             return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            if(Tool != null)
+            {
+                await _toolService.UpdateToolAsync(Tool);
+            }
 
-            _toolService.UpdateTool(Tool);
-            return RedirectToPage("GetAllTools");
+            return RedirectToPage("Product/ToolPages/GetAllTools");
         }
 
     }

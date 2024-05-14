@@ -7,7 +7,7 @@ namespace NygarnDemo.Services.Interfaces
     public interface IToolService
     {
         List<Tool> GetToolsProducts();
-        Task<Tool> DeleteToolAsync(int id);
+        Task<Tool> DeleteToolAsync(int? id);
         IEnumerable<Tool> PriceFilter(int maxPrice, int minPrice = 0);
 
         IEnumerable<Tool> SizeFilter(string str);
@@ -21,7 +21,7 @@ namespace NygarnDemo.Services.Interfaces
         Task AddToolAsync(Tool tool);
         Tool GetTool(int id);
 
-        void UpdateTool(Tool tool);
+        Task UpdateToolAsync(Tool tool);
 
     }
 }
