@@ -22,6 +22,7 @@ builder.Services.AddSingleton<IToolService, ToolService>();
 builder.Services.AddDbContext<YarnDbContext>();
 builder.Services.AddDbContext<ToolDbContext>();
 builder.Services.AddDbContext<UserDbContext>();
+builder.Services.AddDbContext<NeedleDbContext>();
 builder.Services.AddSingleton<DbService, DbService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.AddSingleton<UserService, UserService>();
