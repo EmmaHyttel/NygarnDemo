@@ -11,8 +11,8 @@ using NygarnDemo.EFDbContext;
 namespace NygarnDemo.Migrations.UserDb
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20240513194738_NygarnDemo")]
-    partial class NygarnDemo
+    [Migration("20240514084654_NewUserDb")]
+    partial class NewUserDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

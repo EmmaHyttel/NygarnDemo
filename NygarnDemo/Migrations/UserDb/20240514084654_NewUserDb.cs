@@ -7,7 +7,7 @@
 namespace NygarnDemo.Migrations.UserDb
 {
     /// <inheritdoc />
-    public partial class NygarnDemo : Migration
+    public partial class NewUserDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
