@@ -8,8 +8,12 @@ namespace NygarnDemo.Services.Interfaces
 {
     public interface IKnittingNeedleService
     {
+
         List<KnittingNeedle> GetKnittingNeedles();
-      
+
+        Task AddKnittingNeedleAsync(KnittingNeedle knittingNeedle);
+
+
         IEnumerable<KnittingNeedle> PriceFilter(int maxPrice, int minPrice = 0);
       
         IEnumerable<KnittingNeedle> NameSearch(string str);
