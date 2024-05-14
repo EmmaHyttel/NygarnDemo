@@ -37,8 +37,9 @@ namespace NygarnDemo.Services
                 context.SaveChanges();
             }
         }
-        #region Tool
-        public async Task<List<Tool>> GetTools()
+		#endregion
+		#region Tool
+		public async Task<List<Tool>> GetTools()
         {
             using (var context = new ToolDbContext())
             {
@@ -118,8 +119,9 @@ namespace NygarnDemo.Services
                 context.SaveChanges();
             }
         }
-
-        public async Task<List<KnittingNeedle>> GetKnittingNeedles()
+		#endregion
+		#region KnittingNeedle
+		public async Task<List<KnittingNeedle>> GetKnittingNeedles()
         {
             using (var context = new NeedleDbContext())
             {
