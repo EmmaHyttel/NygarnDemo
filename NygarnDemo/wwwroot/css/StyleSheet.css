@@ -22,16 +22,19 @@
     gap: 20px;  Afstand mellem kortene 
 }
 
-.footer {
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rosybrown;
-    padding: 1rem 0;
-    flex-shrink: 0;
-}
 
+
+.footer {
+    position: relative;
+    width: 100%;
+    max-width: 2500px; /* Juster denne værdi efter behov */
+    margin: 0 auto; /* Centrer footer-elementet */
+    background-color: #F5EBE0;
+    color: #000;
+    text-align: center;
+    padding: 20px 0; /* Tilføj lidt luft omkring indholdet */
+    box-sizing: border-box; /* Sørg for at padding er inkluderet i den samlede bredde */
+    z-index: 999;
 }
 
 
