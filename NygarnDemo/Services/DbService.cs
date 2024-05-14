@@ -6,6 +6,7 @@ namespace NygarnDemo.Services
 {
     public class DbService
     {
+        #region Yarn
         public async Task<List<Yarn>> GetYarnProducts()
         {
             using (var context = new YarnDbContext())
@@ -36,7 +37,7 @@ namespace NygarnDemo.Services
                 context.SaveChanges();
             }
         }
-
+        #endregion
         public async Task<List<Tool>> GetTools()
         {
             using (var context = new ToolDbContext())
