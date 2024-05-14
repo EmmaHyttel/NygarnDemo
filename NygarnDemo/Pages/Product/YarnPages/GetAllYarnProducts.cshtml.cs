@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using NygarnDemo.EFDbContext;
 using NygarnDemo.Enums;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
@@ -8,15 +10,16 @@ namespace NygarnDemo.Pages.Product.YarnPages
 {
     public class GetAllYarnProductsModel : PageModel
     {
-
+        private readonly YarnDbContext _yarnContext;
         private IYarnService _yarnService;
 
-        public GetAllYarnProductsModel(IYarnService yarnService)
+        public GetAllYarnProductsModel(IYarnService yarnService, YarnDbContext yarnContext)
         {
             _yarnService = yarnService;
+            _yarnContext = yarnContext;
         }
 
-        public List<Yarn>? YarnProducts { get; private set; }
+        public IList<Yarn>? YarnProducts { get; private set; }
 
         [BindProperty]
         public string SearchString { get; set; }
@@ -66,9 +69,10 @@ namespace NygarnDemo.Pages.Product.YarnPages
         [BindProperty]
         public bool MachinewashFilter { get; set; }
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
-            YarnProducts = _yarnService.GetYarnProducts();
+            //YarnProducts = _yarnService.GetYarnProducts();
+            YarnProducts = await _yarnContext.YarnProducts.ToListAsync();
         }
 
         public IActionResult OnPostNameSearch()

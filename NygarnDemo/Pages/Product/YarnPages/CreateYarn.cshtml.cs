@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using NygarnDemo.EFDbContext;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Services.ProductServices;
@@ -10,7 +11,6 @@ namespace NygarnDemo.Pages.Product.YarnPages
 	{
 		private IYarnService _yarnService;
 		private IWebHostEnvironment _webHostEnvironment;
-        
 
         [BindProperty]
 		public Yarn Yarn { get; set; }
@@ -19,9 +19,9 @@ namespace NygarnDemo.Pages.Product.YarnPages
 		{
 			_yarnService = yarnService;
 			_webHostEnvironment = webHost;
-		}
+        }
 
-		public IActionResult OnGet()
+        public IActionResult OnGet()
 		{
 			return Page();
 		}

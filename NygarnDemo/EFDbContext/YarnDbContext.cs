@@ -107,8 +107,7 @@ public class YarnDbContext : DbContext
 				);
 	}
 
-
-	public DbSet<Yarn> YarnProducts { get; set; }
-	//public DbSet<User> Users { get; set; }
-
+   
+    public DbSet<Yarn> YarnProducts { get; set; }
+ 
 }
