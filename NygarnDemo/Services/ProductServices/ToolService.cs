@@ -137,7 +137,7 @@ namespace NygarnDemo.Services.ProductServices
                     }
                 }
 
-                await _dbService.SaveTools(ToolProducts);
+                _dbService.SaveTools(ToolProducts);
             }
         }
 
