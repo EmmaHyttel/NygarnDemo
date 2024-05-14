@@ -5,6 +5,16 @@
 
 <form method="post" enctype="multipart/form-data">
 	<div class="form-group">
+		<label asp-for="Tool.Type" class="control-lable"></label>
+		<input asp-for="Tool.Type" class="form-control" />
+		<span asp-validation-for="Tool.Type" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Tool.Size" class="control-lable"></label>
+		<input asp-for="Tool.Size" class="form-control" />
+		<span asp-validation-for="Tool.Size" class="text-danger"></span>
+	</div>
+	<div class="form-group">
 		<label asp-for="Tool.Id" class="control-lable"></label>
 		<input asp-for="Tool.Id" class="form-control" readonly="@(true)" />
 	</div>
@@ -22,6 +32,16 @@
 		<label asp-for="Tool.Price" class="control-lable"></label>
 		<input asp-for="Tool.Price" class="form-control" />
 		<span asp-validation-for="Tool.Price" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Tool.Brand" class="control-lable"></label>
+		<input asp-for="Tool.Brand" class="form-control" />
+		<span asp-validation-for="Tool.Brand" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Tool.Amount" class="control-lable"></label>
+		<input asp-for="Tool.Amount" class="form-control" />
+		<span asp-validation-for="Tool.Amount" class="text-danger"></span>
 	</div>
 
 	<p>

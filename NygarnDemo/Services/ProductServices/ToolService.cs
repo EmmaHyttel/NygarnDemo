@@ -134,11 +134,13 @@ namespace NygarnDemo.Services.ProductServices
                         t.Name = tool.Name;
                         t.Price = tool.Price;
                         t.Description = tool.Description;
-                    }
-                }
 
-                _dbService.SaveTools(ToolProducts);
-            }
+                    }
+
+                }
+				await _dbService.UpdateTool(tool);
+				//await _dbService.SaveTools(ToolProducts);
+			}
         }
 
     }

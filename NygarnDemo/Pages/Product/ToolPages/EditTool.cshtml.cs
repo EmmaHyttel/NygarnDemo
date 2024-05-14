@@ -13,7 +13,7 @@ namespace NygarnDemo.Pages.Product.ToolPages
         public EditToolModel(IToolService toolService, IWebHostEnvironment webHost)
         {
             _toolService = toolService;
-            _webHostEnvironment = webHost;
+            this._webHostEnvironment = webHost;
         }
 
         [BindProperty]
@@ -38,9 +38,9 @@ namespace NygarnDemo.Pages.Product.ToolPages
             if(Tool != null)
             {
                 await _toolService.UpdateToolAsync(Tool);
-            }
+            }   
 
-            return RedirectToPage("Product/ToolPages/GetAllTools");
+            return RedirectToPage("/GetAllTools");
         }
 
     }
