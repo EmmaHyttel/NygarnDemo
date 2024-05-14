@@ -136,7 +136,7 @@ namespace NygarnDemo.Services.ProductServices
                         t.Description = tool.Description;
                     }
                 }
-                await _dbService.UpdateToolAsync(tool);
+                //await _dbService.UpdateToolAsync(tool);
             }
         }
     }
