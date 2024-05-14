@@ -28,8 +28,10 @@
     left: 0;
     width: 100%;
     background-color: rosybrown;
-    padding: 3px;
-  
+    padding: 1rem 0;
+    flex-shrink: 0;
+}
+
 }
 
 
