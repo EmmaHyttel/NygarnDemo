@@ -1,0 +1,26 @@
+﻿@page "{id:int}"
+@model NygarnDemo.Pages.Product.ToolPages.DetailToolModel
+@{
+    ViewData["Title"] = "Tool Details";
+}
+
+<div class="row mt-4">
+    <div class="col-lg-3 mb-4"></div>
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+          @*   <img src="~/images/@Model.Tool.ToolImage" /> *@
+            <div class="card-body">
+                <h3 class="card-title mb-2">Navn: @Model.Tool.Name</h3>
+                <div class="card-text mb-4">Id: @Model.Tool.Id</div>
+                <div class="card-text mb-4">Beskrivelse: @Model.Tool.Description</div>
+                <div class="card-text mb-4">Størrelse: @Model.Tool.Size</div>
+                <div class="card-text mb-4">Type: @Model.Tool.Type</div>
+                <div class="card-text mb-4">Mængde: @Model.Tool.Amount</div>
+                <div class="card-text mb-4">Brand: @Model.Tool.Brand</div>
+                <h6 class="card-footer text-muted">Pris: @Model.Tool.Price</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 mb-4"></div>
+</div>
+

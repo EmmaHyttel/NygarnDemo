@@ -83,6 +83,12 @@
                             <i class="fa fa-trash"></i>
                         </button>
                     </form>
+                    <form asp-page="DetailTool" asp-route-id="@tool.Id" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger" title="Se detaljer">
+                            Se detaljer
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </form>
                     <form asp-page="DeleteTool" asp-route-id="@tool.Id" method="post" class="d-inline">
                         <button type="submit" class="btn btn-danger btn-sm" title="Slet" onclick="return confirm('Er du sikker på, at du vil slette dette værktøj?')">Slet
                             <i class="fa fa-trash"></i>
@@ -93,7 +99,6 @@
           }
        }
 </div>
-
 
 <div>
     <p>
