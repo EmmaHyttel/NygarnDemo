@@ -40,7 +40,7 @@ namespace NygarnDemo.Pages.Product.ToolPages
                 await _toolService.UpdateToolAsync(Tool);
             }   
 
-            return RedirectToPage("/GetAllTools");
+            return RedirectToPage("/Product/ToolPages/GetAllTools");
         }
 
     }
