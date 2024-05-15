@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.Services.Interfaces;
 
 namespace NygarnDemo.Pages.Product.ToolPages
 {
+    //[Authorize(Roles = "admin")]
     public class DeleteToolModel : PageModel
     {
 
