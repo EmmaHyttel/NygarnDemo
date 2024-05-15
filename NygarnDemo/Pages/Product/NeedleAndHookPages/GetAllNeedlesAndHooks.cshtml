@@ -72,8 +72,8 @@
         <div class="col-4">
             <form method="post" class="form-inline">
                 <div class="input-group mb-5">
-                    <input asp-for="SearchString" class="form-control mr-2" placeholder="Søgeord" />
-                    <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary btn-sm rosybrown-b" />
+                    <input asp-for="SearchString" class="form-control mr-2 rosybrown-input" placeholder="Søgeord" />
+                    <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary btn-sm rosybrown-bg" />
                 </div>
             </form>
         </div>
@@ -145,7 +145,7 @@
                                 <p class="card-text">Mærke: @crochetHook.Brand</p>
                                 <p class="card-text">Materiale: @crochetHook.Material</p>
                                 <p class="card-text">Størrelse: @crochetHook.Size</p>
-                                <a href="#" class="btn btn-primary">Tryk for at se mere</a>
+                                <a href="#" class="btn btn-primary btn-sm rosybrown-bg">Tryk for at se mere</a>
                             </div>
                         </div>
                   </div>
