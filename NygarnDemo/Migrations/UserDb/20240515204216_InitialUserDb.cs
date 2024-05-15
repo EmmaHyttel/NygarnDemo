@@ -7,7 +7,7 @@
 namespace NygarnDemo.Migrations.UserDb
 {
     /// <inheritdoc />
-    public partial class NewUserDb : Migration
+    public partial class InitialUserDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,7 +21,7 @@ namespace NygarnDemo.Migrations.UserDb
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
@@ -66,9 +66,9 @@ namespace NygarnDemo.Migrations.UserDb
                 columns: new[] { "UserName", "Address", "Email", "Id", "LastName", "Name", "Password", "Phone" },
                 values: new object[,]
                 {
-                    { "EmmaStrikker123", "Vejgade 1", "emmastrikker@garn.dk", 1, "Hyttel", "Emma", "maiv", "12345678" },
-                    { "MaiStrikker123", "Vejgade 2", "maistrikker@garn.dk", 2, "Dinh", "Mai", "maiv", "23456789" },
-                    { "NannaHækler123", "Vejgade 3", "nannahækler@garn.dk", 3, "Rister", "Nanna", "maiv", "34567891" }
+                    { "EmmaStrikker123", "Vejgade 1", "emmastrikker@garn.dk", 1, "Hyttel", "Emma", "AQAAAAIAAYagAAAAEB336RGbW9cf9kFZXBf7nP5YQ9eZZ1Id6yPYlqhINRCvuadFMGIMXVDnDGOQS8C++Q==", "12345678" },
+                    { "MaiStrikker123", "Vejgade 2", "maistrikker@garn.dk", 2, "Dinh", "Mai", "AQAAAAIAAYagAAAAEFDucTrhXMwIaliTyFddYdvxaa03VpP95rwes1v4jghq4rU5KLBzjMQUGhDpFWn3cg==", "23456789" },
+                    { "NannaHækler123", "Vejgade 3", "nannahækler@garn.dk", 3, "Rister", "Nanna", "AQAAAAIAAYagAAAAEDiLPtrNZaXlLfolnYVoemNRKi7nbg0ufttEnlo7GuA6JL253OjoG2bUGr1aqczYIw==", "34567891" }
                 });
 
             migrationBuilder.CreateIndex(

@@ -1,8 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Net;
-using System.Numerics;
-using System.Xml.Linq;
 
 namespace NygarnDemo.Models
 {
@@ -28,8 +25,8 @@ namespace NygarnDemo.Models
         public string LastName { get; set; }
 
         [Display(Name = "Skriv ønskede kodeord")]
-        [Required(ErrorMessage = "Skriv kodeord max 50 tegn")]
-        [StringLength(50)]
+        [Required(ErrorMessage = "Skriv kodeord minimum 8 tegn")]
+        [MinLength(8)]
         public string Password { get; set; }
 
         [Display(Name = "Adresse")]

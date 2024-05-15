@@ -29,7 +29,7 @@ namespace NygarnDemo.Pages.Users
         [BindProperty]
         public string Email { get; set; }
 
-        //private PasswordHasher<string> passwordHasher;
+        private PasswordHasher<string> passwordHasher;
 
         //public CreateUserModel()
         //{
@@ -38,7 +38,7 @@ namespace NygarnDemo.Pages.Users
         public CreateUserModel(IUserService userService)
         {
            _userService = userService;
-            //passwordHasher = new PasswordHasher<string>();
+            passwordHasher = new PasswordHasher<string>();
         }
 
 
@@ -47,13 +47,13 @@ namespace NygarnDemo.Pages.Users
             return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            _userService.AddUserAsync(new Models.User(UserName, Name, LastName, /*passwordHasher.HashPassword(null,*/Password, Address, Phone, Email));
+            await _userService.AddUserAsync(new Models.User(UserName, Name, LastName, passwordHasher.HashPassword(UserName, Password), Address, Phone, Email));
             return RedirectToPage("/LogIn/LogInPage");
         }
 

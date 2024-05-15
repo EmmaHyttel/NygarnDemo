@@ -11,8 +11,8 @@ using NygarnDemo.EFDbContext;
 namespace NygarnDemo.Migrations.UserDb
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20240514084654_NewUserDb")]
-    partial class NewUserDb
+    [Migration("20240515204216_InitialUserDb")]
+    partial class InitialUserDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,8 +58,7 @@ namespace NygarnDemo.Migrations.UserDb
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -79,7 +78,7 @@ namespace NygarnDemo.Migrations.UserDb
                             Id = 1,
                             LastName = "Hyttel",
                             Name = "Emma",
-                            Password = "maiv",
+                            Password = "AQAAAAIAAYagAAAAEB336RGbW9cf9kFZXBf7nP5YQ9eZZ1Id6yPYlqhINRCvuadFMGIMXVDnDGOQS8C++Q==",
                             Phone = "12345678"
                         },
                         new
@@ -90,7 +89,7 @@ namespace NygarnDemo.Migrations.UserDb
                             Id = 2,
                             LastName = "Dinh",
                             Name = "Mai",
-                            Password = "maiv",
+                            Password = "AQAAAAIAAYagAAAAEFDucTrhXMwIaliTyFddYdvxaa03VpP95rwes1v4jghq4rU5KLBzjMQUGhDpFWn3cg==",
                             Phone = "23456789"
                         },
                         new
@@ -101,7 +100,7 @@ namespace NygarnDemo.Migrations.UserDb
                             Id = 3,
                             LastName = "Rister",
                             Name = "Nanna",
-                            Password = "maiv",
+                            Password = "AQAAAAIAAYagAAAAEDiLPtrNZaXlLfolnYVoemNRKi7nbg0ufttEnlo7GuA6JL253OjoG2bUGr1aqczYIw==",
                             Phone = "34567891"
                         });
                 });

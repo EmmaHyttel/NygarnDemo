@@ -39,10 +39,10 @@ namespace NygarnDemo.Pages.LogInPage
             {
                 if (UserName == user.UserName)
                 {
-                    //var passwordHasher = new PasswordHasher<string>();
+                    var passwordHasher = new PasswordHasher<string>();
 
-                    //if (passwordHasher.VerifyHashedPassword(null, user.Password, Password) == PasswordVerificationResult.Success)
-                    //{
+                    if (passwordHasher.VerifyHashedPassword(user.UserName, user.Password, Password) == PasswordVerificationResult.Success)
+                    {
                         var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
 
                         if (UserName == "admin") claims.Add(new Claim(ClaimTypes.Role, "admin"));
@@ -50,7 +50,7 @@ namespace NygarnDemo.Pages.LogInPage
                         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
                         return RedirectToPage("/Index");
-                    //}
+                    }
                 }
             }
             Message = "Brugernavn eller adgangskode er ikke korrekt";
