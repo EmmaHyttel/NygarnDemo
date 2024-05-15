@@ -1,6 +1,7 @@
 ﻿using NygarnDemo.Enums;
 using NygarnDemo.MockData;
 using NygarnDemo.Models;
+using NygarnDemo.Services;
 using NygarnDemo.Services.Interfaces;
 
 
@@ -8,9 +9,19 @@ namespace NygarnDemo.Services.ProductServices
 {
     public class CrochetHookService : ICrochetHookService
     {
-        public List<CrochetHook> CrochetHooks { get; set; }
+		private DbService _dbService;
 
-        public CrochetHookService()
+		public List<Models.CrochetHook> CrochetHooks { get; set; }
+
+		public CrochetHookService(DbService dbService)
+		{
+            //CrochetHooks = MockCrochetHook.GetAllCrochetHooks();
+            _dbService = dbService;
+            CrochetHooks = _dbService.GetCrochetHooks().Result.ToList();
+            _dbService.SaveCrochetHooks(CrochetHooks);
+        }
+
+		public CrochetHookService()
         {
             CrochetHooks = MockCrochetHook.GetAllCrochetHooks();
         }
@@ -70,8 +81,10 @@ namespace NygarnDemo.Services.ProductServices
                 }
             }
             return HooksMaterialFilter;
-
-
         }
-    }
+		public async Task AddCrochetHookAsync(CrochetHook crochetHook)
+		{
+			await _dbService.AddCrochetHook(crochetHook);
+		}
+	}
 }
