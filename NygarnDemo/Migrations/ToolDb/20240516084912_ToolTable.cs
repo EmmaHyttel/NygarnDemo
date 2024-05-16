@@ -4,23 +4,22 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace NygarnDemo.Migrations.HookDb
+namespace NygarnDemo.Migrations.ToolDb
 {
     /// <inheritdoc />
-    public partial class AddHookDbContext : Migration
+    public partial class ToolTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Hook",
+                name: "Tools",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Material = table.Column<int>(type: "int", nullable: false),
-                    Size = table.Column<int>(type: "int", nullable: false),
-                    Set = table.Column<bool>(type: "bit", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Size = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
@@ -29,17 +28,17 @@ namespace NygarnDemo.Migrations.HookDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Hook", x => x.Id);
+                    table.PrimaryKey("PK_Tools", x => x.ProductId);
                 });
 
             migrationBuilder.InsertData(
-                table: "Hook",
-                columns: new[] { "Id", "Amount", "Brand", "Description", "Material", "Name", "Price", "Set", "Size" },
+                table: "Tools",
+                columns: new[] { "ProductId", "Amount", "Brand", "Description", "Name", "Price", "Size", "Type" },
                 values: new object[,]
                 {
-                    { 1, 1, "PetitKnit", "Gode til alt", 0, "Knyt", 49m, true, 7 },
-                    { 2, 2, "PetitKnit", "Gode til alt", 0, "KnitPro", 149m, false, 3 },
-                    { 3, 1, "PetitKnit", "Den bedste hækle nål", 0, "KnitPro", 599m, false, 9 }
+                    { 1, 12, "PetitKnit", "Rigtig fine små knapper, der passer perfekt til lukningen på en bodystocking", "Babyknap", 30m, "5 mm", "Knapper" },
+                    { 2, 1, "PetitKnit", "Fuldstændig præcis målebånd", "Målebånd", 25m, "100 cm", "Målebånd" },
+                    { 3, 1, "Sandnes", "Super blødt bamsefyld til dit næste hækleprojekt", "Bamsefyld", 40m, "100 gram", "Fyld" }
                 });
         }
 
@@ -47,7 +46,7 @@ namespace NygarnDemo.Migrations.HookDb
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Hook");
+                name: "Tools");
         }
     }
 }

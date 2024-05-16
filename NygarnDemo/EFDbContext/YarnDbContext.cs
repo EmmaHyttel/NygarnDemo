@@ -26,7 +26,7 @@ public class YarnDbContext : DbContext
 			.HasData(
 				new Yarn()
 				{
-					Id = 1,
+					ProductId = 1,
 					Price = 99,
 					Name = "Luksus garn",
 					Description = "Meget luksus garn, ikke egnet til påklædning.",
@@ -42,7 +42,7 @@ public class YarnDbContext : DbContext
 				},
 				new Yarn()
 				{
-					Id = 2,
+					ProductId = 2,
 					Price = 49,
 					Name = "Saga",
 					Description = "Meget luksus garn, ikke egnet til påklædning.",
@@ -58,7 +58,7 @@ public class YarnDbContext : DbContext
 				},
 				new Yarn()
 				 {
-					 Id = 3,
+					 ProductId = 3,
 					 Color = Color.Beige,
 					 KnittingTension = "knittingTension21mX10cm",
 					 Yardage = "Yardage215mPr50g",
@@ -74,7 +74,7 @@ public class YarnDbContext : DbContext
 				},
 				new Yarn()
 				{
-					Id = 4,
+					ProductId = 4,
 					Color = Color.Beige,
 					KnittingTension = "knittingTension25mX10cm",
 					Yardage = "Yardage300mPr50g",
@@ -90,7 +90,7 @@ public class YarnDbContext : DbContext
 				},
 				new Yarn()
 				{
-					Id = 5,
+					ProductId = 5,
 					Color = Color.Rød,
 					KnittingTension = "knittingTension30mX10cm",
 					Yardage = "Yardage400mPr50g",

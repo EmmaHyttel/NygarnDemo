@@ -8,11 +8,11 @@ using NygarnDemo.EFDbContext;
 
 #nullable disable
 
-namespace NygarnDemo.Migrations.HookDb
+namespace NygarnDemo.Migrations.NeedleDb
 {
-    [DbContext(typeof(HookDbContext))]
-    [Migration("20240514204833_AddHookDbContext")]
-    partial class AddHookDbContext
+    [DbContext(typeof(NeedleDbContext))]
+    [Migration("20240516090924_NeedleTable")]
+    partial class NeedleTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,13 +24,13 @@ namespace NygarnDemo.Migrations.HookDb
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("NygarnDemo.Models.CrochetHook", b =>
+            modelBuilder.Entity("NygarnDemo.Models.KnittingNeedle", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
@@ -61,46 +61,52 @@ namespace NygarnDemo.Migrations.HookDb
                     b.Property<int>("Size")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
 
-                    b.ToTable("Hook", (string)null);
+                    b.HasKey("ProductId");
+
+                    b.ToTable("KnittingNeedles", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Amount = 1,
-                            Brand = "PetitKnit",
-                            Description = "Gode til alt",
-                            Material = 0,
-                            Name = "Knyt",
-                            Price = 49m,
-                            Set = true,
-                            Size = 7
-                        },
-                        new
-                        {
-                            Id = 2,
+                            ProductId = 1,
                             Amount = 2,
                             Brand = "PetitKnit",
                             Description = "Gode til alt",
                             Material = 0,
                             Name = "KnitPro",
                             Price = 149m,
-                            Set = false,
-                            Size = 3
+                            Set = true,
+                            Size = 3,
+                            Type = 1
                         },
                         new
                         {
-                            Id = 3,
-                            Amount = 1,
+                            ProductId = 2,
+                            Amount = 2,
                             Brand = "PetitKnit",
-                            Description = "Den bedste hækle nål",
+                            Description = "Dejlig store",
+                            Material = 2,
+                            Name = "Hot",
+                            Price = 499m,
+                            Set = true,
+                            Size = 5,
+                            Type = 3
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            Amount = 2,
+                            Brand = "PetitKnit",
+                            Description = "Gode til alt",
                             Material = 0,
                             Name = "KnitPro",
-                            Price = 599m,
-                            Set = false,
-                            Size = 9
+                            Price = 140m,
+                            Set = true,
+                            Size = 3,
+                            Type = 1
                         });
                 });
 #pragma warning restore 612, 618

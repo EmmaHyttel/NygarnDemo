@@ -27,7 +27,7 @@ namespace NygarnDemo.EFDbContext
                 .HasData(
                     new KnittingNeedle()
                     {
-                        Id = 1,
+                        ProductId = 1,
                         Price = 149,
                         Name = "KnitPro",
                         Description = "Gode til alt",
@@ -40,7 +40,7 @@ namespace NygarnDemo.EFDbContext
                     },
                     new KnittingNeedle()
                     {
-                        Id = 2,
+                        ProductId = 2,
                         Price = 499,
                         Name = "Hot",
                         Description = "Dejlig store",
@@ -53,7 +53,7 @@ namespace NygarnDemo.EFDbContext
                     },
                     new KnittingNeedle()
                     {
-                        Id = 3,
+                        ProductId = 3,
                         Price = 140,
                         Name = "KnitPro",
                         Description = "Gode til alt",

@@ -11,8 +11,8 @@ using NygarnDemo.EFDbContext;
 namespace NygarnDemo.Migrations
 {
     [DbContext(typeof(YarnDbContext))]
-    [Migration("20240513084723_AddNewTables")]
-    partial class AddNewTables
+    [Migration("20240516085727_YarnTable")]
+    partial class YarnTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,11 +26,11 @@ namespace NygarnDemo.Migrations
 
             modelBuilder.Entity("NygarnDemo.Models.Yarn", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
@@ -75,14 +75,14 @@ namespace NygarnDemo.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProductId");
 
                     b.ToTable("YarnProducts", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            ProductId = 1,
                             Amount = 10,
                             Brand = "Sandnes",
                             Color = 0,
@@ -98,7 +98,7 @@ namespace NygarnDemo.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            ProductId = 2,
                             Amount = 10,
                             Brand = "Sandne",
                             Color = 0,
@@ -114,7 +114,7 @@ namespace NygarnDemo.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            ProductId = 3,
                             Amount = 1,
                             Brand = "Sandnes",
                             Color = 9,
@@ -130,7 +130,7 @@ namespace NygarnDemo.Migrations
                         },
                         new
                         {
-                            Id = 4,
+                            ProductId = 4,
                             Amount = 1,
                             Brand = "Petitknit",
                             Color = 9,
@@ -146,7 +146,7 @@ namespace NygarnDemo.Migrations
                         },
                         new
                         {
-                            Id = 5,
+                            ProductId = 5,
                             Amount = 1,
                             Brand = "Petitknit",
                             Color = 0,

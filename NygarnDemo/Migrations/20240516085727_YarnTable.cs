@@ -7,7 +7,7 @@
 namespace NygarnDemo.Migrations
 {
     /// <inheritdoc />
-    public partial class AddNewTables : Migration
+    public partial class YarnTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,7 +16,7 @@ namespace NygarnDemo.Migrations
                 name: "YarnProducts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Color = table.Column<int>(type: "int", nullable: false),
                     KnittingTension = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -33,12 +33,12 @@ namespace NygarnDemo.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_YarnProducts", x => x.Id);
+                    table.PrimaryKey("PK_YarnProducts", x => x.ProductId);
                 });
 
             migrationBuilder.InsertData(
                 table: "YarnProducts",
-                columns: new[] { "Id", "Amount", "Brand", "Color", "Description", "KnittingTension", "MachineWash", "Material", "Name", "Price", "Size", "Weight", "Yardage" },
+                columns: new[] { "ProductId", "Amount", "Brand", "Color", "Description", "KnittingTension", "MachineWash", "Material", "Name", "Price", "Size", "Weight", "Yardage" },
                 values: new object[,]
                 {
                     { 1, 10, "Sandnes", 0, "Meget luksus garn, ikke egnet til påklædning.", "KnittingTension10mX10cm", false, 0, "Luksus garn", 99m, 2, 100, "Yardage400mPr50g" },

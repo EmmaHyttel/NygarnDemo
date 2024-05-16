@@ -11,8 +11,8 @@ using NygarnDemo.EFDbContext;
 namespace NygarnDemo.Migrations.ToolDb
 {
     [DbContext(typeof(ToolDbContext))]
-    [Migration("20240513085650_AddToolsTable")]
-    partial class AddToolsTable
+    [Migration("20240516084912_ToolTable")]
+    partial class ToolTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,11 +26,11 @@ namespace NygarnDemo.Migrations.ToolDb
 
             modelBuilder.Entity("NygarnDemo.Models.Tool", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
@@ -60,14 +60,14 @@ namespace NygarnDemo.Migrations.ToolDb
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProductId");
 
                     b.ToTable("Tools", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            ProductId = 1,
                             Amount = 12,
                             Brand = "PetitKnit",
                             Description = "Rigtig fine små knapper, der passer perfekt til lukningen på en bodystocking",
@@ -78,7 +78,7 @@ namespace NygarnDemo.Migrations.ToolDb
                         },
                         new
                         {
-                            Id = 2,
+                            ProductId = 2,
                             Amount = 1,
                             Brand = "PetitKnit",
                             Description = "Fuldstændig præcis målebånd",
@@ -89,7 +89,7 @@ namespace NygarnDemo.Migrations.ToolDb
                         },
                         new
                         {
-                            Id = 3,
+                            ProductId = 3,
                             Amount = 1,
                             Brand = "Sandnes",
                             Description = "Super blødt bamsefyld til dit næste hækleprojekt",

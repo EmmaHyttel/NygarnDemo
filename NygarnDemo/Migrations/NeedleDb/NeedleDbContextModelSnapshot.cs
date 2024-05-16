@@ -23,11 +23,11 @@ namespace NygarnDemo.Migrations.NeedleDb
 
             modelBuilder.Entity("NygarnDemo.Models.KnittingNeedle", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
@@ -61,14 +61,14 @@ namespace NygarnDemo.Migrations.NeedleDb
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProductId");
 
                     b.ToTable("KnittingNeedles", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            ProductId = 1,
                             Amount = 2,
                             Brand = "PetitKnit",
                             Description = "Gode til alt",
@@ -81,7 +81,7 @@ namespace NygarnDemo.Migrations.NeedleDb
                         },
                         new
                         {
-                            Id = 2,
+                            ProductId = 2,
                             Amount = 2,
                             Brand = "PetitKnit",
                             Description = "Dejlig store",
@@ -94,7 +94,7 @@ namespace NygarnDemo.Migrations.NeedleDb
                         },
                         new
                         {
-                            Id = 3,
+                            ProductId = 3,
                             Amount = 2,
                             Brand = "PetitKnit",
                             Description = "Gode til alt",
