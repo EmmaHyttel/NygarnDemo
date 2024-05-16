@@ -2,20 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NygarnDemo.EFDbContext;
 
 #nullable disable
 
-namespace NygarnDemo.Migrations.NeedleDb
+namespace NygarnDemo.Migrations.HookDb
 {
-    [DbContext(typeof(NeedleDbContext))]
-    [Migration("20240516090924_NeedleTable")]
-    partial class NeedleTable
+    [DbContext(typeof(HookDbContext))]
+    partial class HookDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +21,7 @@ namespace NygarnDemo.Migrations.NeedleDb
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("NygarnDemo.Models.KnittingNeedle", b =>
+            modelBuilder.Entity("NygarnDemo.Models.CrochetHook", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -61,52 +58,46 @@ namespace NygarnDemo.Migrations.NeedleDb
                     b.Property<int>("Size")
                         .HasColumnType("int");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
                     b.HasKey("ProductId");
 
-                    b.ToTable("KnittingNeedles", (string)null);
+                    b.ToTable("Hook", (string)null);
 
                     b.HasData(
                         new
                         {
                             ProductId = 1,
-                            Amount = 2,
+                            Amount = 1,
                             Brand = "PetitKnit",
                             Description = "Gode til alt",
                             Material = 0,
-                            Name = "KnitPro",
-                            Price = 149m,
+                            Name = "Knyt",
+                            Price = 49m,
                             Set = true,
-                            Size = 3,
-                            Type = 1
+                            Size = 7
                         },
                         new
                         {
                             ProductId = 2,
                             Amount = 2,
                             Brand = "PetitKnit",
-                            Description = "Dejlig store",
-                            Material = 2,
-                            Name = "Hot",
-                            Price = 499m,
-                            Set = true,
-                            Size = 5,
-                            Type = 3
+                            Description = "Gode til alt",
+                            Material = 0,
+                            Name = "KnitPro",
+                            Price = 149m,
+                            Set = false,
+                            Size = 3
                         },
                         new
                         {
                             ProductId = 3,
-                            Amount = 2,
+                            Amount = 1,
                             Brand = "PetitKnit",
-                            Description = "Gode til alt",
+                            Description = "",
                             Material = 0,
-                            Name = "KnitPro",
-                            Price = 140m,
-                            Set = true,
-                            Size = 3,
-                            Type = 1
+                            Name = "NeedlePickled",
+                            Price = 599m,
+                            Set = false,
+                            Size = 9
                         });
                 });
 #pragma warning restore 612, 618
