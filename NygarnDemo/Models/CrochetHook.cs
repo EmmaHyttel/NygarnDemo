@@ -36,5 +36,7 @@ public class CrochetHook : Product
         Set = false;
     }
 
-    
+    public ICollection<OrderLine> OrderLines { get; set; }
+
+
 }

@@ -35,5 +35,5 @@ public class KnittingNeedle : Product
         Set = false;
     }
 
-    
+    public ICollection<OrderLine> OrderLines { get; set; }
 }

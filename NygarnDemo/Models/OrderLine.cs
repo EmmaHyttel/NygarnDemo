@@ -8,7 +8,7 @@ namespace NygarnDemo.Models
         [Key, Column(Order = 0)]
         public int OrderId { get; set; }
 
-        [Key, Column(Order = 1)]
+        //[Key, Column(Order = 1)]
         public int ProductId { get; set; }
 
         [ForeignKey("OrderId")]
