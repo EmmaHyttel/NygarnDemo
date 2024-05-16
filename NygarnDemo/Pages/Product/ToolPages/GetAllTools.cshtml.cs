@@ -4,12 +4,14 @@ using NygarnDemo.Enums;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Services.ProductServices;
+using System.Security.Claims;
 
 namespace NygarnDemo.Pages.Product.ToolPages
 {
     public class GetAllToolsModel : PageModel
     {
         private IToolService _toolService;
+        public bool IsAdmin { get; private set; }
 
         public GetAllToolsModel(IToolService toolService)
         {
@@ -39,6 +41,7 @@ namespace NygarnDemo.Pages.Product.ToolPages
         public void OnGet()
         {
             Tools = _toolService.GetToolsProducts();
+            IsAdmin = HttpContext.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin");
         }
 
         public IActionResult OnPostPriceFilter()
