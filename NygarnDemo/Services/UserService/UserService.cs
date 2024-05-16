@@ -30,7 +30,7 @@ namespace NygarnDemo.Services.User
 
         public List<Models.User> GetAllUsers()
         {
-            throw new NotImplementedException();
+            return Users;
         }
 
 
