@@ -23,11 +23,11 @@ namespace NygarnDemo.EFDbContext
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<CrochetHook>().ToTable("Hook")
+			modelBuilder.Entity<HookDbContext>().ToTable("Hook")
 				.HasData(
 				new CrochetHook()
 				{
-					Id = 1,
+					ProductId = 1,
 					Price = 49,
 					Name = "Knyt",
 					Description = "Gode til alt",
@@ -40,7 +40,7 @@ namespace NygarnDemo.EFDbContext
 
 				new CrochetHook()
 				{
-					Id = 2,
+					ProductId = 2,
 					Price = 149,
 					Name = "KnitPro",
 					Description = "Gode til alt",
@@ -53,15 +53,16 @@ namespace NygarnDemo.EFDbContext
 
 				new CrochetHook()
 				{
-					Id = 3,
+					ProductId = 3,
 					Price = 599,
-					Name = "KnitPro",
-					Description = "Den bedste hækle nål",
+					Name = "NeedlePickled",
+					Description = "",
 					Brand = "PetitKnit",
 					Amount = 1,
 					Material = NeedleAndHookMaterial.plastik,
 					Size = Size.Size60mm,
 					Set = false
+
 				}
 
 				);

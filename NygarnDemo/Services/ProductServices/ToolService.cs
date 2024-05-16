@@ -96,7 +96,7 @@ namespace NygarnDemo.Services.ProductServices
         {
             foreach (Tool tool in ToolProducts)
             {
-                if (tool.Id == id)
+                if (tool.ProductId == id)
                     return tool;
             }
 
@@ -108,7 +108,7 @@ namespace NygarnDemo.Services.ProductServices
             Tool ToolToBeDeleted = null;
             foreach (Tool tool in ToolProducts)
             {
-                if (tool.Id == id)
+                if (tool.ProductId == id)
                 {
                     ToolToBeDeleted = tool;
                     break;
@@ -129,7 +129,7 @@ namespace NygarnDemo.Services.ProductServices
             {
                 foreach (Tool t in ToolProducts)
                 {
-                    if (t.Id == tool.Id)
+                    if (t.ProductId == tool.ProductId)
                     {
                         t.Name = tool.Name;
                         t.Price = tool.Price;

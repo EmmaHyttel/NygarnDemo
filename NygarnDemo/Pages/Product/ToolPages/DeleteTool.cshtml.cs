@@ -31,7 +31,7 @@ namespace NygarnDemo.Pages.Product.ToolPages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            Models.Tool deletedTool = await _toolService.DeleteToolAsync(Tool.Id);
+            Models.Tool deletedTool = await _toolService.DeleteToolAsync(Tool.ProductId);
             if (deletedTool == null)
                 return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
 

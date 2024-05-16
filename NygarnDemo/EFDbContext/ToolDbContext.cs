@@ -28,7 +28,7 @@ namespace NygarnDemo.EFDbContext
                 .HasData(
                     new Tool()
                     {
-                        Id = 1,
+                        ProductId = 1,
                         Price = 30, 
                         Name = "Babyknap",
                         Description = "Rigtig fine små knapper, der passer perfekt til lukningen på en bodystocking",
@@ -39,7 +39,7 @@ namespace NygarnDemo.EFDbContext
                     },
                     new Tool()
                     {
-                        Id = 2,
+                        ProductId = 2,
                         Price = 25,
                         Name = "Målebånd",
                         Description = "Fuldstændig præcis målebånd",
@@ -50,7 +50,7 @@ namespace NygarnDemo.EFDbContext
                     },
                     new Tool()
                     {
-                        Id = 3,
+                        ProductId = 3,
                         Price = 40,
                         Name = "Bamsefyld",
                         Description = "Super blødt bamsefyld til dit næste hækleprojekt",

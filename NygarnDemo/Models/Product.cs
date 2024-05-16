@@ -10,7 +10,7 @@ public class Product
 	//private static ProductIdGenerator _idGenerator = new ProductIdGenerator();
     [Key]
 	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-	public int Id { get; set; }
+	public int ProductId { get; set; }
 
     [Display(Name = "Pris")]
     [Required(ErrorMessage = "Der skal angives en pris")]
@@ -39,7 +39,7 @@ public class Product
         Description = description;
         Brand = brand;
         Amount = amount;
-        Id = 0;
+        ProductId = 0;
     }
 
     public Product()
@@ -49,7 +49,7 @@ public class Product
         Description = "";
         Brand = "";
         Amount = 1;
-        Id = 0;
+        ProductId = 0;
     }
 
     //private string GenerateProductId()

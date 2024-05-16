@@ -7,7 +7,7 @@
 namespace NygarnDemo.Migrations.NeedleDb
 {
     /// <inheritdoc />
-    public partial class AddNeedle : Migration
+    public partial class NeedleTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,7 +16,7 @@ namespace NygarnDemo.Migrations.NeedleDb
                 name: "KnittingNeedles",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Material = table.Column<int>(type: "int", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
@@ -30,12 +30,12 @@ namespace NygarnDemo.Migrations.NeedleDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_KnittingNeedles", x => x.Id);
+                    table.PrimaryKey("PK_KnittingNeedles", x => x.ProductId);
                 });
 
             migrationBuilder.InsertData(
                 table: "KnittingNeedles",
-                columns: new[] { "Id", "Amount", "Brand", "Description", "Material", "Name", "Price", "Set", "Size", "Type" },
+                columns: new[] { "ProductId", "Amount", "Brand", "Description", "Material", "Name", "Price", "Set", "Size", "Type" },
                 values: new object[,]
                 {
                     { 1, 2, "PetitKnit", "Gode til alt", 0, "KnitPro", 149m, true, 3, 1 },
