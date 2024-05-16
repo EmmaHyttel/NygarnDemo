@@ -3,6 +3,7 @@ using NygarnDemo.EFDbContext;
 using NygarnDemo.Enums;
 using NygarnDemo.MockData;
 using NygarnDemo.Models;
+using NygarnDemo.Services.DbServices;
 using NygarnDemo.Services.Interfaces;
 using Size = NygarnDemo.Enums.Size;
 
@@ -10,10 +11,10 @@ namespace NygarnDemo.Services.ProductServices;
 
 public class YarnService : IYarnService
     {
-        private DbService _dbService;
+        private YarnDbService _dbService;
         public List<Yarn>? YarnProducts { get; set; }
 
-        public YarnService(DbService dbService)
+        public YarnService(YarnDbService dbService)
         {
         //YarnProducts = MockYarn.GetAllYarnProducts();
         _dbService = dbService;
