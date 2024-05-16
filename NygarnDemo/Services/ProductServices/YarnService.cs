@@ -146,18 +146,49 @@ public class YarnService : IYarnService
             return SizeList;
      }
 
+    public async Task<Yarn> DeleteYarnAsync(int? id)
+    {
+        Yarn YarnToBeDeleted = null;
+        foreach (Yarn yarn in YarnProducts)
+        {
+            if (yarn.ProductId == id)
+            {
+                YarnToBeDeleted = yarn;
+                break;
+            }
+        }
+        if (YarnToBeDeleted != null)
+        {
+            YarnProducts.Remove(YarnToBeDeleted);
+            //await _dbService.DeleteToolsAsync(ToolToBeDeleted);
+        }
 
-	//public IEnumerable<Yarn> MachinewashFilter()
-	//{
-	//    List<Yarn> MachinewashList = new List<Yarn>();
-	//    foreach (Yarn yarn in YarnProducts)
-	//    {
-	//        if (yarn.MachineWash == )
-	//        {
-	//            MachinewashList.Add(yarn);
-	//        }
-	//    }
+        return YarnToBeDeleted;
+    }
 
-	//    return MachinewashList;
-	//}
+    public Yarn GetYarn(int id)
+    {
+        foreach (Yarn yarn in YarnProducts)
+        {
+            if (yarn.ProductId == id)
+                return yarn;
+        }
+
+        return null;
+    }
+
+
+    //public IEnumerable<Yarn> MachinewashFilter()
+    //{
+    //    List<Yarn> MachinewashList = new List<Yarn>();
+    //    foreach (Yarn yarn in YarnProducts)
+    //    {
+    //        if (yarn.MachineWash == )
+    //        {
+    //            MachinewashList.Add(yarn);
+    //        }
+    //    }
+
+    //    return MachinewashList;
+    //}
 }

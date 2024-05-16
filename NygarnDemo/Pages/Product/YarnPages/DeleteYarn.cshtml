@@ -1,0 +1,12 @@
+﻿@page
+@model NygarnDemo.Pages.Product.YarnPages.DeleteYarnModel
+@{
+}
+<h1>Delete Confirmation></h1>
+<div class="alert alert-danger">
+	<h5>Er du sikker på, at du vil slette garnet? - @Model.Yarn.Name</h5>
+	<form method="post">
+		<button type="submit" class="btn btn-danger">JA</button>
+		<a class="btn btn-primary" asp-page="/YarnPages/GetAllYarnProducts">NEJ</a>
+	</form>
+</div>
