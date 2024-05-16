@@ -5,7 +5,7 @@ using NygarnDemo.Services.Interfaces;
 
 namespace NygarnDemo.Pages.Product.ToolPages
 {
-    //[Authorize(Roles = "admin")]
+    
     public class DeleteToolModel : PageModel
     {
 
