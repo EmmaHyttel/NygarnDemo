@@ -1,4 +1,5 @@
 ﻿@page
+@using Microsoft.AspNetCore.Identity
 @using NygarnDemo.Enums
 @model NygarnDemo.Pages.Product.YarnPages.GetAllYarnProductsModel
 @{
@@ -114,7 +115,7 @@
                         <p class="card-text"> Løbelængde: @yarnProduct.Yardage</p>
                         <p class="card-text"> Anbefalede Pinde: @yarnProduct.Size</p>
                         <p class="card-text"> Maskinevask: @yarnProduct.MachineWash</p>
-                        <a href="#" class="btn btn-primary">KØB DET GARN MA FREN</a>
+                        <a href="#" class="btn btn-primary">Kom i kurv</a>
                     </div>
                 </div>
             </div>
@@ -123,9 +124,11 @@
 }
 
 <div>
+        @if (Model.IsAdmin){
         <p>
             <a class="btn btn-primary" asp-page="/Product/YarnPages/CreateYarn"> Tilføj garn til hjemmeside </a>
         </p>
+        }
         <div>
             @* //Pagina den del, som gør at man kan bladre i siderne på en page// *@
             <nav aria-label="Page navigation example">
