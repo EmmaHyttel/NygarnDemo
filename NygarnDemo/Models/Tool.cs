@@ -27,6 +27,8 @@ public class Tool : Product
         Type = "";
         Size = "";
     }
+
+    
 }
 
 

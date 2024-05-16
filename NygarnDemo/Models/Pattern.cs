@@ -27,4 +27,6 @@ public class Pattern : Product
         Fits = 0;
         FreePattern = false;
     }
+
+    
 }

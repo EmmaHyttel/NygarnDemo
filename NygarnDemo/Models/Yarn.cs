@@ -57,4 +57,6 @@ public class Yarn : Product
         Size = 0;
         MachineWash = false;
     }
+
+
 }
