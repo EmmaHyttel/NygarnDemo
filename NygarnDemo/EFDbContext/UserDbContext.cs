@@ -25,10 +25,22 @@ public class UserDbContext : DbContext
     {
         modelBuilder.Entity<User>().ToTable("Users")
             .HasData(
+             ReturnUserWithHashedPassword(
+                new User()
+                {
+                    Id = 1,
+                    UserName = "admin",
+                    Name = "NEM",
+                    LastName = "HARD",
+                    Password = "secretzz",
+                    Address = "En sej gade",
+                    Phone = "69696969",
+                    Email = "nem_hard@garn.dk"
+                }),
             ReturnUserWithHashedPassword(
                 new User()
                 {
-                 Id = 1,
+                 Id = 2,
                  UserName = "EmmaStrikker123",
                  Name = "Emma",
                  LastName = "Hyttel",
@@ -40,7 +52,7 @@ public class UserDbContext : DbContext
                 ReturnUserWithHashedPassword(
               new User()
               {
-                  Id = 2,
+                  Id = 3,
                   UserName = "MaiStrikker123",
                   Name = "Mai",
                   LastName = "Dinh",
@@ -52,7 +64,7 @@ public class UserDbContext : DbContext
                 ReturnUserWithHashedPassword(
               new User()
               {
-                  Id = 3,
+                  Id = 4,
                   UserName = "NannaHækler123",
                   Name = "Nanna",
                   LastName = "Rister",
@@ -65,7 +77,7 @@ public class UserDbContext : DbContext
     }
 
 
-    public DbSet<User> Users { get; set; }
+    public DbSet<User> UserTable { get; set; }
 
     private User ReturnUserWithHashedPassword(User user)
     {

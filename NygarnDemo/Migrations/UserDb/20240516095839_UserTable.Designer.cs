@@ -11,8 +11,8 @@ using NygarnDemo.EFDbContext;
 namespace NygarnDemo.Migrations.UserDb
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20240515204216_InitialUserDb")]
-    partial class InitialUserDb
+    [Migration("20240516095839_UserTable")]
+    partial class UserTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,13 +72,24 @@ namespace NygarnDemo.Migrations.UserDb
                     b.HasData(
                         new
                         {
+                            UserName = "admin",
+                            Address = "En sej gade",
+                            Email = "nem_hard@garn.dk",
+                            Id = 1,
+                            LastName = "HARD",
+                            Name = "NEM",
+                            Password = "AQAAAAIAAYagAAAAEAAMeIGKJFk1yT6hmPGY7/rx+FmjwsH5VIsof66kohgEA3gt4j7X4+Q+yOCWTAjGig==",
+                            Phone = "69696969"
+                        },
+                        new
+                        {
                             UserName = "EmmaStrikker123",
                             Address = "Vejgade 1",
                             Email = "emmastrikker@garn.dk",
-                            Id = 1,
+                            Id = 2,
                             LastName = "Hyttel",
                             Name = "Emma",
-                            Password = "AQAAAAIAAYagAAAAEB336RGbW9cf9kFZXBf7nP5YQ9eZZ1Id6yPYlqhINRCvuadFMGIMXVDnDGOQS8C++Q==",
+                            Password = "AQAAAAIAAYagAAAAEOzOU3S3D8nfS6dien7ag/g3Zums2dxOUOrCn31/sZgx6q5jqwwJ/v8aQily8oQ7Ew==",
                             Phone = "12345678"
                         },
                         new
@@ -86,10 +97,10 @@ namespace NygarnDemo.Migrations.UserDb
                             UserName = "MaiStrikker123",
                             Address = "Vejgade 2",
                             Email = "maistrikker@garn.dk",
-                            Id = 2,
+                            Id = 3,
                             LastName = "Dinh",
                             Name = "Mai",
-                            Password = "AQAAAAIAAYagAAAAEFDucTrhXMwIaliTyFddYdvxaa03VpP95rwes1v4jghq4rU5KLBzjMQUGhDpFWn3cg==",
+                            Password = "AQAAAAIAAYagAAAAEB8pH++OUUonsZM33Ouy7UeIJmq/OPuki+HYMpECc2zdpDBnf8I8GkbuYIa3fk56Jg==",
                             Phone = "23456789"
                         },
                         new
@@ -97,85 +108,12 @@ namespace NygarnDemo.Migrations.UserDb
                             UserName = "NannaHækler123",
                             Address = "Vejgade 3",
                             Email = "nannahækler@garn.dk",
-                            Id = 3,
+                            Id = 4,
                             LastName = "Rister",
                             Name = "Nanna",
-                            Password = "AQAAAAIAAYagAAAAEDiLPtrNZaXlLfolnYVoemNRKi7nbg0ufttEnlo7GuA6JL253OjoG2bUGr1aqczYIw==",
+                            Password = "AQAAAAIAAYagAAAAELv+Dmug3b4JaOE/vf8pdY7laP6zMUlVLIegGK3DYqyDWD2HwLvRBBrvF4USFo3JuQ==",
                             Phone = "34567891"
                         });
-                });
-
-            modelBuilder.Entity("NygarnDemo.Models.Yarn", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Brand")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Color")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("KnittingTension")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("MachineWash")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Material")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Size")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<int>("Weight")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Yardage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserName");
-
-                    b.ToTable("Yarn");
-                });
-
-            modelBuilder.Entity("NygarnDemo.Models.Yarn", b =>
-                {
-                    b.HasOne("NygarnDemo.Models.User", null)
-                        .WithMany("YarnWishList")
-                        .HasForeignKey("UserName");
-                });
-
-            modelBuilder.Entity("NygarnDemo.Models.User", b =>
-                {
-                    b.Navigation("YarnWishList");
                 });
 #pragma warning restore 612, 618
         }

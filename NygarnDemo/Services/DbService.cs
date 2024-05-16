@@ -94,14 +94,14 @@ namespace NygarnDemo.Services
         {
             using (var context = new UserDbContext())
             {
-                return await context.Users.ToListAsync();
+                return await context.UserTable.ToListAsync();
             }
         }
         public async Task AddUser(Models.User user)
         {
             using (var context = new UserDbContext())
             {
-                context.Users.Add(user);
+                context.UserTable.Add(user);
                 context.SaveChanges();
             }
         }
@@ -112,7 +112,7 @@ namespace NygarnDemo.Services
             {
                 foreach (Models.User user in users)
                 {
-                    context.Users.Add(user);
+                    context.UserTable.Add(user);
                     context.SaveChanges();
                 }
 

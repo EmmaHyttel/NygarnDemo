@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.EFDbContext;
@@ -7,6 +8,7 @@ using NygarnDemo.Services.ProductServices;
 
 namespace NygarnDemo.Pages.Product.YarnPages
 {
+	[Authorize(Roles = "admin")]
 	public class CreateYarnModel : PageModel
 	{
 		private IYarnService _yarnService;
