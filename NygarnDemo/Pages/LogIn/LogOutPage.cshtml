@@ -2,8 +2,16 @@
 @model NygarnDemo.Pages.LogInPage.LogOutPageModel
 @{
 }
-<h5>Er du sikker på, at du vil logge ud? </h5>
-<form method="post">
-    <button type="submit" class="btn btn-danger">Yes</button>
-    <a class="btn btn-primary" href="/LogOutPages/">No</a>
-</form>
+<h5>Er du sikker på, at du vil logge ud?</h5>
+    <form id="logoutForm" runat="server">
+        <button type="submit" class="btn btn-danger">Ja</button>
+        <button type="button" onclick="showConfirmation()" class="btn btn-primary">Nej</button>
+    </form>
+
+    <div id="confirmationDialog" class="confirm-dialog">
+        <p>Er du sikker på, at du vil logge ud?</p>
+        <form id="confirmLogoutForm" runat="server">
+            <button type="submit" class="btn btn-danger">Ja</button>
+            <button type="button" onclick="hideConfirmation()" class="btn btn-primary">Nej</button>
+        </form>
+    </div>
