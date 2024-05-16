@@ -5,26 +5,28 @@ namespace NygarnDemo.Models
 {
     public class OrderLine
     {
-        [Required]
+        [Key, Column(Order = 0)]
         public int OrderId { get; set; }
 
-        public Order Order { get; set; }
-
-        [Required]
+        [Key, Column(Order = 1)]
         public int ProductId { get; set; }
 
-        public List<Product> Products { get; set; }
+        [ForeignKey("OrderId")]
+        public Order Order { get; set; }
 
-        public OrderLine()
-        {
-        }
+        [ForeignKey("ProductId")]
+        public Yarn Yarn { get; set; }
 
-        public OrderLine(int orderId, Order order, int productId, Product product)
-        {
-            OrderId = orderId;
-            Order = order;
-            ProductId = productId;
-            Product = product;
-        }
+        [ForeignKey("ProductId")]
+        public Tool Tool { get; set; }
+
+        [ForeignKey("ProductId")]
+        public KnittingNeedle KnittingNeedle { get; set; }
+
+        [ForeignKey("ProductId")]
+        public CrochetHook CrochetHook { get; set; }
+
+        [ForeignKey("ProductId")]
+        public Pattern Pattern { get; set; }
     }
 }
