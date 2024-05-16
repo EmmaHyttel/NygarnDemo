@@ -2,13 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Enums;
+using System.Security.Claims;
 
 namespace NygarnDemo.Pages.Product.PatternPages
 {
 	public class GetAllPatternsModel : PageModel
     {
         private IPatternService _patternService;
-
+        public bool IsAdmin { get; private set; }
         public GetAllPatternsModel(IPatternService patternService)
         {
             _patternService = patternService;
@@ -37,6 +38,7 @@ namespace NygarnDemo.Pages.Product.PatternPages
 		public void OnGet()
         {
             Patterns = _patternService.GetPatterns();
+            IsAdmin = HttpContext.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin");
         }
 
         public IActionResult OnPostCategoryFilter()

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Enums;
+using System.Security.Claims;
 
 
 namespace NygarnDemo.Pages.Product.CrochetHookPages
@@ -12,6 +13,7 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         
         private ICrochetHookService _crochetHookService;
         private IKnittingNeedleService _knittingNeedleService;
+        public bool IsAdmin { get; private set; }
 
         public List<CrochetHook>? CrochetHooks { get; private set; }
         public List<KnittingNeedle>? KnittingNeedles { get; set; }
@@ -47,6 +49,7 @@ namespace NygarnDemo.Pages.Product.CrochetHookPages
         {
             CrochetHooks = _crochetHookService.GetCrochetHooks();
             KnittingNeedles = _knittingNeedleService.GetKnittingNeedles();
+            IsAdmin = HttpContext.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin");
         }
 
         public IActionResult OnPostNameSearch()

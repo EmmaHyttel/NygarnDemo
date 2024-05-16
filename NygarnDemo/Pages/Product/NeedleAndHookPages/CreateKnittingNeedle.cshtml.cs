@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.Models;
@@ -5,7 +6,8 @@ using NygarnDemo.Services.Interfaces;
 
 namespace NygarnDemo.Pages.Product.NeedleAndHookPages
 {
-	public class CreateKnittingNeedleModel : PageModel
+    [Authorize(Roles = "admin")]
+    public class CreateKnittingNeedleModel : PageModel
 	{
 		private IKnittingNeedleService _knittingNeedleService;
 		private IWebHostEnvironment _webHostEnvironment;

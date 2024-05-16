@@ -153,11 +153,13 @@
         </div>
     }   
 }
+@if (Model.IsAdmin){
     <div>
         <p>
             <a class="btn btn-primary btn-sm" asp-page="/Product/NeedleAndHookPages/CreateCrochetHook">Tilføj hæklenål</a>
         </p>
     </div>
+}
 </div>
 <div class="grid-container">
 @if (Model.KnittingNeedles != null)
@@ -180,8 +182,11 @@
     }
 }
 </div>
-<div>
-    <p>
-        <a class="btn btn-primary btn-sm" asp-page="/Product/NeedleAndHookPages/CreateKnittingNeedle">Tilføj strikkepinde til hjemmesiden</a>
-    </p> 
-</div>
+@if (Model.IsAdmin)
+{
+    <div>
+        <p>
+            <a class="btn btn-primary btn-sm" asp-page="/Product/NeedleAndHookPages/CreateKnittingNeedle">Tilføj strikkepinde til hjemmesiden</a>
+        </p> 
+    </div>
+}

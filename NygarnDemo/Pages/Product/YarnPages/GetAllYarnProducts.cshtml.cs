@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -5,6 +6,7 @@ using NygarnDemo.EFDbContext;
 using NygarnDemo.Enums;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
+using System.Security.Claims;
 
 namespace NygarnDemo.Pages.Product.YarnPages
 {
@@ -12,6 +14,9 @@ namespace NygarnDemo.Pages.Product.YarnPages
     {
         private readonly YarnDbContext _yarnContext;
         private IYarnService _yarnService;
+
+        public bool IsAdmin { get; private set; }
+
 
         public GetAllYarnProductsModel(IYarnService yarnService, YarnDbContext yarnContext)
         {
@@ -73,6 +78,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         {
             //YarnProducts = _yarnService.GetYarnProducts();
             YarnProducts = await _yarnContext.YarnProducts.ToListAsync();
+            IsAdmin = HttpContext.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin");
         }
 
         public IActionResult OnPostNameSearch()
