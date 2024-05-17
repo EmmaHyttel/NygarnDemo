@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NygarnDemo.EFDbContext;
 using NygarnDemo.Services;
+using NygarnDemo.Services.DbServices;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Services.ProductServices;
 using NygarnDemo.Services.User;
@@ -25,6 +26,8 @@ builder.Services.AddDbContext<NeedleDbContext>();
 builder.Services.AddDbContext<HookDbContext>();
 builder.Services.AddDbContext<OrderLineDbContext>();
 builder.Services.AddSingleton<DbService, DbService>();
+builder.Services.AddSingleton<ToolDbService, ToolDbService>();
+builder.Services.AddSingleton<YarnDbService, YarnDbService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.Configure<CookiePolicyOptions>(options => {
     // This lambda determines whether user consent for non-essential cookies is needed for a given request. options.CheckConsentNeeded = context => true; 

@@ -10,7 +10,8 @@ namespace NygarnDemo.Services.Interfaces
         List<Yarn> GetYarnProducts();
 
         Task AddYarnAsync(Yarn yarn);
-
+        Task<Yarn> DeleteYarnAsync(int? id);
+        Yarn GetYarn(int id);
         IEnumerable<Yarn> NameSearch(string str);
 
         IEnumerable<Yarn> PriceFilter(int maxPrice, int minPrice = 0);

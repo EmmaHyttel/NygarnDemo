@@ -1,21 +1,22 @@
 ﻿using Microsoft.Identity.Client;
 using NygarnDemo.MockData;
 using NygarnDemo.Models;
+using NygarnDemo.Services.DbServices;
 
 namespace NygarnDemo.Services.User
 {
     public class UserService : IUserService
     {
-        private DbService _dbService;
+        private UserDbService _userDbService;
         public List<Models.User> Users { get; set; }
 
 
-        public UserService(DbService dbService)
+        public UserService(UserDbService dbService)
         {
             //Users = MockUser.GetAllUsers();
-            _dbService = dbService;
-            Users = _dbService.GetUsers().Result.ToList();
-            _dbService.SaveUsers(Users);
+            _userDbService = dbService;
+            Users = _userDbService.GetUsers().Result.ToList();
+            _userDbService.SaveUsers(Users);
         }
         public List<Models.User> GetUsers()
         {
@@ -36,7 +37,7 @@ namespace NygarnDemo.Services.User
 
         public async Task AddUserAsync(Models.User user)
         {
-            await _dbService.AddUser(user);
+            await _userDbService.AddUser(user);
         }
     }
 }

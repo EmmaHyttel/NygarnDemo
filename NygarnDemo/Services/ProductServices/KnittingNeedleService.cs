@@ -1,21 +1,22 @@
 ﻿using NygarnDemo.Enums;
 using NygarnDemo.MockData;
 using NygarnDemo.Models;
+using NygarnDemo.Services.DbServices;
 using NygarnDemo.Services.Interfaces;
 
 namespace NygarnDemo.Services.ProductServices
 {
     public class KnittingNeedleService : IKnittingNeedleService
     {
-        private DbService _dbService;
+        private KnittingNeedleDbService _knittingNeedleDbService;
 
         public List<KnittingNeedle> KnittingNeedle { get; set; }
-        public KnittingNeedleService(DbService dbService)
+        public KnittingNeedleService(KnittingNeedleDbService dbService)
         {
             //KnittingNeedle = MockKnittingNeedle.GetAllKnittingNeedles();
-            _dbService = dbService;
-            KnittingNeedle = _dbService.GetKnittingNeedles().Result.ToList();
-            _dbService.SaveKnittingNeedles(KnittingNeedle);
+            _knittingNeedleDbService = dbService;
+            KnittingNeedle = _knittingNeedleDbService.GetKnittingNeedles().Result.ToList();
+            _knittingNeedleDbService.SaveKnittingNeedles(KnittingNeedle);
         }
 
 
@@ -95,7 +96,7 @@ namespace NygarnDemo.Services.ProductServices
         }
         public async Task AddKnittingNeedleAsync(KnittingNeedle knittingNeedle)
         {
-            await _dbService.AddKnittingNeedle(knittingNeedle);
+            await _knittingNeedleDbService.AddKnittingNeedle(knittingNeedle);
         }
     }
 }

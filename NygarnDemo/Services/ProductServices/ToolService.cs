@@ -1,16 +1,17 @@
 ﻿using NygarnDemo.Enums;
 using NygarnDemo.MockData;
 using NygarnDemo.Models;
+using NygarnDemo.Services.DbServices;
 using NygarnDemo.Services.Interfaces;
 
 namespace NygarnDemo.Services.ProductServices
 {
     public class ToolService : IToolService
     {
-        private DbService _dbService;
+        private ToolDbService _dbService;
         public List<Tool> ToolProducts { get; set; }
 
-        public ToolService(DbService dbService)
+        public ToolService(ToolDbService dbService)
         {
             //ToolProducts = MockTool.GetAllToolProducts();
             _dbService = dbService;

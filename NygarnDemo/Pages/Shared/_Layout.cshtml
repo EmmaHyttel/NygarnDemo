@@ -115,14 +115,16 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/LogIn/LogOutPage">Logout</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/LogIn/LogOutPage" onclick="confirmLogout()">Logout</a>
+
+                                <script>
+                                    function confirmLogout() {
+                                        if (confirm("Er du sikker på du vil logge ud?")) {
+                                            window.location.href = '@Url.Page("/LogIn/LogOutPage")'; // Ændre URL'en til den faktiske logout-URL
+                                        }
+                                    }
+                                </script>
                                 </li>
-                            }
-                            if (Context.User.Identity != null && Context.User.Identity.Name == "admin")
-                            {
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/Login/KnittingNeedles">Tilføj produkt</a>
-                            </li>
                             }
                         }
                     </ul>

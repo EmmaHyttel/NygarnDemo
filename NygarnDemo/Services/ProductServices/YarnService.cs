@@ -3,6 +3,7 @@ using NygarnDemo.EFDbContext;
 using NygarnDemo.Enums;
 using NygarnDemo.MockData;
 using NygarnDemo.Models;
+using NygarnDemo.Services.DbServices;
 using NygarnDemo.Services.Interfaces;
 using Size = NygarnDemo.Enums.Size;
 
@@ -10,10 +11,10 @@ namespace NygarnDemo.Services.ProductServices;
 
 public class YarnService : IYarnService
     {
-        private DbService _dbService;
+        private YarnDbService _dbService;
         public List<Yarn>? YarnProducts { get; set; }
 
-        public YarnService(DbService dbService)
+        public YarnService(YarnDbService dbService)
         {
         //YarnProducts = MockYarn.GetAllYarnProducts();
         _dbService = dbService;
@@ -146,18 +147,49 @@ public class YarnService : IYarnService
             return SizeList;
      }
 
+    public async Task<Yarn> DeleteYarnAsync(int? id)
+    {
+        Yarn YarnToBeDeleted = null;
+        foreach (Yarn yarn in YarnProducts)
+        {
+            if (yarn.ProductId == id)
+            {
+                YarnToBeDeleted = yarn;
+                break;
+            }
+        }
+        if (YarnToBeDeleted != null)
+        {
+            YarnProducts.Remove(YarnToBeDeleted);
+            //await _dbService.DeleteToolsAsync(ToolToBeDeleted);
+        }
 
-	//public IEnumerable<Yarn> MachinewashFilter()
-	//{
-	//    List<Yarn> MachinewashList = new List<Yarn>();
-	//    foreach (Yarn yarn in YarnProducts)
-	//    {
-	//        if (yarn.MachineWash == )
-	//        {
-	//            MachinewashList.Add(yarn);
-	//        }
-	//    }
+        return YarnToBeDeleted;
+    }
 
-	//    return MachinewashList;
-	//}
+    public Yarn GetYarn(int id)
+    {
+        foreach (Yarn yarn in YarnProducts)
+        {
+            if (yarn.ProductId == id)
+                return yarn;
+        }
+
+        return null;
+    }
+
+
+    //public IEnumerable<Yarn> MachinewashFilter()
+    //{
+    //    List<Yarn> MachinewashList = new List<Yarn>();
+    //    foreach (Yarn yarn in YarnProducts)
+    //    {
+    //        if (yarn.MachineWash == )
+    //        {
+    //            MachinewashList.Add(yarn);
+    //        }
+    //    }
+
+    //    return MachinewashList;
+    //}
 }
