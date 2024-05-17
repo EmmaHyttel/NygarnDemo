@@ -7,10 +7,11 @@ namespace NygarnDemo.Pages.LogInPage
 {
     public class LogOutPageModel : PageModel
     {
-          public async Task<IActionResult> OnGet()
-          {
+        public async Task<IActionResult> OnGet()
+        {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-                return RedirectToPage("/Index");
-          }
+            return RedirectToPage("/Index");
+        }
+
     }
 }
