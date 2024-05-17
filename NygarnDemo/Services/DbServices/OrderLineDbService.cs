@@ -2,12 +2,10 @@
 using NygarnDemo.EFDbContext;
 using NygarnDemo.Models;
 
-namespace NygarnDemo.Services
+namespace NygarnDemo.Services.DbServices
 {
-    public class DbService
+    public class OrderLineDbService
     {
-	
-        #region OrderLine
         public async Task<List<OrderLine>> GetOrderLines()
         {
             using (var context = new OrderLineDbContext())
@@ -38,6 +36,5 @@ namespace NygarnDemo.Services
                 context.SaveChanges();
             }
         }
-        #endregion
     }
 }
