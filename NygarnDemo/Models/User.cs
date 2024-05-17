@@ -45,6 +45,8 @@ namespace NygarnDemo.Models
         [StringLength(100)]
         public string Email { get; set; }
 
+
+
         public User(string userName, string name, string lastName, string password, string address, string phone, string email)
         {
             UserName = userName;
