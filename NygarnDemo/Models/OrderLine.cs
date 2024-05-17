@@ -12,21 +12,24 @@ namespace NygarnDemo.Models
         public int ProductId { get; set; }
 
         [ForeignKey("OrderId")]
-        public Order Order { get; set; }
+        public virtual Order Order { get; set; }
 
         [ForeignKey("ProductId")]
-        public Yarn Yarn { get; set; }
+        public virtual Yarn Yarn { get; set; }
 
         [ForeignKey("ProductId")]
-        public Tool Tool { get; set; }
+        public virtual Tool Tool { get; set; }
 
         [ForeignKey("ProductId")]
-        public KnittingNeedle KnittingNeedle { get; set; }
+        public virtual KnittingNeedle KnittingNeedle { get; set; }
 
         [ForeignKey("ProductId")]
-        public CrochetHook CrochetHook { get; set; }
+        public virtual CrochetHook CrochetHook { get; set; }
 
         [ForeignKey("ProductId")]
-        public Pattern Pattern { get; set; }
+        public virtual Pattern Pattern { get; set; }
+
+        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
+        public int Count { get; set; }
     }
 }

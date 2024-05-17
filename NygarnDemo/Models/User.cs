@@ -68,5 +68,7 @@ namespace NygarnDemo.Models
             //Phone = "";
             //Email = "";
         }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
