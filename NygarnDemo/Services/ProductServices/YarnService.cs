@@ -138,7 +138,7 @@ public class YarnService : IYarnService
          List<Yarn> SizeList = new List<Yarn>();
          foreach (Yarn yarn in YarnProducts)
          {
-             if (yarn.Size == size)
+             if (yarn.SuggestedNeedleSize == size)
              {
                     SizeList.Add(yarn);
              }

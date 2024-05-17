@@ -28,7 +28,7 @@ public class Yarn : Product
 
     [Display(Name = "Anbefalede pinde")]
     [Required(ErrorMessage = "Der skal angives en anbefalet pind til garn")]
-    public Size Size { get; set; }
+    public Size SuggestedNeedleSize { get; set; }
 
     [Display(Name = "Maskinevask")]
     [Required(ErrorMessage = "Der skal angives en anbefalet maskinevask til garn")]
@@ -43,7 +43,7 @@ public class Yarn : Product
         Yardage = yardage;
         Material = material;
         Weight = weight;
-        Size = size;
+        SuggestedNeedleSize = size;
         MachineWash = machineWash;
     }
 
@@ -54,7 +54,7 @@ public class Yarn : Product
         Yardage = "";
         Material = 0;
         Weight = 1;
-        Size = 0;
+        SuggestedNeedleSize = 0;
         MachineWash = false;
     }
 

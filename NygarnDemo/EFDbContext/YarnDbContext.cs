@@ -37,7 +37,7 @@ public class YarnDbContext : DbContext
 					Yardage = "Yardage400mPr50g",
 					Material = Material.Alpakka,
 					Weight = 100,
-					Size = Size.Size25mm,
+					SuggestedNeedleSize = Size.Size25mm,
 					MachineWash = false
 				},
 				new Yarn()
@@ -53,7 +53,7 @@ public class YarnDbContext : DbContext
 					Yardage = "Yardage400mPr50g",
 					Material = Material.Alpakka,
 					Weight = 100,
-					Size = Size.Size25mm,
+					SuggestedNeedleSize = Size.Size25mm,
 					MachineWash = false
 				},
 				new Yarn()
@@ -64,7 +64,7 @@ public class YarnDbContext : DbContext
 					 Yardage = "Yardage215mPr50g",
 					 Material = Material.Mohair,
 					 Weight = 50,
-					 Size = Size.Size20mm,
+					 SuggestedNeedleSize = Size.Size20mm,
 					 MachineWash = true,
 					 Price = 79,
 					 Name = "MyHair",
@@ -80,7 +80,7 @@ public class YarnDbContext : DbContext
 					Yardage = "Yardage300mPr50g",
 					Material = Material.Alpakka,
 					Weight = 50,
-					Size = Size.Size30mm,
+					SuggestedNeedleSize = Size.Size30mm,
 					MachineWash = true,
 					Price = 69,
 					Name = "MaLamaa",
@@ -96,7 +96,7 @@ public class YarnDbContext : DbContext
 					Yardage = "Yardage400mPr50g",
 					Material = Material.Silke,
 					Weight = 50,
-					Size = Size.Size40mm,
+					SuggestedNeedleSize = Size.Size40mm,
 					MachineWash = false,
 					Price = 75,
 					Name = "SlikkeSilke",
