@@ -82,11 +82,11 @@
 		<span asp-validation-for="@Model.Yarn.Weight" class="text-danger"></span>
 	</div>
 	<div class="form-group">
-		<label asp-for="@Model.Yarn.Size" class="control-label">Anbefalede pinde</label>
-		<select asp-for="@Model.Yarn.Size" asp-items="Html.GetEnumSelectList<Size>()">
+		<label asp-for="@Model.Yarn.SuggestedNeedleSize" class="control-label">Anbefalede pinde</label>
+		<select asp-for="@Model.Yarn.SuggestedNeedleSize" asp-items="Html.GetEnumSelectList<Size>()">
 			<option value=""></option>
 		</select>
-		<span asp-validation-for="@Model.Yarn.Size" class="text-danger"></span>
+		<span asp-validation-for="@Model.Yarn.SuggestedNeedleSize" class="text-danger"></span>
 	</div>
 	@* 	<div class="form-group">
 	<label asp-for="@Model.Yarn.MachineWash" class="control-label"></label>
