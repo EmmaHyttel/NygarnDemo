@@ -1,0 +1,32 @@
+﻿@page
+@model NygarnDemo.Pages.WishListModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wishlist</title>
+</head>
+<body>
+    <h1>Wishlist</h1>
+
+    @foreach (var user in Model)
+    {
+        <h2>@user.Name's Wishlist</h2>
+        <form action="@Url.Action("AddItem", "Wishlist")" method="post">
+            <input type="hidden" name="userName" value="@user.Name" />
+            <label for="item">Add Item:</label>
+            <input type="text" name="item" />
+            <button type="submit">Add</button>
+        </form>
+        
+        <ul>
+            @foreach (var item in user.Wishlist)
+            {
+                <li>@item</li>
+            }
+        </ul>
+    }
+</body>
+</html>
