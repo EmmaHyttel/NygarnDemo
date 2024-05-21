@@ -70,6 +70,6 @@ namespace NygarnDemo.Models
             //Email = "";
         }
 
-        public virtual ICollection<Order> Orders { get; set; }
+        //public virtual ICollection<Order> Orders { get; set; }
     }
 }

@@ -1,21 +1,20 @@
-﻿namespace NygarnDemo.Models
+﻿namespace NygarnDemo.Models;
+
+public class ShoppingCart
 {
-    public class ShoppingCart
+    public int ShoppingCartId { get; set; }
+    public int ShoppingCartLineId { get; set; }
+    public int UserId { get; set; }
+    public User User { get; set; }
+    public List<ShoppingCartLine> ShoppingCartLines { get; set; }
+
+    public ShoppingCart(User user)
     {
-        public int ShoppingCartId { get; set; }
-        public int SCLineId { get; set; }
-        public int UserId { get; set; }
-        public User User { get; set; }
-        public List<SCLine> SCLines { get; set; }
+        User = user;
+        ShoppingCartLines = new List<ShoppingCartLine>();
+    }
 
-        public ShoppingCart(User user)
-        {
-            User = user;
-            SCLines = new List<SCLine>();
-        }
-
-        public ShoppingCart()
-        {
-        }
+    public ShoppingCart()
+    {
     }
 }

@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NygarnDemo.Models
 {
-    public class SCLine
+    public class ShoppingCartLine
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int SCLineId { get; set; }
+        public int Id { get; set; }
 
         [ForeignKey("ProductId")]
         [Required]
@@ -17,13 +17,13 @@ namespace NygarnDemo.Models
 
         public int Count { get; set; }
 
-        public SCLine(Product product, int count)
+        public ShoppingCartLine(Product product, int count)
         {
             Product = product;
             Count = count;
         }
 
-        public SCLine()
+        public ShoppingCartLine()
         {
         }
     }
