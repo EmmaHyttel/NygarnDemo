@@ -7,27 +7,27 @@ namespace NygarnDemo.Services.DbServices
     {
         public async Task<List<Models.User>> GetUsers()
         {
-            using (var context = new UserDbContext())
+            using (var context = new NygarnDbContext())
             {
-                return await context.UserTable.ToListAsync();
+                return await context.User.ToListAsync();
             }
         }
         public async Task AddUser(Models.User user)
         {
-            using (var context = new UserDbContext())
+            using (var context = new NygarnDbContext())
             {
-                context.UserTable.Add(user);
+                context.User.Add(user);
                 context.SaveChanges();
             }
         }
 
         public async Task SaveUsers(List<Models.User> users)
         {
-            using (var context = new UserDbContext())
+            using (var context = new NygarnDbContext())
             {
                 foreach (Models.User user in users)
                 {
-                    context.UserTable.Add(user);
+                    context.User.Add(user);
                     context.SaveChanges();
                 }
 

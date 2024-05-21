@@ -8,28 +8,28 @@ public class YarnDbService
 {
     public async Task<List<Yarn>> GetYarnProducts()
     {
-        using (var context = new YarnDbContext())
+        using (var context = new NygarnDbContext())
         {
-            return await context.YarnProducts.ToListAsync();
+            return await context.Yarn.ToListAsync();
         }
     }
 
     public async Task AddYarn(Yarn yarn)
     {
-        using (var context = new YarnDbContext())
+        using (var context = new NygarnDbContext())
         {
-            await context.YarnProducts.AddAsync(yarn);
+            await context.Yarn.AddAsync(yarn);
             await context.SaveChangesAsync();
         }
     }
 
     public async Task SaveYarnProducts(List<Yarn> yarnProducts)
     {
-        using (var context = new YarnDbContext())
+        using (var context = new NygarnDbContext())
         {
             foreach (Yarn yarn in yarnProducts)
             {
-                await context.YarnProducts.AddAsync(yarn);
+                await context.Yarn.AddAsync(yarn);
             }
 
             await context.SaveChangesAsync();

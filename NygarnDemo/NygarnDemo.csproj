@@ -21,4 +21,12 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\HookDb\" />
+    <Folder Include="Migrations\NeedleDb\" />
+    <Folder Include="Migrations\ToolDb\" />
+    <Folder Include="Migrations\UserDb\" />
+    <Folder Include="Migrations\YarnDb\" />
+  </ItemGroup>
+
 </Project>
