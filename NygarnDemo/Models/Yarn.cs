@@ -58,6 +58,4 @@ public class Yarn : Product
         MachineWash = false;
     }
 
-    public ICollection<OrderLine> OrderLines { get; set; }
-
 }

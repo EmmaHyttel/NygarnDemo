@@ -15,19 +15,7 @@ namespace NygarnDemo.Models
         public virtual Order Order { get; set; }
 
         [ForeignKey("ProductId")]
-        public virtual Yarn Yarn { get; set; }
-
-        [ForeignKey("ProductId")]
-        public virtual Tool Tool { get; set; }
-
-        [ForeignKey("ProductId")]
-        public virtual KnittingNeedle KnittingNeedle { get; set; }
-
-        [ForeignKey("ProductId")]
-        public virtual CrochetHook CrochetHook { get; set; }
-
-        [ForeignKey("ProductId")]
-        public virtual Pattern Pattern { get; set; }
+        public virtual Product Product { get; set; }
 
         [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
         public int Count { get; set; }

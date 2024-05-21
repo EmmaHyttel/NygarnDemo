@@ -29,7 +29,7 @@ builder.Services.AddSingleton<CrochetHookDbService, CrochetHookDbService>();
 builder.Services.AddSingleton<ToolDbService, ToolDbService>();
 builder.Services.AddSingleton<YarnDbService, YarnDbService>();
 builder.Services.AddSingleton<UserDbService, UserDbService>();
-builder.Services.AddSingleton<OrderLineDbService, OrderLineDbService>();
+builder.Services.AddSingleton<OrderDbService, OrderDbService>();
 builder.Services.AddSingleton<KnittingNeedleDbService, KnittingNeedleDbService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.Configure<CookiePolicyOptions>(options => {
