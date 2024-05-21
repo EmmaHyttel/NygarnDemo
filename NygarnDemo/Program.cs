@@ -23,14 +23,13 @@ builder.Services.AddSingleton<IKnittingNeedleService, KnittingNeedleService>();
 builder.Services.AddSingleton<IToolService, ToolService>();
 builder.Services.AddDbContext<NygarnDbContext>();
 builder.Services.AddSingleton<CrochetHookDbService, CrochetHookDbService>();
-builder.Services.AddSingleton<IWishListService, WishListService>();
+builder.Services.AddSingleton<WishListService, WishListService>();
 builder.Services.AddSingleton<ToolDbService, ToolDbService>();
 builder.Services.AddSingleton<YarnDbService, YarnDbService>();
 builder.Services.AddSingleton<UserDbService, UserDbService>();
 builder.Services.AddTransient<OrderDbService<Order>, OrderDbService<Order>>();
 builder.Services.AddSingleton<KnittingNeedleDbService, KnittingNeedleDbService>();
 builder.Services.AddSingleton<IUserService, UserService>();
-builder.Services.AddSingleton<WishListDbService, WishListDbService>();
 builder.Services.Configure<CookiePolicyOptions>(options => {
     // This lambda determines whether user consent for non-essential cookies is needed for a given request. options.CheckConsentNeeded = context => true; 
     options.MinimumSameSitePolicy = SameSiteMode.None;

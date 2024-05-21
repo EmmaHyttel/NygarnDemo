@@ -6,41 +6,22 @@ namespace NygarnDemo.Models
     public class WishList
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int WishListId { get; set; }
 
         [ForeignKey("ProductId")]
         public int ProductId { get; set; }
-       
-        public int UserId { get; set; }
-
-        public CrochetHook CrochetHook { get; set; }
-
-        public KnittingNeedle KnittingNeedle { get; set; }
-
-        public Pattern Pattern { get; set; }
-
-        public Yarn Yarn { get; set; }
-
-        public Tool Tool { get; set; }
 
         [ForeignKey("Id")]
-        public User User { get; set; }
-        public List<Product> Products { get; set; } = new List<Product>();
+        public int Id { get; set; } 
 
-        public WishList(int wishListId, int productId, int userId, CrochetHook crochetHook, 
-            KnittingNeedle knittingNeedle, Pattern pattern, Yarn yarn, Tool tool, User user, 
-            List<Product> products)
+        public User User { get; set; }
+        public Product Product { get; set; } 
+
+        public WishList(User user, Product product)
         {
-            WishListId = wishListId;
-            ProductId = productId;
-            UserId = userId;
-            CrochetHook = crochetHook;
-            KnittingNeedle = knittingNeedle;
-            Pattern = pattern;
-            Yarn = yarn;
-            Tool = tool;
             User = user;
-            Products = products;
+            Product = product;
         }
 
         public WishList()

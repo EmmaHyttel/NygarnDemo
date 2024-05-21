@@ -6,7 +6,7 @@ namespace NygarnDemo.Services.UserService
     {
         List<Product> GetWishList();
 
-        Task AddProductAsync(WishList wishList);
+        Task AddProductAsync(Product product);
 
         WishList GetUserByUserName(string str);
     }

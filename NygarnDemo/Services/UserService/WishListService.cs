@@ -5,33 +5,34 @@ namespace NygarnDemo.Services.UserService
 {
     public class WishListService : IWishListService
     {
-        public NygarnDbService _dbService; 
+        public WishListDbService _dbService; 
         private List<Product> Products { get; set; }
 
         public WishListService(WishListDbService dbService)
         {
             //WishList = GetAllProducts();
             _dbService = dbService;
-            Products = _dbService.GetWishLists().Result.ToList(); 
-            _dbService.SaveProduct(Products);
+            //Products = _dbService.GetWishList().Result.ToList(); 
+            //_dbService.SaveProduct(Products);
         }
 
-        public List<Product> GetWishLists()
-        {
-            return Products;
-        }
+        //public List<Product> GetWishLists()
+        //{
+        //    return WishList;
+        //}
 
         public List<Product> GetWishList()
         {
             throw new NotImplementedException();
         }
 
-        public Task AddProductAsync(WishList wishList)
+
+        public WishList GetUserByUserName(string str)
         {
             throw new NotImplementedException();
         }
 
-        public WishList GetUserByUserName(string str)
+        public Task AddProductAsync(Product product)
         {
             throw new NotImplementedException();
         }

@@ -10,7 +10,7 @@ namespace NygarnDemo.Models
         public int OrderId { get; set; }
 
         [Required]
-        public int Id { get; set; } //UserId
+        public int Id { get; set; } //Id
 
         public User User { get; set; }
 
