@@ -32,10 +32,7 @@ namespace NygarnDemo.Models
             Product = product;
             Date = DateTime.Now;
         }
-
-
-
-        //public virtual ICollection<OrderLine> OrderLines { get; set; }
+        public virtual ICollection<OrderLine> OrderLines { get; set; }
 
 
     }

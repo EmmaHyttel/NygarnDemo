@@ -1,62 +1,66 @@
-﻿namespace NygarnDemo.Services.DbServices
+﻿using Microsoft.EntityFrameworkCore;
+using NygarnDemo.EFDbContext;
+using NygarnDemo.Services.Interfaces;
+
+namespace NygarnDemo.Services.DbServices
 {
-    public class OrderDbService
+    public class OrderDbService<T> : IOrderService<T> where T : class
     {
-        //    public async Task<IEnumerable<T>> GetObjectsAsync()
-        //    {
-        //        using (var context = new DbContext())
-        //        {
-        //            return await context.Set<T>().AsNoTracking().ToListAsync();
-        //        }
-        //    }
+        public async Task AddObjectAsync(T obj)
+        {
+            using (var context = new NygarnDbContext())
+            {
+                context.Set<T>().Add(obj);
+                await context.SaveChangesAsync();
+            }
+        }
 
-        //    public async Task AddObjectAsync(T obj)
-        //    {
-        //        using (var context = new ItemDbContext())
-        //        {
-        //            context.Set<T>().Add(obj);
-        //            await context.SaveChangesAsync();
-        //        }
-        //    }
+        public async Task DeleteObjectAsync(T obj)
+        {
+            using (var context = new NygarnDbContext())
+            {
+                context.Set<T>().Remove(obj);
+                await context.SaveChangesAsync();
+            }
+        }
 
-        //    public async Task DeleteObjectAsync(T obj)
-        //    {
-        //        using (var context = new ItemDbContext())
-        //        {
-        //            context.Set<T>().Remove(obj);
-        //            await context.SaveChangesAsync();
-        //        }
-        //    }
+        public async Task<T> GetObjectByIdAsync(int id)
+        {
+            using (var context = new NygarnDbContext())
+            {
+                return await context.Set<T>().FindAsync(id);
+            }
+        }
 
-        //    public async Task UpdateObjectAsync(T obj)
-        //    {
-        //        using (var context = new ItemDbContext())
-        //        {
-        //            context.Set<T>().Update(obj);
-        //            await context.SaveChangesAsync();
-        //        }
-        //    }
+        public async Task<IEnumerable<T>> GetObjectsAsync()
+        {
+            using (var context = new NygarnDbContext())
+            {
+                return await context.Set<T>().AsNoTracking().ToListAsync();
+            }
+        }
 
-        //    public async Task<T> GetObjectByIdAsync(int id)
-        //    {
-        //        using (var context = new ItemDbContext())
-        //        {
-        //            return await context.Set<T>().FindAsync(id);
-        //        }
-        //    }
+        public async Task UpdateObjectAsync(T obj)
+        {
+            using (var context = new NygarnDbContext())
+            {
+                context.Set<T>().Update(obj);
+                await context.SaveChangesAsync();
+            }
+        }
 
-        //    public async Task SaveObjects(List<T> objs)
-        //    {
-        //        using (var context = new ItemDbContext())
-        //        {
-        //            foreach (T obj in objs)
-        //            {
-        //                context.Set<T>().Add(obj);
-        //                context.SaveChanges();
-        //            }
+        public async Task SaveObjects(List<T> objs)
+        {
+            using (var context = new NygarnDbContext())
+            {
+                foreach (T obj in objs)
+                {
+                    context.Set<T>().Add(obj);
+                    context.SaveChanges();
+                }
 
-        //            context.SaveChanges();
-        //        }
-        //    }
+                context.SaveChanges();
+            }
+        }
     }
 }

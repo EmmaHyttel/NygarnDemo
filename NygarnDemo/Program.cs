@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NygarnDemo.EFDbContext;
+using NygarnDemo.Models;
 using NygarnDemo.Services;
 using NygarnDemo.Services.DbServices;
 using NygarnDemo.Services.Interfaces;
@@ -29,7 +30,7 @@ builder.Services.AddSingleton<CrochetHookDbService, CrochetHookDbService>();
 builder.Services.AddSingleton<ToolDbService, ToolDbService>();
 builder.Services.AddSingleton<YarnDbService, YarnDbService>();
 builder.Services.AddSingleton<UserDbService, UserDbService>();
-builder.Services.AddSingleton<OrderDbService, OrderDbService>();
+builder.Services.AddTransient<OrderDbService<Order>, OrderDbService<Order>>();
 builder.Services.AddSingleton<KnittingNeedleDbService, KnittingNeedleDbService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.Configure<CookiePolicyOptions>(options => {

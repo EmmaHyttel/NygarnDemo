@@ -5,6 +5,7 @@ namespace NygarnDemo.Services.DbServices
 {
     public class UserDbService
     {
+        
         public async Task<List<Models.User>> GetUsers()
         {
             using (var context = new NygarnDbContext())
@@ -34,5 +35,21 @@ namespace NygarnDemo.Services.DbServices
                 context.SaveChanges();
             }
         }
+
+        //public async Task<Models.User> GetOrdersByUserIdAsync(int id)
+        //{
+        //    Models.User user;
+
+        //    using (var context = new NygarnDbContext())
+        //    {
+        //        user = context.Users
+        //        .Include(u => u.Order)
+        //        .ThenInclude(i => i.Product)
+        //        .AsNoTracking()
+        //        .FirstOrDefault(u => u.Id == id);
+        //    }
+
+        //    return user;
+        //}
     }
 }

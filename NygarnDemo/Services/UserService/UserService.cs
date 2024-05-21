@@ -39,5 +39,10 @@ namespace NygarnDemo.Services.User
         {
             await _userDbService.AddUser(user);
         }
+
+        //public async Task<Models.User> GetUserOrdersAsync(Models.User user)
+        //{
+        //    return await _userDbService.GetOrdersByUserIdAsync(user.Id);
+        //}
     }
 }
