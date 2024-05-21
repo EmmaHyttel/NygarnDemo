@@ -179,7 +179,7 @@ public class NygarnDbContext : DbContext
                 .HasData(
                     new Tool()
                     {
-                        ProductId = 1,
+                        ProductId = 6,
                         Price = 30,
                         Name = "Babyknap",
                         Description = "Rigtig fine små knapper, der passer perfekt til lukningen på en bodystocking",
@@ -190,7 +190,7 @@ public class NygarnDbContext : DbContext
                     },
                     new Tool()
                     {
-                        ProductId = 2,
+                        ProductId = 7,
                         Price = 25,
                         Name = "Målebånd",
                         Description = "Fuldstændig præcis målebånd",
@@ -201,7 +201,7 @@ public class NygarnDbContext : DbContext
                     },
                     new Tool()
                     {
-                        ProductId = 3,
+                        ProductId = 8,
                         Price = 40,
                         Name = "Bamsefyld",
                         Description = "Super blødt bamsefyld til dit næste hækleprojekt",
@@ -216,12 +216,12 @@ public class NygarnDbContext : DbContext
                  .HasData(
                      new KnittingNeedle()
                      {
-                         ProductId = 1,
+                         ProductId = 9,
                          Price = 149,
                          Name = "KnitPro",
                          Description = "Gode til alt",
-                         Brand = "PetitKnit",
-                         Amount = 2,
+                         Brand = "KnitPro",
+                         Amount = 1,
                          Type = NeedleType.Rundpinde,
                          Material = NeedleAndHookMaterial.plastik,
                          Size = Size.Size30mm,
@@ -229,12 +229,12 @@ public class NygarnDbContext : DbContext
                      },
                      new KnittingNeedle()
                      {
-                         ProductId = 2,
+                         ProductId = 10,
                          Price = 499,
                          Name = "Hot",
                          Description = "Dejlig store",
-                         Brand = "PetitKnit",
-                         Amount = 2,
+                         Brand = "KnitPro",
+                         Amount = 1,
                          Type = NeedleType.Jumperpinde,
                          Material = NeedleAndHookMaterial.bambus,
                          Size = Size.Size40mm,
@@ -242,12 +242,12 @@ public class NygarnDbContext : DbContext
                      },
                      new KnittingNeedle()
                      {
-                         ProductId = 3,
+                         ProductId = 11,
                          Price = 140,
                          Name = "KnitPro",
                          Description = "Gode til alt",
-                         Brand = "PetitKnit",
-                         Amount = 2,
+                         Brand = "KnitPro",
+                         Amount = 1,
                          Type = NeedleType.Rundpinde,
                          Material = NeedleAndHookMaterial.plastik,
                          Size = Size.Size30mm,
@@ -255,11 +255,11 @@ public class NygarnDbContext : DbContext
                      }
                      );
 
-        modelBuilder.Entity<CrochetHook>().ToTable("HookTable")
+        modelBuilder.Entity<CrochetHook>().ToTable("CrochetHookTable")
                 .HasData(
                 new CrochetHook()
                 {
-                    ProductId = 1,
+                    ProductId = 12,
                     Price = 49,
                     Name = "Knyt",
                     Description = "Gode til alt",
@@ -272,7 +272,7 @@ public class NygarnDbContext : DbContext
 
                 new CrochetHook()
                 {
-                    ProductId = 2,
+                    ProductId = 13,
                     Price = 149,
                     Name = "KnitPro",
                     Description = "Gode til alt",
@@ -285,7 +285,7 @@ public class NygarnDbContext : DbContext
 
                 new CrochetHook()
                 {
-                    ProductId = 3,
+                    ProductId = 14,
                     Price = 599,
                     Name = "NeedlePickled",
                     Description = "",
@@ -305,6 +305,7 @@ public class NygarnDbContext : DbContext
         //    .HasOne(ol => ol.Order)
         //    .WithMany(o => o.OrderLine)
         //    .HasForeignKey(ol => ol.OrderId);
+        //    .OnDelete(DeleteBehavior.Cascade);
 
         //modelBuilder.Entity<OrderLine>()
         //    .HasOne(ol => ol.Yarn)

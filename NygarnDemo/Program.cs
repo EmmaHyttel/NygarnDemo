@@ -19,7 +19,7 @@ builder.Services.AddSingleton<ICrochetHookService, CrochetHookService>();
 builder.Services.AddSingleton<IYarnService, YarnService>();
 builder.Services.AddSingleton<IKnittingNeedleService, KnittingNeedleService>();
 builder.Services.AddSingleton<IToolService, ToolService>();
-builder.Services.AddDbContext<Microsoft.EntityFrameworkCore.DbContext>();
+builder.Services.AddDbContext<NygarnDbContext>();
 //builder.Services.AddDbContext<ToolDbContext>();
 //builder.Services.AddDbContext<UserDbContext>();
 //builder.Services.AddDbContext<NeedleDbContext>();
