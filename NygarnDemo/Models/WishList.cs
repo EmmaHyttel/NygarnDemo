@@ -1,19 +1,51 @@
-﻿namespace NygarnDemo.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace NygarnDemo.Models
 {
     public class WishList
     {
-        public string  User { get; set; }
+        [Key]
+        public int WishListId { get; set; }
 
-        public List<WishList> wishLists { get; set; }
+        [ForeignKey("ProductId")]
+        public int ProductId { get; set; }
+       
+        public int UserId { get; set; }
 
-        public WishList(string user, List<WishList> wishLists)
+        public CrochetHook CrochetHook { get; set; }
+
+        public KnittingNeedle KnittingNeedle { get; set; }
+
+        public Pattern Pattern { get; set; }
+
+        public Yarn Yarn { get; set; }
+
+        public Tool Tool { get; set; }
+
+        [ForeignKey("Id")]
+        public User User { get; set; }
+        public List<Product> Products { get; set; } = new List<Product>();
+
+        public WishList(int wishListId, int productId, int userId, CrochetHook crochetHook, 
+            KnittingNeedle knittingNeedle, Pattern pattern, Yarn yarn, Tool tool, User user, 
+            List<Product> products)
         {
+            WishListId = wishListId;
+            ProductId = productId;
+            UserId = userId;
+            CrochetHook = crochetHook;
+            KnittingNeedle = knittingNeedle;
+            Pattern = pattern;
+            Yarn = yarn;
+            Tool = tool;
             User = user;
-            wishLists = new List<WishList>();
-
+            Products = products;
         }
+
         public WishList()
         {
+
         }
     }
 }

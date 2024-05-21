@@ -24,10 +24,9 @@ public class NygarnDbContext : DbContext
     public DbSet<Yarn> Yarn { get; set; }
     public DbSet<User> User { get; set; }
     public DbSet<Tool> Tool { get; set; }
-    //public DbSet<OrderLine> OrderLine { get; set; }
     public DbSet<KnittingNeedle> KnittingNeedle { get; set; }
     public DbSet<CrochetHook> CrochetHook { get; set; }
-    //public DbSet<Order> Order { get; set; }
+    
 
     private User ReturnUserWithHashedPassword(User user)
     {
@@ -38,90 +37,90 @@ public class NygarnDbContext : DbContext
         return user;
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
-	{
-		modelBuilder.Entity<Yarn>().ToTable("YarnTable")
-			.HasData(
-				new Yarn()
-				{
-					ProductId = 1,
-					Price = 99,
-					Name = "Luksus garn",
-					Description = "Meget luksus garn, ikke egnet til påklædning.",
-					Brand = "Sandnes",
-					Amount = 10,
-					Color = Color.Rød,
-					KnittingTension = "KnittingTension10mX10cm",
-					Yardage = "Yardage400mPr50g",
-					Material = Material.Alpakka,
-					Weight = 100,
-					SuggestedNeedleSize = Size.Size25mm,
-					MachineWash = false
-				},
-				new Yarn()
-				{
-					ProductId = 2,
-					Price = 49,
-					Name = "Saga",
-					Description = "Meget luksus garn, ikke egnet til påklædning.",
-					Brand = "Sandne",
-					Amount = 10,
-					Color = Color.Rød,
-					KnittingTension = "KnittingTension10mX10cm",
-					Yardage = "Yardage400mPr50g",
-					Material = Material.Alpakka,
-					Weight = 100,
-					SuggestedNeedleSize = Size.Size25mm,
-					MachineWash = false
-				},
-				new Yarn()
-				 {
-					 ProductId = 3,
-					 Color = Color.Beige,
-					 KnittingTension = "knittingTension21mX10cm",
-					 Yardage = "Yardage215mPr50g",
-					 Material = Material.Mohair,
-					 Weight = 50,
-					 SuggestedNeedleSize = Size.Size20mm,
-					 MachineWash = true,
-					 Price = 79,
-					 Name = "MyHair",
-					 Description = "Vildt lækkert mohair garn til din næste sweater",
-					 Brand = "Sandnes",
-					 Amount = 1
-				},
-				new Yarn()
-				{
-					ProductId = 4,
-					Color = Color.Beige,
-					KnittingTension = "knittingTension25mX10cm",
-					Yardage = "Yardage300mPr50g",
-					Material = Material.Alpakka,
-					Weight = 50,
-					SuggestedNeedleSize = Size.Size30mm,
-					MachineWash = true,
-					Price = 69,
-					Name = "MaLamaa",
-					Description = "Vildt lækkert alpakka garn til dit næste tørklæde",
-					Brand = "Petitknit",
-					Amount = 1
-				},
-				new Yarn()
-				{
-					ProductId = 5,
-					Color = Color.Rød,
-					KnittingTension = "knittingTension30mX10cm",
-					Yardage = "Yardage400mPr50g",
-					Material = Material.Silke,
-					Weight = 50,
-					SuggestedNeedleSize = Size.Size40mm,
-					MachineWash = false,
-					Price = 75,
-					Name = "SlikkeSilke",
-					Description = "Vildt lækkert silke garn til dit næste hårbånd",
-					Brand = "Petitknit",
-					Amount = 1
-				}
-				);
+    {
+        modelBuilder.Entity<Yarn>().ToTable("Yarn")
+            .HasData(
+                new Yarn()
+                {
+                    ProductId = 1,
+                    Price = 99,
+                    Name = "Luksus garn",
+                    Description = "Meget luksus garn, ikke egnet til påklædning.",
+                    Brand = "Sandnes",
+                    Amount = 10,
+                    Color = Color.Rød,
+                    KnittingTension = "KnittingTension10mX10cm",
+                    Yardage = "Yardage400mPr50g",
+                    Material = Material.Alpakka,
+                    Weight = 100,
+                    SuggestedNeedleSize = Size.Size25mm,
+                    MachineWash = false
+                },
+                new Yarn()
+                {
+                    ProductId = 2,
+                    Price = 49,
+                    Name = "Saga",
+                    Description = "Meget luksus garn, ikke egnet til påklædning.",
+                    Brand = "Sandne",
+                    Amount = 10,
+                    Color = Color.Rød,
+                    KnittingTension = "KnittingTension10mX10cm",
+                    Yardage = "Yardage400mPr50g",
+                    Material = Material.Alpakka,
+                    Weight = 100,
+                    SuggestedNeedleSize = Size.Size25mm,
+                    MachineWash = false
+                },
+                new Yarn()
+                {
+                    ProductId = 3,
+                    Color = Color.Beige,
+                    KnittingTension = "knittingTension21mX10cm",
+                    Yardage = "Yardage215mPr50g",
+                    Material = Material.Mohair,
+                    Weight = 50,
+                    SuggestedNeedleSize = Size.Size20mm,
+                    MachineWash = true,
+                    Price = 79,
+                    Name = "MyHair",
+                    Description = "Vildt lækkert mohair garn til din næste sweater",
+                    Brand = "Sandnes",
+                    Amount = 1
+                },
+                new Yarn()
+                {
+                    ProductId = 4,
+                    Color = Color.Beige,
+                    KnittingTension = "knittingTension25mX10cm",
+                    Yardage = "Yardage300mPr50g",
+                    Material = Material.Alpakka,
+                    Weight = 50,
+                    SuggestedNeedleSize = Size.Size30mm,
+                    MachineWash = true,
+                    Price = 69,
+                    Name = "MaLamaa",
+                    Description = "Vildt lækkert alpakka garn til dit næste tørklæde",
+                    Brand = "Petitknit",
+                    Amount = 1
+                },
+                new Yarn()
+                {
+                    ProductId = 5,
+                    Color = Color.Rød,
+                    KnittingTension = "knittingTension30mX10cm",
+                    Yardage = "Yardage400mPr50g",
+                    Material = Material.Silke,
+                    Weight = 50,
+                    SuggestedNeedleSize = Size.Size40mm,
+                    MachineWash = false,
+                    Price = 75,
+                    Name = "SlikkeSilke",
+                    Description = "Vildt lækkert silke garn til dit næste hårbånd",
+                    Brand = "Petitknit",
+                    Amount = 1
+                }
+                );
 
         modelBuilder.Entity<User>().ToTable("User")
             .HasData(
@@ -175,7 +174,7 @@ public class NygarnDbContext : DbContext
               })
                 );
 
-        modelBuilder.Entity<Tool>().ToTable("ToolTable")
+        modelBuilder.Entity<Tool>().ToTable("Tool")
                 .HasData(
                     new Tool()
                     {
@@ -212,7 +211,7 @@ public class NygarnDbContext : DbContext
                     }
                     );
 
-        modelBuilder.Entity<KnittingNeedle>().ToTable("KnittingNeedleTable")
+        modelBuilder.Entity<KnittingNeedle>().ToTable("KnittingNeedle")
                  .HasData(
                      new KnittingNeedle()
                      {
@@ -255,7 +254,7 @@ public class NygarnDbContext : DbContext
                      }
                      );
 
-        modelBuilder.Entity<CrochetHook>().ToTable("CrochetHookTable")
+        modelBuilder.Entity<CrochetHook>().ToTable("CrochetHook")
                 .HasData(
                 new CrochetHook()
                 {
@@ -296,45 +295,6 @@ public class NygarnDbContext : DbContext
                     Set = false
 
                 }
-
                 );
-        //modelBuilder.Entity<OrderLine>().ToTable("OrderLineTable")
-        //        .HasKey(ol => new { ol.OrderId, ol.ProductId });
-
-        //modelBuilder.Entity<OrderLine>()
-        //    .HasOne(ol => ol.Order)
-        //    .WithMany(o => o.OrderLine)
-        //    .HasForeignKey(ol => ol.OrderId);
-        //    .OnDelete(DeleteBehavior.Cascade);
-
-        //modelBuilder.Entity<OrderLine>()
-        //    .HasOne(ol => ol.Yarn)
-        //    .WithMany(y => y.OrderLine)
-        //    .HasForeignKey(ol => ol.ProductId)
-        //    .OnDelete(DeleteBehavior.Restrict);
-
-        //modelBuilder.Entity<OrderLine>()
-        //    .HasOne(ol => ol.Tool)
-        //    .WithMany(t => t.OrderLine)
-        //    .HasForeignKey(ol => ol.ProductId)
-        //    .OnDelete(DeleteBehavior.Restrict);
-
-        //modelBuilder.Entity<OrderLine>()
-        //    .HasOne(ol => ol.KnittingNeedle)
-        //    .WithMany(kn => kn.OrderLine)
-        //    .HasForeignKey(ol => ol.ProductId)
-        //    .OnDelete(DeleteBehavior.Restrict);
-
-        //modelBuilder.Entity<OrderLine>()
-        //    .HasOne(ol => ol.CrochetHook)
-        //    .WithMany(ch => ch.OrderLine)
-        //    .HasForeignKey(ol => ol.ProductId)
-        //    .OnDelete(DeleteBehavior.Restrict);
-
-        //modelBuilder.Entity<OrderLine>()
-        //    .HasOne(ol => ol.Pattern)
-        //    .WithMany(p => p.OrderLineTable)
-        //    .HasForeignKey(ol => ol.ProductId)
-        //    .OnDelete(DeleteBehavior.Restrict);
     }
 }

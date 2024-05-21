@@ -10,6 +10,7 @@ using NygarnDemo.Services.DbServices;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Services.ProductServices;
 using NygarnDemo.Services.User;
+using NygarnDemo.Services.UserService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,18 +22,15 @@ builder.Services.AddSingleton<IYarnService, YarnService>();
 builder.Services.AddSingleton<IKnittingNeedleService, KnittingNeedleService>();
 builder.Services.AddSingleton<IToolService, ToolService>();
 builder.Services.AddDbContext<NygarnDbContext>();
-//builder.Services.AddDbContext<ToolDbContext>();
-//builder.Services.AddDbContext<UserDbContext>();
-//builder.Services.AddDbContext<NeedleDbContext>();
-//builder.Services.AddDbContext<HookDbContext>();
-//builder.Services.AddDbContext<OrderLineDbContext>();
 builder.Services.AddSingleton<CrochetHookDbService, CrochetHookDbService>();
+builder.Services.AddSingleton<IWishListService, WishListService>();
 builder.Services.AddSingleton<ToolDbService, ToolDbService>();
 builder.Services.AddSingleton<YarnDbService, YarnDbService>();
 builder.Services.AddSingleton<UserDbService, UserDbService>();
 builder.Services.AddTransient<OrderDbService<Order>, OrderDbService<Order>>();
 builder.Services.AddSingleton<KnittingNeedleDbService, KnittingNeedleDbService>();
 builder.Services.AddSingleton<IUserService, UserService>();
+builder.Services.AddSingleton<WishListDbService, WishListDbService>();
 builder.Services.Configure<CookiePolicyOptions>(options => {
     // This lambda determines whether user consent for non-essential cookies is needed for a given request. options.CheckConsentNeeded = context => true; 
     options.MinimumSameSitePolicy = SameSiteMode.None;
