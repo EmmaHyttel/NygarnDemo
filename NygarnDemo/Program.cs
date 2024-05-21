@@ -23,11 +23,11 @@ builder.Services.AddSingleton<IKnittingNeedleService, KnittingNeedleService>();
 builder.Services.AddSingleton<IToolService, ToolService>();
 builder.Services.AddDbContext<NygarnDbContext>();
 builder.Services.AddSingleton<CrochetHookDbService, CrochetHookDbService>();
-builder.Services.AddSingleton<WishListService, WishListService>();
+//builder.Services.AddSingleton<WishListService, WishListService>();
 builder.Services.AddSingleton<ToolDbService, ToolDbService>();
 builder.Services.AddSingleton<YarnDbService, YarnDbService>();
 builder.Services.AddSingleton<UserDbService, UserDbService>();
-builder.Services.AddTransient<OrderDbService<Order>, OrderDbService<Order>>();
+builder.Services.AddTransient<GenericDbService<Order>, GenericDbService<Order>>();
 builder.Services.AddSingleton<KnittingNeedleDbService, KnittingNeedleDbService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.Configure<CookiePolicyOptions>(options => {

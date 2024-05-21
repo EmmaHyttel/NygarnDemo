@@ -4,7 +4,7 @@ using NygarnDemo.Services.Interfaces;
 
 namespace NygarnDemo.Services.DbServices
 {
-    public class OrderDbService<T> : IOrderService<T> where T : class
+    public class GenericDbService<T> : IService<T> where T : class
     {
         public async Task AddObjectAsync(T obj)
         {

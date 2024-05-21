@@ -7,9 +7,9 @@ namespace NygarnDemo.Services.ProductServices
     {
         public List<Order> OrderList { get; set; }
 
-        public OrderDbService<Order> _dbService { get; set; }
+        public GenericDbService<Order> _dbService { get; set; }
 
-        public OrderService(OrderDbService<Order> dbService)
+        public OrderService(GenericDbService<Order> dbService)
         {
             _dbService = dbService;
             OrderList = _dbService.GetObjectsAsync().Result.ToList();

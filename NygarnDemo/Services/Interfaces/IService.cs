@@ -1,6 +1,6 @@
 ﻿namespace NygarnDemo.Services.Interfaces
 {
-    public interface IOrderService<T>
+    public interface IService<T>
     {
         Task<IEnumerable<T>> GetObjectsAsync();
         Task AddObjectAsync(T obj);
