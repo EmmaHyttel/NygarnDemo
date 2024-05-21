@@ -27,6 +27,4 @@ public class Pattern : Product
         Fits = 0;
         FreePattern = false;
     }
-
-    public ICollection<OrderLine> OrderLines { get; set; }
 }

@@ -28,7 +28,6 @@ public class Tool : Product
         Size = "";
     }
 
-    public ICollection<OrderLine> OrderLines { get; set; }
 }
 
 
