@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NygarnDemo.Models;
 
-public class Product
+public abstract class Product
 {
 	//private static ProductIdGenerator _idGenerator = new ProductIdGenerator();
     [Key]
