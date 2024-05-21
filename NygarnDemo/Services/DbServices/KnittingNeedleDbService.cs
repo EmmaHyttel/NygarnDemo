@@ -8,27 +8,27 @@ namespace NygarnDemo.Services.DbServices
     {
         public async Task<List<KnittingNeedle>> GetKnittingNeedles()
         {
-            using (var context = new NeedleDbContext())
+            using (var context = new NygarnDbContext())
             {
-                return await context.KnittingNeedles.ToListAsync();
+                return await context.KnittingNeedle.ToListAsync();
             }
         }
         public async Task AddKnittingNeedle(KnittingNeedle knittingNeedle)
         {
-            using (var context = new NeedleDbContext())
+            using (var context = new NygarnDbContext())
             {
-                context.KnittingNeedles.Add(knittingNeedle);
+                context.KnittingNeedle.Add(knittingNeedle);
                 context.SaveChanges();
             }
         }
 
         public async Task SaveKnittingNeedles(List<KnittingNeedle> knittingNeedles)
         {
-            using (var context = new NeedleDbContext())
+            using (var context = new NygarnDbContext())
             {
                 foreach (KnittingNeedle knitting in knittingNeedles)
                 {
-                    context.KnittingNeedles.Add(knitting);
+                    context.KnittingNeedle.Add(knitting);
                     context.SaveChanges();
                 }
 

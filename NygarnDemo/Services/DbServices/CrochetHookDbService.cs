@@ -8,14 +8,14 @@ namespace NygarnDemo.Services.DbServices
     {
         public async Task<List<CrochetHook>> GetCrochetHooks()
         {
-            using (var context = new HookDbContext())
+            using (var context = new NygarnDbContext())
             {
                 return await context.CrochetHook.ToListAsync();
             }
         }
         public async Task AddCrochetHook(CrochetHook crochetHook)
         {
-            using (var context = new HookDbContext())
+            using (var context = new NygarnDbContext())
             {
                 context.CrochetHook.Add(crochetHook);
                 context.SaveChanges();
@@ -24,7 +24,7 @@ namespace NygarnDemo.Services.DbServices
 
         public async Task SaveCrochetHooks(List<CrochetHook> crochetHooks)
         {
-            using (var context = new HookDbContext())
+            using (var context = new NygarnDbContext())
             {
                 foreach (CrochetHook hook in crochetHooks)
                 {

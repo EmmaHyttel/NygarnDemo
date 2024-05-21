@@ -12,16 +12,16 @@ namespace NygarnDemo.Pages.Product.YarnPages
 {
     public class GetAllYarnProductsModel : PageModel
     {
-        private readonly YarnDbContext _yarnContext;
+        private readonly NygarnDbContext _dbContext;
         private IYarnService _yarnService;
 
         public bool IsAdmin { get; private set; }
 
 
-        public GetAllYarnProductsModel(IYarnService yarnService, YarnDbContext yarnContext)
+        public GetAllYarnProductsModel(IYarnService yarnService, NygarnDbContext yarnContext)
         {
             _yarnService = yarnService;
-            _yarnContext = yarnContext;
+            _dbContext = yarnContext;
         }
 
         public IList<Yarn>? YarnProducts { get; private set; }
@@ -77,7 +77,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public async Task OnGetAsync()
         {
             //YarnProducts = _yarnService.GetYarnProducts();
-            YarnProducts = await _yarnContext.YarnProducts.ToListAsync();
+            YarnProducts = await _dbContext.Yarn.ToListAsync();
             IsAdmin = HttpContext.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin");
         }
 

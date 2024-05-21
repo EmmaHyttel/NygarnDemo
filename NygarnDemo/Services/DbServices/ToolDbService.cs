@@ -8,17 +8,17 @@ public class ToolDbService
 {
     public async Task<List<Tool>> GetTools()
     {
-        using (var context = new ToolDbContext())
+        using (var context = new NygarnDbContext())
         {
-            return await context.ToolProducts.ToListAsync();
+            return await context.Tool.ToListAsync();
         }
     }
 
     public async Task AddTools(Tool tool)
     {
-        using (var context = new ToolDbContext())
+        using (var context = new NygarnDbContext())
         {
-            await context.ToolProducts.AddAsync(tool);
+            await context.Tool.AddAsync(tool);
             await context.SaveChangesAsync();
         }
     }
@@ -26,11 +26,11 @@ public class ToolDbService
 
     public async Task SaveTools(List<Tool> tools)
     {
-        using (var context = new ToolDbContext())
+        using (var context = new NygarnDbContext())
         {
             foreach (Tool tool in tools)
             {
-                await context.ToolProducts.AddAsync(tool);
+                await context.Tool.AddAsync(tool);
             }
 
             await context.SaveChangesAsync();
@@ -39,18 +39,18 @@ public class ToolDbService
 
     public async Task DeleteToolAsync(Tool tool)
     {
-        using (var context = new ToolDbContext())
+        using (var context = new NygarnDbContext())
         {
-            context.ToolProducts.Remove(tool);
+            context.Tool.Remove(tool);
             await context.SaveChangesAsync();
         }
     }
 
     public async Task UpdateTool(Tool tool)
     {
-        using (var context = new ToolDbContext())
+        using (var context = new NygarnDbContext())
         {
-            context.ToolProducts.Update(tool);
+            context.Tool.Update(tool);
             await context.SaveChangesAsync();
         }
     }
