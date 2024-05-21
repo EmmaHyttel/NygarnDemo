@@ -26,7 +26,7 @@ public class NygarnDbContext : DbContext
     public DbSet<Tool> Tool { get; set; }
     public DbSet<KnittingNeedle> KnittingNeedle { get; set; }
     public DbSet<CrochetHook> CrochetHook { get; set; }
-    public DbSet<WishList> WishList { get; set; }
+    //public DbSet<WishList> WishList { get; set; }
 
 
     private User ReturnUserWithHashedPassword(User user)
@@ -298,6 +298,6 @@ public class NygarnDbContext : DbContext
                 }
                 );
 
-        modelBuilder.Entity<WishList>().ToTable("WishList");
+        //modelBuilder.Entity<WishList>().ToTable("WishList");
     }
 }
