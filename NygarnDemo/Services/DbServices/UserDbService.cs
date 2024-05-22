@@ -13,6 +13,8 @@ namespace NygarnDemo.Services.DbServices
                 return await context.User.ToListAsync();
             }
         }
+
+
         public async Task AddUser(Models.User user)
         {
             using (var context = new NygarnDbContext())

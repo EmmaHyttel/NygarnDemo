@@ -2,60 +2,69 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using NygarnDemo.Models;
 using NygarnDemo.Services.User;
 using System.ComponentModel.DataAnnotations;
 
-namespace NygarnDemo.Pages.Users
+namespace NygarnDemo.Pages.Users;
+
+//[Authorize(Roles = "admin")]
+public class CreateUserModel : PageModel
 {
-    //[Authorize(Roles = "admin")]
-    public class CreateUserModel : PageModel
+    private IUserService _userService;
+
+    [BindProperty]
+    public string UserName { get; set; }
+    [BindProperty]
+    public string Name { get; set; }
+    [BindProperty]
+    public string LastName { get; set; }
+
+    [BindProperty, DataType(DataType.Password)]
+    public string Password { get; set; }
+    [BindProperty]
+    public string Address { get; set; }
+    [BindProperty]
+    public string Phone { get; set; }
+    [BindProperty]
+    public string Email { get; set; }
+
+    private PasswordHasher<string> passwordHasher;
+
+    //public CreateUserModel()
+    //{
+    //}
+
+    public CreateUserModel(IUserService userService)
     {
-        private IUserService _userService;
+       _userService = userService;
+        passwordHasher = new PasswordHasher<string>();
+    }
 
-        [BindProperty]
-        public string UserName { get; set; }
-        [BindProperty]
-        public string Name { get; set; }
-        [BindProperty]
-        public string LastName { get; set; }
+    
 
-        [BindProperty, DataType(DataType.Password)]
-        public string Password { get; set; }
-        [BindProperty]
-        public string Address { get; set; }
-        [BindProperty]
-        public string Phone { get; set; }
-        [BindProperty]
-        public string Email { get; set; }
+    public IActionResult OnGet()
+    {
+        return Page();
+    }
 
-        private PasswordHasher<string> passwordHasher;
-
-        //public CreateUserModel()
-        //{
-        //}
-
-        public CreateUserModel(IUserService userService)
-        {
-           _userService = userService;
-            passwordHasher = new PasswordHasher<string>();
-        }
-
-
-        public IActionResult OnGet()
+    public async Task<IActionResult> OnPost()
+    {
+        if (!ModelState.IsValid)
         {
             return Page();
         }
+        //try
+        //{
+        //    _userService.GetUserByUserName(UserName);
+        //    return RedirectToAction("Success");
+        //}
+        //catch (Exception ex)
+        //{
+        //    ModelState.AddModelError("UserName", ex.Message);
 
-        public async Task<IActionResult> OnPost()
-        {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-            await _userService.AddUserAsync(new Models.User(UserName, Name, LastName, passwordHasher.HashPassword(UserName, Password), Address, Phone, Email));
-            return RedirectToPage("/LogIn/LogInPage");
-        }
-
+        await _userService.AddUserAsync(new Models.User(UserName, Name, LastName, passwordHasher.HashPassword(UserName, Password), Address, Phone, Email));
+        return RedirectToPage("/LogIn/LogInPage");
     }
 }
