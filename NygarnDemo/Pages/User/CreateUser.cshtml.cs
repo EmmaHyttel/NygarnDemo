@@ -71,7 +71,5 @@ public class CreateUserModel : PageModel
             ModelState.AddModelError("UserName", ex.Message); 
             return Page();
         }
-
-        //await _userService.AddUserAsync(new Models.User(UserName, Name, LastName, passwordHasher.HashPassword(UserName, Password), Address, Phone, Email));
     }
 }
