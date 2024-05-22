@@ -115,7 +115,11 @@
                         <p class="card-text"> Løbelængde: @yarnProduct.Yardage</p>
                         <p class="card-text"> Anbefalede Pinde: @yarnProduct.SuggestedNeedleSize</p>
                         <p class="card-text"> Maskinevask: @yarnProduct.MachineWash</p>
-                        <a href="#" class="btn btn-primary">Kom i kurv</a>
+
+                            <form method="post">
+                                <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId" />
+                                <button class="btn btn-primary" type="submit" asp-page-handler="AddToCart">Kom i kurv</button>
+                            </form>
                             @if (Model.IsAdmin)
                             {
                                 @* <form asp-page="EditYarn" asp-route-id="@yarnProduct.ProductId" method="post" class="d-inline">

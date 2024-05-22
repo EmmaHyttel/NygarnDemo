@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NygarnDemo.EFDbContext;
-using NygarnDemo.Enums;
-using NygarnDemo.MockData;
+﻿using NygarnDemo.Enums;
 using NygarnDemo.Models;
 using NygarnDemo.Services.DbServices;
 using NygarnDemo.Services.Interfaces;
@@ -11,25 +8,16 @@ namespace NygarnDemo.Services.ProductServices;
 
 public class YarnService : IYarnService
     {
-        private YarnDbService _dbService;
-        public List<Yarn>? YarnProducts { get; set; }
+        private readonly YarnDbService _dbService;
 
         public YarnService(YarnDbService dbService)
         {
-        //YarnProducts = MockYarn.GetAllYarnProducts();
-        _dbService = dbService;
-        YarnProducts = _dbService.GetYarnProducts().Result.ToList();
-        _dbService.SaveYarnProducts(YarnProducts);
-    }
+            _dbService = dbService;
+        }
 
-	    //public YarnService()
-	    //{
-	    //	YarnProducts = MockYarn.GetAllYarnProducts();
-	    //}
-
-	    public List<Yarn> GetYarnProducts()
+	    public async Task<List<Yarn>> GetYarnProducts()
         {
-            return YarnProducts;
+            return await _dbService.GetYarnProducts();
         }
 
 	    public async Task AddYarnAsync(Yarn yarn)
@@ -37,10 +25,11 @@ public class YarnService : IYarnService
             await _dbService.AddYarn(yarn);
 	    }
 
-        public IEnumerable<Yarn> NameSearch(string str)
+        public async Task<List<Yarn>> NameSearch(string str)
         {
             List<Yarn> nameSearch = new List<Yarn>();
-            foreach (Yarn yarn in YarnProducts)
+            var yarnProducts = await GetYarnProducts();
+            foreach (Yarn yarn in yarnProducts)
             {
                 if (string.IsNullOrEmpty(str) || yarn.Name.ToLower().Contains(str.ToLower()))
                 {
@@ -51,10 +40,12 @@ public class YarnService : IYarnService
             return nameSearch;
         }
 
-        public IEnumerable<Yarn> PriceFilter(int maxPrice, int minPrice = 0)
+        public async Task<List<Yarn>> PriceFilter(int maxPrice, int minPrice = 0)
         {
             List<Yarn> filterList = new List<Yarn>();
-            foreach (Yarn yarn in YarnProducts)
+            var yarnProducts = await GetYarnProducts();
+
+            foreach (Yarn yarn in yarnProducts)
             {
                 if ((minPrice == 0 && yarn.Price <= maxPrice) || (maxPrice == 0 && yarn.Price >= minPrice) || (yarn.Price >= minPrice && yarn.Price <= maxPrice))
                 {
@@ -65,10 +56,12 @@ public class YarnService : IYarnService
             return filterList;
         }
 
-        public IEnumerable<Yarn> ColorFilter(Enums.Color color)
+        public async Task<List<Yarn>> ColorFilter(Enums.Color color)
         {
             List<Yarn> filterColor = new List<Yarn>();
-            foreach(Yarn yarn in YarnProducts)
+            var yarnProducts = await GetYarnProducts();
+
+            foreach (Yarn yarn in yarnProducts)
             {
                 if (yarn.Color == color)
                 {
@@ -79,10 +72,12 @@ public class YarnService : IYarnService
             return filterColor;
         }
 
-        public IEnumerable<Yarn> MaterialFilter(Material material)
+        public async Task<List<Yarn>> MaterialFilter(Material material)
         {
             List<Yarn> MaterialList = new List<Yarn>();
-            foreach (Yarn yarn in YarnProducts)
+            var yarnProducts = await GetYarnProducts();
+
+            foreach (Yarn yarn in yarnProducts)
             {
                 if (yarn.Material == material)
                 {
@@ -93,10 +88,12 @@ public class YarnService : IYarnService
             return MaterialList;
         }
 
-    public IEnumerable<Yarn> BrandFilter(string str)
+    public async Task<List<Yarn>> BrandFilter(string str)
     {
         List<Yarn> brandFilter = new List<Yarn>();
-        foreach (Yarn yarn in YarnProducts)
+        var yarnProducts = await GetYarnProducts();
+
+        foreach (Yarn yarn in yarnProducts)
         {
             if (string.IsNullOrEmpty(str) || yarn.Name.ToLower().Contains(str.ToLower()))
             {
@@ -106,10 +103,12 @@ public class YarnService : IYarnService
         return brandFilter;
     }
 
-    public IEnumerable<Yarn> KnittingTensionFilter(string knittingTension)
+    public async Task<List<Yarn>> KnittingTensionFilter(string knittingTension)
     {
         List<Yarn> KNTension = new List<Yarn>();
-        foreach (Yarn yarn in YarnProducts)
+        var yarnProducts = await GetYarnProducts();
+
+        foreach (Yarn yarn in yarnProducts)
         {
             if (string.IsNullOrEmpty(knittingTension) || yarn.Name.ToLower().Contains(knittingTension.ToLower()))
             {
@@ -119,10 +118,12 @@ public class YarnService : IYarnService
         return KNTension;
     }
 
-     public IEnumerable<Yarn> YardageFilter(string yardage)
+     public async Task<List<Yarn>> YardageFilter(string yardage)
      {
             List<Yarn> YardageList = new List<Yarn>();
-            foreach (Yarn yarn in YarnProducts)
+            var yarnProducts = await GetYarnProducts();
+
+            foreach (Yarn yarn in yarnProducts)
             {
                 if (yarn.Yardage == yardage)
                 {
@@ -133,10 +134,13 @@ public class YarnService : IYarnService
             return YardageList;
      }
 
-     public IEnumerable<Yarn> SizeFilter(Size size)
+     public async Task<List<Yarn>> SizeFilter(Size size)
      {
          List<Yarn> SizeList = new List<Yarn>();
-         foreach (Yarn yarn in YarnProducts)
+
+         var yarnProducts = await GetYarnProducts();
+
+         foreach (Yarn yarn in yarnProducts)
          {
              if (yarn.SuggestedNeedleSize == size)
              {
@@ -147,10 +151,13 @@ public class YarnService : IYarnService
             return SizeList;
      }
 
-    public async Task<Yarn> DeleteYarnAsync(int? id)
+    public async Task<Yarn?> DeleteYarnAsync(int? id)
     {
         Yarn YarnToBeDeleted = null;
-        foreach (Yarn yarn in YarnProducts)
+
+        var yarnProducts = await GetYarnProducts();
+
+        foreach (Yarn yarn in yarnProducts)
         {
             if (yarn.ProductId == id)
             {
@@ -160,16 +167,18 @@ public class YarnService : IYarnService
         }
         if (YarnToBeDeleted != null)
         {
-            YarnProducts.Remove(YarnToBeDeleted);
+            yarnProducts.Remove(YarnToBeDeleted);
             //await _dbService.DeleteToolsAsync(ToolToBeDeleted);
         }
 
         return YarnToBeDeleted;
     }
 
-    public Yarn GetYarn(int id)
+    public async Task<Yarn?> GetYarn(int id)
     {
-        foreach (Yarn yarn in YarnProducts)
+        var yarnProducts = await GetYarnProducts();
+
+        foreach (Yarn yarn in yarnProducts)
         {
             if (yarn.ProductId == id)
                 return yarn;

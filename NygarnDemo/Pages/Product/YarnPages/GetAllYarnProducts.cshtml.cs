@@ -6,6 +6,7 @@ using NygarnDemo.EFDbContext;
 using NygarnDemo.Enums;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
+using NygarnDemo.Services.User;
 using System.Security.Claims;
 
 namespace NygarnDemo.Pages.Product.YarnPages
@@ -14,14 +15,16 @@ namespace NygarnDemo.Pages.Product.YarnPages
     {
         private readonly NygarnDbContext _dbContext;
         private IYarnService _yarnService;
+        private IUserService _userService;
 
         public bool IsAdmin { get; private set; }
 
 
-        public GetAllYarnProductsModel(IYarnService yarnService, NygarnDbContext yarnContext)
+        public GetAllYarnProductsModel(IYarnService yarnService, NygarnDbContext yarnContext, IUserService userService)
         {
             _yarnService = yarnService;
             _dbContext = yarnContext;
+            _userService = userService;
         }
 
         public IList<Yarn>? YarnProducts { get; private set; }
@@ -74,6 +77,9 @@ namespace NygarnDemo.Pages.Product.YarnPages
         [BindProperty]
         public bool MachinewashFilter { get; set; }
 
+        [BindProperty]
+        public int SelectedProductId { get; set; }
+
         public async Task OnGetAsync()
         {
             //YarnProducts = _yarnService.GetYarnProducts();
@@ -81,52 +87,65 @@ namespace NygarnDemo.Pages.Product.YarnPages
             IsAdmin = HttpContext.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin");
         }
 
-        public IActionResult OnPostNameSearch()
+        public async Task<IActionResult> OnPostNameSearch()
         {
-            YarnProducts = _yarnService.NameSearch(SearchString).ToList();
+            YarnProducts =  _yarnService.NameSearch(SearchString).Result.ToList();
             return Page();
         }
 
-        public IActionResult OnPostPriceFilter()
+        public async Task<IActionResult> OnPostPriceFilter()
         {
-            YarnProducts = _yarnService.PriceFilter(MaxPrice, MinPrice).ToList();
+            YarnProducts = await _yarnService.PriceFilter(MaxPrice, MinPrice);
             return Page();
         }
 
-        public IActionResult OnPostColorFilter()
+        public async Task<IActionResult> OnPostColorFilter()
         {
-            YarnProducts = _yarnService.ColorFilter(Color).ToList();
+            YarnProducts = await _yarnService.ColorFilter(Color);
             return Page();
         }
 
-        public IActionResult OnPostMaterialFilter()
+        public async Task<IActionResult> OnPostMaterialFilter()
         {
-            YarnProducts = _yarnService.MaterialFilter(Material).ToList();
+            YarnProducts = await _yarnService.MaterialFilter(Material);
             return Page();
         }
 
-        public IActionResult OnPostBrandFilter()
+        public async Task<IActionResult> OnPostBrandFilter()
         {
-            YarnProducts = _yarnService.BrandFilter(Brand).ToList();
+            YarnProducts = await _yarnService.BrandFilter(Brand);
             return Page();
         }
 
-        public IActionResult OnPostKnittingTensionFilter()
+        public async Task<IActionResult> OnPostKnittingTensionFilter()
         {
-            YarnProducts = _yarnService.KnittingTensionFilter(KnittingTension).ToList();
+            YarnProducts = await _yarnService.KnittingTensionFilter(KnittingTension);
             return Page();
         }
 
-        public IActionResult OnPostYardageFilter()
+        public async Task<IActionResult> OnPostYardageFilter()
         {
-            YarnProducts = _yarnService.YardageFilter(Yardage).ToList();
+            YarnProducts = await _yarnService.YardageFilter(Yardage);
             return Page();
         }
 
-        public IActionResult OnPostSizeFilter()
+        public async Task<IActionResult> OnPostSizeFilter()
         {
-            YarnProducts = _yarnService.SizeFilter(Size).ToList();
+            YarnProducts = await _yarnService.SizeFilter(Size);
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAddToCart()
+        {
+            var user = HttpContext.User.FindFirstValue(ClaimTypes.Name);
+
+            if(user is not null)
+            {
+                var product = await _yarnService.GetYarn(SelectedProductId);
+                await _userService.AddToShoppingCart(user, product, 1);
+            }
+
+            return RedirectToPage();
         }
 
         //public IActionResult OnPostMachinewashFilter()

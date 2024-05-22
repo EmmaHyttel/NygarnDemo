@@ -1,0 +1,30 @@
+﻿@page
+@model NygarnDemo.Pages.ShoppingCart.ShoppingCartModel
+@{
+}
+
+<h1>Indkøbskurv</h1>
+<table>
+	<tbody>
+		@if(Model.Products != null)
+		{
+			foreach (var product in Model.Products)
+			{
+				<tr class="btn-secondary">
+					<td>
+						@product.Name
+					</td>
+					<td>
+						@product.Price
+					</td>
+					<td>
+						<a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditItem" asp-route-id="@product.ProductId"><i class="fa fa-edit"></i></a>
+						<a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteItem" asp-route-id="@product.ProductId"><i class="fa fa-trash"></i></a>
+					</td>
+				</tr>
+			}
+
+		}
+	</tbody>
+</table>
+

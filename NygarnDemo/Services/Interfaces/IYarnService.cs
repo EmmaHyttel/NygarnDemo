@@ -7,22 +7,19 @@ namespace NygarnDemo.Services.Interfaces
 {
     public interface IYarnService
     {
-        List<Yarn> GetYarnProducts();
+        Task<List<Yarn>> GetYarnProducts();
 
         Task AddYarnAsync(Yarn yarn);
-        Task<Yarn> DeleteYarnAsync(int? id);
-        Yarn GetYarn(int id);
-        IEnumerable<Yarn> NameSearch(string str);
-
-        IEnumerable<Yarn> PriceFilter(int maxPrice, int minPrice = 0);
-
-        IEnumerable<Yarn> ColorFilter(Enums.Color color);
-
-        IEnumerable<Yarn> MaterialFilter(Material material);
-        IEnumerable<Yarn> BrandFilter(string brand);
-        IEnumerable<Yarn> KnittingTensionFilter(string knittigTension);
-        IEnumerable<Yarn> YardageFilter(string yardage);
-        IEnumerable<Yarn> SizeFilter(Size size);
+        Task<Yarn?> DeleteYarnAsync(int? id);
+        Task<Yarn?> GetYarn(int id);
+        Task<List<Yarn>> NameSearch(string str);
+        Task<List<Yarn>> PriceFilter(int maxPrice, int minPrice = 0);
+        Task<List<Yarn>> ColorFilter(Enums.Color color);
+        Task<List<Yarn>> MaterialFilter(Material material);
+        Task<List<Yarn>>BrandFilter(string brand);
+        Task<List<Yarn>> KnittingTensionFilter(string knittigTension);
+        Task<List<Yarn>> YardageFilter(string yardage);
+        Task<List<Yarn>> SizeFilter(Size size);
         //IEnumerable<Yarn> MachinewashFilter(Machinewash machinewash);
 
     }

@@ -9,9 +9,9 @@ namespace NygarnDemo.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [ForeignKey("ProductId")]
-        [Required]
-        public int ProductId { get; set; }
+        //[ForeignKey("ProductId")]
+        //[Required]
+        //public int ProductId { get; set; }
 
         public Product Product { get; set; }
 

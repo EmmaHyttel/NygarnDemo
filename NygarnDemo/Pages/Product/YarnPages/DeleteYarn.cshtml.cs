@@ -19,9 +19,9 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public Models.Yarn Yarn { get; set; }
     
 
-        public IActionResult OnGet(int id)
+        public async Task<IActionResult> OnGet(int id)
         {
-            Yarn = _yarnService.GetYarn(id);
+            Yarn = await _yarnService.GetYarn(id);
             if (Yarn == null)
                 return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
 
