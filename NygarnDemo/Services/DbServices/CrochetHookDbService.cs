@@ -35,5 +35,15 @@ namespace NygarnDemo.Services.DbServices
                 context.SaveChanges();
             }
         }
+
+        public async Task DeleteHookAsync(CrochetHook crochetHooks)
+        {
+            using ( var context = new NygarnDbContext())
+            {
+                   context.CrochetHook.Remove(crochetHooks);
+                   await context.SaveChangesAsync();
+                
+            }
+        }
     }
 }

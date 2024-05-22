@@ -87,5 +87,17 @@ namespace NygarnDemo.Services.ProductServices
 		{
 			await _crochetHookDbService.AddCrochetHook(crochetHook);
 		}
-	}
+
+        public async Task<CrochetHook> DeleteHookAsync(int? Id)
+        {
+            CrochetHook Deletehook = CrochetHooks.FirstOrDefault(hook => hook.ProductId == Id);
+            if (Deletehook != null)
+            {
+                CrochetHooks.Remove(Deletehook);
+            }
+            return Deletehook;
+        }
+
+
+    }
 }

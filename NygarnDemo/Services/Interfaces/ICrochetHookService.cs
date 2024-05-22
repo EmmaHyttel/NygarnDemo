@@ -19,6 +19,7 @@ namespace NygarnDemo.Services.Interfaces
         IEnumerable<CrochetHook> CrochetHooksSizeFilter(Size size);
         
         IEnumerable<CrochetHook> HooksMaterialFilter(NeedleAndHookMaterial material);
-       
+
+        Task<CrochetHook> DeleteHookAsync(int? Id);
     }
 }
