@@ -87,5 +87,44 @@ namespace NygarnDemo.Services.ProductServices
 		{
 			await _crochetHookDbService.AddCrochetHook(crochetHook);
 		}
-	}
+
+        public async Task<CrochetHook> DeleteHookAsync(int? Id)
+        {
+            CrochetHook Deletehook = CrochetHooks.FirstOrDefault(hook => hook.ProductId == Id);
+            if (Deletehook != null)
+            {
+                CrochetHooks.Remove(Deletehook);
+            }
+            return Deletehook;
+        }
+
+        public List<CrochetHook> GetFilteredCrochetHooks(string searchString, decimal? minPrice, decimal? maxPrice,Size? size, NeedleAndHookMaterial? material)
+        {
+            var hooks = GetCrochetHooks();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                hooks = hooks.Where(h => h.Name.Contains(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+            if (minPrice.HasValue)
+            {
+                hooks = hooks.Where(h => h.Price >= minPrice.Value).ToList();
+            }
+            if (maxPrice.HasValue)
+            {
+                hooks = hooks.Where(h => h.Price <= maxPrice.Value).ToList();
+            }
+            if (size.HasValue)
+            {
+                hooks = hooks.Where(h => h.Size == size).ToList();
+            }
+            if (material.HasValue)
+            {
+                hooks = hooks.Where(h => h.Material == material).ToList();
+            }
+    
+            return hooks;
+
+        }
+    }
 }

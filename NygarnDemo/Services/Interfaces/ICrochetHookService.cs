@@ -10,6 +10,9 @@ namespace NygarnDemo.Services.Interfaces
     {
         List<CrochetHook> GetCrochetHooks();
 
+        List<CrochetHook> GetFilteredCrochetHooks(string searchString, decimal? minPrice, decimal? maxPrice, Size? size, NeedleAndHookMaterial? material);
+
+
 		Task AddCrochetHookAsync(CrochetHook crochetHook);
 
 		IEnumerable<CrochetHook> HooksPriceFilter (int maxPrice, int minPrice = 0);
@@ -19,6 +22,7 @@ namespace NygarnDemo.Services.Interfaces
         IEnumerable<CrochetHook> CrochetHooksSizeFilter(Size size);
         
         IEnumerable<CrochetHook> HooksMaterialFilter(NeedleAndHookMaterial material);
-       
+
+        Task<CrochetHook> DeleteHookAsync(int? Id);
     }
 }

@@ -8,7 +8,7 @@ namespace NygarnDemo.Services.ProductServices
 {
     public class ToolService : IToolService
     {
-        private ToolDbService _dbService;
+        private readonly ToolDbService _dbService;
         public List<Tool> ToolProducts { get; set; }
 
         public ToolService(ToolDbService dbService)
@@ -19,9 +19,9 @@ namespace NygarnDemo.Services.ProductServices
             _dbService.SaveTools(ToolProducts);
         }
 
-        public List<Tool> GetToolsProducts()
+        public async Task<List<Tool>> GetToolProducts()
         {
-            return ToolProducts;
+            return await _dbService.GetTools();
         }
 
         public IEnumerable<Tool> PriceFilter(int maxPrice, int minPrice = 0)
@@ -93,8 +93,10 @@ namespace NygarnDemo.Services.ProductServices
             await _dbService.AddTool(tool);
         }
 
-        public Tool GetTool(int id)
+        public async Task<Tool?> GetTool(int id)
         {
+            var ToolProducts = await GetToolProducts();
+
             foreach (Tool tool in ToolProducts)
             {
                 if (tool.ProductId == id)
@@ -104,24 +106,24 @@ namespace NygarnDemo.Services.ProductServices
             return null;
         }
 
-        public async Task<Tool> DeleteToolAsync(int? id)
+        public async Task<Tool> DeleteTool(Tool tool)
         {
-            Tool ToolToBeDeleted = null;
-            foreach (Tool tool in ToolProducts)
+            //Tool ToolToBeDeleted = null;
+            foreach (Tool t in ToolProducts)
             {
-                if (tool.ProductId == id)
+                if (t == tool)
                 {
-                    ToolToBeDeleted = tool;
+                    await _dbService.DeleteToolAsync(tool);
                     break;
                 }
             }
-            if (ToolToBeDeleted != null)
-            {
-                ToolProducts.Remove(ToolToBeDeleted);
-                //await _dbService.DeleteToolsAsync(ToolToBeDeleted);
-            }
+            //if (ToolToBeDeleted != null)
+            //{
+            //    //ToolProducts.Remove(ToolToBeDeleted);
+            //    await _dbService.DeleteToolAsync(ToolToBeDeleted);
+            //}
 
-            return ToolToBeDeleted;
+            return tool;
         }
 
         public async Task UpdateToolAsync(Tool tool)

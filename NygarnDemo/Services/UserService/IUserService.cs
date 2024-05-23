@@ -13,5 +13,6 @@ namespace NygarnDemo.Services.User
         Task AddToShoppingCart(string userName, Product product, int count);
         Task<List<ShoppingCartLine>> GetShoppingCartByUserName(string username);
 
+
     }
 }

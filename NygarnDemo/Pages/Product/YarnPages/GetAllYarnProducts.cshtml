@@ -134,12 +134,15 @@
                                         <i class="fa fa-trash"></i>
                                     </button> *@
                                @*  </form> *@
-                                <form asp-page="/YarnPages/DeleteYarn" asp-route-id="@yarnProduct.ProductId" method="post" class="d-inline">
+                               @*  <form asp-page="/YarnPages/DeleteYarn" asp-route-id="@yarnProduct.ProductId" method="post" class="d-inline">
                                     <button type="submit" class="btn btn-danger btn-sm" title="Slet" onclick="return confirm('Er du sikker på, at du vil slette denne garn?')">
                                         Slet
                                         <i class="fa fa-trash"></i>
                                     </button>
-                                </form>
+                                </form> *@
+
+                                @* <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditTool" asp-route-id="@tool.ProductId"><i class="fa fa-edit"></i>Rediger</a> *@
+                                <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-trash"></i>Slet</a>
                             }
                     </div>
                 </div>

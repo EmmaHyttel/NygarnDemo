@@ -80,8 +80,13 @@ public class GetAllCrochetHooksModel : PageModel
     }
     public IActionResult OnPostTypeFilter()
     {
-        //CrochetHooks = _crochetHookService.HooksTypeFilter(Type).ToList();
         KnittingNeedles = _knittingNeedleService.NeedleTypeFilter(Type).ToList();
+
+        return Page();
+    }
+    public IActionResult OnPostFilter()
+    {
+        CrochetHooks = _crochetHookService.GetFilteredCrochetHooks(SearchString, MinPrice, MaxPrice, Size, Material).ToList();
 
         return Page();
     }

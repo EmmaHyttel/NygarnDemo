@@ -55,16 +55,21 @@ public class CreateUserModel : PageModel
         {
             return Page();
         }
-        //try
-        //{
-        //    _userService.GetUserByUserName(UserName);
-        //    return RedirectToAction("Success");
-        //}
-        //catch (Exception ex)
-        //{
-        //    ModelState.AddModelError("UserName", ex.Message);
+        try
+        {
+            var hashedPassword = passwordHasher.HashPassword(UserName, Password);
 
-        await _userService.AddUserAsync(new Models.User(UserName, Name, LastName, passwordHasher.HashPassword(UserName, Password), Address, Phone, Email));
-        return RedirectToPage("/LogIn/LogInPage");
+            var newUser = new Models.User(UserName, Name, LastName, hashedPassword, Address, Phone, Email);
+
+            await _userService.AddUserAsync(newUser);
+
+            return RedirectToPage("/LogIn/LogInPage");
+        }
+
+        catch (Exception ex)
+        {
+            ModelState.AddModelError("UserName", ex.Message); 
+            return Page();
+        }
     }
 }
