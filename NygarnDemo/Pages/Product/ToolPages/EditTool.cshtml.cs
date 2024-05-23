@@ -22,14 +22,23 @@ namespace NygarnDemo.Pages.Product.ToolPages
         public Tool? Tool { get; set; }
 
 
-        public IActionResult OnGet(int id)
+        //public IActionResult OnGet(int id)
+        //{
+        //    Tool = _toolService.GetTool(id);
+        //    if (Tool == null)
+        //        return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
+
+        //    return Page();
+        //}
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            Tool = _toolService.GetTool(id);
+            Tool = await _toolService.GetTool(id);
             if (Tool == null)
-                return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
+                return RedirectToPage("/NotFound"); // Husk at definere NotFound-siden senere
 
             return Page();
         }
+
 
         public async Task<IActionResult> OnPostAsync()
         {

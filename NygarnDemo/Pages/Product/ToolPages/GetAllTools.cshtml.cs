@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using NygarnDemo.EFDbContext;
 using NygarnDemo.Enums;
 using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
@@ -10,12 +12,14 @@ namespace NygarnDemo.Pages.Product.ToolPages
 {
     public class GetAllToolsModel : PageModel
     {
+        private readonly NygarnDbContext _dbContext;
         private IToolService _toolService;
         public bool IsAdmin { get; private set; }
 
-        public GetAllToolsModel(IToolService toolService)
+        public GetAllToolsModel(IToolService toolService, NygarnDbContext toolContext)
         {
             _toolService = toolService;
+            _dbContext = toolContext;
         }
 
         public List<Tool>? Tools { get; private set; }
@@ -38,9 +42,10 @@ namespace NygarnDemo.Pages.Product.ToolPages
         [BindProperty]
         public string Type { get; set; }
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
-            Tools = _toolService.GetToolsProducts();
+            //Tools = _toolService.GetToolsProducts();
+            Tools = await _dbContext.Tool.ToListAsync();
             IsAdmin = HttpContext.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin");
         }
 
