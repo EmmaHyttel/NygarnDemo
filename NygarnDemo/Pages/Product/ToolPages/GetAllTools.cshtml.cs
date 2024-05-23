@@ -41,6 +41,8 @@ namespace NygarnDemo.Pages.Product.ToolPages
 
         [BindProperty]
         public string Type { get; set; }
+        [BindProperty]
+        public int DeletedToolId { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -76,5 +78,27 @@ namespace NygarnDemo.Pages.Product.ToolPages
             Tools = _toolService.SizeFilter(Size).ToList();
             return Page();
         }
+
+        //public async Task<IActionResult> OnPostDeleteTool()
+        //{
+        //    // Check if DeletedToolId is valid
+        //    //if (DeletedToolId == 0)
+        //    //{
+        //    //    return RedirectToPage("/Index");
+        //    //}
+
+        //    // Fetch the tool to be deleted
+        //    var tool = await _toolService.GetTool(DeletedToolId);
+        //    if (tool == null)
+        //    {
+        //        return RedirectToPage("/Index");
+        //    }
+
+        //    // Delete the tool
+        //    await _toolService.DeleteTool(tool);
+
+        //    // Redirect to GetAllTools page
+        //    return RedirectToPage("GetAllTools");
+        //}
     }
 }

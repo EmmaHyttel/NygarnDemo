@@ -81,7 +81,7 @@
                     @if (Model.IsAdmin)
                     {
                         <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditTool" asp-route-id="@tool.ProductId"><i class="fa fa-edit"></i>Rediger</a>
-                        <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteTool" asp-route-id="@tool.ProductId"><i class="fa fa-trash"></i>Slet</a>
+                        
                        @*  <form asp-page="EditTool" asp-route-id="@tool.ProductId" method="post" class="d-inline">
                             <button type="submit" class="btn btn-danger" title="Rediger">
                                 Rediger
@@ -94,11 +94,16 @@
                                 <i class="fa fa-trash"></i>
                             </button>
                         </form> *@
-                    @*     <form asp-page="DeleteTool" asp-route-id="@tool.ProductId" method="post" class="d-inline">
+                      @*   <form asp-page="DeleteTool" asp-route-id="@tool.ProductId" method="post" class="d-inline">
                             <button type="submit" class="btn btn-danger btn-sm" title="Slet" onclick="return confirm('Er du sikker på, at du vil slette dette værktøj?')">Slet
                             <i class="fa fa-trash"></i>
                         </button>
                     </form> *@
+                        <a class="btn btn-danger btn-sm " type="button" title="Delete" name="DeletedToolId" asp-page="DeleteTool" asp-route-id="@tool.ProductId"><i class="fa fa-trash"></i>Slet</a>
+                       @*  <form method="post">
+                            <input type="hidden" name="DeletedToolId" value="@tool.ProductId" />
+                            <button class="btn btn-primary" type="submit" asp-page-handler="DeleteTool">Slet</button>
+                        </form> *@
                     }
                     </div>
               </div>
@@ -114,25 +119,4 @@
         </p>
     }
     <div>
-        @* //Pagina den del, som gør at man kan bladre i siderne på en page// *@
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
+  

@@ -7,7 +7,7 @@ namespace NygarnDemo.Services.Interfaces
     public interface IToolService
     {
         Task<List<Tool>> GetToolProducts();
-        Task<Tool> DeleteToolAsync(int? id);
+        Task<Tool> DeleteTool(Tool tool);
         Task AddToolAsync(Tool tool);
         Task<Tool?> GetTool(int id);
         Task UpdateToolAsync(Tool tool);
