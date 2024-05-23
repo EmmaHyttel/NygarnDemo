@@ -4,27 +4,41 @@
 }
 
 <h1>Indkøbskurv</h1>
-<table>
-	<tbody>
-		@if(Model.Products != null)
-		{
-			foreach (var product in Model.Products)
-			{
-				<tr class="btn-secondary">
-					<td>
-						@product.Name
-					</td>
-					<td>
-						@product.Price
-					</td>
-					<td>
-						<a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditItem" asp-route-id="@product.ProductId"><i class="fa fa-edit"></i></a>
-						<a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteItem" asp-route-id="@product.ProductId"><i class="fa fa-trash"></i></a>
-					</td>
-				</tr>
-			}
 
-		}
-	</tbody>
-</table>
-
+@if (Model.ShoppingCartLines == null || !Model.ShoppingCartLines.Any())
+{
+    <h3>Din kurv er tom</h3>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Produkt</th>
+                <th>Antal</th>
+                <th>Handlinger</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.ShoppingCartLines)
+            {
+                <tr class="btn-secondary">
+                    <td>
+                        @line.Product.Name
+                    </td>
+                    <td>
+                        @line.Count
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="ShoppingCart" asp-route-id="@line.Count">
+                            <i class="fa fa-edit"></i> Antal
+                        </a>
+                        <a class="btn btn-danger btn-sm" type="button" title="Delete" asp-page="ShoppingCart" asp-route-id="@line.Product.ProductId">
+                            <i class="fa fa-trash"></i> Slet
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -14,7 +14,7 @@ public class ToolDbService
         }
     }
 
-    public async Task AddTools(Tool tool)
+    public async Task AddTool(Tool tool)
     {
         using (var context = new NygarnDbContext())
         {

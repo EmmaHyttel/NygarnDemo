@@ -90,7 +90,7 @@ namespace NygarnDemo.Services.ProductServices
 
         public async Task AddToolAsync(Tool tool)
         {
-            await _dbService.AddTools(tool);
+            await _dbService.AddTool(tool);
         }
 
         public Tool GetTool(int id)
