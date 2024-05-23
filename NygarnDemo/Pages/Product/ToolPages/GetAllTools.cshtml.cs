@@ -22,7 +22,7 @@ namespace NygarnDemo.Pages.Product.ToolPages
             _dbContext = toolContext;
         }
 
-        public List<Tool>? Tools { get; private set; }
+        public IList<Tool>? Tools { get; private set; }
 
         [BindProperty]
         public string Size { get; set; }  // string er valgt, istedet for enum, da der forskellige str på ting? 
@@ -49,38 +49,32 @@ namespace NygarnDemo.Pages.Product.ToolPages
             IsAdmin = HttpContext.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin");
         }
 
+
         public IActionResult OnPostPriceFilter()
         {
             Tools = _toolService.PriceFilter(MaxPrice, MinPrice).ToList();
             return Page();
         }
-
         public IActionResult OnPostBrandFilter()
         {
             Tools = _toolService.BrandFilter(Brand).ToList();
             return Page();
-
         }
-
         public IActionResult OnPostNameSearch()
         {
 
             Tools = _toolService.NameSearch(SearchString).ToList();
             return Page();
-
         }
         public IActionResult OnPostTypeFilter()
         {
             Tools = _toolService.TypeSearch(Type).ToList();
             return Page();
-
         }
-
         public IActionResult OnPostSizeFilter()
         {
             Tools = _toolService.SizeFilter(Size).ToList();
             return Page();
-
         }
     }
 }

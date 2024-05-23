@@ -77,25 +77,28 @@
                        <p class="card-text">Størrelse: @tool.Size</p>
                        <p class="card-text">Type: @tool.Type</p>
                        <a href="#" class="btn btn-primary">Kom i kurv</a>
+                    <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailTool" asp-route-id="@tool.ProductId"><i class="fa fa-info"></i>Se detaljer</a>
                     @if (Model.IsAdmin)
                     {
-                        <form asp-page="EditTool" asp-route-id="@tool.ProductId" method="post" class="d-inline">
+                        <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditTool" asp-route-id="@tool.ProductId"><i class="fa fa-edit"></i>Rediger</a>
+                        <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteTool" asp-route-id="@tool.ProductId"><i class="fa fa-trash"></i>Slet</a>
+                       @*  <form asp-page="EditTool" asp-route-id="@tool.ProductId" method="post" class="d-inline">
                             <button type="submit" class="btn btn-danger" title="Rediger">
                                 Rediger
                                 <i class="fa fa-trash"></i>
                             </button>
-                        </form>
-                        <form asp-page="DetailTool" asp-route-id="@tool.ProductId" method="post" class="d-inline">
+                        </form> *@
+                       @*  <form asp-page="DetailTool" asp-route-id="@tool.ProductId" method="post" class="d-inline">
                             <button type="submit" class="btn btn-danger" title="Se detaljer">
                                 Se detaljer
                                 <i class="fa fa-trash"></i>
                             </button>
-                        </form>
-                        <form asp-page="DeleteTool" asp-route-id="@tool.ProductId" method="post" class="d-inline">
+                        </form> *@
+                    @*     <form asp-page="DeleteTool" asp-route-id="@tool.ProductId" method="post" class="d-inline">
                             <button type="submit" class="btn btn-danger btn-sm" title="Slet" onclick="return confirm('Er du sikker på, at du vil slette dette værktøj?')">Slet
                             <i class="fa fa-trash"></i>
                         </button>
-                    </form>
+                    </form> *@
                     }
                     </div>
               </div>

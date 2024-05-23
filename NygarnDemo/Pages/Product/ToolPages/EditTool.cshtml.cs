@@ -42,10 +42,10 @@ namespace NygarnDemo.Pages.Product.ToolPages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
             if(Tool != null)
             {
                 await _toolService.UpdateToolAsync(Tool);

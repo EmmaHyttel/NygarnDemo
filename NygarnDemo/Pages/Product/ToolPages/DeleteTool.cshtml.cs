@@ -18,16 +18,6 @@ namespace NygarnDemo.Pages.Product.ToolPages
         [BindProperty]
         public Models.Tool Tool { get; set; }
 
-
-        //public IActionResult OnGet(int id)
-        //{
-        //    Tool = _toolService.GetTool(id);
-        //    if (Tool == null)
-        //        return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
-
-        //    return Page();
-        //}
-
         public async Task<IActionResult> OnGetAsync(int id)
         {
             Tool = await _toolService.GetTool(id);
@@ -36,7 +26,6 @@ namespace NygarnDemo.Pages.Product.ToolPages
 
             return Page();
         }
-
 
         public async Task<IActionResult> OnPostAsync()
         {
