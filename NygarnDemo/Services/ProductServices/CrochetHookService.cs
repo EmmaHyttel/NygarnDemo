@@ -98,6 +98,33 @@ namespace NygarnDemo.Services.ProductServices
             return Deletehook;
         }
 
+        public List<CrochetHook> GetFilteredCrochetHooks(string searchString, decimal? minPrice, decimal? maxPrice,Size? size, NeedleAndHookMaterial? material)
+        {
+            var hooks = GetCrochetHooks();
 
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                hooks = hooks.Where(h => h.Name.Contains(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+            if (minPrice.HasValue)
+            {
+                hooks = hooks.Where(h => h.Price >= minPrice.Value).ToList();
+            }
+            if (maxPrice.HasValue)
+            {
+                hooks = hooks.Where(h => h.Price <= maxPrice.Value).ToList();
+            }
+            if (size.HasValue)
+            {
+                hooks = hooks.Where(h => h.Size == size).ToList();
+            }
+            if (material.HasValue)
+            {
+                hooks = hooks.Where(h => h.Material == material).ToList();
+            }
+    
+            return hooks;
+
+        }
     }
 }
