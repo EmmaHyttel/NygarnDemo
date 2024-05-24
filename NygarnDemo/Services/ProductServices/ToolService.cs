@@ -93,10 +93,8 @@ namespace NygarnDemo.Services.ProductServices
             await _dbService.AddTool(tool);
         }
 
-        public async Task<Tool?> GetTool(int id)
+        public async Task<Tool> GetTool(int id)
         {
-            var ToolProducts = await GetToolProducts();
-
             foreach (Tool tool in ToolProducts)
             {
                 if (tool.ProductId == id)
