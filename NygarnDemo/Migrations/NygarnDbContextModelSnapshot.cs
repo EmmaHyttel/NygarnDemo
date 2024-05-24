@@ -137,7 +137,7 @@ namespace NygarnDemo.Migrations
                             Email = "nem_hard@garn.dk",
                             LastName = "HARD",
                             Name = "NEM",
-                            Password = "AQAAAAIAAYagAAAAEH7H9KFybCym261CDnBOH+UComTsOIWcJxWg0Pw27x6lNPhKLWEdciI6F4Zu0LKWaw==",
+                            Password = "AQAAAAIAAYagAAAAEEGcMi0jwI3VAOdvQbDRdfkrBWT6+LFY7EEOd/OIt4dT1cMPSZcFdNHmcyzOqkJIaQ==",
                             Phone = "69696969",
                             UserName = "admin"
                         },
@@ -148,7 +148,7 @@ namespace NygarnDemo.Migrations
                             Email = "emmastrikker@garn.dk",
                             LastName = "Hyttel",
                             Name = "Emma",
-                            Password = "AQAAAAIAAYagAAAAEOv2HTlyr2/FRhna1FD86d2yywh5TZnyehYZtUAHfmjYJ6p+NiBO68g+HjCEtDZlYQ==",
+                            Password = "AQAAAAIAAYagAAAAEJ9dViV3CjJcj4oSkYRdOqfjKIJpv7h8ozU0tmOy9uxtB6UWUDAiN7EXFoMXXO7TgA==",
                             Phone = "12345678",
                             UserName = "EmmaStrikker123"
                         },
@@ -159,7 +159,7 @@ namespace NygarnDemo.Migrations
                             Email = "maistrikker@garn.dk",
                             LastName = "Dinh",
                             Name = "Mai",
-                            Password = "AQAAAAIAAYagAAAAELkqn+6I1LnKbXUR0Ilb/gdbCTLADK6att+a50GS78EQZPHk1HP/XMCroaRi6PIDrA==",
+                            Password = "AQAAAAIAAYagAAAAEPixrPm2apbSGBGRVQOHX2cKbJqqEsFLRx1IlwAGfxj/XrbS8s68zh1XA5ZS6+4Frg==",
                             Phone = "23456789",
                             UserName = "MaiStrikker123"
                         },
@@ -170,7 +170,7 @@ namespace NygarnDemo.Migrations
                             Email = "nannahækler@garn.dk",
                             LastName = "Rister",
                             Name = "Nanna",
-                            Password = "AQAAAAIAAYagAAAAEKdVepPCM9zPgdLJW6w7xMOt2VXBQBJ3ZiuUn+yyJ3WrAfrdW1E3VAkpk9RWZl3Z2w==",
+                            Password = "AQAAAAIAAYagAAAAEIc5asf8/zgQNJgkatMvEi4JA2Sqq/R60bqEFG879VqBqiMxE6r24LdqhMqmXkrI6g==",
                             Phone = "34567891",
                             UserName = "NannaHækler123"
                         });

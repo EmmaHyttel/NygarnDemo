@@ -7,7 +7,7 @@
 namespace NygarnDemo.Migrations
 {
     /// <inheritdoc />
-    public partial class test2 : Migration
+    public partial class NygarnDemoInitial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -184,10 +184,10 @@ namespace NygarnDemo.Migrations
                 columns: new[] { "Id", "Address", "Email", "LastName", "Name", "Password", "Phone", "UserName" },
                 values: new object[,]
                 {
-                    { 1, "En sej gade", "nem_hard@garn.dk", "HARD", "NEM", "AQAAAAIAAYagAAAAEH7H9KFybCym261CDnBOH+UComTsOIWcJxWg0Pw27x6lNPhKLWEdciI6F4Zu0LKWaw==", "69696969", "admin" },
-                    { 2, "Vejgade 1", "emmastrikker@garn.dk", "Hyttel", "Emma", "AQAAAAIAAYagAAAAEOv2HTlyr2/FRhna1FD86d2yywh5TZnyehYZtUAHfmjYJ6p+NiBO68g+HjCEtDZlYQ==", "12345678", "EmmaStrikker123" },
-                    { 3, "Vejgade 2", "maistrikker@garn.dk", "Dinh", "Mai", "AQAAAAIAAYagAAAAELkqn+6I1LnKbXUR0Ilb/gdbCTLADK6att+a50GS78EQZPHk1HP/XMCroaRi6PIDrA==", "23456789", "MaiStrikker123" },
-                    { 4, "Vejgade 3", "nannahækler@garn.dk", "Rister", "Nanna", "AQAAAAIAAYagAAAAEKdVepPCM9zPgdLJW6w7xMOt2VXBQBJ3ZiuUn+yyJ3WrAfrdW1E3VAkpk9RWZl3Z2w==", "34567891", "NannaHækler123" }
+                    { 1, "En sej gade", "nem_hard@garn.dk", "HARD", "NEM", "AQAAAAIAAYagAAAAEEGcMi0jwI3VAOdvQbDRdfkrBWT6+LFY7EEOd/OIt4dT1cMPSZcFdNHmcyzOqkJIaQ==", "69696969", "admin" },
+                    { 2, "Vejgade 1", "emmastrikker@garn.dk", "Hyttel", "Emma", "AQAAAAIAAYagAAAAEJ9dViV3CjJcj4oSkYRdOqfjKIJpv7h8ozU0tmOy9uxtB6UWUDAiN7EXFoMXXO7TgA==", "12345678", "EmmaStrikker123" },
+                    { 3, "Vejgade 2", "maistrikker@garn.dk", "Dinh", "Mai", "AQAAAAIAAYagAAAAEPixrPm2apbSGBGRVQOHX2cKbJqqEsFLRx1IlwAGfxj/XrbS8s68zh1XA5ZS6+4Frg==", "23456789", "MaiStrikker123" },
+                    { 4, "Vejgade 3", "nannahækler@garn.dk", "Rister", "Nanna", "AQAAAAIAAYagAAAAEIc5asf8/zgQNJgkatMvEi4JA2Sqq/R60bqEFG879VqBqiMxE6r24LdqhMqmXkrI6g==", "34567891", "NannaHækler123" }
                 });
 
             migrationBuilder.InsertData(
