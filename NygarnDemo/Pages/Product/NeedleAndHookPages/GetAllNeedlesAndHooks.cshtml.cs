@@ -4,13 +4,16 @@ using NygarnDemo.Models;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Enums;
 using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
+using NygarnDemo.EFDbContext;
 
 
 namespace NygarnDemo.Pages.Product.CrochetHookPages;
 
 public class GetAllCrochetHooksModel : PageModel
 {
-    
+
     private ICrochetHookService _crochetHookService;
     private IKnittingNeedleService _knittingNeedleService;
     public bool IsAdmin { get; private set; }
@@ -20,13 +23,13 @@ public class GetAllCrochetHooksModel : PageModel
 
     [BindProperty]
     public string SearchString { get; set; }
-   
+
     [BindProperty]
     public bool Set { get; set; }
-    
+
     [BindProperty]
     public int MaxPrice { get; set; }
-    
+
     [BindProperty]
     public int MinPrice { get; set; }
 
@@ -44,6 +47,9 @@ public class GetAllCrochetHooksModel : PageModel
         _crochetHookService = crochetHookService;
         _knittingNeedleService = knittingNeedleService;
     }
+
+
+    public int MyProperty { get; set; }
 
     public void OnGet()
     {
@@ -84,10 +90,6 @@ public class GetAllCrochetHooksModel : PageModel
 
         return Page();
     }
-    public IActionResult OnPostFilter()
-    {
-        CrochetHooks = _crochetHookService.GetFilteredCrochetHooks(SearchString, MinPrice, MaxPrice, Size, Material).ToList();
 
-        return Page();
-    }
 }
+

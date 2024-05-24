@@ -8,63 +8,7 @@
 <h1>Strikkepinde og hæklenåle</h1>
 
 
-@* <div class="row">
-    <div class="col-7"><h5>Search Name</h5></div>
-    <div class="col-4"><h5>Filter Price</h5></div>
-    <div class="col-1"></div>
-</div>
-<div class="row">
-    <div class="col-4">
-        <form method="post" class="form-inline">
-            <div class="input-group mb-3">
-                <input asp-for="SearchString" class="form-control mr-1" placeholder="Enter search term" />
-                <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-<div class="col-3"></div>
-    <div class="col-5">
-        <form method="post" class="form-inline">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Min</span>
-                </div>
-                <input asp-for="MinPrice" class="form-control me-2" />
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Max</span>
-                </div>
-                <input asp-for="MaxPrice" class="form-control me-2" />
-                <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-    <div>
-        <form method="post">
-             <select asp-for="Size" asp-items="Html.GetEnumSelectList<Size>()">
-                <option value="">Choose size </option>
-             </select>
-             <button type="submit" asp-page-handler="SizeFilter">Filtrer</button>
-        </form>
-    </div>
-    <div>
-        <form method="post">
-            <select asp-for="Material" asp-items="Html.GetEnumSelectList<NeedleAndHookMaterial>()">
-                <option value="">Materiale </option>
-            </select>
-            <button type="submit" asp-page-handler="MaterialFilter">Filtrer</button>
-        </form>
-    </div>
-    <div>
-        <form method="post">
-            <select asp-for="Type" asp-items="Html.GetEnumSelectList<NeedleType>()">
-                <option value="">Type </option>
-            </select>
-            <button type="submit" asp-page-handler="TypeFilter">Filtrer</button>
-        </form>
-    </div> *@
-
-@* 
-<div class="container">
+@*<div class="container">
     <div class="row">
         <div class="col-7"><h5>Search Name</h5></div>
         <div class="col-5"><h5>Filter Price</h5></div>
@@ -128,7 +72,6 @@
     </div>
 </div>
 
-
 <div class="grid-container">
 @if (Model.CrochetHooks != null)
 {
@@ -138,8 +81,8 @@
             <div class="col-sm-4 mb-3">
                 <div class="card" style="width: 18rem;">
                         <div class="card" style="width: 18rem;">
-                            @* <img class="card-img-top" src="..." alt="Card image cap"> *@
- @*                            <div class="card-body">
+                                <img class="card-img-top" src="~/pngFiles/hæklenål.png" alt="Card image cap" />
+                                <div class="card-body">
                                 <h5 class="card-title">@crochetHook.Name</h5>
                                 <p class="card-text">Beskrivelse: @crochetHook.Description</p>
                                 <p class="card-text">Pris: @crochetHook.Price</p>
@@ -168,8 +111,8 @@
     foreach (var knittingNeedle in Model.KnittingNeedles)
     {
         <div class="card" style="width: 18rem;">
-            @* <img class="card-img-top" src="..." alt="Card image cap"> *@
-@*             <div class="card-body">
+                <img class="card-img-top" src="~/pngFiles/KnitPro Symfonie rundpind.png"  alt="Card image cap" />
+             <div class="card-body">
                 <h5 class="card-title">@knittingNeedle.Name</h5>
                 <p class="card-text">Beskrivelse: @knittingNeedle.Description</p>
                 <p class="card-text">Pris: @knittingNeedle.Price</p>
@@ -177,7 +120,7 @@
                 <p class="card-text">Materiale: @knittingNeedle.Material</p>
                 <p class="card-text">Størrelse: @knittingNeedle.Size</p>
                 <p class="card-text">Type: @knittingNeedle.Type</p>
-                <a href="#" class="btn btn-primary">Tryk for at se mere</a>
+                    <a href="#" class="btn btn-primary btn-sm rosybrown-bg">Tryk for at se mere</a>
             </div>
         </div>
     }
@@ -187,65 +130,82 @@
 {
     <div>
         <p>
-            <a class="btn btn-primary btn-sm" asp-page="/Product/NeedleAndHookPages/CreateKnittingNeedle">Tilføj strikkepinde til hjemmesiden</a>
+            <a class="btn btn-primary btn-sm rosybrown-bg" asp-page="/Product/NeedleAndHookPages/CreateKnittingNeedle">Tilføj strikkepinde til hjemmesiden</a>
         </p> 
     </div>
-} *@
+}
+*@
 
-<div class="container">
-    <form method="post" asp-page-handler="Filter" class="form-inline">
-        <div class="row mb-3">
-            <div class="col">
-                <h5>Søg produkt</h5>
+
+<!-- Filter Button -->
+<label for="filterToggle" class="btn btn-primary btn-sm rosybrown-bg" style="cursor: pointer;">Filtre</label>
+<input type="checkbox" id="filterToggle" style="display: none;" />
+
+<!-- Sidepanel -->
+<div id="mySidenav" style="height: 100%; width: 0; position: fixed; z-index: 1; top: 0; right: 0; background-color: lightgray; overflow-x: hidden; transition: 0.5s; padding-top: 60px;">
+            <a href="javascript:void(0)" style="position: absolute; top: 0; left: 25px; font-size: 36px; margin-left: 50px; color: #818181; text-decoration: none;" onclick="document.getElementById('filterToggle').checked = false; document.getElementById('mySidenav').style.width = '0';">&times;</a>
+            <h2 style="color: white; padding-left: 32px;">Filtre produkt</h2>
+        <form method="post" class="form-inline">
+            <h5 style="color: white;">Search Name</h5>
+            <div class="input-group mb-5">
                 <input asp-for="SearchString" class="form-control mr-2 rosybrown-input" placeholder="Søgeord" />
+                <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary btn-sm rosybrown-bg" />
             </div>
-            <div class="col">
-                <h5>Filtrer pris</h5>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Min</span>
-                    </div>
-                    <input asp-for="MinPrice" class="form-control me-2 rosybrown-input" />
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Max</span>
-                    </div>
-                    <input asp-for="MaxPrice" class="form-control me-2 rosybrown-input" />
+        </form>
+        <form method="post" class="form-inline">
+            <h5 style="color: white;">Filter Price</h5>
+            <div class="input-group mb-5">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Min</span>
                 </div>
+                <input asp-for="MinPrice" class="form-control me-3 rosybrown-input" />
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Max</span>
+                </div>
+                <input asp-for="MaxPrice" class="form-control me-2 rosybrown-input" />
+                <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary btn-sm rosybrown-bg" />
             </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col">
+        </form>
+        <form method="post" class="form-inline">
+            <h5 style="color: white;">Filter Size</h5>
+            <div class="input-group mb-5">
                 <select asp-for="Size" asp-items="Html.GetEnumSelectList<Size>()" class="form-control mr-2 rosybrown-input">
                     <option value="">Vælg størrelse</option>
                 </select>
+                <button type="submit" asp-page-handler="SizeFilter" class="btn btn-primary btn-sm rosybrown-bg">Filter Size</button>
             </div>
-            <div class="col">
+        </form>
+        <form method="post" class="form-inline">
+            <h5 style="color: white;">Filter Material</h5>
+            <div class="input-group mb-5">
                 <select asp-for="Material" asp-items="Html.GetEnumSelectList<NeedleAndHookMaterial>()" class="form-control mr-2 rosybrown-input">
-                    <option value="">Vælg material</option>
+                    <option value="">Material</option>
                 </select>
+                <button type="submit" asp-page-handler="MaterialFilter" class="btn btn-primary btn-sm rosybrown-bg">Filter Material</button>
             </div>
-            <div class="col">
+        </form>
+        <form method="post" class="form-inline">
+            <h5 style="color: white;">Filter Type</h5>
+            <div class="input-group mb-5">
                 <select asp-for="Type" asp-items="Html.GetEnumSelectList<NeedleType>()" class="form-control mr-2 rosybrown-input">
-                    <option value="">Vælg type</option>
+                    <option value="">Type</option>
                 </select>
+                <button type="submit" asp-page-handler="TypeFilter" class="btn btn-primary btn-sm rosybrown-bg">Filter Type</button>
             </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col">
-                <button type="submit" class="btn btn-primary btn-sm rosybrown-bg">Søg</button>
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
+</div>
 
+<div class="container">
     <div class="grid-container">
-        @if (Model.CrochetHooks != null && Model.CrochetHooks.Any())
+        @if (Model.CrochetHooks != null)
         {
-            <h2>Crochethooks</h2>
-            @foreach (var crochetHook in Model.CrochetHooks)
+            foreach (var crochetHook in Model.CrochetHooks)
             {
                 <div class="row">
                     <div class="col-sm-4 mb-3">
                         <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="~/pngFiles/hæklenål.png" alt="Card image cap" />
                             <div class="card-body">
                                 <h5 class="card-title">@crochetHook.Name</h5>
                                 <p class="card-text">Beskrivelse: @crochetHook.Description</p>
@@ -264,8 +224,50 @@
         {
             <div>
                 <p>
-                    <a class="btn btn-primary btn-sm" asp-page="/Product/NeedleAndHookPages/CreateCrochetHook">Tilføj hæklenål</a>
+                    <a class="btn btn-primary btn-sm rosybrown-bg" asp-page="/Product/NeedleAndHookPages/CreateCrochetHook">Tilføj hæklenål</a>
                 </p>
             </div>
         }
     </div>
+    <div class="grid-container">
+        @if (Model.KnittingNeedles != null)
+        {
+            foreach (var knittingNeedle in Model.KnittingNeedles)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/pngFiles/KnitPro Symfonie rundpind.png"  alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">@knittingNeedle.Name</h5>
+                        <p class="card-text">Beskrivelse: @knittingNeedle.Description</p>
+                        <p class="card-text">Pris: @knittingNeedle.Price</p>
+                        <p class="card-text">Mærke: @knittingNeedle.Brand</p>
+                        <p class="card-text">Materiale: @knittingNeedle.Material</p>
+                        <p class="card-text">Størrelse: @knittingNeedle.Size</p>
+                        <p class="card-text">Type: @knittingNeedle.Type</p>
+                        <a href="#" class="btn btn-primary btn-sm rosybrown-bg">Tryk for at se mere</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    @if (Model.IsAdmin)
+    {
+        <div>
+            <p>
+                <a class="btn btn-primary btn-sm rosybrown-bg" asp-page="/Product/NeedleAndHookPages/CreateKnittingNeedle">Tilføj strikkepinde til hjemmesiden</a>
+            </p> 
+        </div>
+    }
+</div>
+
+<!-- Inline script to toggle sidenav -->
+<script>
+    document.getElementById('filterToggle').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('mySidenav').style.width = '250px';
+        } else {
+            document.getElementById('mySidenav').style.width = '0';
+        }
+    });
+</script>
+
