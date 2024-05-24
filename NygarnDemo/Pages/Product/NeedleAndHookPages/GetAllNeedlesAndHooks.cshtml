@@ -7,136 +7,6 @@
 
 <h1>Strikkepinde og hæklenåle</h1>
 
-
-@*<div class="container">
-    <div class="row">
-        <div class="col-7"><h5>Search Name</h5></div>
-        <div class="col-5"><h5>Filter Price</h5></div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            <form method="post" class="form-inline">
-                <div class="input-group mb-5">
-                    <input asp-for="SearchString" class="form-control mr-2 rosybrown-input" placeholder="Søgeord" />
-                    <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary btn-sm rosybrown-bg" />
-                </div>
-            </form>
-        </div>
-        <div class="col-8">
-            <form method="post" class="form-inline">
-                <div class="input-group mb-5">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Min</span>
-                    </div>
-                    <input asp-for="MinPrice" class="form-control me-3 rosybrown-input" />
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Max</span>
-                    </div>
-                    <input asp-for="MaxPrice" class="form-control me-2 rosybrown-input" />
-                    <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary btn-sm rosybrown-bg" />
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <form method="post" class="form-inline">
-                <div class="input-group mb-5">
-                <select asp-for="Size" asp-items="Html.GetEnumSelectList<Size>()" class="form-control mr-2 rosybrown-input">
-                    <option value="">Vælg størrelse</option>
-                </select>
-                <button type="submit" asp-page-handler="SizeFilter" class="btn btn-primary btn-sm rosybrown-bg">Filter Size</button>
-                </div>
-            </form>
-        </div>
-        <div class="col">
-            <form method="post" class="form-inline">
-                <div class="input-group mb-5">
-                <select asp-for="Material" asp-items="Html.GetEnumSelectList<NeedleAndHookMaterial>()" class="form-control mr-2 rosybrown-input">
-                    <option value="">Material</option>
-                </select>
-                <button type="submit" asp-page-handler="MaterialFilter" class="btn btn-primary btn-sm rosybrown-bg">Filter Material</button>
-                </div>
-            </form>
-        </div>
-        <div class="col">
-            <form method="post" class="form-inline">
-                <div class="input-group mb-5">
-                <select asp-for="Type" asp-items="Html.GetEnumSelectList<NeedleType>()" class="form-control mr-2 rosybrown-input">
-                    <option value="">Type</option>
-                </select>
-                <button type="submit" asp-page-handler="TypeFilter" class="btn btn-primary btn-sm rosybrown-bg">Filter Type</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<div class="grid-container">
-@if (Model.CrochetHooks != null)
-{
-    foreach (var crochetHook in Model.CrochetHooks)
-    {
-        <div class="row">
-            <div class="col-sm-4 mb-3">
-                <div class="card" style="width: 18rem;">
-                        <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="~/pngFiles/hæklenål.png" alt="Card image cap" />
-                                <div class="card-body">
-                                <h5 class="card-title">@crochetHook.Name</h5>
-                                <p class="card-text">Beskrivelse: @crochetHook.Description</p>
-                                <p class="card-text">Pris: @crochetHook.Price</p>
-                                <p class="card-text">Mærke: @crochetHook.Brand</p>
-                                <p class="card-text">Materiale: @crochetHook.Material</p>
-                                <p class="card-text">Størrelse: @crochetHook.Size</p>
-                                <a href="#" class="btn btn-primary btn-sm rosybrown-bg">Tryk for at se mere</a>
-                            </div>
-                        </div>
-                  </div>
-            </div>
-        </div>
-    }   
-}
-@if (Model.IsAdmin){
-    <div>
-        <p>
-            <a class="btn btn-primary btn-sm" asp-page="/Product/NeedleAndHookPages/CreateCrochetHook">Tilføj hæklenål</a>
-        </p>
-    </div>
-}
-</div>
-<div class="grid-container">
-@if (Model.KnittingNeedles != null)
-{
-    foreach (var knittingNeedle in Model.KnittingNeedles)
-    {
-        <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="~/pngFiles/KnitPro Symfonie rundpind.png"  alt="Card image cap" />
-             <div class="card-body">
-                <h5 class="card-title">@knittingNeedle.Name</h5>
-                <p class="card-text">Beskrivelse: @knittingNeedle.Description</p>
-                <p class="card-text">Pris: @knittingNeedle.Price</p>
-                <p class="card-text">Mærke: @knittingNeedle.Brand</p>
-                <p class="card-text">Materiale: @knittingNeedle.Material</p>
-                <p class="card-text">Størrelse: @knittingNeedle.Size</p>
-                <p class="card-text">Type: @knittingNeedle.Type</p>
-                    <a href="#" class="btn btn-primary btn-sm rosybrown-bg">Tryk for at se mere</a>
-            </div>
-        </div>
-    }
-}
-</div>
-@if (Model.IsAdmin)
-{
-    <div>
-        <p>
-            <a class="btn btn-primary btn-sm rosybrown-bg" asp-page="/Product/NeedleAndHookPages/CreateKnittingNeedle">Tilføj strikkepinde til hjemmesiden</a>
-        </p> 
-    </div>
-}
-*@
-
-
 <!-- Filter Button -->
 <label for="filterToggle" class="btn btn-primary btn-sm rosybrown-bg" style="cursor: pointer;">Filtre</label>
 <input type="checkbox" id="filterToggle" style="display: none;" />
@@ -221,7 +91,7 @@
         {
             <div>
                 <p>
-                    <a class="btn btn-primary btn-sm" asp-page="/Product/NeedleAndHookPages/CreateCrochetHook">Tilføj hæklenål</a>
+                    <a class="btn btn-primary btn-sm rosybrown-bg" asp-page="/Product/NeedleAndHookPages/CreateCrochetHook">Tilføj hæklenål</a>
                 </p>
             </div>
         }
