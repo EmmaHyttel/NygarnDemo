@@ -27,10 +27,13 @@ else
                         @line.Product.Name
                     </td>
                     <td>
-                        @line.Count
+                        @line.Product.Price
                     </td>
                     <td>
-                        <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="ShoppingCart" asp-route-id="@line.Count">
+                        @line.Quantity
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="ShoppingCart" asp-route-id="@line.Quantity">
                             <i class="fa fa-edit"></i> Antal
                         </a>
                         <a class="btn btn-danger btn-sm" type="button" title="Delete" asp-page="ShoppingCart" asp-route-id="@line.Product.ProductId">

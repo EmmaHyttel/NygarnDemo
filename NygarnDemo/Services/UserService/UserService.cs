@@ -43,13 +43,13 @@ public class UserService : IUserService
         Users.Add(user);
     }
 
-    public async Task AddToShoppingCart(string username, Product product, int count)
+    public async Task AddToShoppingCart(string username, Product product, int quantity)
     {
         var user = await _userDbService.GetUserByUsername(username);
 
         if (user is not null)
         {
-            await _userDbService.AddToShoppingCart(user.Id, product, count);
+            await _userDbService.AddToShoppingCart(user.Id, product, quantity);
         }
     }
 

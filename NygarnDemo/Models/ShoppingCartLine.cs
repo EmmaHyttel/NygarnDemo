@@ -15,12 +15,12 @@ namespace NygarnDemo.Models
 
         public Product Product { get; set; }
 
-        public int Count { get; set; }
+        public int Quantity { get; set; }
 
-        public ShoppingCartLine(Product product, int count)
+        public ShoppingCartLine(Product product, int quantity)
         {
             Product = product;
-            Count = count;
+            Quantity = quantity;
         }
 
         public ShoppingCartLine()
