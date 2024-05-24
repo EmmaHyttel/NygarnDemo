@@ -66,6 +66,7 @@ public class UserDbService
         {
             var user = await context.User
                        .Include(u => u.ShoppingCartLines)
+                       .ThenInclude(scl => scl.Product)
                        .FirstOrDefaultAsync(u => u.Id == userId);
 
             if (user is not null)

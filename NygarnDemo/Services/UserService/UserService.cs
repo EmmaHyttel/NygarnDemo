@@ -9,8 +9,6 @@ public class UserService : IUserService
     private UserDbService _userDbService;
     public List<Models.User> Users { get; set; }
 
-
-
     public UserService(UserDbService dbService)
     {
         //Users = MockUser.GetAllUsers();
