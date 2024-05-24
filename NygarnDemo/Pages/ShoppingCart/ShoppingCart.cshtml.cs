@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.Models;
 using NygarnDemo.Services.User;
@@ -20,7 +21,16 @@ public class ShoppingCartModel : PageModel
     {
         var username = HttpContext.User.FindFirstValue(ClaimTypes.Name);
         ShoppingCartLines = await _userService.GetShoppingCartByUserName(username);
+    }
+    public async Task<IActionResult> OnPostUpdateQuantity(int productId, int quantity)
+    {
+        var user = HttpContext.User.FindFirstValue(ClaimTypes.Name);
 
-        // TODO: Implementer product service til at hente produkter og vise dem her.
+        if (user is not null)
+        {
+            await _userService.UpdateShoppingCart(user, productId, quantity);
+        }
+
+        return RedirectToPage("ShoppingCart");
     }
 }

@@ -139,7 +139,7 @@ namespace NygarnDemo.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    Count = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -184,10 +184,10 @@ namespace NygarnDemo.Migrations
                 columns: new[] { "Id", "Address", "Email", "LastName", "Name", "Password", "Phone", "UserName" },
                 values: new object[,]
                 {
-                    { 1, "En sej gade", "nem_hard@garn.dk", "HARD", "NEM", "AQAAAAIAAYagAAAAEEGcMi0jwI3VAOdvQbDRdfkrBWT6+LFY7EEOd/OIt4dT1cMPSZcFdNHmcyzOqkJIaQ==", "69696969", "admin" },
-                    { 2, "Vejgade 1", "emmastrikker@garn.dk", "Hyttel", "Emma", "AQAAAAIAAYagAAAAEJ9dViV3CjJcj4oSkYRdOqfjKIJpv7h8ozU0tmOy9uxtB6UWUDAiN7EXFoMXXO7TgA==", "12345678", "EmmaStrikker123" },
-                    { 3, "Vejgade 2", "maistrikker@garn.dk", "Dinh", "Mai", "AQAAAAIAAYagAAAAEPixrPm2apbSGBGRVQOHX2cKbJqqEsFLRx1IlwAGfxj/XrbS8s68zh1XA5ZS6+4Frg==", "23456789", "MaiStrikker123" },
-                    { 4, "Vejgade 3", "nannahækler@garn.dk", "Rister", "Nanna", "AQAAAAIAAYagAAAAEIc5asf8/zgQNJgkatMvEi4JA2Sqq/R60bqEFG879VqBqiMxE6r24LdqhMqmXkrI6g==", "34567891", "NannaHækler123" }
+                    { 1, "En sej gade", "nem_hard@garn.dk", "HARD", "NEM", "AQAAAAIAAYagAAAAEM0GkeILIPpb5qtCMTRceLqijrVdjgSH+7osVJ+A98aRWAfp/XzBzLM7Sja0zq7hpA==", "69696969", "admin" },
+                    { 2, "Vejgade 1", "emmastrikker@garn.dk", "Hyttel", "Emma", "AQAAAAIAAYagAAAAEILsY2pj4wchF+PpjaUoyiu78cz9BQ5M51iShGVHMU1SVGObiyKIA+f2o21C8aaa8A==", "12345678", "EmmaStrikker123" },
+                    { 3, "Vejgade 2", "maistrikker@garn.dk", "Dinh", "Mai", "AQAAAAIAAYagAAAAEOEChF5ut0hLjOjfmgd+GIyeyiKHjKw8FUlE+t8PN4bGI0zLbK5Hm2IzpBAmHc5uFw==", "23456789", "MaiStrikker123" },
+                    { 4, "Vejgade 3", "nannahækler@garn.dk", "Rister", "Nanna", "AQAAAAIAAYagAAAAECw4p1Wc2NRt3WWaT2cpvIRMDaSs+x7oYAuzVe6Bm9nTJubt2dwdi5y9/NrCuxMgbw==", "34567891", "NannaHækler123" }
                 });
 
             migrationBuilder.InsertData(

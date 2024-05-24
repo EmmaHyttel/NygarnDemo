@@ -65,10 +65,27 @@ public class UserService : IUserService
         return new List<ShoppingCartLine>();
     }
 
+    public async Task UpdateShoppingCart(string userName, int productId, int quantity)
+    {
+        var user = await _userDbService.GetUserByUsername(userName);
+        if (user != null)
+        {
+            foreach (ShoppingCartLine line in user.ShoppingCartLines)
+            {
+                if (line.Product.ProductId == productId)
+                {
+                    line.Quantity = quantity;
+                }
+            }
+            await _userDbService.UpdateShoppingCartAsync(user.Id, user.ShoppingCartLines);
+        }
+    }
 
-        //public async Task<Models.User> GetUserOrdersAsync(Models.User user)
-        //{
-        //    return await _userDbService.GetOrdersByUserIdAsync(user.Id);
-        //}
-    
+
+
+    //public async Task<Models.User> GetUserOrdersAsync(Models.User user)
+    //{
+    //    return await _userDbService.GetOrdersByUserIdAsync(user.Id);
+    //}
+
 }

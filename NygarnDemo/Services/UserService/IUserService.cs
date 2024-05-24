@@ -10,9 +10,9 @@ namespace NygarnDemo.Services.User
 
         Models.User GetUserByUserName(string str);
 
-        Task AddToShoppingCart(string userName, Product product, int count);
+        Task AddToShoppingCart(string userName, Product product, int quantity);
         Task<List<ShoppingCartLine>> GetShoppingCartByUserName(string username);
 
-
+        Task UpdateShoppingCart(string userName, int productId, int quantity);
     }
 }

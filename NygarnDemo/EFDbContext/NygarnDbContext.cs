@@ -26,6 +26,7 @@ public class NygarnDbContext : DbContext
     public DbSet<Tool> Tool { get; set; }
     public DbSet<KnittingNeedle> KnittingNeedle { get; set; }
     public DbSet<CrochetHook> CrochetHook { get; set; }
+    //public DbSet<ShoppingCartLine> ShoppingCartLine { get; set; }
     //public DbSet<WishList> WishList { get; set; }
 
 
@@ -298,6 +299,5 @@ public class NygarnDbContext : DbContext
                 }
                 );
 
-        //modelBuilder.Entity<WishList>().ToTable("WishList");
     }
 }

@@ -135,14 +135,14 @@ namespace NygarnDemo.Pages.Product.YarnPages
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAddToCart()
+        public async Task<IActionResult> OnPostAddToCart(int quantity)
         {
             var user = HttpContext.User.FindFirstValue(ClaimTypes.Name);
 
             if(user is not null)
             {
                 var product = await _yarnService.GetYarn(SelectedProductId);
-                await _userService.AddToShoppingCart(user, product, 1);
+                await _userService.AddToShoppingCart(user, product, quantity);
             }
 
             return RedirectToPage();

@@ -45,7 +45,7 @@ public class UserDbService
         }
     }
 
-    public async Task AddToShoppingCart(int userId, Product product, int count)
+    public async Task AddToShoppingCart(int userId, Product product, int quantity)
     {
         using (var context = new NygarnDbContext())
         {
@@ -53,7 +53,7 @@ public class UserDbService
 
             if(user is not null)
             {
-                user.ShoppingCartLines.Add(new ShoppingCartLine(product, count));
+                user.ShoppingCartLines.Add(new ShoppingCartLine(product, quantity));
                 context.SaveChanges();
             }
 
@@ -78,9 +78,28 @@ public class UserDbService
         }
     }
 
+    public async Task UpdateShoppingCartAsync(int userId, List<ShoppingCartLine> shoppingCartLines)
+    {
+        using (var context = new NygarnDbContext())
+        {
+            var user = await context.User
+                .Include(u => u.ShoppingCartLines)
+                .FirstOrDefaultAsync(x => x.Id == userId);
 
+            if (user != null)
+            {
+                foreach (var line in shoppingCartLines)
+                {
+                    var existingLine = user.ShoppingCartLines.FirstOrDefault(l => l.Id == line.Id);
 
-
+                    if (existingLine != null)
+                    {
+                        existingLine.Quantity = line.Quantity;
+                    }
+                }
+            }
+        }
+    }
     //public async Task<Models.User> GetOrdersByUserIdAsync(int id)
     //{
     //    Models.User user;

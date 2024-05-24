@@ -12,7 +12,7 @@ using NygarnDemo.EFDbContext;
 namespace NygarnDemo.Migrations
 {
     [DbContext(typeof(NygarnDbContext))]
-    [Migration("20240524082825_NygarnDemoInitial")]
+    [Migration("20240524111203_NygarnDemoInitial")]
     partial class NygarnDemoInitial
     {
         /// <inheritdoc />
@@ -68,10 +68,10 @@ namespace NygarnDemo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Count")
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<int?>("UserId")
@@ -140,7 +140,7 @@ namespace NygarnDemo.Migrations
                             Email = "nem_hard@garn.dk",
                             LastName = "HARD",
                             Name = "NEM",
-                            Password = "AQAAAAIAAYagAAAAEEGcMi0jwI3VAOdvQbDRdfkrBWT6+LFY7EEOd/OIt4dT1cMPSZcFdNHmcyzOqkJIaQ==",
+                            Password = "AQAAAAIAAYagAAAAEM0GkeILIPpb5qtCMTRceLqijrVdjgSH+7osVJ+A98aRWAfp/XzBzLM7Sja0zq7hpA==",
                             Phone = "69696969",
                             UserName = "admin"
                         },
@@ -151,7 +151,7 @@ namespace NygarnDemo.Migrations
                             Email = "emmastrikker@garn.dk",
                             LastName = "Hyttel",
                             Name = "Emma",
-                            Password = "AQAAAAIAAYagAAAAEJ9dViV3CjJcj4oSkYRdOqfjKIJpv7h8ozU0tmOy9uxtB6UWUDAiN7EXFoMXXO7TgA==",
+                            Password = "AQAAAAIAAYagAAAAEILsY2pj4wchF+PpjaUoyiu78cz9BQ5M51iShGVHMU1SVGObiyKIA+f2o21C8aaa8A==",
                             Phone = "12345678",
                             UserName = "EmmaStrikker123"
                         },
@@ -162,7 +162,7 @@ namespace NygarnDemo.Migrations
                             Email = "maistrikker@garn.dk",
                             LastName = "Dinh",
                             Name = "Mai",
-                            Password = "AQAAAAIAAYagAAAAEPixrPm2apbSGBGRVQOHX2cKbJqqEsFLRx1IlwAGfxj/XrbS8s68zh1XA5ZS6+4Frg==",
+                            Password = "AQAAAAIAAYagAAAAEOEChF5ut0hLjOjfmgd+GIyeyiKHjKw8FUlE+t8PN4bGI0zLbK5Hm2IzpBAmHc5uFw==",
                             Phone = "23456789",
                             UserName = "MaiStrikker123"
                         },
@@ -173,7 +173,7 @@ namespace NygarnDemo.Migrations
                             Email = "nannahækler@garn.dk",
                             LastName = "Rister",
                             Name = "Nanna",
-                            Password = "AQAAAAIAAYagAAAAEIc5asf8/zgQNJgkatMvEi4JA2Sqq/R60bqEFG879VqBqiMxE6r24LdqhMqmXkrI6g==",
+                            Password = "AQAAAAIAAYagAAAAECw4p1Wc2NRt3WWaT2cpvIRMDaSs+x7oYAuzVe6Bm9nTJubt2dwdi5y9/NrCuxMgbw==",
                             Phone = "34567891",
                             UserName = "NannaHækler123"
                         });

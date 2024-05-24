@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model NygarnDemo.Pages.ShoppingCart.ShoppingCartModel
 @{
 }
@@ -33,9 +33,11 @@ else
                         @line.Quantity
                     </td>
                     <td>
-                        <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="ShoppingCart" asp-route-id="@line.Quantity">
-                            <i class="fa fa-edit"></i> Antal
-                        </a>
+                        <form method="post" asp-page-handler="UpdateQuantity">
+                            <input type="hidden" name="ProductId" value="@line.Product.ProductId" />
+                            <input type="number" name="Quantity" value="@line.Quantity" min="1" /> 
+                            <button type="submit">Opdater</button>
+                        </form>
                         <a class="btn btn-danger btn-sm" type="button" title="Delete" asp-page="ShoppingCart" asp-route-id="@line.Product.ProductId">
                             <i class="fa fa-trash"></i> Slet
                         </a>

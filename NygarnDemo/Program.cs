@@ -1,16 +1,10 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using NygarnDemo.EFDbContext;
-using NygarnDemo.Models;
-using NygarnDemo.Services;
 using NygarnDemo.Services.DbServices;
 using NygarnDemo.Services.Interfaces;
 using NygarnDemo.Services.ProductServices;
 using NygarnDemo.Services.User;
-using NygarnDemo.Services.UserService;
 
 var builder = WebApplication.CreateBuilder(args);
 
