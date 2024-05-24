@@ -37,7 +37,7 @@ public class ToolDbService
         }
     }
 
-    public async Task DeleteToolAsync(Tool tool)
+    public async Task DeleteTool(Tool tool)
     {
         using (var context = new NygarnDbContext())
         {

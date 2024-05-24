@@ -16,7 +16,7 @@ namespace NygarnDemo.Services.ProductServices
             //ToolProducts = MockTool.GetAllToolProducts();
             _dbService = dbService;
             ToolProducts = _dbService.GetTools().Result.ToList();
-            _dbService.SaveTools(ToolProducts);
+            //_dbService.SaveTools(ToolProducts);
         }
 
         public async Task<List<Tool>> GetToolProducts()
@@ -106,25 +106,25 @@ namespace NygarnDemo.Services.ProductServices
             return null;
         }
 
-        public async Task<Tool> DeleteTool(Tool tool)
-        {
-            //Tool ToolToBeDeleted = null;
-            foreach (Tool t in ToolProducts)
-            {
-                if (t == tool)
-                {
-                    await _dbService.DeleteToolAsync(tool);
-                    break;
-                }
-            }
-            //if (ToolToBeDeleted != null)
-            //{
-            //    //ToolProducts.Remove(ToolToBeDeleted);
-            //    await _dbService.DeleteToolAsync(ToolToBeDeleted);
-            //}
+        //public async Task<Tool> DeleteToolAsync(Tool tool)
+        //{
+        //    //Tool ToolToBeDeleted = null;
+        //    foreach (Tool t in ToolProducts)
+        //    {
+        //        if (t == tool)
+        //        {
+        //            await _dbService.DeleteToolAsync(tool);
+        //            break;
+        //        }
+        //    }
+        //    //if (ToolToBeDeleted != null)
+        //    //{
+        //    //    //ToolProducts.Remove(ToolToBeDeleted);
+        //    //    await _dbService.DeleteToolAsync(ToolToBeDeleted);
+        //    //}
 
-            return tool;
-        }
+        //    return tool;
+        //}
 
         public async Task UpdateToolAsync(Tool tool)
         {
@@ -146,5 +146,25 @@ namespace NygarnDemo.Services.ProductServices
 			}
         }
 
+        public async Task<Tool> DeleteToolAsync(int? productId)
+        {
+            Tool toolToBeDeleted = null;
+            foreach (Tool tool in ToolProducts)
+            {
+                if (tool.ProductId == productId)
+                {
+                    toolToBeDeleted = tool;
+                    break;
+                }
+            }
+
+            if (toolToBeDeleted != null)
+            {
+                //ToolProducts.Remove(toolToBeDeleted);
+                await _dbService.DeleteTool(toolToBeDeleted);
+            }
+
+            return toolToBeDeleted;
+        }
     }
 }

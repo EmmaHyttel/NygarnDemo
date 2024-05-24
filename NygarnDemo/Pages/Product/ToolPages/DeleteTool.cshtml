@@ -5,11 +5,14 @@
 }
 
 
-<h1>Delete Confirmation></h1>
+<h1>Delete Confirmation</h1>
 <div class="alert alert-danger">
     <h5>Er du sikker på, at du vil slette tilbehøret? - @Model.Tool.Name</h5>
     <form method="post">
         <button type="submit" class="btn btn-danger">JA</button>
+       @*  <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteTool" asp-route-id="@Model.Tool.ProductId">
+            <i class="fa fa-trash"></i>JA
+        </a> *@
         <a class="btn btn-primary" asp-page="/ToolPages/GetAllTools">NEJ</a>
     </form>
 </div>

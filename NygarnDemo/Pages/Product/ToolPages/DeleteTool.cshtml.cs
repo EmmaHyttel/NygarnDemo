@@ -17,18 +17,27 @@ namespace NygarnDemo.Pages.Product.ToolPages
         }
 
         [BindProperty]
-        public Models.Tool Tool { get; set; }
+        public Tool Tool { get; set; }
 
-        [BindProperty]
-        public int DeletedToolId { get; set; }
+        //[BindProperty]
+        //public int DeletedToolId { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
             Tool = await _toolService.GetTool(id);
             if (Tool == null)
-                return RedirectToPage("/NotFound"); // Husk at definere NotFound-siden senere
+                return RedirectToPage("/Construction/NotFound"); 
 
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            Tool deletedTool = await _toolService.DeleteToolAsync(Tool.ProductId);
+            if (deletedTool == null)
+                return RedirectToPage("/Construction/NotFound");
+
+            return RedirectToPage("/Product/ToolPages/GetAllTools");
         }
 
         //public async Task<IActionResult> OnPostAsync()
@@ -42,27 +51,27 @@ namespace NygarnDemo.Pages.Product.ToolPages
         //}
 
 
-        public async Task<IActionResult> OnPostDeleteTool()
-        {
-            // Check if DeletedToolId is valid
-            //if (DeletedToolId == 0)
-            //{
-            //    return RedirectToPage("/Index");
-            //}
+        //public async Task<IActionResult> OnPostDeleteTool()
+        //{
+        //    // Check if DeletedToolId is valid
+        //    //if (DeletedToolId == 0)
+        //    //{
+        //    //    return RedirectToPage("/Index");
+        //    //}
 
-            // Fetch the tool to be deleted
-            var tool = await _toolService.GetTool(DeletedToolId);
-            if (tool == null)
-            {
-                return RedirectToPage("/Index");
-            }
+        //    // Fetch the tool to be deleted
+        //    var tool = await _toolService.GetTool(DeletedToolId);
+        //    if (tool == null)
+        //    {
+        //        return RedirectToPage("/Index");
+        //    }
 
-            // Delete the tool
-            await _toolService.DeleteTool(tool);
+        //    // Delete the tool
+        //    await _toolService.DeleteTool(tool);
 
-            // Redirect to GetAllTools page
-            return RedirectToPage("GetAllTools");
-        }
+        //    // Redirect to GetAllTools page
+        //    return RedirectToPage("GetAllTools");
+        //}
     }
 
     

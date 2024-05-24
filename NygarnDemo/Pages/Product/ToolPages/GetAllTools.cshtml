@@ -80,8 +80,10 @@
                     <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailTool" asp-route-id="@tool.ProductId"><i class="fa fa-info"></i>Se detaljer</a>
                     @if (Model.IsAdmin)
                     {
-                        <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditTool" asp-route-id="@tool.ProductId"><i class="fa fa-edit"></i>Rediger</a>
-                        
+                        <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditTool" asp-route-id="@tool.ProductId">
+                            <i class="fa fa-edit"></i>Rediger</a>
+                        <a class="btn btn-danger btn-sm " type="button" title="Delete" name="DeletedToolId" asp-page="DeleteTool" 
+                        asp-route-id="@tool.ProductId"><i class="fa fa-trash"></i>Slet</a>
                        @*  <form asp-page="EditTool" asp-route-id="@tool.ProductId" method="post" class="d-inline">
                             <button type="submit" class="btn btn-danger" title="Rediger">
                                 Rediger
@@ -99,7 +101,6 @@
                             <i class="fa fa-trash"></i>
                         </button>
                     </form> *@
-                        <a class="btn btn-danger btn-sm " type="button" title="Delete" name="DeletedToolId" asp-page="DeleteTool" asp-route-id="@tool.ProductId"><i class="fa fa-trash"></i>Slet</a>
                        @*  <form method="post">
                             <input type="hidden" name="DeletedToolId" value="@tool.ProductId" />
                             <button class="btn btn-primary" type="submit" asp-page-handler="DeleteTool">Slet</button>
