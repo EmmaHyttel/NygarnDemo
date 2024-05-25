@@ -18,7 +18,7 @@ public class UserDbService
     {
         using (var context = new NygarnDbContext())
         {
-            return await context.User.FirstOrDefaultAsync(x => x.UserName == username);
+          return await context.User.FirstOrDefaultAsync(u => u.UserName == username);
         }
     }
 
@@ -97,7 +97,41 @@ public class UserDbService
                         existingLine.Quantity = line.Quantity;
                     }
                 }
+
+                await context.SaveChangesAsync();
             }
+        }
+    }
+
+    public async Task<List<WishListLine>> GetWishList(int userId)
+    {
+        using (var context = new NygarnDbContext())
+        {
+            var user = await context.User
+                       .Include(u => u.MyWishList)
+                       .ThenInclude(scl => scl.Product)
+                       .FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user is not null)
+            {
+                return user.MyWishList;
+            }
+
+            return new List<WishListLine>();
+        }
+    }
+    public async Task AddToWishList(int userId, Product product)
+    {
+        using (var context = new NygarnDbContext())
+        {
+            var user = await context.User.FirstOrDefaultAsync(x => x.Id == userId);
+
+            if (user is not null)
+            {
+                user.MyWishList.Add(new WishListLine(product));
+                context.SaveChanges();
+            }
+
         }
     }
     //public async Task<Models.User> GetOrdersByUserIdAsync(int id)

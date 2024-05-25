@@ -1,34 +1,25 @@
-﻿//using System.ComponentModel.DataAnnotations;
-//using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-//namespace NygarnDemo.Models
-//{
-//    public class WishList
-//    {
-//        [Key]
-//        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-//        public int WishListId { get; set; }
+namespace NygarnDemo.Models
+{
+    public class WishListLine
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
-//        [ForeignKey("ProductId")]
-//        public int ProductId { get; set; }
+        public Product Product { get; set; }
 
-//        [ForeignKey("Id")]
-//        public int Id { get; set; } 
+        public WishListLine(Product product)
+        {
+            Product = product;
+        }
 
-//        public User User { get; set; }
-//        public List<Product> WishListProducts { get; set; } 
+        public WishListLine()
+        {
+        }
 
-//        public WishList(User user)
-//        {
-//            User = user;
-//            WishListProducts = new List<Product>();
-//        }
 
-//        public WishList()
-//        {
-
-//        }
-
-         
-//    }
-//}
+    }
+}

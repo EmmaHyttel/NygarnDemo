@@ -1,0 +1,37 @@
+﻿@page
+@model NygarnDemo.Pages.WishList.WishListModel
+@{
+}
+<h1>Ønskeliste</h1>
+
+@if (Model.WishList == null || !Model.WishList.Any())
+{
+    <h3>Din kurv er tom</h3>
+}
+else
+{
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: rosybrown; color: white;">
+                <th style="padding: 10px; text-align: left;">Produkt</th>
+                <th style="padding: 10px; text-align: left;">Pris</th>
+                <th style="padding: 10px; text-align: left;">Antal</th>
+                <th style="padding: 10px; text-align: left;">Handlinger</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.WishList)
+            {
+                <tr class="btn-secondary" style="background-color: white; border-bottom: 1px solid #ddd; color:black">
+                    <td style="padding: 10px;">@line.Product.Name</td>
+                    <td style="padding: 10px;">@line.Product.Price</td>
+                    <td style="padding: 10px;">
+                        <a class="btn btn-danger btn-sm" type="button" title="Delete" asp-page="WishList" asp-route-id="@line.Product.ProductId" style="margin-left: 5px; background-color: red; color: white; border: none; padding: 5px 10px;">
+                            <i class="fa fa-trash"></i> Slet
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

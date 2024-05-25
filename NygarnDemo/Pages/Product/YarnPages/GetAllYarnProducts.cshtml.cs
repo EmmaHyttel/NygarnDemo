@@ -148,6 +148,19 @@ namespace NygarnDemo.Pages.Product.YarnPages
             return RedirectToPage();
         }
 
+        public async Task<IActionResult> OnPostWisList()
+        {
+            var user = HttpContext.User.FindFirstValue(ClaimTypes.Name);
+
+            if (user is not null)
+            {
+                var product = await _yarnService.GetYarn(SelectedProductId);
+                await _userService.AddToWishList(user, product);
+            }
+
+            return RedirectToPage();
+        }
+
         //public IActionResult OnPostMachinewashFilter()
         //{
         //    YarnProducts = _yarnService.MachinewashFilter(MachineWash).ToList();

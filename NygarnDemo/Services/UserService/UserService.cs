@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NygarnDemo.Models;
+using NygarnDemo.Pages.User;
 using NygarnDemo.Services.DbServices;
 
 namespace NygarnDemo.Services.User;
@@ -68,17 +69,42 @@ public class UserService : IUserService
     public async Task UpdateShoppingCart(string userName, int productId, int quantity)
     {
         var user = await _userDbService.GetUserByUsername(userName);
-        if (user != null)
+
+        var userShoppingCart = await _userDbService.GetShoppingCart(user.Id);
+
+        if (userShoppingCart != null)
         {
-            foreach (ShoppingCartLine line in user.ShoppingCartLines)
+            foreach (ShoppingCartLine line in userShoppingCart)
             {
                 if (line.Product.ProductId == productId)
                 {
                     line.Quantity = quantity;
                 }
             }
-            await _userDbService.UpdateShoppingCartAsync(user.Id, user.ShoppingCartLines);
+            await _userDbService.UpdateShoppingCartAsync(user.Id, userShoppingCart);
         }
+    }
+
+    public async Task AddToWishList(string userName, Product product)
+    {
+        var user = await _userDbService.GetUserByUsername(userName);
+
+        if (user is not null)
+        {
+            await _userDbService.AddToWishList(user.Id, product);
+        }
+    }
+
+    public async Task<List<WishListLine>> GetWishListByUserName(string userName)
+    {
+        var user = await _userDbService.GetUserByUsername(userName);
+
+        if (user is not null)
+        {
+            return await _userDbService.GetWishList(user.Id);
+        }
+
+        return new List<WishListLine>();
     }
 
 

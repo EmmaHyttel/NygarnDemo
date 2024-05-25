@@ -45,9 +45,9 @@ public class User
     [StringLength(100)]
     public string Email { get; set; }
 
-    //public ShoppingCart? Cart { get; set; }
 
     public List<ShoppingCartLine> ShoppingCartLines { get; set; } = new List<ShoppingCartLine>();
+    public List<WishListLine> MyWishList { get; set; } = new List<WishListLine>();
 
 
     public User(string userName, string name, string lastName, string password, string address, string phone, string email)

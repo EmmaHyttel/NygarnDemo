@@ -11,34 +11,29 @@
 }
 else
 {
-    <table>
+    <table style="width: 100%; border-collapse: collapse;">
         <thead>
-            <tr>
-                <th>Produkt</th>
-                <th>Antal</th>
-                <th>Handlinger</th>
+            <tr style="background-color: rosybrown; color: white;">
+                <th style="padding: 10px; text-align: left;">Produkt</th>
+                <th style="padding: 10px; text-align: left;">Pris</th>
+                <th style="padding: 10px; text-align: left;">Antal</th>
+                <th style="padding: 10px; text-align: left;">Handlinger</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var line in Model.ShoppingCartLines)
             {
-                <tr class="btn-secondary">
-                    <td>
-                        @line.Product.Name
-                    </td>
-                    <td>
-                        @line.Product.Price
-                    </td>
-                    <td>
-                        @line.Quantity
-                    </td>
-                    <td>
-                        <form method="post" asp-page-handler="UpdateQuantity">
+                <tr class="btn-secondary" style="background-color: white; border-bottom: 1px solid #ddd; color:black">
+                    <td style="padding: 10px;">@line.Product.Name</td>
+                    <td style="padding: 10px;">@line.Product.Price</td>
+                    <td style="padding: 10px;">@line.Quantity</td>
+                    <td style="padding: 10px;">
+                        <form method="post" asp-page-handler="UpdateQuantity" style="display: inline;">
                             <input type="hidden" name="ProductId" value="@line.Product.ProductId" />
-                            <input type="number" name="Quantity" value="@line.Quantity" min="1" /> 
-                            <button type="submit">Opdater</button>
+                            <input type="number" name="Quantity" value="@line.Quantity" min="1" style="width: 50px;" />
+                            <button type="submit" class="btn btn-primary btn-sm" style="background-color: rosybrown; color: white; border: none;">Opdater</button>
                         </form>
-                        <a class="btn btn-danger btn-sm" type="button" title="Delete" asp-page="ShoppingCart" asp-route-id="@line.Product.ProductId">
+                        <a class="btn btn-danger btn-sm" type="button" title="Delete" asp-page="ShoppingCart" asp-route-id="@line.Product.ProductId" style="margin-left: 5px; background-color: red; color: white; border: none; padding: 5px 10px;">
                             <i class="fa fa-trash"></i> Slet
                         </a>
                     </td>
@@ -47,3 +42,4 @@ else
         </tbody>
     </table>
 }
+

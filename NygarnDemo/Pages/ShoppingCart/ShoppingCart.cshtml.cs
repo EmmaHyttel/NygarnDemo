@@ -24,13 +24,18 @@ public class ShoppingCartModel : PageModel
     }
     public async Task<IActionResult> OnPostUpdateQuantity(int productId, int quantity)
     {
-        var user = HttpContext.User.FindFirstValue(ClaimTypes.Name);
-
-        if (user is not null)
+        if(quantity  > 0)
         {
-            await _userService.UpdateShoppingCart(user, productId, quantity);
+            var user = HttpContext.User.FindFirstValue(ClaimTypes.Name);
+
+            if (user is not null)
+            {
+                await _userService.UpdateShoppingCart(user, productId, quantity);
+            }
+
+            return RedirectToPage("ShoppingCart");
         }
 
-        return RedirectToPage("ShoppingCart");
+        return Page();
     }
 }
