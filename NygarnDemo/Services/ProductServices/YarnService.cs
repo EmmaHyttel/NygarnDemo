@@ -10,9 +10,12 @@ public class YarnService : IYarnService
     {
         private readonly YarnDbService _dbService;
 
-        public YarnService(YarnDbService dbService)
+	    public List<Yarn> YarnProducts { get; set; }
+
+	    public YarnService(YarnDbService dbService)
         {
             _dbService = dbService;
+            YarnProducts = _dbService.GetYarnProducts().Result.ToList();
         }
 
 	    public async Task<List<Yarn>> GetYarnProducts()
@@ -187,18 +190,38 @@ public class YarnService : IYarnService
         return null;
     }
 
+	public async Task UpdateYarnAsync(Yarn yarn)
+	{
+		if (yarn != null)
+		{
+			foreach (Yarn y in YarnProducts)
+			{
+				if (y.ProductId == yarn.ProductId)
+				{
+					y.Name = yarn.Name;
+					y.Price = yarn.Price;
+					y.Description = yarn.Description;
 
-    //public IEnumerable<Yarn> MachinewashFilter()
-    //{
-    //    List<Yarn> MachinewashList = new List<Yarn>();
-    //    foreach (Yarn yarn in YarnProducts)
-    //    {
-    //        if (yarn.MachineWash == )
-    //        {
-    //            MachinewashList.Add(yarn);
-    //        }
-    //    }
+				}
 
-    //    return MachinewashList;
-    //}
+			}
+			await _dbService.UpdateYarn(yarn);
+			//await _dbService.SaveTools(ToolProducts);
+		}
+	}
+
+
+	//public IEnumerable<Yarn> MachinewashFilter()
+	//{
+	//    List<Yarn> MachinewashList = new List<Yarn>();
+	//    foreach (Yarn yarn in YarnProducts)
+	//    {
+	//        if (yarn.MachineWash == )
+	//        {
+	//            MachinewashList.Add(yarn);
+	//        }
+	//    }
+
+	//    return MachinewashList;
+	//}
 }

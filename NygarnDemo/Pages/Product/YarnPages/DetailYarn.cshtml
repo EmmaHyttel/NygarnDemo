@@ -1,0 +1,29 @@
+﻿@page
+@model NygarnDemo.Pages.Product.YarnPages.DetailYarnModel
+@{
+}
+
+<div class="row mt-4">
+    <div class="col-lg-3 mb-4"></div>
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            @*   <img src="~/images/@Model.Tool.ToolImage" /> *@
+            <div class="card-body">
+                <h3 class="card-title mb-2">Navn: @Model.YarnProduct.Name</h3>
+                <div class="card-text mb-4">Id: @Model.YarnProduct.ProductId</div>
+                <div class="card-text mb-4">Beskrivelse: @Model.YarnProduct.Description</div>
+                <div class="card-text mb-4">Størrelse: @Model.YarnProduct.KnittingTension</div>
+                <div class="card-text mb-4">Type: @Model.YarnProduct.Material</div>
+                <div class="card-text mb-4">Mængde: @Model.YarnProduct.Amount</div>
+                <div class="card-text mb-4">Brand: @Model.YarnProduct.Brand</div>
+                <div class="card-text mb-4">Farve: @Model.YarnProduct.Color</div>
+                <div class="card-text mb-4">Maskinvaskes: @Model.YarnProduct.MachineWash</div>
+                <div class="card-text mb-4">Anbefaldede pinde: @Model.YarnProduct.SuggestedNeedleSize</div>
+                <div class="card-text mb-4">Løbelængde: @Model.YarnProduct.Yardage</div>
+                <div class="card-text mb-4">Vægt: @Model.YarnProduct.Weight</div>
+                <h6 class="card-footer text-muted">Pris: @Model.YarnProduct.Price</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 mb-4"></div>
+</div>

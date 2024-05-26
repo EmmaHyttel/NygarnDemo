@@ -35,4 +35,13 @@ public class YarnDbService
             await context.SaveChangesAsync();
         }
     }
+
+	public async Task UpdateYarn(Yarn yarn)
+	{
+		using (var context = new NygarnDbContext())
+		{
+			context.Yarn.Update(yarn);
+			await context.SaveChangesAsync();
+		}
+	}
 }

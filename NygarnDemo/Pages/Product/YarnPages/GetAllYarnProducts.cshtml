@@ -139,6 +139,7 @@
                             </form method="post">
                             <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId"/>
                             <button class="wishlist-btn" type="submit" asp-page-handler="AddToWishList"><i class="far fa-heart"></i></button>
+                             <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-info"></i>Se detaljer</a>
 
                             @if (Model.IsAdmin)
                             {
@@ -163,6 +164,7 @@
 
                                 @* <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditTool" asp-route-id="@tool.ProductId"><i class="fa fa-edit"></i>Rediger</a> *@
                                 <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-trash"></i>Slet</a>
+                                <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-edit"></i>Rediger</a>
                             }
                     </div>
                 </div>

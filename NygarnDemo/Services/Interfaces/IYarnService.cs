@@ -12,7 +12,8 @@ namespace NygarnDemo.Services.Interfaces
         Task AddYarnAsync(Yarn yarn);
         Task<Yarn?> DeleteYarnAsync(int? id);
         Task<Yarn?> GetYarn(int id);
-        Task<List<Yarn>> NameSearch(string str);
+		Task UpdateYarnAsync(Yarn yarn);
+		Task<List<Yarn>> NameSearch(string str);
         Task<List<Yarn>> PriceFilter(int maxPrice, int minPrice = 0);
         Task<List<Yarn>> ColorFilter(Enums.Color color);
         Task<List<Yarn>> MaterialFilter(Material material);
