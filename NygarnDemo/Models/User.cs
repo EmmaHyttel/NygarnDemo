@@ -10,7 +10,7 @@ public class User
 		public int Id { get; set; }
 
     [Display(Name = "Skriv et ønskede brugernavn")]
-    [Required(ErrorMessage = "Brugernavn må max indeholde 50 tegn")]   //brugernavn taget - throw exception. 
+    [Required(ErrorMessage = "Brugernavn må max indeholde 50 tegn")]
     [StringLength(30)]
     public string UserName { get; set; }
 
@@ -48,6 +48,8 @@ public class User
 
     public List<ShoppingCartLine> ShoppingCartLines { get; set; } = new List<ShoppingCartLine>();
     public List<WishListLine> MyWishList { get; set; } = new List<WishListLine>();
+
+    public List<Order> MyOrders { get; set; }
 
 
     public User(string userName, string name, string lastName, string password, string address, string phone, string email)

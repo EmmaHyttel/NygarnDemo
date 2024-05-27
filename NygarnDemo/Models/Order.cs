@@ -5,36 +5,26 @@ namespace NygarnDemo.Models
 {
     public class Order
     {
-        //    [Key]
-        //    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //    public int OrderId { get; set; }
-
-        //    [Required]
-        //    public int Id { get; set; } //Id
-
-        //    public User User { get; set; }
-
-        //    [Required]
-        //    public int ProductId { get; set; }
-        //    public Product Product { get; set; }
-
-        //    [DataType(DataType.Date)]
-        //    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
-        //    public DateTime Date { get; set; }
-
-        //    public Order()
-        //    {
-        //    }
-
-        //    public Order(User user, Product product)
-        //    {
-        //        User = user;
-        //        Product = product;
-        //        Date = DateTime.Now;
-        //    }
-        //    public virtual ICollection<OrderLine> OrderLines { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int OrderId { get; set; }
 
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime Date { get; set; }
+
+        public List<ShoppingCartLine> Orders { get; set; } = new List<ShoppingCartLine>();
+
+        public Order(DateTime date)
+        {
+            Date = date;
+
+        }
+
+        public Order()
+        {
+        }
     }
 
 }
