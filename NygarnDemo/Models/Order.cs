@@ -14,7 +14,7 @@ namespace NygarnDemo.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime Date { get; set; }
 
-        public List<ShoppingCartLine> OrderLInes { get; set; } = new List<ShoppingCartLine>();
+        public List<ShoppingCartLine> OrderLines { get; set; } = new List<ShoppingCartLine>();
 
         public Order(DateTime date)
         {
