@@ -154,15 +154,15 @@ public class YarnService : IYarnService
             return SizeList;
      }
 
-    public async Task<Yarn?> DeleteYarnAsync(int? id)
+    public async Task<Yarn?> DeleteYarnAsync(int? productId)
     {
         Yarn YarnToBeDeleted = null;
 
-        var yarnProducts = await GetYarnProducts();
+        //var yarnProducts = await GetYarnProducts();
 
-        foreach (Yarn yarn in yarnProducts)
+        foreach (Yarn yarn in YarnProducts)
         {
-            if (yarn.ProductId == id)
+            if (yarn.ProductId == productId)
             {
                 YarnToBeDeleted = yarn;
                 break;
@@ -170,8 +170,8 @@ public class YarnService : IYarnService
         }
         if (YarnToBeDeleted != null)
         {
-            yarnProducts.Remove(YarnToBeDeleted);
-            //await _dbService.DeleteToolsAsync(ToolToBeDeleted);
+            //YarnProducts.Remove(YarnToBeDeleted);
+            await _dbService.DeleteYarn(YarnToBeDeleted);
         }
 
         return YarnToBeDeleted;

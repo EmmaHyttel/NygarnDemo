@@ -44,4 +44,14 @@ public class YarnDbService
 			await context.SaveChangesAsync();
 		}
 	}
+
+    public async Task DeleteYarn(Yarn yarn)
+    {
+        using (var context = new NygarnDbContext())
+        {
+            context.Yarn.Remove(yarn);
+            await context.SaveChangesAsync();
+        }
+    }
+
 }

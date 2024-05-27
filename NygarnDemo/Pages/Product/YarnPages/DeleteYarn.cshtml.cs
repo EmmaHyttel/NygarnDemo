@@ -28,9 +28,9 @@ namespace NygarnDemo.Pages.Product.YarnPages
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            Models.Yarn deletedYarn = await _yarnService.DeleteYarnAsync(Yarn.ProductId);
+            Models.Yarn deletedYarn = await _yarnService.DeleteYarnAsync(id);
             if (deletedYarn == null)
                 return RedirectToPage("/Construction/NotFound"); //NotFound er ikke defineret endnu
 

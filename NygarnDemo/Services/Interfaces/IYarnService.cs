@@ -10,7 +10,7 @@ namespace NygarnDemo.Services.Interfaces
         Task<List<Yarn>> GetYarnProducts();
 
         Task AddYarnAsync(Yarn yarn);
-        Task<Yarn?> DeleteYarnAsync(int? id);
+        Task<Yarn> DeleteYarnAsync(int? productId);
         Task<Yarn?> GetYarn(int id);
 		Task UpdateYarnAsync(Yarn yarn);
 		Task<List<Yarn>> NameSearch(string str);
