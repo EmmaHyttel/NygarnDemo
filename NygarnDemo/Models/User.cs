@@ -7,7 +7,7 @@ public class User
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
+	public int Id { get; set; }
 
     [Display(Name = "Skriv et ønskede brugernavn")]
     [Required(ErrorMessage = "Brugernavn må max indeholde 50 tegn")]
@@ -49,7 +49,7 @@ public class User
     public List<ShoppingCartLine> ShoppingCartLines { get; set; } = new List<ShoppingCartLine>();
     public List<WishListLine> MyWishList { get; set; } = new List<WishListLine>();
 
-    public List<Order> MyOrders { get; set; }
+    public List<Order> MyOrders { get; set; } = new List<Order>();
 
 
     public User(string userName, string name, string lastName, string password, string address, string phone, string email)
