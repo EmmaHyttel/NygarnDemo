@@ -9,7 +9,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace NygarnDemo.Pages.Users;
 
-//[Authorize(Roles = "admin")]
 public class CreateUserModel : PageModel
 {
     private IUserService _userService;
@@ -31,10 +30,6 @@ public class CreateUserModel : PageModel
     public string Email { get; set; }
 
     private PasswordHasher<string> passwordHasher;
-
-    //public CreateUserModel()
-    //{
-    //}
 
     public CreateUserModel(IUserService userService)
     {
