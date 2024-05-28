@@ -158,8 +158,6 @@ public class YarnService : IYarnService
     {
         Yarn YarnToBeDeleted = null;
 
-        //var yarnProducts = await GetYarnProducts();
-
         foreach (Yarn yarn in YarnProducts)
         {
             if (yarn.ProductId == productId)

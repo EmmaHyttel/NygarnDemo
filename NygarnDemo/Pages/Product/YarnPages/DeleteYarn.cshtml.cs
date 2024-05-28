@@ -23,7 +23,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         {
             Yarn = await _yarnService.GetYarn(id);
             if (Yarn == null)
-                return RedirectToPage("/Construction/NotFound"); //NotFound er ikke defineret endnu
+                return RedirectToPage("/Construction/NotFound");
 
             return Page();
         }
@@ -32,7 +32,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         {
             Models.Yarn deletedYarn = await _yarnService.DeleteYarnAsync(id);
             if (deletedYarn == null)
-                return RedirectToPage("/Construction/NotFound"); //NotFound er ikke defineret endnu
+                return RedirectToPage("/Construction/NotFound"); 
 
             return RedirectToPage("GetAllYarnProducts");
         }
