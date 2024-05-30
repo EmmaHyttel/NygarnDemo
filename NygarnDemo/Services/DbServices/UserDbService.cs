@@ -103,37 +103,37 @@ public class UserDbService
         }
     }
 
-    public async Task<List<WishListLine>> GetWishList(int userId)
-    {
-        using (var context = new NygarnDbContext())
-        {
-            var user = await context.User
-                       .Include(u => u.MyWishList)
-                       .ThenInclude(scl => scl.Product)
-                       .FirstOrDefaultAsync(u => u.Id == userId);
+    //public async Task<List<WishListLine>> GetWishList(int userId)
+    //{
+    //    using (var context = new NygarnDbContext())
+    //    {
+    //        var user = await context.User
+    //                   .Include(u => u.MyWishList)
+    //                   .ThenInclude(scl => scl.Product)
+    //                   .FirstOrDefaultAsync(u => u.Id == userId);
 
-            if (user is not null)
-            {
-                return user.MyWishList;
-            }
+    //        if (user is not null)
+    //        {
+    //            return user.MyWishList;
+    //        }
 
-            return new List<WishListLine>();
-        }
-    }
-    public async Task AddToWishList(int userId, Product product)
-    {
-        using (var context = new NygarnDbContext())
-        {
-            var user = await context.User.FirstOrDefaultAsync(x => x.Id == userId);
+    //        return new List<WishListLine>();
+    //    }
+    //}
+    //public async Task AddToWishList(int userId, Product product)
+    //{
+    //    using (var context = new NygarnDbContext())
+    //    {
+    //        var user = await context.User.FirstOrDefaultAsync(x => x.Id == userId);
 
-            if (user is not null)
-            {
-                user.MyWishList.Add(new WishListLine(product));
-                context.SaveChanges();
-            }
+    //        if (user is not null)
+    //        {
+    //            user.MyWishList.Add(new WishListLine(product));
+    //            context.SaveChanges();
+    //        }
 
-        }
-    }
+    //    }
+    //}
     //public async Task<Models.User> GetOrdersByUserIdAsync(int id)
     //{
     //    Models.User user;

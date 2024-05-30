@@ -47,9 +47,9 @@ public class User
 
 
     public List<ShoppingCartLine> ShoppingCartLines { get; set; } = new List<ShoppingCartLine>();
-    public List<WishListLine> MyWishList { get; set; } = new List<WishListLine>();
+    //public List<WishListLine> MyWishList { get; set; } = new List<WishListLine>();
 
-    public List<Order> MyOrders { get; set; } = new List<Order>();
+    //public List<Order> MyOrders { get; set; } = new List<Order>();
 
 
     public User(string userName, string name, string lastName, string password, string address, string phone, string email)

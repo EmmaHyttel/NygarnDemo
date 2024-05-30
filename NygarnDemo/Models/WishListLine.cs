@@ -5,20 +5,20 @@ namespace NygarnDemo.Models
 {
     public class WishListLine
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public int Id { get; set; }
 
-        public Product Product { get; set; }
+        //public Product Product { get; set; }
 
-        public WishListLine(Product product)
-        {
-            Product = product;
-        }
+        //public WishListLine(Product product)
+        //{
+        //    Product = product;
+        //}
 
-        public WishListLine()
-        {
-        }
+        //public WishListLine()
+        //{
+        //}
 
 
     }

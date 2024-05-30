@@ -85,27 +85,27 @@ public class UserService : IUserService
         }
     }
 
-    public async Task AddToWishList(string userName, Product product)
-    {
-        var user = await _userDbService.GetUserByUsername(userName);
+    //public async Task AddToWishList(string userName, Product product)
+    //{
+    //    var user = await _userDbService.GetUserByUsername(userName);
 
-        if (user is not null)
-        {
-            await _userDbService.AddToWishList(user.Id, product);
-        }
-    }
+    //    if (user is not null)
+    //    {
+    //        await _userDbService.AddToWishList(user.Id, product);
+    //    }
+    //}
 
-    public async Task<List<WishListLine>> GetWishListByUserName(string userName)
-    {
-        var user = await _userDbService.GetUserByUsername(userName);
+    //public async Task<List<WishListLine>> GetWishListByUserName(string userName)
+    //{
+    //    var user = await _userDbService.GetUserByUsername(userName);
 
-        if (user is not null)
-        {
-            return await _userDbService.GetWishList(user.Id);
-        }
+    //    if (user is not null)
+    //    {
+    //        return await _userDbService.GetWishList(user.Id);
+    //    }
 
-        return new List<WishListLine>();
-    }
+    //    return new List<WishListLine>();
+    //}
 
 
 
