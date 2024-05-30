@@ -53,24 +53,24 @@
             </div>
         </form>
     </div>
-    <div style="margin-bottom: 20px;">
-        <form method="post">
-            <select asp-for="Color" asp-items="Html.GetEnumSelectList<Color>()">
+
+    <div style="margin-bottom: 15px;">
+        <form method="post" style="display: flex; align-items: center; gap: 10px;">
+            <select asp-for="Size" asp-items="Html.GetEnumSelectList<Color>()" style="width: 150px; padding: 5px; box-sizing: border-box;">
                 <option value="">Vælg farve</option>
             </select>
-            <button type="submit" asp-page-handler="ColorFilter" style="background-color: rosybrown; color: black; border: none; padding: 5px 10px;">Filtrer</button>
-@*             <button type="submit" asp-page-handler="ColorFilter">Se garn</button>
- *@        </form>
-    </div>
-    <div style="margin-bottom: 20px;">
-        <form method="post">
-            <select asp-for="Material" asp-items="Html.GetEnumSelectList<Material>()">
-                <option value="">Vælge materiale</option>
-            </select>
-@*             <button type="submit" asp-page-handler="MaterialFilter">Se garn</button>
- *@            <button type="submit" asp-page-handler="MaterialFilter" style="background-color: rosybrown; color: black; border: none; padding: 5px 10px;">Filtrer</button>
+            <button type="submit" asp-page-handler="ColorFilter" style="width: 70px; background-color: rosybrown; color: black; border: none; padding: 5px 10px; box-sizing: border-box;">Filtrer</button>
         </form>
     </div>
+    <div style="margin-bottom: 15px;">
+    <form method="post" style="display: flex; align-items: center; gap: 10px;">
+        <select asp-for="Size" asp-items="Html.GetEnumSelectList<Material>()" style="width: 150px; padding: 5px; box-sizing: border-box;">
+            <option value="">Vælg materiale</option>
+        </select>
+        <button type="submit" asp-page-handler="MaterialFilter" style="width: 70px; background-color: rosybrown; color: black; border: none; padding: 5px 10px; box-sizing: border-box;">Filtrer</button>
+    </form>
+</div>
+
     <div>
         @* <form method="post">
             <select asp-for="Brand" asp-items="Html.GetEnumSelectList<Brand>()">
@@ -95,15 +95,15 @@
             <button type="submit" asp-page-handler="YardageFilter">Se garn</button>
         </form
     </div>*@
-    <div style="margin-bottom: 20px;">
-        <form method="post">
-            <select asp-for="Size" asp-items="Html.GetEnumSelectList<Size>()">
-                <option value="">Vælg størrelse</option>
-            </select>
-@*             <button type="submit" asp-page-handler="SizeFilter">Se garn</button>
- *@            <button type="submit" asp-page-handler="SizeFilter" style="background-color: rosybrown; color: black; border: none; padding: 5px 10px;">Filtrer</button>
-        </form>
+    <div style="margin-bottom: 15px;">
+    <form method="post" style="display: flex; align-items: center; gap: 10px;">
+        <select asp-for="Size" asp-items="Html.GetEnumSelectList<Size>()" style="width: 150px; padding: 5px; box-sizing: border-box;">
+            <option value="">Vælg størrelse</option>
+        </select>
+        <button type="submit" asp-page-handler="SizeFilter" style="width: 70px; background-color: rosybrown; color: black; border: none; padding: 5px 10px; box-sizing: border-box;">Filtrer</button>
+    </form>
     </div>
+
    @*  <div>
         <form method="post">
             <select asp-for="MachineWash" asp-items="Html.GetEnumSelectList<Machinewash>()">
