@@ -24,16 +24,16 @@
 <h1>Garn</h1>
 
 <div class="row">
-    <div class="col-7"><h5>Search Name</h5></div>
-    <div class="col-4"><h5>Filter Price</h5></div>
+    <div class="col-7"><h5>Søg</h5></div>
+    <div class="col-4"><h5>Filtrer pris</h5></div>
     <div class="col-1"></div>
 </div>
 <div class="row">
     <div class="col-4">
         <form method="post" class="form-inline">
             <div class="input-group mb-3">
-                <input asp-for="SearchString" class="form-control mr-1" placeholder="Enter search term" />
-                <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary" />
+                <input asp-for="SearchString" class="form-control mr-1" placeholder="Indtast søgeord" />
+                <input type="submit" asp-page-handler="NameSearch" value="Søg" class="btn btn-primary rosybrown-bg" />
             </div>
         </form>
     </div>
@@ -49,24 +49,26 @@
                     <span class="input-group-text">Max</span>
                 </div>
                 <input asp-for="MaxPrice" class="form-control me-2" />
-                <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
+                <input type="submit" asp-page-handler="PriceFilter" value="Filtrer" class="btn btn-primary rosybrown-bg" />
             </div>
         </form>
     </div>
-    <div>
+    <div style="margin-bottom: 20px;">
         <form method="post">
             <select asp-for="Color" asp-items="Html.GetEnumSelectList<Color>()">
-                <option value="">Pick one</option>
+                <option value="">Vælg farve</option>
             </select>
-            <button type="submit" asp-page-handler="ColorFilter">Se garn</button>
-        </form>
+            <button type="submit" asp-page-handler="ColorFilter" style="background-color: rosybrown; color: black; border: none; padding: 5px 10px;">Filtrer</button>
+@*             <button type="submit" asp-page-handler="ColorFilter">Se garn</button>
+ *@        </form>
     </div>
-    <div>
+    <div style="margin-bottom: 20px;">
         <form method="post">
             <select asp-for="Material" asp-items="Html.GetEnumSelectList<Material>()">
-                <option value="">Pick one</option>
+                <option value="">Vælge materiale</option>
             </select>
-            <button type="submit" asp-page-handler="MaterialFilter">Se garn</button>
+@*             <button type="submit" asp-page-handler="MaterialFilter">Se garn</button>
+ *@            <button type="submit" asp-page-handler="MaterialFilter" style="background-color: rosybrown; color: black; border: none; padding: 5px 10px;">Filtrer</button>
         </form>
     </div>
     <div>
@@ -93,12 +95,13 @@
             <button type="submit" asp-page-handler="YardageFilter">Se garn</button>
         </form
     </div>*@
-    <div>
+    <div style="margin-bottom: 20px;">
         <form method="post">
             <select asp-for="Size" asp-items="Html.GetEnumSelectList<Size>()">
-                <option value="">Pick one</option>
+                <option value="">Vælg størrelse</option>
             </select>
-            <button type="submit" asp-page-handler="SizeFilter">Se garn</button>
+@*             <button type="submit" asp-page-handler="SizeFilter">Se garn</button>
+ *@            <button type="submit" asp-page-handler="SizeFilter" style="background-color: rosybrown; color: black; border: none; padding: 5px 10px;">Filtrer</button>
         </form>
     </div>
    @*  <div>
@@ -135,11 +138,11 @@
                             <form method="post">
                                 <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId" />
                                 <input type="number" name="quantity" id="quantityInput" min="1" value="1" />
-                                <button class="btn btn-primary" type="submit" asp-page-handler="AddToCart">Kom i kurv</button>
+                                <button class="btn btn-primary rosybrown-bg" type="submit" asp-page-handler="AddToCart">Kom i kurv</button>
                             </form method="post">
                             <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId"/>
                             <button class="wishlist-btn" type="submit" asp-page-handler="AddToWishList"><i class="far fa-heart"></i></button>
-                             <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-info"></i>Se detaljer</a>
+                             <a class="btn btn-primary btn-sm rosybrown-bg" type="button" title="Detail" asp-page="DetailYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-info"></i>Se detaljer</a>
 
                             @if (Model.IsAdmin)
                             {
@@ -163,8 +166,8 @@
                                 </form> *@
 
                                 @* <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditTool" asp-route-id="@tool.ProductId"><i class="fa fa-edit"></i>Rediger</a> *@
-                                <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-trash"></i>Slet</a>
-                                <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-edit"></i>Rediger</a>
+                                <a class="btn btn-danger btn-sm rosybrown-bg" type="button" title="Delete" asp-page="DeleteYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-trash"></i>Slet</a>
+                                <a class="btn btn-primary btn-sm rosybrown-bg" type="button" title="Edit" asp-page="EditYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-edit"></i>Rediger</a>
                             }
                     </div>
                 </div>
@@ -176,7 +179,7 @@
 <div>
         @if (Model.IsAdmin){
         <p>
-            <a class="btn btn-primary" asp-page="/Product/YarnPages/CreateYarn"> Tilføj garn til hjemmeside </a>
+            <a class="btn btn-primary rosybrown-bg" asp-page="/Product/YarnPages/CreateYarn"> Tilføj garn til hjemmeside </a>
         </p>
         }
         <div>
