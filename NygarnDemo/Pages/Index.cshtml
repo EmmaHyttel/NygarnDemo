@@ -94,9 +94,8 @@
             <a href="/Product/ToolPages/GetAllToolss" class="btn" style="font-size: 35px">Filcolana </a>
         </div>
     </section>
-
-
 </style>
+
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -186,20 +185,30 @@
             const images = carousel.getElementsByTagName('img');
             const totalImages = images.length;
             const visibleImages = 6; // Number of images visible at a time
+            const step = 1; // Move one image at a time
             let currentIndex = 0;
 
             document.getElementById('nextBtn').addEventListener('click', () => {
-                currentIndex = (currentIndex + visibleImages) % totalImages;
+                if (currentIndex < totalImages - visibleImages) {
+                    currentIndex += step;
+                } else {
+                    currentIndex = 0; // Reset to the beginning if at the end
+                }
                 updateCarousel();
             });
 
             document.getElementById('prevBtn').addEventListener('click', () => {
-                currentIndex = (currentIndex - visibleImages + totalImages) % totalImages;
+                if (currentIndex > 0) {
+                    currentIndex -= step;
+                } else {
+                    currentIndex = totalImages - visibleImages; // Move to the end if at the beginning
+                }
                 updateCarousel();
             });
 
             function updateCarousel() {
-                carousel.style.transform = `translateX(-${currentIndex * 100 / visibleImages}%)`;
+                const imageWidth = images[0].clientWidth + parseInt(getComputedStyle(images[0]).marginRight, 10);
+                carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
             }
         </script>
     </body>
