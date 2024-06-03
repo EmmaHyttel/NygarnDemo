@@ -24,6 +24,9 @@ namespace NygarnDemo.Pages.Product.YarnPages
         }
 
 		//[BindProperty]
+		//public Yarn ProductImage { get; set; }
+
+		//[BindProperty]
 		//public IFormFile Photo { get; set; }
 
 		public IActionResult OnGet()
