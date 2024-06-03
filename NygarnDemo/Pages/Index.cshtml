@@ -108,103 +108,119 @@
         </div>
     </section>
 
-@*     <section class="carousel" style="background-color: #F0DBDB; height: 200px; display: flex; justify-content: center; align-items: center; overflow: hidden; margin-bottom: 40px;">
-        <div class="carousel-inner">
-            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Sandnes Garn</a>
-            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">PetitKnit</a>
-            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Drops Design</a>
-            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Filcolana</a>
-            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">MadelineTosh</a>
-            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Nannas garn</a>
-            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Emmas Garn</a>
-            <a href="/Product/YarnPages/GetAllYarnProducts" class="btn">Mais Garn</a>
-        </div>
-    </section> *@ en latterlig karousel som ikke virker heeeelt optimalt 
 
-@*     <div id="insta-feed" style="padding: 0px 20 px;"
-    <span class="slide-page" data-slide-page="1" style="display: none;"> == $0
-        <a href="https://www.instagram.com/mig_og_mit_strik/" target="_blank">
-            <div class="Instafeed-container" style="width:20.000000%;padding-top:40.000000%;"> 
-                <img class="js-lazy-image js-lazy-image--handled" style="width:auto;" src="https://www.instagram.com/mig_og_mit_strik/p/CfdhE7hs3Im/" />
-                </div>
-            </div>
-        </a>
-    </span> *@
-
-   
-</div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Carousel</title>
-    <style>
-        .carousel {
-            display: flex;
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-            max-width: 800px; /* Max width of the carousel */
-            margin: auto; /* Center the carousel */
-        }
-
-            .carousel img {
-                min-width: 100%;
-                transition: transform 0.5s ease;
-            }
-
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-            .carousel-controls button {
-                background: rgba(0, 0, 0, 0.5);
-                border: none;
-                color: white;
-                font-size: 2em;
-                cursor: pointer;
-                padding: 10px;
-            }
     </style>
-</head>
-<body>
-    <div class="carousel" id="carousel">
-        <img src="https://via.placeholder.com/800x400?text=Image+1" alt="Image 1">
-        <img src="https://via.placeholder.com/800x400?text=Image+2" alt="Image 2">
-        <img src="https://via.placeholder.com/800x400?text=Image+3" alt="Image 3">
-    </div>
-    <div class="carousel-controls">
-        <button id="prevBtn">&#10094;</button>
-        <button id="nextBtn">&#10095;</button>
-    </div>
-
-    <script>
-        const carousel = document.getElementById('carousel');
-        const images = carousel.getElementsByTagName('img');
-        const totalImages = images.length;
-        let currentIndex = 0;
-
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalImages;
-            updateCarousel();
-        });
-
-        document.getElementById('prevBtn').addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-            updateCarousel();
-        });
-
-        function updateCarousel() {
-            for (let i = 0; i < totalImages; i++) {
-                images[i].style.transform = `translateX(-${currentIndex * 100}%)`;
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inspiration fra Instagram</title>
+        <style>
+            .carousel-container {
+                position: relative;
+                max-width: 2100px; /* Adjust width to fit 6 images with gap */
+                margin: auto; /* Center the carousel */
+                overflow: hidden;
             }
-        }
-    </script>
-</body>
+
+            .carousel {
+                display: flex;
+                transition: transform 0.5s ease;
+                width: calc(100% * 2); /* Account for multiple images scrolling */
+            }
+
+                .carousel img {
+                    width: calc(100% / 6); /* Show 6 images at a time */
+                    margin-right: 10px; /* Create space between images */
+                }
+
+                    .carousel img:last-child {
+                        margin-right: 0; /* Remove margin from the last image */
+                    }
+
+            .carousel-controls {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                transform: translateY(-50%);
+            }
+
+                .carousel-controls button {
+                    background: rgba(0, 0, 0, 0.5);
+                    border: none;
+                    color: white;
+                    font-size: 2em;
+                    cursor: pointer;
+                    padding: 10px;
+                    z-index: 10; /* Ensure buttons are above images */
+                }
+        </style>
+    </head>
+    <body>
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <img src="~/pngFiles/Insp1.png" alt="Image 1">
+                <img src="~/pngFiles/Insp2.png" alt="Image 2">
+                <img src="~/pngFiles/Insp3.png" alt="Image 3">
+                <img src="~/pngFiles/Insp4.png" alt="Image 4">
+                <img src="~/pngFiles/Insp5.png" alt="Image 5">
+                <img src="~/pngFiles/Insp6.png" alt="Image 6">
+                <img src="~/pngFiles/Insp7.png" alt="Image 7">
+                <img src="~/pngFiles/Insp8.png" alt="Image 8">
+                <img src="~/pngFiles/Insp9.png" alt="Image 9">
+                <img src="~/pngFiles/Insp10.png" alt="Image 10">
+                <img src="~/pngFiles/Insp11.png" alt="Image 11">
+                <img src="~/pngFiles/Insp12.png" alt="Image 12">
+                <img src="~/pngFiles/Insp13.png" alt="Image 13">
+                <img src="~/pngFiles/Insp14.png" alt="Image 14">
+                <img src="~/pngFiles/Insp15.png" alt="Image 15">
+                <img src="~/pngFiles/Insp16.png" alt="Image 16">
+                <img src="~/pngFiles/Insp17.png" alt="Image 17">
+                <img src="~/pngFiles/Insp18.png" alt="Image 18">
+                <img src="~/pngFiles/Insp19.png" alt="Image 19">
+                <img src="~/pngFiles/Insp20.png" alt="Image 20">
+                <img src="~/pngFiles/Insp21.png" alt="Image 21">
+                <img src="~/pngFiles/Insp22.png" alt="Image 22">
+                <img src="~/pngFiles/Insp23.png" alt="Image 23">
+                <img src="~/pngFiles/Insp24.png" alt="Image 24">
+                <img src="~/pngFiles/Insp25.png" alt="Image 25">
+            </div>
+            <div class="carousel-controls">
+                <button id="prevBtn">&#10094;</button>
+                <button id="nextBtn">&#10095;</button>
+            </div>
+        </div>
+
+        <script>
+            const carousel = document.getElementById('carousel');
+            const images = carousel.getElementsByTagName('img');
+            const totalImages = images.length;
+            const visibleImages = 6; // Number of images visible at a time
+            let currentIndex = 0;
+
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                currentIndex = (currentIndex + visibleImages) % totalImages;
+                updateCarousel();
+            });
+
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                currentIndex = (currentIndex - visibleImages + totalImages) % totalImages;
+                updateCarousel();
+            });
+
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 100 / visibleImages}%)`;
+            }
+        </script>
+    </body>
 </html>
+
+
+
+
+
+
+
