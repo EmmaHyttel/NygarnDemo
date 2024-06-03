@@ -19,7 +19,7 @@ builder.Services.AddDbContext<NygarnDbContext>();
 builder.Services.AddSingleton<CrochetHookDbService, CrochetHookDbService>();
 //builder.Services.AddSingleton<WishListService, WishListService>();
 //builder.Services.AddSingleton<ToolDbService, ToolDbService>();
-builder.Services.AddTransient<ToolDbService, ToolDbService>();
+builder.Services.AddSingleton<ToolDbService, ToolDbService>();
 builder.Services.AddSingleton<YarnDbService, YarnDbService>();
 builder.Services.AddSingleton<UserDbService, UserDbService>();
 //builder.Services.AddSingleton<GenericDbService<Yarn>, GenericDbService<Yarn>>();
