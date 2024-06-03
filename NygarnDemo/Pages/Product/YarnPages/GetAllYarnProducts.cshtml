@@ -122,7 +122,8 @@
         <div class="row">
             <div class="col-sm-4 mb-3">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5gOk9johiqyLngH4hJNbyZCgPJ1Ib2mLWTiHsQ9Wvmg&s" alt="Card image cap">
+                    @* <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5gOk9johiqyLngH4hJNbyZCgPJ1Ib2mLWTiHsQ9Wvmg&s" alt="Card image cap">  *@
+                        <img class="card-img-top" src="@(Url.Content("~/pngFiles/" + yarnProduct.ProductImage))" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@yarnProduct.Name</h5>
                         <h5 class="card-title"> Brand: @yarnProduct.Brand</h5>
@@ -169,7 +170,7 @@
                                     <button type="submit" class="btn btn-danger" title="Se detaljer">
                                         Se detaljer
                                         <i class="fa fa-trash"></i>
-                                    </button> *@
+                                    </button>
                                @*  </form> *@
                                @*  <form asp-page="/YarnPages/DeleteYarn" asp-route-id="@yarnProduct.ProductId" method="post" class="d-inline">
                                     <button type="submit" class="btn btn-danger btn-sm" title="Slet" onclick="return confirm('Er du sikker på, at du vil slette denne garn?')">
