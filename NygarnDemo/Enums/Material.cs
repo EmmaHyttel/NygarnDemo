@@ -7,6 +7,9 @@
         Mohair,
         Bomuld,
         Kashmir,
-        Akryl
+        Akryl, 
+        Babymerino, 
+        Merinould,
+        Uld
     }
 }

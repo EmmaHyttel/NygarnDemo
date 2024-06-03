@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NygarnDemo.EFDbContext;
 
@@ -11,9 +12,11 @@ using NygarnDemo.EFDbContext;
 namespace NygarnDemo.Migrations
 {
     [DbContext(typeof(NygarnDbContext))]
-    partial class NygarnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240603091024_NygarnDemoThird")]
+    partial class NygarnDemoThird
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
