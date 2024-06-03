@@ -42,6 +42,7 @@ public abstract class Product
         Brand = brand;
         Amount = amount;
         ProductId = 0;
+        ProductImage = "";
     }
 
     public Product()

@@ -21,8 +21,10 @@ namespace NygarnDemo.Pages.Product.YarnPages
         [BindProperty]
         public Yarn? YarnProduct { get; set; }
 
+		[BindProperty]
+		public IFormFile? Photo { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int id)
+		public async Task<IActionResult> OnGetAsync(int id)
         {
             YarnProduct = await _yarnService.GetYarn(id);
             if (YarnProduct == null)
@@ -34,16 +36,44 @@ namespace NygarnDemo.Pages.Product.YarnPages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page();
-            //}
-            if (YarnProduct != null)
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+			if (Photo != null && YarnProduct != null)
+			{
+				if (YarnProduct.ProductImage != null)
+				{
+					string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "/pngFiles", YarnProduct.ProductImage);
+					System.IO.File.Delete(filePath);
+				}
+
+				YarnProduct.ProductImage = ProcessUploadedFile();
+			}
+			if (YarnProduct != null)
             {
                 await _yarnService.UpdateYarnAsync(YarnProduct);
             }
 
             return RedirectToPage("/Product/YarnPages/GetAllYarnProducts");
         }
-    }
+
+
+
+		private string ProcessUploadedFile()
+		{
+			string uniqueFileName = null;
+			if (Photo != null)
+			{
+				string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "pngFiles");
+				uniqueFileName = Guid.NewGuid().ToString() + "_" + Photo.FileName;
+				string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+				using (var fileStream = new FileStream(filePath, FileMode.Create))
+				{
+					Photo.CopyTo(fileStream);
+				}
+			}
+			return uniqueFileName;
+		}
+	}
 }
