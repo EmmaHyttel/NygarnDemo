@@ -23,6 +23,9 @@ namespace NygarnDemo.Pages.Product.YarnPages
 			_webHostEnvironment = webHost;
         }
 
+        [BindProperty]
+        public IFormFile Photo { get; set; }
+
         public IActionResult OnGet()
 		{
 			return Page();
@@ -33,8 +36,34 @@ namespace NygarnDemo.Pages.Product.YarnPages
 			{
 				return Page();
 			}
-			await _yarnService.AddYarnAsync(Yarn);
+            if (Photo != null)
+            {
+                if (Yarn.ProductImage != null)
+                {
+                    string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "/pngFiles", Yarn.ProductImage);
+                    System.IO.File.Delete(filePath);
+                }
+
+                Yarn.ProductImage = ProcessUploadedFile();
+            }
+            await _yarnService.AddYarnAsync(Yarn);
 			return RedirectToPage("GetAllYarnProducts");
 		}
-	}
+
+        private string ProcessUploadedFile()
+        {
+            string uniqueFileName = null;
+            if (Photo != null)
+            {
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "pngFiles");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + Photo.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    Photo.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
+    }
 }

@@ -45,6 +45,7 @@ public class Yarn : Product
         Weight = weight;
         SuggestedNeedleSize = size;
         MachineWash = machineWash;
+        
     }
 
     public Yarn() : base()
@@ -56,6 +57,7 @@ public class Yarn : Product
         Weight = 1;
         SuggestedNeedleSize = 0;
         MachineWash = false;
+        
     }
 
 }

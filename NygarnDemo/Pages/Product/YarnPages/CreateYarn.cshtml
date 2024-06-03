@@ -21,13 +21,6 @@
 		<input asp-for="@Model.Yarn.Description" class="form-control" />
 		<span asp-validation-for="@Model.Yarn.Description" class="text-danger"></span>
 	</div>
-	@* <div class="form-group">
-		<label asp-for="@Model.Yarn.Brand" class="control-label">Brand</label>
-		<select asp-for="@Model.Yarn.Brand" asp-items="Html.GetEnumSelectList<Brand>()">
-			<option value=""></option>
-		</select>
-		<span asp-validation-for="@Model.Yarn.Brand" class="text-danger"></span>
-	</div>*@
 	<div class="form-group">
 		<label asp-for="@Model.Yarn.Brand" class="control-label"></label>
 		<input asp-for="@Model.Yarn.Brand" class="form-control" />
@@ -55,20 +48,6 @@
 		<input asp-for="@Model.Yarn.KnittingTension" class="form-control" />
 		<span asp-validation-for="@Model.Yarn.KnittingTension" class="text-danger"></span>
 	</div>
-@* 	<div class="form-group">
-		<label asp-for="@Model.Yarn.KnittingTension" class="control-label">Strikkefasthed</label>
-		<select asp-for="@Model.Yarn.KnittingTension" asp-items="Html.GetEnumSelectList<KnittingTension>()">
-			<option value=""></option>
-		</select>
-		<span asp-validation-for="@Model.Yarn.KnittingTension" class="text-danger"></span>
-	</div> *@
-	@* <div class="form-group">
-		<label asp-for="@Model.Yarn.Yardage" class="control-label">Løbelængde</label>
-		<select asp-for="@Model.Yarn.Yardage" asp-items="Html.GetEnumSelectList<Yardage>()">
-			<option value=""></option>
-		</select>
-		<span asp-validation-for="@Model.Yarn.Yardage" class="text-danger"></span>
-	</div> *@
 	<div class="form-group">
 		<label asp-for="@Model.Yarn.Material" class="control-label"></label>
 		<select asp-for="@Model.Yarn.Material" asp-items="Html.GetEnumSelectList<Material>()">
@@ -88,11 +67,13 @@
 		</select>
 		<span asp-validation-for="@Model.Yarn.SuggestedNeedleSize" class="text-danger"></span>
 	</div>
-	@* 	<div class="form-group">
-	<label asp-for="@Model.Yarn.MachineWash" class="control-label"></label>
-	<input asp-for="@Model.Yarn.MachineWash" class="form-control" />
-	<span asp-validation-for="@Model.Yarn.MaschineWash" class="text-danger"></span>
-	</div> *@
+	<div class="form-group">
+		<label asp-for="@Model.Photo" class="control-label"></label>
+		<div class="custom-file">
+			<input asp-for="@Model.Photo" class="custom-file-input form-control" />
+			<label class="custom-file-label">Gem Billede</label>
+		</div>
+	</div>
 	<p>
 		<div class="form-group">
 			<input type="submit" value="Tilføj" class="btn btn-primary" />

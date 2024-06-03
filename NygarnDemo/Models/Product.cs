@@ -32,6 +32,8 @@ public abstract class Product
     public string Brand { get; set; }
     public int Amount { get; set; }
 
+    public string ProductImage { get; set; }
+
     public Product(decimal price, string name, string description, string brand, int amount)
     {
         Price = price;
@@ -50,6 +52,7 @@ public abstract class Product
         Brand = "";
         Amount = 1;
         ProductId = 0;
+        ProductImage = "";
     }
 
     //private string GenerateProductId()
