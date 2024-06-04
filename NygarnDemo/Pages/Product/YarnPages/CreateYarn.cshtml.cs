@@ -26,8 +26,8 @@ namespace NygarnDemo.Pages.Product.YarnPages
 		//[BindProperty]
 		//public Yarn ProductImage { get; set; }
 
-		//[BindProperty]
-		//public IFormFile Photo { get; set; }
+		[BindProperty]
+		public IFormFile? Photo { get; set; }
 
 		public IActionResult OnGet()
 		{
@@ -39,35 +39,35 @@ namespace NygarnDemo.Pages.Product.YarnPages
 			{
 				return Page();
 			}
-			//if (Photo != null)
-			//{
-			//	if (Yarn.ProductImage != null)
-			//	{
-			//		string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "/pngFiles", Yarn.ProductImage);
-			//		System.IO.File.Delete(filePath);
-			//	}
+            if (Photo != null)
+            {
+                if (Yarn.ProductImage != null)
+                {
+                    string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "/pngFiles", Yarn.ProductImage);
+                    System.IO.File.Delete(filePath);
+                }
 
-			//	Yarn.ProductImage = ProcessUploadedFile();
-			//}
-			await _yarnService.AddYarnAsync(Yarn);
+                Yarn.ProductImage = ProcessUploadedFile();
+            }
+            await _yarnService.AddYarnAsync(Yarn);
 			return RedirectToPage("GetAllYarnProducts");
 		}
 
-		//private string ProcessUploadedFile()
-		//{
-		//	string uniqueFileName = null;
-		//	if (Photo != null)
-		//	{
-		//		string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "/pngFiles");
-		//		uniqueFileName = Guid.NewGuid().ToString() + "_" + Photo.FileName;
-		//		string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-		//		using (var fileStream = new FileStream(filePath, FileMode.Create))
-		//		{
-		//			Photo.CopyTo(fileStream);
-		//		}
-		//	}
-		//	return uniqueFileName;
-		//}
+        private string ProcessUploadedFile()
+        {
+            string uniqueFileName = null;
+            if (Photo != null)
+            {
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "pngFiles");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + Photo.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    Photo.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
 
-	}
+    }
 }
