@@ -5,7 +5,7 @@
 }
 
 <h1>Udfyld felter om garnet!</h1>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label asp-for="@Model.Yarn.Name" class="control-label"></label>
 		<input asp-for="@Model.Yarn.Name" class="form-control" />
@@ -27,11 +27,9 @@
 		<span asp-validation-for="@Model.Yarn.Brand" class="text-danger"></span>
 	</div>
 	<div class="form-group">
-		<label asp-for="@Model.Yarn.Color" class="control-label">Farve</label>
-		 <select asp-for="@Model.Yarn.Color" asp-items="Html.GetEnumSelectList<Color>()">
-			<option value=""></option>
-		</select>
-		<span asp-validation-for="@Model.Yarn.Color" class="text-danger"></span>
+		<label asp-for="@Model.Yarn.Weight" class="control-label">Vægt i gram</label>
+		<input asp-for="@Model.Yarn.Weight" class="form-control" />
+		<span asp-validation-for="@Model.Yarn.Weight" class="text-danger"></span>
 	</div>
 	<div class="form-group">
 		<label asp-for="@Model.Yarn.Yardage" class="control-label"></label>
@@ -44,6 +42,23 @@
 		<span asp-validation-for="@Model.Yarn.KnittingTension" class="text-danger"></span>
 	</div>
 	<div class="form-group">
+		<label asp-for="@Model.Yarn.SuggestedNeedleSize" class="control-label"></label>
+		<input asp-for="@Model.Yarn.SuggestedNeedleSize" class="form-control" />
+		<span asp-validation-for="@Model.Yarn.SuggestedNeedleSize" class="text-danger"></span>
+	</div>
+	<div class="form-group form-check">
+		<input asp-for="Yarn.MachineWash" class="form-check-input" type="checkbox" id="machineWashCheckbox" />
+		<label asp-for="Yarn.MachineWash" class="form-check-label" for="machineWashCheckbox">Må gerne maskine vaskes</label>
+		<span asp-validation-for="Yarn.MachineWash" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.Yarn.Color" class="control-label">Farve</label>
+		<select asp-for="@Model.Yarn.Color" asp-items="Html.GetEnumSelectList<Color>()">
+			<option value=""></option>
+		</select>
+		<span asp-validation-for="@Model.Yarn.Color" class="text-danger"></span>
+	</div>
+	<div class="form-group">
 		<label asp-for="@Model.Yarn.Material" class="control-label"></label>
 		<select asp-for="@Model.Yarn.Material" asp-items="Html.GetEnumSelectList<Material>()">
 			<option value=""></option>
@@ -51,22 +66,12 @@
 		<span asp-validation-for="@Model.Yarn.Material" class="text-danger"></span>
 	</div>
 	<div class="form-group">
-		<label asp-for="@Model.Yarn.Weight" class="control-label">Vægt i gram</label>
-		<input asp-for="@Model.Yarn.Weight" class="form-control" />
-		<span asp-validation-for="@Model.Yarn.Weight" class="text-danger"></span>
-	</div>
-	<div class="form-group">
-		<label asp-for="@Model.Yarn.SuggestedNeedleSize" class="control-label"></label>
-		<input asp-for="@Model.Yarn.SuggestedNeedleSize" class="form-control" />
-		<span asp-validation-for="@Model.Yarn.SuggestedNeedleSize" class="text-danger"></span>
-	</div>
-@* 	<div class="form-group">
 		<label asp-for="@Model.Photo" class="control-label"></label>
 		<div class="custom-file">
 			<input asp-for="@Model.Photo" class="custom-file-input form-control" />
 			<label class="custom-file-label">Gem Billede</label>
 		</div>
-	</div> *@
+	</div>
 
 	<p>
 		<div class="form-group">

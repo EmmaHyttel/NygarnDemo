@@ -32,7 +32,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         {
             Models.Yarn deletedYarn = await _yarnService.DeleteYarnAsync(id);
             if (deletedYarn == null)
-                return RedirectToPage("/Construction/NotFound"); 
+                return RedirectToPage("/Construction/NotFound");
 
             return RedirectToPage("GetAllYarnProducts");
         }
