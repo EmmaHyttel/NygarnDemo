@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.Services.Interfaces;
@@ -6,6 +7,7 @@ using System.Security.Claims;
 
 namespace NygarnDemo.Pages.Product.YarnPages
 {
+   
     public class DetailYarnModel : PageModel
     {
 
