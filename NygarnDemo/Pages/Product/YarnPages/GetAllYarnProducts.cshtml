@@ -124,27 +124,32 @@
                             <button class="wishlist-btn" type="submit" asp-page-handler="AddToWishList"><i class="far fa-heart"></i></button> *@
                             @if (!Model.IsAdmin)
                             {
-                                <form method="post" style="display: inline;">
+                                @* <form method="post" style="display: inline;">
                                     <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId" />
                                     <input type="number" name="quantity" id="quantityInput" min="1" value="1" style="width: 40px; height: 30px; font-size: 16px;" />
                                     <button class="btn btn-primary btn-sm rosybrown-bg" type="submit" asp-page-handler="AddToCart" style="font-size: 12px; padding: 5px 12px; height: 30px;">Kom i kurv</button>
+                                </form> *@
+                                <form method="post" style="display: inline;">
+                                    <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId" />
+                                    <input type="number" name="quantity" id="quantityInput" min="1" value="1" style="width: 40px; height: 30px; font-size: 16px;" />
+                                    <button class="btn btn-primary btn-sm rosybrown-bg" type="submit" asp-page-handler="AddToCart" style="font-size: 16px; padding: 10px 20px; height: 40px; display: inline-block;" title="Shoppingkurv">
+                                        <i class="fa fa-shopping-cart" style="font-size: 16px;"></i>
+                                    </button>
                                 </form>
-                                <button class="wishlist-btn" type="submit" asp-page-handler="AddToWishList" style="font-size: 16px; padding: 10px 20px; height: 40px; display: inline-block;">
+                                <button class="wishlist-btn" type="submit" asp-page-handler="AddToWishList" style="font-size: 16px; padding: 10px 20px; height: 40px; display: inline-block;" title="Ønskeliste">
                                     <i class="far fa-heart" style="font-size: 16px;"></i>
                                 </button>
                             }
         
                             <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId" />
-                            <a class="btn btn-primary btn-sm rosybrown-bg" type="button" title="Detail" asp-page="DetailYarn" asp-route-id="@yarnProduct.ProductId" style="font-size: 12px; padding: 5px 12px; height: 30px; display: inline-block;">
-                                <i class="fa fa-info" style="font-size: 16px;"></i> Se detaljer
+                            <a class="btn btn-primary btn-sm rosybrown-bg" type="button" title="Detaljer" asp-page="DetailYarn" asp-route-id="@yarnProduct.ProductId">
+                                Se detaljer
                             </a>
                             
                             @if (Model.IsAdmin)
                             {
-                                <a class="btn btn-danger btn-sm rosybrown-bg" type="button" title="Delete" asp-page="DeleteYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-trash"></i>Slet</a>
-                                <a class="btn btn-primary btn-sm rosybrown-bg" type="button" title="Edit" asp-page="EditYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-edit"></i>Rediger</a>
-                               @*  <button type="submit" asp-page-handler="SizeFilter" style="width: 70px; background-color: rosybrown; color: black; border: none; padding: 5px 10px; box-sizing: border-box;">Filtrer</button> *@
-
+                                <a class="btn btn-primary btn-sm rosybrown-bg" type="button" title="Rediger" asp-page="EditYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-danger btn-sm rosybrown-bg" type="button" title="Slet" asp-page="DeleteYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-trash"></i></a>
                             }
                     </div>
                 </div>
