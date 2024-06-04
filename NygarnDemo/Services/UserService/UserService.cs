@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NygarnDemo.Models;
-using NygarnDemo.Pages.User;
+﻿using NygarnDemo.Models;
 using NygarnDemo.Services.DbServices;
 
 namespace NygarnDemo.Services.User;
@@ -50,7 +48,7 @@ public class UserService : IUserService
 
         if (user is not null)
         {
-            await _userDbService.AddToShoppingCart(user.Id, product, quantity);
+            await _userDbService.AddToShoppingCart(user.UserName, product, quantity);
         }
     }
 
@@ -60,17 +58,17 @@ public class UserService : IUserService
 
         if (user is not null)
         {
-            return await _userDbService.GetShoppingCart(user.Id);
+            return await _userDbService.GetShoppingCart(user.UserName);
         }
 
         return new List<ShoppingCartLine>();
     }
 
-    public async Task UpdateShoppingCart(string userName, int productId, int quantity)
+    public async Task UpdateShoppingCart(string userName, int productId, int additionalQuantity)
     {
         var user = await _userDbService.GetUserByUsername(userName);
 
-        var userShoppingCart = await _userDbService.GetShoppingCart(user.Id);
+        var userShoppingCart = await _userDbService.GetShoppingCart(user.UserName);
 
         if (userShoppingCart != null)
         {
@@ -78,40 +76,65 @@ public class UserService : IUserService
             {
                 if (line.Product.ProductId == productId)
                 {
-                    line.Quantity = quantity;
+                    line.Quantity += additionalQuantity;
                 }
             }
-            await _userDbService.UpdateShoppingCartAsync(user.Id, userShoppingCart);
+            await _userDbService.UpdateShoppingCartAsync(user.UserName, userShoppingCart);
         }
     }
 
-    //public async Task AddToWishList(string userName, Product product)
+    public async Task DeleteShoppingCartLine(int productId, string userName)
+    {
+        var user = await _userDbService.GetUserByUsername(userName);
+        if (user != null)
+        {
+            await _userDbService.DeleteShoppingCartLine(user.UserName, productId);
+        }
+    }
+    //public async Task DeleteShoppingCartLine(int productId, string userName)
     //{
     //    var user = await _userDbService.GetUserByUsername(userName);
 
-    //    if (user is not null)
+    //    var userShoppingCart = await _userDbService.GetShoppingCart(user.UserName);
+
+    //    if (userShoppingCart != null)
     //    {
-    //        await _userDbService.AddToWishList(user.Id, product);
+    //        var LineToBeDeleted = userShoppingCart.FirstOrDefault(line => line.Product.ProductId == productId);
+
+    //        if (LineToBeDeleted != null)
+    //        {
+    //            userShoppingCart.Remove(LineToBeDeleted);
+    //            await _userDbService.DeleteShoppingCartLine(LineToBeDeleted, user.UserName);
+    //        }
     //    }
     //}
+        //public async Task AddToWishList(string userName, Product product)
+        //{
+        //    var user = await _userDbService.GetUserByUsername(userName);
 
-    //public async Task<List<WishListLine>> GetWishListByUserName(string userName)
-    //{
-    //    var user = await _userDbService.GetUserByUsername(userName);
+        //    if (user is not null)
+        //    {
+        //        await _userDbService.AddToWishList(user.Id, product);
+        //    }
+        //}
 
-    //    if (user is not null)
-    //    {
-    //        return await _userDbService.GetWishList(user.Id);
-    //    }
+        //public async Task<List<WishListLine>> GetWishListByUserName(string userName)
+        //{
+        //    var user = await _userDbService.GetUserByUsername(userName);
 
-    //    return new List<WishListLine>();
-    //}
+        //    if (user is not null)
+        //    {
+        //        return await _userDbService.GetWishList(user.Id);
+        //    }
+
+        //    return new List<WishListLine>();
+        //}
 
 
 
-    //public async Task<Models.User> GetUserOrdersAsync(Models.User user)
-    //{
-    //    return await _userDbService.GetOrdersByUserIdAsync(user.Id);
-    //}
+        //public async Task<Models.User> GetUserOrdersAsync(Models.User user)
+        //{
+        //    return await _userDbService.GetOrdersByUserIdAsync(user.Id);
+        //}
 
-}
+    }

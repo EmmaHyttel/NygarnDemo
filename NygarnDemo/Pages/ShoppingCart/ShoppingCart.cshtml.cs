@@ -38,4 +38,6 @@ public class ShoppingCartModel : PageModel
 
         return Page();
     }
+
+ 
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NygarnDemo.EFDbContext;
 using NygarnDemo.Models;
+using System.Security.Cryptography.Xml;
 
 namespace NygarnDemo.Services.DbServices;
 
@@ -45,11 +46,11 @@ public class UserDbService
         }
     }
 
-    public async Task AddToShoppingCart(int userId, Product product, int quantity)
+    public async Task AddToShoppingCart(string userName, Product product, int quantity)
     {
         using (var context = new NygarnDbContext())
         {
-            var user = await context.User.FirstOrDefaultAsync(x => x.Id == userId);
+            var user = await context.User.FirstOrDefaultAsync(x => x.UserName == userName);
 
             if(user is not null)
             {
@@ -60,14 +61,15 @@ public class UserDbService
         }            
     }
 
-    public async Task<List<ShoppingCartLine>> GetShoppingCart(int userId)
+   
+    public async Task<List<ShoppingCartLine>> GetShoppingCart(string userName)
     {
         using (var context = new NygarnDbContext())
         {
             var user = await context.User
                        .Include(u => u.ShoppingCartLines)
                        .ThenInclude(scl => scl.Product)
-                       .FirstOrDefaultAsync(u => u.Id == userId);
+                       .FirstOrDefaultAsync(u => u.UserName == userName);
 
             if (user is not null)
             {
@@ -78,13 +80,13 @@ public class UserDbService
         }
     }
 
-    public async Task UpdateShoppingCartAsync(int userId, List<ShoppingCartLine> shoppingCartLines)
+    public async Task UpdateShoppingCartAsync(string userName, List<ShoppingCartLine> shoppingCartLines)
     {
         using (var context = new NygarnDbContext())
         {
             var user = await context.User
                 .Include(u => u.ShoppingCartLines)
-                .FirstOrDefaultAsync(x => x.Id == userId);
+                .FirstOrDefaultAsync(x => x.UserName == userName);
 
             if (user != null)
             {
@@ -102,6 +104,28 @@ public class UserDbService
             }
         }
     }
+    public async Task DeleteShoppingCartLine(string userName, int productId)
+    {
+        using (var context = new NygarnDbContext())
+        {
+            var user = await context.User
+                .Include(u => u.ShoppingCartLines)
+                .ThenInclude(scl => scl.Product.ProductId)
+                .FirstOrDefaultAsync(x => x.UserName == userName);
+            if (user != null)
+            {
+                var lineToRemove = user.ShoppingCartLines.FirstOrDefault(x => x.Id == productId);
+                if (lineToRemove != null)
+                {
+                    user.ShoppingCartLines.Remove(lineToRemove);
+                    await context.SaveChangesAsync();
+                }
+            }
+           
+        }
+    }
+}
+
 
     //public async Task<List<WishListLine>> GetWishList(int userId)
     //{
@@ -149,4 +173,4 @@ public class UserDbService
 
     //    return user;
     //}
-}
+

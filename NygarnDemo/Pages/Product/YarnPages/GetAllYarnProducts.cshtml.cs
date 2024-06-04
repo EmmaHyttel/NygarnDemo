@@ -83,7 +83,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public async Task OnGetAsync()
         {
             //YarnProducts = _yarnService.GetYarnProducts();
-            YarnProducts = await _dbContext.Yarn.ToListAsync();
+            YarnProducts = await _dbContext.Yarn.ToListAsync(); // bør den ikke hente Yarn via YarnService --> YarnDbService --> Dbcontext?
             IsAdmin = HttpContext.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin");
         }
 
@@ -138,11 +138,24 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public async Task<IActionResult> OnPostAddToCart(int quantity)
         {
             var user = HttpContext.User.FindFirstValue(ClaimTypes.Name);
+           
 
-            if(user is not null)
+            if (user is not null)
             {
                 var product = await _yarnService.GetYarn(SelectedProductId);
-                await _userService.AddToShoppingCart(user, product, quantity);
+                var shoppingCartLines = await _userService.GetShoppingCartByUserName(user);
+
+                var existingShoppingCartLine = shoppingCartLines.FirstOrDefault(line => line.Product.ProductId == SelectedProductId); // lambda udtryk der tjekker den første shoppingCartLine der har et produkt med produktId der matcher SelectedProductId
+
+                if (existingShoppingCartLine is not null)
+                {
+                    existingShoppingCartLine.Quantity += quantity;
+                    await _userService.UpdateShoppingCart(user, SelectedProductId, quantity);
+                }
+                else 
+                {
+                    await _userService.AddToShoppingCart(user, product, quantity);
+                }
             }
 
             return RedirectToPage();
