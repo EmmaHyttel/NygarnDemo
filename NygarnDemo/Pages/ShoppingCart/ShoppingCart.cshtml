@@ -33,9 +33,10 @@ else
                             <input type="number" name="Quantity" value="@line.Quantity" min="1" style="width: 50px;" />
                             <button type="submit" class="btn btn-primary btn-sm" style="background-color: rosybrown; color: white; border: none;">Opdater</button>
                         </form>
-                        <a class="btn btn-danger btn-sm" type="button" title="Delete" asp-page="ShoppingCart" asp-route-id="@line.Product.ProductId" style="margin-left: 5px; background-color: red; color: white; border: none; padding: 5px 10px;">
+                        @* <a class="btn btn-danger btn-sm" type="button" title="Delete" asp-page="ShoppingCart" asp-route-id="@line.Product.ProductId" style="margin-left: 5px; background-color: red; color: white; border: none; padding: 5px 10px;">
                             <i class="fa fa-trash"></i> Slet
-                        </a>
+                        </a> *@
+                        <a class="btn btn-danger btn-sm rosybrown-bg" type="button" title="Delete" asp-page="DeleteShoppingCartLine" asp-route-id="@line.Id"><i class="fa fa-trash"></i>Slet</a>
                     </td>
                 </tr>
             }

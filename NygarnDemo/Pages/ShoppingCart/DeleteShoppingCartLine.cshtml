@@ -1,0 +1,12 @@
+﻿@page
+@model NygarnDemo.Pages.ShoppingCart.DeleteShoppingCartLineModel
+@{
+}
+<h1>Delete Confirmation></h1>
+<div class="alert alert-danger">
+	<h5>Er du sikker på, at du vil slette produktet? - @Model.ShoppingCartLine.Product.Name</h5>
+	<form method="get">
+		<button type="submit" class="btn btn-danger">JA</button>
+		<a class="btn btn-primary" asp-page="/ShoppingCart/ShoppingCart">NEJ</a>
+	</form>
+</div>
