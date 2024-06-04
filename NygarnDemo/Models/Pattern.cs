@@ -4,7 +4,7 @@ namespace NygarnDemo.Models;
 public class Pattern : Product
 {
     public Pattern(string designer, string difficultyLevel, Category category, Fits fits, decimal price, 
-        string name, string description, string brand, int amount) : base(price, name, description, brand, amount)
+        string name, string description, string brand) : base(price, name, description, brand)
     {
         Designer = designer;
         DifficultyLevel = difficultyLevel;

@@ -49,13 +49,12 @@ public class NygarnDbContext : DbContext
                     Name = "Double Sunday",
                     Description = "100% merinould uden superwashbehandling \nKan maskinvaskes på 30 grader uldprogram",
                     Brand = "Sandnes garn",
-                    Amount = 1,
                     Color = Color.Brun,
                     KnittingTension = "21-22 masker = 10 cm",
                     Yardage = "108 m",
                     Material = Material.Merinould,
                     Weight = 50,
-                    SuggestedNeedleSize = Size.Size35mm,
+                    SuggestedNeedleSize = "pind 3.5-4",
                     MachineWash = true
                 },
                 new Yarn()
@@ -65,13 +64,12 @@ public class NygarnDbContext : DbContext
                     Name = "Tynn Silk Mohair",
                     Description = "57% mohair, 15% uld og 28% silke \nKan maskinvaskes ved 30 grader (uldprogram)",
                     Brand = "Sandnes garn",
-                    Amount = 1,
                     Color = Color.Beige,
                     KnittingTension = "24 m x 18 p = 10 x 10 cm",
                     Yardage = "212 m",
                     Material = Material.Mohair,
                     Weight = 25,
-                    SuggestedNeedleSize = Size.Size30mm,
+                    SuggestedNeedleSize = "pind 4-5",
                     MachineWash = true
                 },
                 new Yarn()
@@ -81,13 +79,12 @@ public class NygarnDbContext : DbContext
                     Name = "Tynn Silk Mohair",
                     Description = "57% mohair, 15% uld og 28% silke \nKan maskinvaskes ved 30 grader (uldprogram)",
                     Brand = "Sandnes garn",
-                    Amount = 1,
                     Color = Color.Blå,
                     KnittingTension = "24 m x 18 p = 10 x 10 cm",
                     Yardage = "212 m",
                     Material = Material.Mohair,
                     Weight = 25,
-                    SuggestedNeedleSize = Size.Size30mm,
+                    SuggestedNeedleSize = "pind 3-5",
                     MachineWash = true
                 },
                 new Yarn()
@@ -98,13 +95,12 @@ public class NygarnDbContext : DbContext
                     Yardage = "Yardage300mPr50g",
                     Material = Material.Alpakka,
                     Weight = 50,
-                    SuggestedNeedleSize = Size.Size30mm,
+                    SuggestedNeedleSize = "pind 6-8",
                     MachineWash = true,
                     Price = 69,
                     Name = "MaLamaa",
                     Description = "Vildt lækkert alpakka garn til dit næste tørklæde",
                     Brand = "Petitknit",
-                    Amount = 1
                 },
                 new Yarn()
                 {
@@ -114,13 +110,12 @@ public class NygarnDbContext : DbContext
                     Yardage = "Yardage400mPr50g",
                     Material = Material.Silke,
                     Weight = 50,
-                    SuggestedNeedleSize = Size.Size40mm,
+                    SuggestedNeedleSize = "pind 4-5",
                     MachineWash = false,
                     Price = 75,
                     Name = "SlikkeSilke",
                     Description = "Vildt lækkert silke garn til dit næste hårbånd",
                     Brand = "Petitknit",
-                    Amount = 1
                 }
                 );
 
@@ -185,7 +180,6 @@ public class NygarnDbContext : DbContext
                         Name = "Babyknap",
                         Description = "Rigtig fine små knapper, der passer perfekt til lukningen på en bodystocking",
                         Brand = "PetitKnit",
-                        Amount = 12,
                         Type = "Knapper",
                         Size = "5 mm"
                     },
@@ -196,7 +190,6 @@ public class NygarnDbContext : DbContext
                         Name = "Målebånd",
                         Description = "Fuldstændig præcis målebånd",
                         Brand = "PetitKnit",
-                        Amount = 1,
                         Type = "Målebånd",
                         Size = "100 cm"
                     },
@@ -207,7 +200,6 @@ public class NygarnDbContext : DbContext
                         Name = "Bamsefyld",
                         Description = "Super blødt bamsefyld til dit næste hækleprojekt",
                         Brand = "Sandnes",
-                        Amount = 1,
                         Type = "Fyld",
                         Size = "100 gram"
                     }
@@ -222,7 +214,6 @@ public class NygarnDbContext : DbContext
                          Name = "KnitPro",
                          Description = "Gode til alt",
                          Brand = "KnitPro",
-                         Amount = 1,
                          Type = NeedleType.Rundpinde,
                          Material = NeedleAndHookMaterial.plastik,
                          Size = Size.Size30mm,
@@ -235,7 +226,6 @@ public class NygarnDbContext : DbContext
                          Name = "Hot",
                          Description = "Dejlig store",
                          Brand = "KnitPro",
-                         Amount = 1,
                          Type = NeedleType.Jumperpinde,
                          Material = NeedleAndHookMaterial.bambus,
                          Size = Size.Size40mm,
@@ -248,7 +238,6 @@ public class NygarnDbContext : DbContext
                          Name = "KnitPro",
                          Description = "Gode til alt",
                          Brand = "KnitPro",
-                         Amount = 1,
                          Type = NeedleType.Rundpinde,
                          Material = NeedleAndHookMaterial.plastik,
                          Size = Size.Size30mm,
@@ -265,7 +254,6 @@ public class NygarnDbContext : DbContext
                     Name = "Knyt",
                     Description = "Gode til alt",
                     Brand = "PetitKnit",
-                    Amount = 1,
                     Material = NeedleAndHookMaterial.plastik,
                     Size = Size.Size50mm,
                     Set = true
@@ -278,7 +266,6 @@ public class NygarnDbContext : DbContext
                     Name = "KnitPro",
                     Description = "Gode til alt",
                     Brand = "PetitKnit",
-                    Amount = 2,
                     Material = NeedleAndHookMaterial.plastik,
                     Size = Size.Size30mm,
                     Set = false
@@ -291,7 +278,6 @@ public class NygarnDbContext : DbContext
                     Name = "NeedlePickled",
                     Description = "",
                     Brand = "PetitKnit",
-                    Amount = 1,
                     Material = NeedleAndHookMaterial.plastik,
                     Size = Size.Size60mm,
                     Set = false

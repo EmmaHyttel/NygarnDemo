@@ -28,15 +28,15 @@ public class Yarn : Product
 
     [Display(Name = "Anbefalede pinde")]
     [Required(ErrorMessage = "Der skal angives en anbefalet pind til garn")]
-    public Size SuggestedNeedleSize { get; set; }
+    public string SuggestedNeedleSize { get; set; }
 
     [Display(Name = "Maskinevask")]
     [Required(ErrorMessage = "Der skal angives en anbefalet maskinevask til garn")]
     public bool MachineWash { get; set; }
 
-    public Yarn(Color color, string knittingTension, string yardage, Material material, int weight, Size size, 
-        bool machineWash, decimal price, string name, string description, string brand, int amount) : 
-        base(price, name, description, brand, amount)
+    public Yarn(Color color, string knittingTension, string yardage, Material material, int weight, string size, 
+        bool machineWash, decimal price, string name, string description, string brand) : 
+        base(price, name, description, brand)
     {
         Color = color;
         KnittingTension = knittingTension;
@@ -55,7 +55,7 @@ public class Yarn : Product
         Yardage = "";
         Material = 0;
         Weight = 1;
-        SuggestedNeedleSize = 0;
+        SuggestedNeedleSize = "";
         MachineWash = false;
         
     }

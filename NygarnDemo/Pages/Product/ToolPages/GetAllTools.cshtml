@@ -73,9 +73,9 @@
                        <h5 class="card-title">@tool.Name</h5>
                        <p class="card-text">Beskrivelse: @tool.Description</p>
                        <p class="card-text">Pris: @tool.Price</p>
-                       <p class="card-text">Designer: @tool.Brand</p>
+                       @* <p class="card-text">Designer: @tool.Brand</p>
                        <p class="card-text">Størrelse: @tool.Size</p>
-                       <p class="card-text">Type: @tool.Type</p>
+                       <p class="card-text">Type: @tool.Type</p> *@
                        <a href="#" class="btn btn-primary">Kom i kurv</a>
                     <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailTool" asp-route-id="@tool.ProductId"><i class="fa fa-info"></i>Se detaljer</a>
                     @if (Model.IsAdmin)

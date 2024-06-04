@@ -4,10 +4,10 @@
 }
 
 <form method="post" enctype="multipart/form-data">
-	<div class="form-group">
+@* 	<div class="form-group">
 		<label asp-for="Tool.ProductId" class="control-lable"></label>
 		<input asp-for="Tool.ProductId" class="form-control" readonly="@(true)" />
-	</div>
+	</div> *@
 	<div class="form-group">
 		<label asp-for="Tool.Type" class="control-lable"></label>
 		<input asp-for="Tool.Type" class="form-control" />
@@ -37,11 +37,6 @@
 		<label asp-for="Tool.Brand" class="control-lable"></label>
 		<input asp-for="Tool.Brand" class="form-control" />
 		<span asp-validation-for="Tool.Brand" class="text-danger"></span>
-	</div>
-	<div class="form-group">
-		<label asp-for="Tool.Amount" class="control-lable"></label>
-		<input asp-for="Tool.Amount" class="form-control" />
-		<span asp-validation-for="Tool.Amount" class="text-danger"></span>
 	</div>
 
 	<p>

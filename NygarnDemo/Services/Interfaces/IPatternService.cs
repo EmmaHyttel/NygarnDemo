@@ -5,9 +5,9 @@ namespace NygarnDemo.Services.Interfaces
 {
     public interface IPatternService
     {
-        List<Pattern> GetPatterns();
-        IEnumerable<Pattern> CategoryFilter(Category category);
-		IEnumerable<Pattern> FitsFilter(Fits fits);
-		IEnumerable<Pattern> DiffLevelFilter(string difficultyLevel);
+  //      List<Pattern> GetPatterns();
+  //      IEnumerable<Pattern> CategoryFilter(Category category);
+		//IEnumerable<Pattern> FitsFilter(Fits fits);
+		//IEnumerable<Pattern> DiffLevelFilter(string difficultyLevel);
 	}
 }

@@ -129,11 +129,11 @@ namespace NygarnDemo.Pages.Product.YarnPages
             return Page();
         }
 
-        public async Task<IActionResult> OnPostSizeFilter()
-        {
-            YarnProducts = await _yarnService.SizeFilter(Size);
-            return Page();
-        }
+        //public async Task<IActionResult> OnPostSizeFilter()
+        //{
+        //    YarnProducts = await _yarnService.SizeFilter(string);
+        //    return Page();
+        //}
 
         public async Task<IActionResult> OnPostAddToCart(int quantity)
         {

@@ -59,7 +59,7 @@ public class YarnService : IYarnService
             return filterList;
         }
 
-        public async Task<List<Yarn>> ColorFilter(Enums.Color color)
+        public async Task<List<Yarn>> ColorFilter(Color color)
         {
             List<Yarn> filterColor = new List<Yarn>();
             var yarnProducts = await GetYarnProducts();
@@ -137,7 +137,7 @@ public class YarnService : IYarnService
             return YardageList;
      }
 
-     public async Task<List<Yarn>> SizeFilter(Size size)
+     public async Task<List<Yarn>> SizeFilter(string size)
      {
          List<Yarn> SizeList = new List<Yarn>();
 

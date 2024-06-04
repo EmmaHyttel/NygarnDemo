@@ -20,7 +20,7 @@ namespace NygarnDemo.Services.Interfaces
         Task<List<Yarn>>BrandFilter(string brand);
         Task<List<Yarn>> KnittingTensionFilter(string knittigTension);
         Task<List<Yarn>> YardageFilter(string yardage);
-        Task<List<Yarn>> SizeFilter(Size size);
+        Task<List<Yarn>> SizeFilter(string size);
         //IEnumerable<Yarn> MachinewashFilter(Machinewash machinewash);
 
     }

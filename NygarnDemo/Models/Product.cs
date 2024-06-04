@@ -30,17 +30,15 @@ public abstract class Product
     [Required(ErrorMessage = "Produkt Brand skal anføres")]
     //[StringLength(100)]
     public string Brand { get; set; }
-    public int Amount { get; set; }
 
     public string ProductImage { get; set; }
 
-    public Product(decimal price, string name, string description, string brand, int amount)
+    public Product(decimal price, string name, string description, string brand)
     {
         Price = price;
         Name = name;
         Description = description;
         Brand = brand;
-        Amount = amount;
         ProductId = 0;
     }
 
@@ -50,7 +48,6 @@ public abstract class Product
         Name = "";
         Description = "";
         Brand = "";
-        Amount = 1;
         ProductId = 0;
         ProductImage = "";
     }
