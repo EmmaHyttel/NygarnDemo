@@ -72,29 +72,7 @@
 </div>
 
     <div>
-        @* <form method="post">
-            <select asp-for="Brand" asp-items="Html.GetEnumSelectList<Brand>()">
-                <option value="">Pick one</option>
-            </select>
-            <button type="submit" asp-page-handler="BrandFilter">Se garn</button>
-        </form> *@
-    </div>
-    <div>
- @*        <form method="post">
-            <select asp-for="KnittingTension" asp-items="Html.GetEnumSelectList<KnittingTension>()">
-                <option value="">Pick one</option>
-            </select>
-            <button type="submit" asp-page-handler="KnittingTensionFilter">Se garn</button>
-        </form>
-    </div> *@
-@*     <div>
-        <form method="post">
-            <select asp-for="Yardage" asp-items="Html.GetEnumSelectList<Yardage>()">
-                <option value="">Pick one</option>
-            </select> 
-            <button type="submit" asp-page-handler="YardageFilter">Se garn</button>
-        </form
-    </div>*@
+
     <div style="margin-bottom: 15px;">
     <form method="post" style="display: flex; align-items: center; gap: 10px;">
         <select asp-for="Size" asp-items="Html.GetEnumSelectList<Size>()" style="width: 150px; padding: 5px; box-sizing: border-box;">
@@ -160,26 +138,6 @@
 
                             @if (Model.IsAdmin)
                             {
-                                @* <form asp-page="EditYarn" asp-route-id="@yarnProduct.ProductId" method="post" class="d-inline">
-                                    <button type="submit" class="btn btn-danger" title="Rediger">
-                                        Rediger
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </form>
-                                <form asp-page="DetailYarn" asp-route-id="@yarnProduct.ProductId" method="post" class="d-inline">
-                                    <button type="submit" class="btn btn-danger" title="Se detaljer">
-                                        Se detaljer
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                               @*  </form> *@
-                               @*  <form asp-page="/YarnPages/DeleteYarn" asp-route-id="@yarnProduct.ProductId" method="post" class="d-inline">
-                                    <button type="submit" class="btn btn-danger btn-sm" title="Slet" onclick="return confirm('Er du sikker på, at du vil slette denne garn?')">
-                                        Slet
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </form> *@
-
-                                @* <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditTool" asp-route-id="@tool.ProductId"><i class="fa fa-edit"></i>Rediger</a> *@
                                 <a class="btn btn-danger btn-sm rosybrown-bg" type="button" title="Delete" asp-page="DeleteYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-trash"></i>Slet</a>
                                 <a class="btn btn-primary btn-sm rosybrown-bg" type="button" title="Edit" asp-page="EditYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-edit"></i>Rediger</a>
                                 <button type="submit" asp-page-handler="SizeFilter" style="width: 70px; background-color: rosybrown; color: black; border: none; padding: 5px 10px; box-sizing: border-box;">Filtrer</button>

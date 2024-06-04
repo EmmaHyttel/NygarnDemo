@@ -54,7 +54,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         public string Yardage { get; set; }
 
         [BindProperty]
-        public Size Size { get; set; }
+        public string Size { get; set; }
 
         [BindProperty]
         public bool MachineWash { get; set; }
