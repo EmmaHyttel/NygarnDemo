@@ -65,17 +65,17 @@ namespace NygarnDemo.Pages.Product.YarnPages
         [BindProperty]
         public Material MaterialFilter { get; set; }
 
-        [BindProperty]
-        public string BrandFilter { get; set; }
+        //[BindProperty]
+        //public string BrandFilter { get; set; }
 
-        [BindProperty]
-        public string YardageFilter { get; set; }
+        //[BindProperty]
+        //public string YardageFilter { get; set; }
 
-        [BindProperty]
-        public string SizeFilter { get; set; }
+        //[BindProperty]
+        //public string SizeFilter { get; set; }
 
-        [BindProperty]
-        public bool MachinewashFilter { get; set; }
+        //[BindProperty]
+        //public bool MachinewashFilter { get; set; }
 
         [BindProperty]
         public int SelectedProductId { get; set; }
@@ -111,23 +111,23 @@ namespace NygarnDemo.Pages.Product.YarnPages
             return Page();
         }
 
-        public async Task<IActionResult> OnPostBrandFilter()
-        {
-            YarnProducts = await _yarnService.BrandFilter(Brand);
-            return Page();
-        }
+        //public async Task<IActionResult> OnPostBrandFilter()
+        //{
+        //    YarnProducts = await _yarnService.BrandFilter(Brand);
+        //    return Page();
+        //}
 
-        public async Task<IActionResult> OnPostKnittingTensionFilter()
-        {
-            YarnProducts = await _yarnService.KnittingTensionFilter(KnittingTension);
-            return Page();
-        }
+        //public async Task<IActionResult> OnPostKnittingTensionFilter()
+        //{
+        //    YarnProducts = await _yarnService.KnittingTensionFilter(KnittingTension);
+        //    return Page();
+        //}
 
-        public async Task<IActionResult> OnPostYardageFilter()
-        {
-            YarnProducts = await _yarnService.YardageFilter(Yardage);
-            return Page();
-        }
+        //public async Task<IActionResult> OnPostYardageFilter()
+        //{
+        //    YarnProducts = await _yarnService.YardageFilter(Yardage);
+        //    return Page();
+        //}
 
         //public async Task<IActionResult> OnPostSizeFilter()
         //{

@@ -17,10 +17,10 @@ namespace NygarnDemo.Services.Interfaces
         Task<List<Yarn>> PriceFilter(int maxPrice, int minPrice = 0);
         Task<List<Yarn>> ColorFilter(Enums.Color color);
         Task<List<Yarn>> MaterialFilter(Material material);
-        Task<List<Yarn>>BrandFilter(string brand);
-        Task<List<Yarn>> KnittingTensionFilter(string knittigTension);
-        Task<List<Yarn>> YardageFilter(string yardage);
-        Task<List<Yarn>> SizeFilter(string size);
+        //Task<List<Yarn>>BrandFilter(string brand);
+        //Task<List<Yarn>> KnittingTensionFilter(string knittigTension);
+        //Task<List<Yarn>> YardageFilter(string yardage);
+        //Task<List<Yarn>> SizeFilter(string size);
         //IEnumerable<Yarn> MachinewashFilter(Machinewash machinewash);
 
     }
