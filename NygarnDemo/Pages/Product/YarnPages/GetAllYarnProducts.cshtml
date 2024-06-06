@@ -7,19 +7,43 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
     .wishlist-btn {
-        background: none;
+       /*  background: #bc8f8f;
         border: none;
         cursor: pointer;
+        border-radius: 3px; */
     }
 
         .wishlist-btn i {
             font-size: 1.5rem;
-            color: grey;
+           /*  color: black; */
         }
 
             .wishlist-btn i.filled {
                 color: red;
             }
+
+    .custom-card {
+        width: 19rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .custom-card .card-body {
+            flex: 1;
+        }
+
+        .custom-card img {
+            height: 350px; 
+            object-fit: cover;
+        }
+
+    .card-buttons {
+        display: flex;
+        gap: 2px; /* Justerer mellemrum mellem knapperne */
+    }
+
+
 </style>
 <h1>Garn</h1>
 
@@ -81,17 +105,9 @@
         <button type="submit" asp-page-handler="SizeFilter" style="width: 70px; background-color: rosybrown; color: black; border: none; padding: 5px 10px; box-sizing: border-box;">Filtrer</button>
     </form>
     </div>
-
-   @*  <div>
-        <form method="post">
-            <select asp-for="MachineWash" asp-items="Html.GetEnumSelectList<Machinewash>()">
-                <option value="">Pick one</option>
-            </select>
-            <button type="submit" asp-page-handler="MachinewashFilter">Se garn</button>
-        </form>
-    </div> *@
     </div>
 </div>
+
 <div class="grid-container">
 @if(Model.YarnProducts != null)
 {
@@ -99,36 +115,14 @@
     {
         <div class="row">
             <div class="col-sm-4 mb-3">
-                <div class="card" style="width: 18rem;">
-                    @* <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5gOk9johiqyLngH4hJNbyZCgPJ1Ib2mLWTiHsQ9Wvmg&s" alt="Card image cap">  *@
+                        <div class="card custom-card">
                         <img class="card-img-top" src="@(Url.Content("~/pngFiles/" + yarnProduct.ProductImage))" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@yarnProduct.Name</h5>
                         <p class="card-title"> Brand: @yarnProduct.Brand</p>
-@*                         <p class="card-text"> Beskrivelse: @yarnProduct.Description</p> *@
                         <p class="card-text"> Pris: @yarnProduct.Price</p>
-                      @*   <p class="card-text"> Materiale: @yarnProduct.Material</p>
-                        <p class="card-text"> Farve: @yarnProduct.Color</p>
-                        <p class="card-text"> Strikkefasthed: @yarnProduct.KnittingTension</p>
-                        <p class="card-text"> Løbelængde: @yarnProduct.Yardage</p>
-                        <p class="card-text"> Anbefalede Pinde: @yarnProduct.SuggestedNeedleSize</p>
-                        <p class="card-text"> Maskinevask: @yarnProduct.MachineWash</p> *@
-
-                           @*  <form method="post">
-                                <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId" />
-                                <input type="number" name="quantity" id="quantityInput" min="1" value="1" />
-                                <button class="btn btn-primary rosybrown-bg" type="submit" asp-page-handler="AddToCart">Kom i kurv</button>
-                            </form method="post">
-                            <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId"/>
-                            <a class="btn btn-primary btn-sm rosybrown-bg" type="button" title="Detail" asp-page="DetailYarn" asp-route-id="@yarnProduct.ProductId"><i class="fa fa-info"></i>Se detaljer</a>
-                            <button class="wishlist-btn" type="submit" asp-page-handler="AddToWishList"><i class="far fa-heart"></i></button> *@
                             @if (!Model.IsAdmin)
                             {
-                                @* <form method="post" style="display: inline;">
-                                    <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId" />
-                                    <input type="number" name="quantity" id="quantityInput" min="1" value="1" style="width: 40px; height: 30px; font-size: 16px;" />
-                                    <button class="btn btn-primary btn-sm rosybrown-bg" type="submit" asp-page-handler="AddToCart" style="font-size: 12px; padding: 5px 12px; height: 30px;">Kom i kurv</button>
-                                </form> *@
                                 <form method="post" style="display: inline;">
                                     <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId" />
                                     <input type="number" name="quantity" id="quantityInput" min="1" value="1" style="width: 40px; height: 30px; font-size: 16px;" />
@@ -136,14 +130,14 @@
                                         <i class="fa fa-shopping-cart" style="font-size: 16px;"></i>
                                     </button>
                                 </form>
-                                <button class="wishlist-btn" type="submit" asp-page-handler="AddToWishList" style="font-size: 16px; padding: 10px 20px; height: 40px; display: inline-block;" title="Ønskeliste">
+                                <button class="btn btn-primary btn-sm rosybrown-bg wishlist-btn" type="submit" asp-page-handler="AddToWishList" style="font-size: 16px; padding: 10px 20px; height: 40px; display: inline-block;" title="Ønskeliste">
                                     <i class="far fa-heart" style="font-size: 16px;"></i>
                                 </button>
+
                             }
-        
                             <input type="hidden" name="SelectedProductId" value="@yarnProduct.ProductId" />
                             <a class="btn btn-primary btn-sm rosybrown-bg" type="button" title="Detaljer" asp-page="DetailYarn" asp-route-id="@yarnProduct.ProductId">
-                                Se detaljer
+                                Detaljer
                             </a>
                             
                             @if (Model.IsAdmin)
@@ -164,6 +158,8 @@
             <a class="btn btn-primary rosybrown-bg" asp-page="/Product/YarnPages/CreateYarn"> Tilføj garn til hjemmeside </a>
         </p>
         }
+
+
         <div>
             @* //Pagina den del, som gør at man kan bladre i siderne på en page// *@
             <nav aria-label="Page navigation example">
