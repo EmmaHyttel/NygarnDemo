@@ -24,6 +24,8 @@
 
 .footer {
     position: relative;
+    left: 0px;
+    bottom: 0 px;
     width: 100%;
     max-width: 2500px; 
     margin: 0 auto; 
@@ -34,3 +36,5 @@
     box-sizing: border-box;
     z-index: 999;
 }
+
+
