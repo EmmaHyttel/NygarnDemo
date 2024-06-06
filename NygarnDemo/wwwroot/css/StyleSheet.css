@@ -23,14 +23,18 @@
 }
 
 .footer {
-    position: relative;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
     width: 100%;
-    max-width: 2500px; 
-    margin: 0 auto; 
+    max-width: 2500px;
+    margin: 0 auto;
     background-color: #F5EBE0;
     color: #000;
     text-align: center;
-    padding: 20px 0; 
+    padding: 20px 0;
     box-sizing: border-box;
     z-index: 999;
 }
+
+

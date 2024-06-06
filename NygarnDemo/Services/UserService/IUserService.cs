@@ -15,7 +15,6 @@ namespace NygarnDemo.Services.User
 
         Task UpdateShoppingCart(string userName, int productId, int quantity);
         Task DeleteShoppingCartLine(int productId, string userName);
-        //Task AddToWishList(string userName, Product product);
-        //Task<List<WishListLine>> GetWishListByUserName(string userName);
+        Task<ShoppingCartLine> GetShoppingCartLineByUserName(string userName, int productId);
     }
 }
