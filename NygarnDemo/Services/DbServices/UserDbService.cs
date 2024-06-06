@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NygarnDemo.EFDbContext;
 using NygarnDemo.Models;
-using System.Security.Cryptography.Xml;
 
 namespace NygarnDemo.Services.DbServices;
 
@@ -80,6 +79,24 @@ public class UserDbService
         }
     }
 
+    public async Task<ShoppingCartLine> GetShoppingCartLine(string userName, int productId)
+    {
+        using (var context = new NygarnDbContext())
+        {
+			var user = await context.User
+						.Include(u => u.ShoppingCartLines)
+						.ThenInclude(scl => scl.Product)
+						.FirstOrDefaultAsync(u => u.UserName == userName);
+            if (user is not null)
+            {
+					var shoppingCartLine = user.ShoppingCartLines
+						.FirstOrDefault(scl => scl.Product.ProductId == productId);
+					return shoppingCartLine;
+			}
+			return null;
+		}
+    }
+
     public async Task UpdateShoppingCartAsync(string userName, List<ShoppingCartLine> shoppingCartLines)
     {
         using (var context = new NygarnDbContext())
@@ -106,22 +123,22 @@ public class UserDbService
     }
     public async Task DeleteShoppingCartLine(string userName, int productId)
     {
-        using (var context = new NygarnDbContext())
+        var lineToDelete = await GetShoppingCartLine(userName, productId);
+
+        if (lineToDelete != null)
         {
-            var user = await context.User
-                .Include(u => u.ShoppingCartLines)
-                .ThenInclude(scl => scl.Product.ProductId)
-                .FirstOrDefaultAsync(x => x.UserName == userName);
-            if (user != null)
+            using (var context = new NygarnDbContext())
             {
-                var lineToRemove = user.ShoppingCartLines.FirstOrDefault(x => x.Id == productId);
-                if (lineToRemove != null)
-                {
-                    user.ShoppingCartLines.Remove(lineToRemove);
-                    await context.SaveChangesAsync();
-                }
-            }
-           
+				var user = await context.User
+		            .Include(u => u.ShoppingCartLines)
+		            .FirstOrDefaultAsync(u => u.UserName == userName);
+
+				if (user != null)
+				{
+					user.ShoppingCartLines.Remove(lineToDelete);
+					await context.SaveChangesAsync();
+				}
+			} 
         }
     }
 }

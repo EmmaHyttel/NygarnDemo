@@ -64,7 +64,7 @@ public class UserService : IUserService
         return new List<ShoppingCartLine>();
     }
 
-    public async Task UpdateShoppingCart(string userName, int productId, int additionalQuantity)
+	public async Task UpdateShoppingCart(string userName, int productId, int additionalQuantity)
     {
         var user = await _userDbService.GetUserByUsername(userName);
 
@@ -91,50 +91,16 @@ public class UserService : IUserService
             await _userDbService.DeleteShoppingCartLine(user.UserName, productId);
         }
     }
-    //public async Task DeleteShoppingCartLine(int productId, string userName)
-    //{
-    //    var user = await _userDbService.GetUserByUsername(userName);
 
-    //    var userShoppingCart = await _userDbService.GetShoppingCart(user.UserName);
+	public async Task<ShoppingCartLine> GetShoppingCartLineByUserName(string userName, int productId)
+	{
+		var user = await _userDbService.GetUserByUsername(userName);
 
-    //    if (userShoppingCart != null)
-    //    {
-    //        var LineToBeDeleted = userShoppingCart.FirstOrDefault(line => line.Product.ProductId == productId);
+		if (user != null)
+		{
+			await _userDbService.GetShoppingCartLine(user.UserName, productId);
+		}
+		return null;
+	}
 
-    //        if (LineToBeDeleted != null)
-    //        {
-    //            userShoppingCart.Remove(LineToBeDeleted);
-    //            await _userDbService.DeleteShoppingCartLine(LineToBeDeleted, user.UserName);
-    //        }
-    //    }
-    //}
-        //public async Task AddToWishList(string userName, Product product)
-        //{
-        //    var user = await _userDbService.GetUserByUsername(userName);
-
-        //    if (user is not null)
-        //    {
-        //        await _userDbService.AddToWishList(user.Id, product);
-        //    }
-        //}
-
-        //public async Task<List<WishListLine>> GetWishListByUserName(string userName)
-        //{
-        //    var user = await _userDbService.GetUserByUsername(userName);
-
-        //    if (user is not null)
-        //    {
-        //        return await _userDbService.GetWishList(user.Id);
-        //    }
-
-        //    return new List<WishListLine>();
-        //}
-
-
-
-        //public async Task<Models.User> GetUserOrdersAsync(Models.User user)
-        //{
-        //    return await _userDbService.GetOrdersByUserIdAsync(user.Id);
-        //}
-
-    }
+}
