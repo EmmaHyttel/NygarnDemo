@@ -40,8 +40,8 @@ button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
 }
-
-/*.footer {
+/*
+.footer {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -49,3 +49,4 @@ button.accept-policy {
     line-height: 60px;
     z-index: 999;
 }*/
+
