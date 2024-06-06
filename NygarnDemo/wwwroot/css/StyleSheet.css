@@ -22,10 +22,9 @@
     gap: 20px;  /*Afstand mellem kortene */
 }
 
-.footer {
-    position: fixed;
-    left: 0px;
-    bottom: 0px;
+
+footer {
+    position: relative;
     width: 100%;
     max-width: 2500px;
     margin: 0 auto;
