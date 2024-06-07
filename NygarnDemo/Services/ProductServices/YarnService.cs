@@ -91,69 +91,6 @@ public class YarnService : IYarnService
             return MaterialList;
         }
 
-    //public async Task<List<Yarn>> BrandFilter(string str)
-    //{
-    //    List<Yarn> brandFilter = new List<Yarn>();
-    //    var yarnProducts = await GetYarnProducts();
-
-    //    foreach (Yarn yarn in yarnProducts)
-    //    {
-    //        if (string.IsNullOrEmpty(str) || yarn.Name.ToLower().Contains(str.ToLower()))
-    //        {
-    //            brandFilter.Add(yarn);
-    //        }
-    //    }
-    //    return brandFilter;
-    //}
-
-    //public async Task<List<Yarn>> KnittingTensionFilter(string knittingTension)
-    //{
-    //    List<Yarn> KNTension = new List<Yarn>();
-    //    var yarnProducts = await GetYarnProducts();
-
-    //    foreach (Yarn yarn in yarnProducts)
-    //    {
-    //        if (string.IsNullOrEmpty(knittingTension) || yarn.Name.ToLower().Contains(knittingTension.ToLower()))
-    //        {
-    //            KNTension.Add(yarn);
-    //        }
-    //    }
-    //    return KNTension;
-    //}
-
-     //public async Task<List<Yarn>> YardageFilter(string yardage)
-     //{
-     //       List<Yarn> YardageList = new List<Yarn>();
-     //       var yarnProducts = await GetYarnProducts();
-
-     //       foreach (Yarn yarn in yarnProducts)
-     //       {
-     //           if (yarn.Yardage == yardage)
-     //           {
-     //               YardageList.Add(yarn);
-     //           }
-     //       }
-
-     //       return YardageList;
-     //}
-
-     //public async Task<List<Yarn>> SizeFilter(string size)
-     //{
-     //    List<Yarn> SizeList = new List<Yarn>();
-
-     //    var yarnProducts = await GetYarnProducts();
-
-     //    foreach (Yarn yarn in yarnProducts)
-     //    {
-     //        if (yarn.SuggestedNeedleSize == size)
-     //        {
-     //               SizeList.Add(yarn);
-     //        }
-     //    }
-
-     //       return SizeList;
-     //}
-
     public async Task<Yarn?> DeleteYarnAsync(int? productId)
     {
         Yarn YarnToBeDeleted = null;
@@ -207,19 +144,4 @@ public class YarnService : IYarnService
 			//await _dbService.SaveTools(ToolProducts);
 		}
 	}
-
-
-	//public IEnumerable<Yarn> MachinewashFilter()
-	//{
-	//    List<Yarn> MachinewashList = new List<Yarn>();
-	//    foreach (Yarn yarn in YarnProducts)
-	//    {
-	//        if (yarn.MachineWash == )
-	//        {
-	//            MachinewashList.Add(yarn);
-	//        }
-	//    }
-
-	//    return MachinewashList;
-	//}
 }
