@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace NygarnDemo.Pages.Nyheder
+namespace NygarnDemo.Pages.Currently
 {
-    public class NyhederModel : PageModel
+    public class CurrentlyModel : PageModel
     {
         public void OnGet()
         {
