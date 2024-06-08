@@ -22,6 +22,7 @@ builder.Services.AddSingleton<YarnDbService, YarnDbService>();
 builder.Services.AddSingleton<UserDbService, UserDbService>();
 builder.Services.AddSingleton<KnittingNeedleDbService, KnittingNeedleDbService>();
 builder.Services.AddSingleton<IUserService, UserService>();
+
 builder.Services.Configure<CookiePolicyOptions>(options => {
     // This lambda determines whether user consent for non-essential cookies is needed for a given request. options.CheckConsentNeeded = context => true; 
     options.MinimumSameSitePolicy = SameSiteMode.None;
