@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace NygarnDemo.Pages.GarnInfo
+namespace NygarnDemo.Pages.Nyheder
 {
-    public class SommerstrikModel : PageModel
+    public class NyhederModel : PageModel
     {
         public void OnGet()
         {

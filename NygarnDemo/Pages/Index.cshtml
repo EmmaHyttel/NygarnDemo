@@ -129,34 +129,62 @@
             .flex-container .text-box p {
                 margin: 0;
                 color: black; /* Sort tekst */
-                line-height: 1.5; /* Større linjeafstand */
+                line-height: 1.8; /* Større linjeafstand */
                 font-size: 16px; /* Lidt større skriftstørrelse */
-                text-align: center; /* Centrér teksten horisontalt */
+                text-align: left; /* Justér teksten til venstre */
+                font-family: Arial, sans-serif; /* Ændrer skrifttype til Arial */
+                margin-bottom: 20px; /* Tilføjer bundmargen for at give plads mellem afsnit */
+            }
+
+            .text-box a {
+                text-decoration: none;
+                color: inherit;
+                cursor: pointer;
+            }
+
+            .text-box h5 {
+                font-size: 20px; /* Ændrer skriftstørrelsen for overskriften */
+                margin-bottom: 10px; /* Tilføjer margin for at adskille fra teksten */
+                color: #333; /* Ændrer farven på overskriften */
+                font-family: Arial, sans-serif; /* Ændrer skrifttype for overskriften */
+                text-align: left; /* Justér overskriften til venstre */
+                font-weight: normal; /* Sørger for at teksten ikke er fed */
+            }
+
+            .text-box p br {
+                display: inline; /* Sørger for at <br> tags er synlige */
             }
         </style>
     </head>
-    <div class="text-center">
-        <h3 style="font-family: Calibri, Arial, sans-serif;">
-            Strik dine drømme sammen med vores kvalitetsgarn
-        </h3>
-    </div>
-
     <body style="font-family: Calibri, Arial, sans-serif;">
-        <a href="/GarnInfo/Sommerstrik" style="text-decoration: none; color: inherit;">
-            <section class="flex-container" style="cursor: pointer;">
-                <img src="~/pngFiles/Sandnes garn.jpg" alt="Sandnes Garn" style="width: 400px; margin: 0; padding: 0;">
-                <div class="text-box" style="width: 400px;">
+        <div class="text-center">
+            <h3 style="font-family: Calibri, Arial, sans-serif;">
+                Strik dine drømme sammen med vores kvalitetsgarn
+            </h3>
+        </div>
+
+        <section class="flex-container">
+            <img src="~/pngFiles/Sandnes garn.jpg" alt="Sandnes Garn">
+            <div class="text-box">
+                <a href="/Currently/Currently">
                     <h5 class="text-center">Nyheder i Juni</h5>
-                    <br><br>
-                    <p style="line-height: 2;">
-                        Sommeren er lige om hjørnet, og hvad er bedre end at planlægge et hyggeligt sommerferieprojekt?<br>
-                        På vores hjemmeside kan du finde inspiration til dit næste sommerstrik-projekt. <br>
-                        Besøg os i dag og find alt hvad du behøver, <br> for at gøre din sommerferie ekstra kreativ og afslappende.
+                    <br>
+                    <p>
+                        Sommeren er lige om hjørnet, <br>
+                        hvad er bedre end at planlægge <br>
+                        et hyggeligt sommerferieprojekt? <br>
+                        Her på vores hjemmeside kan du finde inspiration til næste sommerstrik-projekt. <br>
+                        Besøg os i dag og find alt hvad du behøver, <br>
+                        for at gøre din sommerferie ekstra kreativ og afslappende. <br><br>
+                        Tryk her for at se udvalget
                     </p>
-                </div>
-            </section>
-        </a>
+                </a>
+            </div>
+        </section>
     </body>
+</html>
+
+
 
 
     <section style="background-color: #F0DBDB; height: 200px; display: flex; justify-content: center; align-items: center; margin-bottom: 40px;">
