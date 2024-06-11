@@ -133,15 +133,13 @@ public class YarnService : IYarnService
 			{
 				if (y.ProductId == yarn.ProductId)
 				{
-					y.Name = yarn.Name;
-					y.Price = yarn.Price;
-					y.Description = yarn.Description;
-
-				}
+                    y.Name = yarn.Name;
+                    y.Price = yarn.Price;
+                    y.Description = yarn.Description;
+                }
 
 			}
 			await _dbService.UpdateYarn(yarn);
-			//await _dbService.SaveTools(ToolProducts);
 		}
 	}
 }
