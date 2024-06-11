@@ -22,7 +22,6 @@ public class UserService : IUserService
 
     public Models.User GetUserByUserName(string username)
     {
-        //return DbService.GetObjectByIdAsync(username).Result;
         return Users.Find(user => user.UserName == username);
     }
 
