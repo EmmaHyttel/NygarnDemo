@@ -23,9 +23,6 @@ namespace NygarnDemo.Pages.Product.YarnPages
 			_webHostEnvironment = webHost;
         }
 
-		//[BindProperty]
-		//public Yarn ProductImage { get; set; }
-
 		[BindProperty]
 		public IFormFile? Photo { get; set; }
 
