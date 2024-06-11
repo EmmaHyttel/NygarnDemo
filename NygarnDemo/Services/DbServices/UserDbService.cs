@@ -79,7 +79,7 @@ public class UserDbService
         }
     }
 
-    public async Task<ShoppingCartLine> GetShoppingCartLine(string userName, int productId)
+    public async Task<ShoppingCartLine?> GetShoppingCartLine(string userName, int shoppingCartLineId)
     {
         using (var context = new NygarnDbContext())
         {
@@ -90,7 +90,7 @@ public class UserDbService
             if (user is not null)
             {
 					var shoppingCartLine = user.ShoppingCartLines
-						.FirstOrDefault(scl => scl.Product.ProductId == productId);
+						.FirstOrDefault(scl => scl.Id == shoppingCartLineId);
 					return shoppingCartLine;
 			}
 			return null;
@@ -121,12 +121,8 @@ public class UserDbService
             }
         }
     }
-    public async Task DeleteShoppingCartLine(string userName, int productId)
+    public async Task DeleteShoppingCartLine(string userName, int shoppingCartLineId)
     {
-        var lineToDelete = await GetShoppingCartLine(userName, productId);
-
-        if (lineToDelete != null)
-        {
             using (var context = new NygarnDbContext())
             {
 				var user = await context.User
@@ -135,11 +131,14 @@ public class UserDbService
 
 				if (user != null)
 				{
-					user.ShoppingCartLines.Remove(lineToDelete);
-					await context.SaveChangesAsync();
+					var shoppingCartLine = user.ShoppingCartLines.Find(x => x.Id == shoppingCartLineId);
+                    if(shoppingCartLine != null)
+                    {
+					    user.ShoppingCartLines.Remove(shoppingCartLine);
+					    await context.SaveChangesAsync();
+				    }
 				}
 			} 
-        }
     }
 }
 

@@ -47,7 +47,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
             //Sletter garnet med det angivet id via DeleteYarnAsync metoden i YarnService
             Models.Yarn deletedYarn = await _yarnService.DeleteYarnAsync(id);
 
-            //Hvus det slettede garn ikke findes, omdirigeres brugeren til en NotFound side
+            //Hvis det slettede garn ikke findes, omdirigeres brugeren til en NotFound side
             if (deletedYarn == null)
                 return RedirectToPage("/Construction/NotFound");
 

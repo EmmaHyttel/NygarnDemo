@@ -75,29 +75,29 @@ public class UserService : IUserService
             {
                 if (line.Product.ProductId == productId)
                 {
-                    line.Quantity += additionalQuantity;
+                    line.Quantity = additionalQuantity;
                 }
             }
             await _userDbService.UpdateShoppingCartAsync(user.UserName, userShoppingCart);
         }
     }
 
-    public async Task DeleteShoppingCartLine(int productId, string userName)
+    public async Task DeleteShoppingCartLine(int shoppingCartLineId, string userName)
     {
         var user = await _userDbService.GetUserByUsername(userName);
         if (user != null)
         {
-            await _userDbService.DeleteShoppingCartLine(user.UserName, productId);
+            await _userDbService.DeleteShoppingCartLine(user.UserName, shoppingCartLineId);
         }
     }
 
-	public async Task<ShoppingCartLine> GetShoppingCartLineByUserName(string userName, int productId)
+	public async Task<ShoppingCartLine?> GetShoppingCartLineByUserName(string userName, int shoppingCartLineId)
 	{
 		var user = await _userDbService.GetUserByUsername(userName);
 
 		if (user != null)
 		{
-			await _userDbService.GetShoppingCartLine(user.UserName, productId);
+			return await _userDbService.GetShoppingCartLine(user.UserName, shoppingCartLineId);
 		}
 		return null;
 	}

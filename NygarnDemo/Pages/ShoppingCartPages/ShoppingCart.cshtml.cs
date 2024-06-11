@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NygarnDemo.Models;
 using NygarnDemo.Services.User;
-using System.Diagnostics;
 using System.Security.Claims;
 
 namespace NygarnDemo.Pages.ShoppingCart;
