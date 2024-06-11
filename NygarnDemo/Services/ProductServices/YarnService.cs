@@ -23,8 +23,15 @@ public class YarnService : IYarnService
             return await _dbService.GetYarnProducts();
         }
 
+        
+        /// <summary>
+        /// Tilføjer et nyt garnprodukt til databasen asynkront
+        /// </summary>
+        /// <param name="yarn">Garnobjektet, der skal tilføjes til databasen</param>
+        
 	    public async Task AddYarnAsync(Yarn yarn)
 	    {
+            //Kalder dbservice til at tilføje garnet til databasen
             await _dbService.AddYarn(yarn);
 	    }
 
@@ -91,10 +98,18 @@ public class YarnService : IYarnService
             return MaterialList;
         }
 
+    /// <summary>
+    /// Sletter garnproduktet asynkront med det angivede produktId fra databasen
+    /// </summary>
+    /// <param name="productId">ProduktId'et for det garnprodukt, der skal slettes</param>
+    /// <returns>Det slettede garnprodukt, hvis det bliver fundet ellers returneres null</returns>
+
     public async Task<Yarn?> DeleteYarnAsync(int? productId)
     {
+        //initialiserer en lokalvariabel til at holde garnproduktet, der skal slettes
         Yarn YarnToBeDeleted = null;
 
+        //Gennemgår alle garnprodukter for at finde det produkt, med det angivede produktId
         foreach (Yarn yarn in YarnProducts)
         {
             if (yarn.ProductId == productId)
@@ -103,12 +118,17 @@ public class YarnService : IYarnService
                 break;
             }
         }
+
+        //Hvis det garnprodukt, der skal slettes findes
         if (YarnToBeDeleted != null)
         {
             //YarnProducts.Remove(YarnToBeDeleted);
+
+            //Sletter garnproduktet fra databasen via DeleteYarn metoden i dbService
             await _dbService.DeleteYarn(YarnToBeDeleted);
         }
 
+        //Returnerer det slettede garnprodukt, hvis det blev fundet, ellers returneres null
         return YarnToBeDeleted;
     }
 

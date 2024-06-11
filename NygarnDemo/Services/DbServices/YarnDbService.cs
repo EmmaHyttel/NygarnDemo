@@ -14,11 +14,20 @@ public class YarnDbService
         }
     }
 
+    /// <summary>
+    /// Asynkront tilføjer et nyt garnprodukt til databasen
+    /// </summary>
+    /// <param name="yarn">Det garnprodukt, der skal tilføjes til databasen</param>
+    /// <returns>Task, der repræsenterer den asynkrone tilføjelsesoperation</returns>
     public async Task AddYarn(Yarn yarn)
     {
+        //Opretter en ny instans af databasekonteksten
         using (var context = new NygarnDbContext())
         {
+            //Tilføjer det angivne garnprodukt til konteksten
             await context.Yarn.AddAsync(yarn);
+
+            //Gemmer ændringerne i databasen
             await context.SaveChangesAsync();
         }
     }
@@ -45,11 +54,20 @@ public class YarnDbService
 		}
 	}
 
+    /// <summary>
+    /// Asynkront sletter et garnprodukt fra databasen
+    /// </summary>
+    /// <param name="yarn">Garnproduktet der skal slettes</param>
+    /// <returns>Task, der repræsenterer den asynkrone sletningsopereation</returns>
     public async Task DeleteYarn(Yarn yarn)
     {
+        //Opretter en instanse af databasekonteksten
         using (var context = new NygarnDbContext())
         {
+            //Fjerner det angivne garnprodukt fra konteksten
             context.Yarn.Remove(yarn);
+
+            //Gemmer ændringerne i databasen
             await context.SaveChangesAsync();
         }
     }
