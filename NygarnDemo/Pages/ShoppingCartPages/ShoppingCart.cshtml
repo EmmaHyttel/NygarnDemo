@@ -11,12 +11,14 @@
 }
 else
 {
+    <div>
     <table style="width: 100%; border-collapse: collapse;">
         <thead>
             <tr style="background-color: rosybrown; color: white;">
                 <th style="padding: 10px; text-align: left;">Produkt</th>
                 <th style="padding: 10px; text-align: left;">Pris</th>
                 <th style="padding: 10px; text-align: left;">Antal</th>
+                <th style="padding: 10px; text-align: left;">I alt</th>
                 <th style="padding: 10px; text-align: left;">Handlinger</th>
             </tr>
         </thead>
@@ -27,6 +29,7 @@ else
                     <td style="padding: 10px;">@line.Product.Name</td>
                     <td style="padding: 10px;">@line.Product.Price</td>
                     <td style="padding: 10px;">@line.Quantity</td>
+                    <td style="padding: 10px;">@line.CalculateLineTotal()</td>
                     <td style="padding: 10px;">
                         <form method="post" asp-page-handler="UpdateQuantity" style="display: inline;">
                             <input type="hidden" name="ProductId" value="@line.Product.ProductId" />
@@ -39,5 +42,26 @@ else
             }
         </tbody>
     </table>
+    </div>
+
+    <div>
+        <table style="width: 100%; border-collapse: collapse;">
+        <table>
+            <tr>
+                <td>Ordrerværdi:</td>
+                <td>@Model.Subtotal</td>
+            </tr>
+            <tr>
+                <td>Levering:</td>
+                <td>@Model.DeliveryFee</td>
+            </tr>
+            <tr>
+                <td>Total:</td>
+                <td>@Model.Total</td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-primary btn-sm" style="background-color: rosybrown; color: white; border: none;">Gennemfør</button>
+    </div>
 }
+
 

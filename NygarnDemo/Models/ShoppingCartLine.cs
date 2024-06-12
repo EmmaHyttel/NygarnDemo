@@ -22,5 +22,10 @@ namespace NygarnDemo.Models
         public ShoppingCartLine()
         {
         }
+
+        public decimal CalculateLineTotal()
+        {
+			return Product.Price * Quantity;
+		}
     }
 }
