@@ -13,17 +13,15 @@ namespace NygarnDemo.Pages.Product.YarnPages
 {
     public class GetAllYarnProductsModel : PageModel
     {
-        private readonly NygarnDbContext _dbContext;
         private IYarnService _yarnService;
         private IUserService _userService;
 
         public bool IsAdmin { get; private set; }
 
 
-        public GetAllYarnProductsModel(IYarnService yarnService, NygarnDbContext yarnContext, IUserService userService)
+        public GetAllYarnProductsModel(IYarnService yarnService, IUserService userService)
         {
             _yarnService = yarnService;
-            _dbContext = yarnContext;
             _userService = userService;
         }
 
@@ -65,25 +63,13 @@ namespace NygarnDemo.Pages.Product.YarnPages
         [BindProperty]
         public Material MaterialFilter { get; set; }
 
-        //[BindProperty]
-        //public string BrandFilter { get; set; }
-
-        //[BindProperty]
-        //public string YardageFilter { get; set; }
-
-        //[BindProperty]
-        //public string SizeFilter { get; set; }
-
-        //[BindProperty]
-        //public bool MachinewashFilter { get; set; }
 
         [BindProperty]
         public int SelectedProductId { get; set; }
 
         public async Task OnGetAsync()
         {
-            //YarnProducts = _yarnService.GetYarnProducts();
-            YarnProducts = await _dbContext.Yarn.ToListAsync(); // bør den ikke hente Yarn via YarnService --> YarnDbService --> Dbcontext?
+            YarnProducts = await  _yarnService.GetYarnProducts();
             IsAdmin = HttpContext.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "admin");
         }
 
@@ -110,30 +96,6 @@ namespace NygarnDemo.Pages.Product.YarnPages
             YarnProducts = await _yarnService.MaterialFilter(Material);
             return Page();
         }
-
-        //public async Task<IActionResult> OnPostBrandFilter()
-        //{
-        //    YarnProducts = await _yarnService.BrandFilter(Brand);
-        //    return Page();
-        //}
-
-        //public async Task<IActionResult> OnPostKnittingTensionFilter()
-        //{
-        //    YarnProducts = await _yarnService.KnittingTensionFilter(KnittingTension);
-        //    return Page();
-        //}
-
-        //public async Task<IActionResult> OnPostYardageFilter()
-        //{
-        //    YarnProducts = await _yarnService.YardageFilter(Yardage);
-        //    return Page();
-        //}
-
-        //public async Task<IActionResult> OnPostSizeFilter()
-        //{
-        //    YarnProducts = await _yarnService.SizeFilter(string);
-        //    return Page();
-        //}
 
         public async Task<IActionResult> OnPostAddToCart(int quantity)
         {

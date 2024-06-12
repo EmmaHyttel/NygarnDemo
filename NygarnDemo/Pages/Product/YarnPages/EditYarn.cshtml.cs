@@ -28,7 +28,7 @@ namespace NygarnDemo.Pages.Product.YarnPages
         {
             YarnProduct = await _yarnService.GetYarn(id);
             if (YarnProduct == null)
-                return RedirectToPage("/NotFound"); // Husk at definere NotFound-siden senere
+                return RedirectToPage("/NotFound"); 
 
             return Page();
         }
